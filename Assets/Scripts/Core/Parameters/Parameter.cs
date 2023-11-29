@@ -7,15 +7,13 @@ namespace Core
     {
         public event Action<float, float> OnValueChanged;
 
-        public ParameterType Type { get; private set; }
         public float PreviousValue { get; private set; }
         public float Value { get; private set; }
 
         private FloatRange ValueRange;
 
-        public Parameter(ParameterType type, float value, FloatRange valueRange)
+        public Parameter(float value, FloatRange valueRange)
         {
-            Type = type;
             Value = value;
             PreviousValue = 0f;
             ValueRange = valueRange;
