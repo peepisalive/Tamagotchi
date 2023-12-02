@@ -10,8 +10,6 @@ namespace Core
 
         private void InitSystems()
         {
-
-
             _systems.Init();
         }
 

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ddeed3043f10f449ca123036ad3620, type: 3}
+  m_Name: NavigationSettings
+  m_EditorClassIdentifier: 
+  <Sets>k__BackingField:
+  - <BlockType>k__BackingField: 0
+    <RootElementType>k__BackingField: 0
+    <ElementsSet>k__BackingField: {fileID: 11400000, guid: 185d62c9a9327b54aac2e2cd63580bca, type: 2}
+  - <BlockType>k__BackingField: 1
+    <RootElementType>k__BackingField: 1
+    <ElementsSet>k__BackingField: {fileID: 11400000, guid: a77901187830dda47b20cfca23e3601a, type: 2}
