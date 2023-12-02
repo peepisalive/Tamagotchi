@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 784066628}
   - component: {fileID: 784066629}
   m_Layer: 0
-  m_Name: LoadOperationPack
+  m_Name: SequentlyLoadOperationPacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19,7 +19,8 @@ namespace GameLoading.LoadingOperations
             StartCoroutine(_executionMethod switch
             {
                 ExecutionMethod.Parallel => ParallelExecutionCoroutine(),
-                ExecutionMethod.Sequently => SequentlyExecutionCoroutine()
+                ExecutionMethod.Sequently => SequentlyExecutionCoroutine(),
+                _ => null
             });
         }
 
