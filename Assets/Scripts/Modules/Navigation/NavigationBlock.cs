@@ -39,16 +39,6 @@ namespace Modules.Navigation
             }
         }
 
-        public IEnumerable<NavigationPoint> GetPointsOfType(NavigationElementType type)
-        {
-            if (!_elements.ContainsKey(type))
-                return new List<NavigationPoint>();
-
-            return _elements[type]
-                .Where(e => e.CanDisplay(type))
-                .Select(e => new NavigationPoint(type, e));
-        }
-
         public bool HandlePointClick(NavigationPoint point)
         {
             if (!point.Element.OnClick(point.Type))
@@ -57,6 +47,24 @@ namespace Modules.Navigation
             GoToPoint(point, TransitionType.In);
 
             return true;
+        }
+
+        public IEnumerable<NavigationPoint> GetChildPointsOfType(NavigationElementType type)
+        {
+            if (_navigationElementsSet.TryGetElementSettings(type, out var settings))
+                return settings.ChildTypes.SelectMany(GetPointsOfType);
+
+            return Enumerable.Empty<NavigationPoint>();
+        }
+
+        public IEnumerable<NavigationPoint> GetPointsOfType(NavigationElementType type)
+        {
+            if (!_elements.ContainsKey(type))
+                return new List<NavigationPoint>();
+
+            return _elements[type]
+                .Where(e => e.CanDisplay(type))
+                .Select(e => new NavigationPoint(type, e));
         }
 
         public void GoToRootPoint()

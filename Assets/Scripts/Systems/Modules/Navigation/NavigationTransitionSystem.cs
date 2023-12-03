@@ -1,10 +1,11 @@
 using Components.Modules.Navigation;
 using Modules.Navigation;
 using Leopotam.Ecs;
+using Modules;
 
 namespace Systems.Modules.Navigation
 {
-    public sealed class NavigationTransitionSystem : IEcsRunSystem
+    public sealed class NavigationTransitionSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private EcsWorld _world;
 
@@ -13,6 +14,11 @@ namespace Systems.Modules.Navigation
 
         private EcsFilter<NavigationActivateBlockEvent> _activateBlockFilter;
         private EcsFilter<NavigationPointClickEvent> _pointClickFilter;
+
+        public void Init()
+        {
+            EventSystem.Subscribe<Events.NavigationPointClickEvent>(SendNavigationPointClickEvent);
+        }
 
         public void Run()
         {
@@ -46,6 +52,11 @@ namespace Systems.Modules.Navigation
                     });
                 }
             }
+        }
+
+        public void Destroy()
+        {
+            EventSystem.Unsubscribe<Events.NavigationPointClickEvent>(SendNavigationPointClickEvent);
         }
 
         private void ActivateNavigationBlock(NavigationBlockType type)
@@ -113,6 +124,14 @@ namespace Systems.Modules.Navigation
             }
 
             return transition;
+        }
+
+        private void SendNavigationPointClickEvent(Events.NavigationPointClickEvent e)
+        {
+            _world.NewEntity().Replace(new NavigationPointClickEvent
+            {
+                NavigationPoint = e.NavigationPoint
+            });
         }
     }
 }
