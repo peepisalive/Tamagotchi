@@ -15,8 +15,6 @@ namespace GameLoading.LoadingOperations
             {
                 _progress = 1f;
                 SetStateDone();
-
-                UnityEngine.Debug.Log("pizda");
             });
         }
     }
