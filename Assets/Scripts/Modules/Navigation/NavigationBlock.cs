@@ -10,6 +10,7 @@ namespace Modules.Navigation
         public NavigationElementType RootElementType { get; private set; }
 
         public NavigationPoint CurrentPoint { get; private set; }
+        public bool IsEmptyNavigationChain => _navigationChain.Count == 0;
 
         private NavigationElementsSet _navigationElementsSet;
 
@@ -70,6 +71,19 @@ namespace Modules.Navigation
         public void GoToRootPoint()
         {
             GoToPoint(GetPointsOfType(RootElementType).FirstOrDefault(), TransitionType.In);
+        }
+
+        public void GoToPreviousPoint()
+        {
+            if (_navigationChain.Count == 0)
+                return;
+
+            _navigationChain.Pop();
+
+            if (_navigationChain.Count == 0)
+                return;
+
+            GoToPoint(_navigationChain.Pop(), TransitionType.Out);
         }
 
         private void GoToPoint(NavigationPoint point, TransitionType transitionType)

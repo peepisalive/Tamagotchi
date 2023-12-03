@@ -15,9 +15,12 @@ namespace Systems.Modules.Navigation
         private EcsFilter<NavigationActivateBlockEvent> _activateBlockFilter;
         private EcsFilter<NavigationPointClickEvent> _pointClickFilter;
 
+        private EcsFilter<NavigationPointBackEvent> _backClickFilter;
+
         public void Init()
         {
             EventSystem.Subscribe<Events.NavigationPointClickEvent>(SendNavigationPointClickEvent);
+            EventSystem.Subscribe<Events.NavigationPointBackEvent>(SendNavigationPointBackEvent);
         }
 
         public void Run()
@@ -52,12 +55,23 @@ namespace Systems.Modules.Navigation
                     });
                 }
             }
+
+            if (!_backClickFilter.IsEmpty())
+            {
+                foreach (var i in _backClickFilter)
+                {
+                    GoToBack();
+                    return;
+                }
+            }
         }
 
         public void Destroy()
         {
             EventSystem.Unsubscribe<Events.NavigationPointClickEvent>(SendNavigationPointClickEvent);
+            EventSystem.Unsubscribe<Events.NavigationPointBackEvent>(SendNavigationPointBackEvent);
         }
+
 
         private void ActivateNavigationBlock(NavigationBlockType type)
         {
@@ -100,6 +114,58 @@ namespace Systems.Modules.Navigation
             }
         }
 
+        private void GoToBack()
+        {
+            NavigationPoint previousPoint = null;
+            NavigationPoint currentPoint = null;
+            var blockChanged = false;
+
+            foreach (var i in _activeBlockFilter)
+            {
+                if (_activeBlockFilter.Get2(i).Order != _blockFilter.GetEntitiesCount() - 1)
+                    continue;
+
+                var block = _activeBlockFilter.Get1(i).NavigationBlock;
+
+                if (_activeBlockFilter.GetEntitiesCount() == 1 && block.CurrentPoint.Type != block.RootElementType)
+                    continue;
+
+                previousPoint = block.CurrentPoint;
+                block.GoToPreviousPoint();
+
+                if (block.IsEmptyNavigationChain)
+                {
+                    blockChanged = true;
+                    _activateBlockFilter.GetEntity(i).Del<Active>();
+                }
+                else
+                {
+                    currentPoint = block.CurrentPoint;
+                }
+            }
+
+            if (previousPoint == null)
+                return;
+
+            if (blockChanged)
+            {
+                foreach (var i in _activeBlockFilter)
+                {
+                    if (_activeBlockFilter.Get2(i).Order != _activeBlockFilter.GetEntitiesCount() - 1)
+                        continue;
+
+                    currentPoint = _activeBlockFilter.Get1(i).NavigationBlock.CurrentPoint;
+                }
+            }
+
+            _world.NewEntity().Replace(new NavigationPointChangedEvent
+            {
+                CurrentPoint = currentPoint,
+                PreviousPoint = previousPoint,
+                TransitionType = TransitionType.Out
+            });
+        }
+
         private bool GoToNextPoint(NavigationPoint point)
         {
             var transition = false;
@@ -132,6 +198,11 @@ namespace Systems.Modules.Navigation
             {
                 NavigationPoint = e.NavigationPoint
             });
+        }
+
+        private void SendNavigationPointBackEvent(Events.NavigationPointBackEvent e)
+        {
+            _world.NewEntity().Replace(new NavigationPointBackEvent());
         }
     }
 }
