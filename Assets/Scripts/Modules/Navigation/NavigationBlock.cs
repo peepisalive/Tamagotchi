@@ -68,6 +68,12 @@ namespace Modules.Navigation
                 .Select(e => new NavigationPoint(type, e));
         }
 
+        public void ClearNavigationChain()
+        {
+            _navigationChain.Clear();
+            CurrentPoint = null;
+        }
+
         public void GoToRootPoint()
         {
             GoToPoint(GetPointsOfType(RootElementType).FirstOrDefault(), TransitionType.In);

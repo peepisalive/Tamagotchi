@@ -16,11 +16,20 @@ namespace Systems.Modules.Navigation
         private EcsFilter<NavigationPointClickEvent> _pointClickFilter;
 
         private EcsFilter<NavigationPointBackEvent> _backClickFilter;
+        private EcsFilter<NavigationPointHomeEvent> _homeClickEvent;
 
         public void Init()
         {
             EventSystem.Subscribe<Events.NavigationPointClickEvent>(SendNavigationPointClickEvent);
             EventSystem.Subscribe<Events.NavigationPointBackEvent>(SendNavigationPointBackEvent);
+            EventSystem.Subscribe<Events.NavigationPointHomeEvent>(SendNavigationPointHomeEvent);
+        }
+
+        public void Destroy()
+        {
+            EventSystem.Unsubscribe<Events.NavigationPointClickEvent>(SendNavigationPointClickEvent);
+            EventSystem.Unsubscribe<Events.NavigationPointBackEvent>(SendNavigationPointBackEvent);
+            EventSystem.Unsubscribe<Events.NavigationPointHomeEvent>(SendNavigationPointHomeEvent);
         }
 
         public void Run()
@@ -64,14 +73,16 @@ namespace Systems.Modules.Navigation
                     return;
                 }
             }
-        }
 
-        public void Destroy()
-        {
-            EventSystem.Unsubscribe<Events.NavigationPointClickEvent>(SendNavigationPointClickEvent);
-            EventSystem.Unsubscribe<Events.NavigationPointBackEvent>(SendNavigationPointBackEvent);
+            if (!_homeClickEvent.IsEmpty())
+            {
+                foreach (var i in _homeClickEvent)
+                {
+                    GoToHome();
+                    return;
+                }
+            }
         }
-
 
         private void ActivateNavigationBlock(NavigationBlockType type)
         {
@@ -166,6 +177,54 @@ namespace Systems.Modules.Navigation
             });
         }
 
+        private void GoToHome()
+        {
+            NavigationPoint previousPoint = null;
+
+            foreach (var i in _activeBlockFilter)
+            {
+                if (_activeBlockFilter.Get2(i).Order != _activeBlockFilter.GetEntitiesCount() - 1)
+                    continue;
+
+                var block = _activeBlockFilter.Get1(i).NavigationBlock;
+
+                if (_activeBlockFilter.GetEntitiesCount() == 1 && block.CurrentPoint.Type == block.RootElementType)
+                    continue;
+
+                previousPoint = block.CurrentPoint;
+            }
+
+            if (previousPoint == null)
+                return;
+
+            foreach (var i in _activeBlockFilter)
+            {
+                _activeBlockFilter.Get1(i).NavigationBlock.ClearNavigationChain();
+                _activeBlockFilter.GetEntity(i).Del<Active>();
+            }
+
+            foreach (var i in _blockFilter)
+            {
+                var block = _blockFilter.Get1(i).NavigationBlock;
+
+                if (block.Type != NavigationBlockType.Main)
+                    continue;
+
+                block.GoToRootPoint();
+
+                _blockFilter.GetEntity(i).Replace(new Active
+                {
+                    Order = 0
+                });
+                _world.NewEntity().Replace(new NavigationPointChangedEvent
+                {
+                    PreviousPoint = previousPoint,
+                    CurrentPoint = block.CurrentPoint,
+                    TransitionType = TransitionType.Out
+                });
+            }
+        }
+
         private bool GoToNextPoint(NavigationPoint point)
         {
             var transition = false;
@@ -203,6 +262,11 @@ namespace Systems.Modules.Navigation
         private void SendNavigationPointBackEvent(Events.NavigationPointBackEvent e)
         {
             _world.NewEntity().Replace(new NavigationPointBackEvent());
+        }
+
+        private void SendNavigationPointHomeEvent(Events.NavigationPointHomeEvent e)
+        {
+            _world.NewEntity().Replace(new NavigationPointHomeEvent());
         }
     }
 }

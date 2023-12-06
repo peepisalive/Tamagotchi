@@ -24,6 +24,8 @@ public sealed class NavigationStarter : MonoBehaviour
             .Add(new NavigationInitSystem())
             .Add(new NavigationTransitionSystem())
             .OneFrame<NavigationPointClickEvent>()
+            .OneFrame<NavigationPointBackEvent>()
+            .OneFrame<NavigationPointHomeEvent>()
             .OneFrame<NavigationActivateBlockEvent>()
             .Add(new NavigationScreenSystem())
             .OneFrame<NavigationElementInteractionEvent>()
