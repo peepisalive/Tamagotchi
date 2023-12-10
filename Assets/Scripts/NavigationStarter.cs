@@ -1,3 +1,4 @@
+using Application = Tamagotchi.Application;
 using Components.Modules.Navigation;
 using Systems.Modules.Navigation;
 using Systems.Navigation;
@@ -15,7 +16,7 @@ public sealed class NavigationStarter : MonoBehaviour
         _navigationSystems.Run();
     }
 
-    private void Start()
+    private void Awake()
     {
         _world = new EcsWorld();
         _navigationSystems = new EcsSystems(_world);
@@ -31,6 +32,8 @@ public sealed class NavigationStarter : MonoBehaviour
             .OneFrame<NavigationElementInteractionEvent>()
             .OneFrame<NavigationPointChangedEvent>()
             .Add(new MainScreenNavigationElements())
+            .Add(new MenuScreenNavigationElements())
+            .Add(Application.Model)
             .Inject(new ScreenManager());
 
         _navigationSystems.Init();

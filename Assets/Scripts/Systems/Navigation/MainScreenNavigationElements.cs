@@ -8,13 +8,15 @@ namespace Systems.Navigation
 {
     public sealed class MainScreenNavigationElements : IEcsInitSystem, INavigationElement
     {
-        public HashSet<NavigationElementType> Types => _types;
-
-        private EcsFilter<BlockComponent> _blockFilter;
-        private HashSet<NavigationElementType> _types = new HashSet<NavigationElementType>
+        public HashSet<NavigationElementType> Types => new HashSet<NavigationElementType>
         {
-            NavigationElementType.MainScreen
+            NavigationElementType.MainScreen,
+            NavigationElementType.MenuScreen,
+            NavigationElementType.ActivitiesScreen
         };
+
+        private EcsWorld _world;
+        private EcsFilter<BlockComponent> _blockFilter;
 
         public void Init()
         {

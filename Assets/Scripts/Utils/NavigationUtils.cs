@@ -35,5 +35,18 @@ namespace Utils
 
             return Enumerable.Empty<NavigationPoint>();
         }
+
+        public static NavigationBlockType? GetCurrentBlockType(this EcsFilter<BlockComponent, Active> filter)
+        {
+            foreach (var i in filter)
+            {
+                if (filter.Get2(i).Order != filter.GetEntitiesCount() - 1)
+                    continue;
+
+                return filter.Get1(i).NavigationBlock.Type;
+            }
+
+            return null;
+        }
     }
 }

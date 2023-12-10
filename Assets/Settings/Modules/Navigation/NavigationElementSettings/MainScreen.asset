@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d959e808a4bcecf47a4624e223a040a3, type: 3}
   m_Name: MainScreen
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 0
-  <ChildTypes>k__BackingField: 
+  <Type>k__BackingField: 1
+  <ChildTypes>k__BackingField: 0200000003000000

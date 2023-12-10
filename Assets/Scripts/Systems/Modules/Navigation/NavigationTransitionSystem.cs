@@ -138,7 +138,7 @@ namespace Systems.Modules.Navigation
 
                 var block = _activeBlockFilter.Get1(i).NavigationBlock;
 
-                if (_activeBlockFilter.GetEntitiesCount() == 1 && block.CurrentPoint.Type != block.RootElementType)
+                if (_activeBlockFilter.GetEntitiesCount() == 1 && block.CurrentPoint.Type == block.RootElementType)
                     continue;
 
                 previousPoint = block.CurrentPoint;

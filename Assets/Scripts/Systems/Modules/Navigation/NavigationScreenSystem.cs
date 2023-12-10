@@ -56,6 +56,7 @@ namespace Systems.Modules.Navigation
             return type switch
             {
                 NavigationElementType.MainScreen => typeof(MainScreenController),
+                NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 _ => null
             };
         }
@@ -65,18 +66,19 @@ namespace Systems.Modules.Navigation
             return type switch
             {
                 NavigationElementType.MainScreen => typeof(MainScreenController),
+                NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 _ => null
             };
         }
 
         private Vector2 GetShowDirection(Type screenControllerType)
         {
-            return Vector2.zero;
+            return Vector2.right;
         }
 
         private Vector2 GetHideDirection(Type screenControllerType)
         {
-            return Vector2.zero;
+            return Vector2.left;
         }
     }
 }

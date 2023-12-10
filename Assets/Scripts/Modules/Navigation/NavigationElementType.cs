@@ -2,7 +2,9 @@ namespace Modules.Navigation
 {
     public enum NavigationElementType
     {
-        MainScreen = 0,
-        MenuScreen = 1,
+        None = 0,
+        MainScreen = 1,
+        MenuScreen = 2,
+        ActivitiesScreen = 3,
     }
 }

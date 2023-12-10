@@ -21,8 +21,7 @@ namespace Systems.Modules.Navigation
             var settings = SettingsProvider.Get<NavigationSettings>();
             var blockTypes = new List<NavigationBlockType>
             {
-                NavigationBlockType.Main,
-                NavigationBlockType.Menu
+                NavigationBlockType.Main
             };
 
             blockTypes.ForEach(blockType =>
@@ -39,11 +38,6 @@ namespace Systems.Modules.Navigation
                         blockSettings.ElementsSet
                     )
                 });
-            });
-
-            _world.NewEntity().Replace(new NavigationActivateBlockEvent
-            {
-                BlockType = NavigationBlockType.Main
             });
         }
     }
