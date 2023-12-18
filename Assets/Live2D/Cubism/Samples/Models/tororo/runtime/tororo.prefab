@@ -4285,6 +4285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6278881699937741263}
+  - component: {fileID: 1676819951062123788}
   - component: {fileID: 6107306102866934862}
   - component: {fileID: 2599921253122044102}
   - component: {fileID: 639209420408612813}
@@ -4298,9 +4299,8 @@ GameObject:
   - component: {fileID: 5130669474496315087}
   - component: {fileID: 3588501067816199102}
   - component: {fileID: 487605437255940126}
-  - component: {fileID: 8000693470679087}
   m_Layer: 0
-  m_Name: Tororo
+  m_Name: tororo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4314,8 +4314,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4489709656640481059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -2, z: 0}
-  m_LocalScale: {x: 3.2, y: 3.2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4096311031018842784}
@@ -4325,6 +4325,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1676819951062123788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4489709656640481059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc290067f7389949b387af3ad940e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6107306102866934862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4573,19 +4585,6 @@ MonoBehaviour:
     Gravity: {x: 0, y: -1}
     Wind: {x: 0, y: 0}
     Fps: 0
---- !u!114 &8000693470679087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489709656640481059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460b7bce93576c24e9637c32a39624df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 5130669474496315087}
 --- !u!1 &4651988914450679001
 GameObject:
   m_ObjectHideFlags: 0
