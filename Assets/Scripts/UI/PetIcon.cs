@@ -47,13 +47,13 @@ namespace UI
 
         private void InitializeCamera()
         {
-            _petCamera = Instantiate(SettingsProvider.Get<PrefabSet>().PetCamera, _petContainer);
+            _petCamera = Instantiate(SettingsProvider.Get<PrefabsSet>().PetCamera, _petContainer);
             _petCamera.transform.position = new Vector3(_petCamera.transform.position.x, _petCamera.transform.position.y, _petCamera.transform.position.z - 10);
         }
 
         private void InitializeAppearance()
         {
-            _petAppearance = Instantiate(SettingsProvider.Get<PrefabSet>().PetAppearance, _petContainer);
+            _petAppearance = Instantiate(SettingsProvider.Get<PrefabsSet>().PetAppearance, _petContainer);
         }
 
         private void ReleaseResources()

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UI.Screen.Controller;
 using UnityEngine;
+using Core;
 using UI;
 
 namespace Settings
@@ -10,5 +11,9 @@ namespace Settings
     {
         [field: SerializeField] public List<ScreenController> Screens { get; private set; }
         [field: SerializeField] public List<PopupViewBase> Popups { get; private set; }
+
+        [field: Header("Pet appearance")]
+        [field: SerializeField] public PetAppearance PetAppearance { get; private set; }
+        [field: SerializeField] public Camera PetCamera { get; private set; }
     }
 }
