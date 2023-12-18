@@ -1,8 +1,8 @@
 using Object = UnityEngine.Object;
 using UnityEngine;
 using System.Linq;
+using UI.Popups;
 using Settings;
-using UI;
 
 namespace Modules.Managers
 {
@@ -17,7 +17,7 @@ namespace Modules.Managers
             _prefabsSet = SettingsProvider.Get<PrefabsSet>();
         }
 
-        public void Show<T>(T settings) where T : Popup
+        public void ShowPopup<T>(T settings) where T : Popup
         {
             if (_currentPopup != null)
                 return;

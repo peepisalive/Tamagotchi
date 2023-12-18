@@ -7,7 +7,7 @@ using UI.Settings;
 using Settings;
 using TMPro;
 
-namespace UI
+namespace UI.Popups
 {
     public class PopupView<T> : PopupViewBase where T : Popup
     {
@@ -15,7 +15,6 @@ namespace UI
         [SerializeField] private RectTransform _rootRect;
         [SerializeField] private Button _overlayButton;
         [SerializeField] private TMP_Text _titleLabel;
-        [SerializeField] private Image _headerImage;
 
         [Header("Blocks")]
         [SerializeField] private RectTransform _topParent;
@@ -24,15 +23,13 @@ namespace UI
 
         private readonly float _durationTween = 0.3f;
         private bool _ignoreOverlayButtonAction;
-        private Vector3 _direction;
 
         public virtual void Setup(T settings)
         {
             _ignoreOverlayButtonAction = settings.IgnoreOverlayButtonAction;
-            _direction = settings.Direction;
 
             InitializeButtons(settings.ButtonSettings);
-            SetTitleText(settings.Title, settings.Color);
+            SetTitleText(settings.Title);
         }
 
         public override void Show()
@@ -51,13 +48,12 @@ namespace UI
             DoHide();
         }
 
-        private void SetTitleText(string text, Color? color = null)
+        private void SetTitleText(string text)
         {
-            if (_titleLabel == null || _headerImage == null)
+            if (_titleLabel == null)
                 return;
 
             _titleLabel.text = text;
-            _headerImage.color = (Color)color;
         }
 
         private void InitializeButtons<B>(List<B> buttonSettings) where B : ButtonSettings
@@ -84,7 +80,7 @@ namespace UI
         {
             _rootRect ??= gameObject.GetComponent<RectTransform>();
 
-            var startOffset = GetDirection(_direction);
+            var startOffset = GetDirection(Vector3.down);
             var targetPosition = _rootRect.localPosition;
 
             if (Mathf.Abs(startOffset.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) > Mathf.Epsilon)
@@ -98,7 +94,7 @@ namespace UI
 
         private void DoHide()
         {
-            var targetPosition = GetDirection(_direction);
+            var targetPosition = GetDirection(Vector3.down);
 
             if (Mathf.Abs(targetPosition.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) > Mathf.Epsilon)
             {

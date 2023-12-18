@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UI.Screen.Controller;
 using UnityEngine;
+using UI.Popups;
 using Core;
-using UI;
 
 namespace Settings
 {

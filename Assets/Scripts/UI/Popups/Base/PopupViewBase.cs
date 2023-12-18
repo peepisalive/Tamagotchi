@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI
+namespace UI.Popups
 {
     public class PopupViewBase : MonoBehaviour
     {
