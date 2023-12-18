@@ -41,12 +41,7 @@ namespace UI
             if (_petCamera.targetTexture != null)
                 return;
 
-            var renderTexture = new RenderTexture(new RenderTextureDescriptor(1024, 1024, RenderTextureFormat.Default));
-
-            renderTexture.antiAliasing = 2;
-            renderTexture.depth = 24;
-
-            _petCamera.targetTexture = renderTexture;
+            _petCamera.targetTexture = new RenderTexture(new RenderTextureDescriptor(1024, 1024, RenderTextureFormat.Default));
             _rawImage.texture = _petCamera.targetTexture;
         }
 
