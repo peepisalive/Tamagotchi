@@ -6007,9 +6007,8 @@ GameObject:
   - component: {fileID: 6888399930114744159}
   - component: {fileID: 3985725829492351594}
   - component: {fileID: 6189988656740079207}
-  - component: {fileID: 7658496322688403434}
   m_Layer: 0
-  m_Name: Hijiki
+  m_Name: hijiki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6282,19 +6281,6 @@ MonoBehaviour:
     Gravity: {x: 0, y: -1}
     Wind: {x: 0, y: 0}
     Fps: 0
---- !u!114 &7658496322688403434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134756044480836498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460b7bce93576c24e9637c32a39624df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 6888399930114744159}
 --- !u!1 &6184068509401006230
 GameObject:
   m_ObjectHideFlags: 0

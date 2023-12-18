@@ -7,6 +7,7 @@ TagManager:
   - ScreenParent
   - PopupParent
   - MainCanvas
+  - PetContainer
   layers:
   - Default
   - TransparentFX
