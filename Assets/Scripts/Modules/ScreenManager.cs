@@ -28,7 +28,7 @@ namespace Modules
 
         public ScreenManager()
         {
-            _screens = SettingsProvider.Get<PrefabSet>().Screens;
+            _screens = SettingsProvider.Get<PrefabsSet>().Screens;
         }
 
         public void ReplacePreviousScreen(Type screenControllerType, Vector2 showDirection, Vector2 hideDirection, bool overPrevious = true)
