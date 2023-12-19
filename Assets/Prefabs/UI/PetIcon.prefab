@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 949681396144409667}
   - component: {fileID: 829061060603354078}
   - component: {fileID: 4359992711735231362}
+  - component: {fileID: 2684617828411113509}
   - component: {fileID: 7390918969029736259}
   m_Layer: 5
   m_Name: PetIcon
@@ -26,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541520825303462897}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -74,6 +75,20 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &2684617828411113509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541520825303462897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 1
 --- !u!114 &7390918969029736259
 MonoBehaviour:
   m_ObjectHideFlags: 0
