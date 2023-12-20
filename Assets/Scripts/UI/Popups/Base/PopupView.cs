@@ -1,6 +1,7 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UI.Controller;
 using UnityEngine;
 using DG.Tweening;
 using UI.Settings;

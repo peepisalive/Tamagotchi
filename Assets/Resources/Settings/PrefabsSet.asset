@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4764c425a67554846a03271c4223a30e, type: 3}
   m_Name: PrefabsSet
   m_EditorClassIdentifier: 
+  <Buttons>k__BackingField:
+  - {fileID: 8299238814020050381, guid: 004a1991565d73a4ab0fad0a656df23b, type: 3}
+  - {fileID: 571556293686589619, guid: 7a545e7d041add746881c54e83de63e5, type: 3}
   <Screens>k__BackingField:
   - {fileID: 5901948138343986060, guid: fd3a419cb9cdcca498dd2bfcad32dd81, type: 3}
   - {fileID: 4268778547202034868, guid: 3c192ecda4dd49549aeb52195dd82e34, type: 3}
