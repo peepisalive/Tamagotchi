@@ -17,7 +17,11 @@ namespace UI.Popups
         [Header("Blocks")]
         [SerializeField] private RectTransform _topParent;
         [SerializeField] private RectTransform _middleParent;
-        [SerializeField] private RectTransform _buttonParent;
+        [SerializeField] private RectTransform _bottomParent;
+
+        [Header("Button parents")]
+        [SerializeField] private RectTransform _someButtonParent;
+        [SerializeField] private RectTransform _oneButtonParent;
 
         private readonly float _durationTween = 0.3f;
         private bool _ignoreOverlayButtonAction;
@@ -46,22 +50,41 @@ namespace UI.Popups
 
         private void InitializeButtons<B>(List<B> buttonSettings) where B : ButtonSettings
         {
-            if (buttonSettings == null)
+            if (buttonSettings == null && buttonSettings.Count == 0)
                 return;
 
             var prefabsSet = SettingsProvider.Get<PrefabsSet>();
 
-            //foreach (var setting in buttonSettings)
-            //{
-            //    if (setting is TextButtonSettings textButtonSettings)
-            //    {
-            //        var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
-            //            .GetComponent<TextButtonController>();
+            _oneButtonParent.gameObject.SetActive(buttonSettings.Count == 1);
+            _someButtonParent.gameObject.SetActive(buttonSettings.Count != 1);
 
-            //        Instantiate(prefab, _buttonParent, false)
-            //            .Setup(textButtonSettings);
-            //    }
-            //}
+            if (buttonSettings.Count == 1)
+            {
+                var settings = buttonSettings[0];
+
+                //if (settings is TextButtonSettings textButtonSettings)
+                //{
+                //    var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
+                //        .GetComponent<TextButtonController>();
+
+                //    Instantiate(prefab, _oneButtonParent, false)
+                //        .Setup(textButtonSettings);
+                //}
+            }
+            else
+            {
+                //foreach (var setting in buttonSettings)
+                //{
+                //    if (setting is TextButtonSettings textButtonSettings)
+                //    {
+                //        var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
+                //            .GetComponent<TextButtonController>();
+
+                //        Instantiate(prefab, _someButtonParent, false)
+                //            .Setup(textButtonSettings);
+                //    }
+                //}
+            }
         }
 
         private void DoShow()
