@@ -9,14 +9,14 @@ namespace Tamagotchi
         {
             get
             {
-                if (_screenParent == null)
-                    _screenParent = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<RectTransform>();
+                if (_mainCanvas == null)
+                    _mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<RectTransform>();
 
-                return _screenParent;
+                return _mainCanvas;
             }
         }
 
-        private static RectTransform _screenParent;
+        private static RectTransform _mainCanvas;
 
         static Application()
         {
