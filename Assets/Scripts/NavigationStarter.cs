@@ -33,6 +33,7 @@ public sealed class NavigationStarter : MonoBehaviour
             .OneFrame<NavigationPointChangedEvent>()
             .Add(new MainScreenNavigationElements())
             .Add(new MenuScreenNavigationElements())
+            .Add(new ActivitiesScreenNavigationElements())
             .Add(Application.Model)
             .Inject(new ScreenManager());
 
