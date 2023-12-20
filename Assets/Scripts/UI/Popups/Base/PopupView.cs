@@ -92,39 +92,29 @@ namespace UI.Popups
         {
             _rootRect ??= gameObject.GetComponent<RectTransform>();
 
-            var startOffset = GetDirection(Vector3.down);
+            var startOffset = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
             var targetPosition = _rootRect.localPosition;
 
-            if (Mathf.Abs(startOffset.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) > Mathf.Epsilon)
-            {
-                _rootRect.localPosition += startOffset;
-                _rootRect.DOAnchorPos(targetPosition, _durationTween)
-                    .SetEase(Ease.OutBack)
-                    .OnComplete(() => _overlayButton.gameObject.SetActive(true));
-            }
+            if (Mathf.Abs(startOffset.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) <= Mathf.Epsilon)
+                return;
+
+            _rootRect.localPosition += startOffset;
+            _rootRect.DOAnchorPos(targetPosition, _durationTween)
+                .SetEase(Ease.InOutCubic)
+                .OnComplete(() => _overlayButton.gameObject.SetActive(true));
         }
 
         private void DoHide()
         {
-            var targetPosition = GetDirection(Vector3.down);
+            var targetPosition = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
 
-            if (Mathf.Abs(targetPosition.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) > Mathf.Epsilon)
-            {
-                _overlayButton.gameObject.SetActive(false);
-                _rootRect.DOAnchorPos(targetPosition, _durationTween)
-                    .SetEase(Ease.InBack)
-                    .OnComplete(() => Destroy(gameObject));
-            }
-        }
+            if (Mathf.Abs(targetPosition.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) <= Mathf.Epsilon)
+                return;
 
-        private Vector3 GetDirection(Vector3 direction)
-        {
-            var result = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
-
-            if (direction == Vector3.left || direction == Vector3.right)
-                result = direction.normalized * Application.MainCanvas.sizeDelta.x;
-
-            return result;
+            _overlayButton.gameObject.SetActive(false);
+            _rootRect.DOAnchorPos(targetPosition, _durationTween)
+                .SetEase(Ease.InOutCubic)
+                .OnComplete(() => Destroy(gameObject));
         }
 
         private void AddListeners()
