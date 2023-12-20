@@ -11,7 +11,7 @@ namespace UI.Controller
 {
     [RequireComponent(typeof(MainScreenNavButtonView))]
     [RequireComponent(typeof(NavigationElement))]
-    public sealed class MainScreenNavButtonController : MonoBehaviour, IUpdatable<UpdateCurrentScreen>
+    public sealed class MainScreenNavButtonController : MonoBehaviour, IUpdatable<UpdateCurrentScreenEvent>
     {
         [SerializeField] private NavigationElementType _type;
 
@@ -35,7 +35,7 @@ namespace UI.Controller
             UpdateState();
         }
 
-        public void UpdateState(UpdateCurrentScreen data = null)
+        public void UpdateState(UpdateCurrentScreenEvent data = null)
         {
             
         }
@@ -47,12 +47,12 @@ namespace UI.Controller
 
         private void Awake()
         {
-            EventSystem.Subscribe<UpdateCurrentScreen>(UpdateState);
+            EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
 
         private void OnDestroy()
         {
-            EventSystem.Unsubscribe<UpdateCurrentScreen>(UpdateState);
+            EventSystem.Unsubscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
     }
 }

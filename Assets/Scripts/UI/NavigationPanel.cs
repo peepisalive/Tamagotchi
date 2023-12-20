@@ -8,7 +8,7 @@ using TMPro;
 
 namespace UI
 {
-    public sealed class NavigationPanel : MonoBehaviour, IUpdatable<UpdateCurrentScreen>
+    public sealed class NavigationPanel : MonoBehaviour, IUpdatable<UpdateCurrentScreenEvent>
     {
         [Header("Buttons")]
         [SerializeField] private ImageButtonController _backButton;
@@ -39,7 +39,7 @@ namespace UI
             UpdateState();
         }
 
-        public void UpdateState(UpdateCurrentScreen data = null)
+        public void UpdateState(UpdateCurrentScreenEvent data = null)
         {
             if (_type == default)
                 return;
@@ -49,12 +49,12 @@ namespace UI
 
         private void Start()
         {
-            EventSystem.Subscribe<UpdateCurrentScreen>(UpdateState);
+            EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
 
         private void OnDestroy()
         {
-            EventSystem.Unsubscribe<UpdateCurrentScreen>(UpdateState);
+            EventSystem.Unsubscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
     }
 }
