@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f0d510ec8e19941bc266ce26132d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rootRect: {fileID: 0}
+  _rootRect: {fileID: 6123414769602510032}
   _overlayButton: {fileID: 0}
   _titleLabel: {fileID: 0}
   _topParent: {fileID: 0}
