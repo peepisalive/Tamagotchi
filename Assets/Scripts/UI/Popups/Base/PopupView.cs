@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
 using UI.Settings;
@@ -11,6 +12,7 @@ namespace UI.Popups
     {
         [Header("Base")]
         [SerializeField] private RectTransform _rootRect;
+        [SerializeField] private Button _overlayButton;
 
         [Header("Blocks")]
         [SerializeField] private RectTransform _topParent;
@@ -74,7 +76,7 @@ namespace UI.Popups
                 _rootRect.localPosition += startOffset;
                 _rootRect.DOAnchorPos(targetPosition, _durationTween)
                     .SetEase(Ease.OutBack)
-                    /*.OnComplete(() => _overlayButton.gameObject.SetActive(true))*/;
+                    .OnComplete(() => _overlayButton.gameObject.SetActive(true));
             }
         }
 
@@ -84,7 +86,7 @@ namespace UI.Popups
 
             if (Mathf.Abs(targetPosition.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) > Mathf.Epsilon)
             {
-                //_overlayButton.gameObject.SetActive(false);
+                _overlayButton.gameObject.SetActive(false);
                 _rootRect.DOAnchorPos(targetPosition, _durationTween)
                     .SetEase(Ease.InBack)
                     .OnComplete(() => Destroy(gameObject));
@@ -103,15 +105,15 @@ namespace UI.Popups
 
         private void AddListeners()
         {
-            //if (_ignoreOverlayButtonAction)
-            //    return;
+            if (_ignoreOverlayButtonAction)
+                return;
 
-            //_overlayButton?.onClick.AddListener(Hide);
+            _overlayButton?.onClick.AddListener(Hide);
         }
 
         private void RemoveListeners()
         {
-            //_overlayButton?.onClick?.RemoveListener(Hide);
+            _overlayButton?.onClick?.RemoveListener(Hide);
         }
     }
 }
