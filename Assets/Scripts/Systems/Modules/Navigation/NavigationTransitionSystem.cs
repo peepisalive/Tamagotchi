@@ -144,7 +144,7 @@ namespace Systems.Modules.Navigation
                 previousPoint = block.CurrentPoint;
                 block.GoToPreviousPoint();
 
-                if (block.IsEmptyNavigationChain)
+                if (block.NavigationChain.Count == 0)
                 {
                     blockChanged = true;
                     _activateBlockFilter.GetEntity(i).Del<Active>();

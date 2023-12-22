@@ -10,11 +10,9 @@ namespace Modules.Navigation
         public NavigationElementType RootElementType { get; private set; }
 
         public NavigationPoint CurrentPoint { get; private set; }
-        public bool IsEmptyNavigationChain => _navigationChain.Count == 0;
+        public Stack<NavigationPoint> NavigationChain { get; private set; }
 
         private NavigationElementsSet _navigationElementsSet;
-
-        private Stack<NavigationPoint> _navigationChain;
         private Dictionary<NavigationElementType, List<INavigationElement>> _elements;
 
         public NavigationBlock(NavigationBlockType type, NavigationElementType rootElementType, NavigationElementsSet navigationElementsSet)
@@ -25,7 +23,7 @@ namespace Modules.Navigation
 
             _navigationElementsSet = navigationElementsSet;
 
-            _navigationChain = new Stack<NavigationPoint>();
+            NavigationChain = new Stack<NavigationPoint>();
             _elements = new Dictionary<NavigationElementType, List<INavigationElement>>();
         }
 
@@ -88,7 +86,7 @@ namespace Modules.Navigation
 
         public void ClearNavigationChain()
         {
-            _navigationChain.Clear();
+            NavigationChain.Clear();
             CurrentPoint = null;
         }
 
@@ -99,15 +97,15 @@ namespace Modules.Navigation
 
         public void GoToPreviousPoint()
         {
-            if (_navigationChain.Count == 0)
+            if (NavigationChain.Count == 0)
                 return;
 
-            _navigationChain.Pop();
+            NavigationChain.Pop();
 
-            if (_navigationChain.Count == 0)
+            if (NavigationChain.Count == 0)
                 return;
 
-            GoToPoint(_navigationChain.Pop(), TransitionType.Out);
+            GoToPoint(NavigationChain.Pop(), TransitionType.Out);
         }
 
         private void GoToPoint(NavigationPoint point, TransitionType transitionType)
@@ -116,7 +114,7 @@ namespace Modules.Navigation
                 return;
 
             CurrentPoint = point;
-            _navigationChain.Push(point);
+            NavigationChain.Push(point);
         }
     }
 }
