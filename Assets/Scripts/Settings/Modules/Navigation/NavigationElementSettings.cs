@@ -9,5 +9,10 @@ namespace Settings.Modules.Navigations
     {
         [field: SerializeField] public NavigationElementType Type { get; private set; }
         [field: SerializeField] public List<NavigationElementType> ChildTypes { get; private set; }
+
+        public NavigationButtonData GetNavigationButtonData()
+        {
+            return new NavigationButtonData();
+        }
     }
 }

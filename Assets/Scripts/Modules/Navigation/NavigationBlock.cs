@@ -50,6 +50,24 @@ namespace Modules.Navigation
             return true;
         }
 
+        public NavigationButtonData GetNavigationButtonData(NavigationElementType type, INavigationElement element)
+        {
+            NavigationButtonData buttonData = null;
+
+            if (_navigationElementsSet.TryGetElementSettings(type, out var settings))
+            {
+                buttonData = settings.GetNavigationButtonData();
+                buttonData.StateType = element.IsEnable(type) switch
+                {
+                    false => NavigationButtonState.Locked,
+                    _ when (settings.ChildTypes.Count == 0) => NavigationButtonState.NonTransition,
+                    _ => NavigationButtonState.Transition
+                };
+            }
+
+            return buttonData;
+        }
+
         public IEnumerable<NavigationPoint> GetChildPointsOfType(NavigationElementType type)
         {
             if (_navigationElementsSet.TryGetElementSettings(type, out var settings))
@@ -100,12 +118,5 @@ namespace Modules.Navigation
             CurrentPoint = point;
             _navigationChain.Push(point);
         }
-    }
-
-
-    public enum TransitionType
-    {
-        In = 0,
-        Out = 1
     }
 }

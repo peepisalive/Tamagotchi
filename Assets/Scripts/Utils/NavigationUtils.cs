@@ -48,5 +48,20 @@ namespace Utils
 
             return null;
         }
+
+        public static NavigationButtonData GetNavigationButtonData(this EcsFilter<BlockComponent> filter, NavigationBlockType blockType, NavigationElementType type, INavigationElement element)
+        {
+            foreach (var i in filter)
+            {
+                var block = filter.Get1(i).NavigationBlock;
+
+                if (block.Type != blockType)
+                    continue;
+                
+                return block.GetNavigationButtonData(type, element);
+            }
+
+            return null;
+        }
     }
 }
