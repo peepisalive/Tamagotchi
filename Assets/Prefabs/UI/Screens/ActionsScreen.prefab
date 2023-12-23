@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navigationPanel: {fileID: 8696986728491578970}
   _view: {fileID: 7419103201812263830}
+  _buttonPrefab: {fileID: 5772065219032252831, guid: 373b2bb06f534a647a9cd5a5ffac345c, type: 3}
   _buttonsParent: {fileID: 7759282104696667848}
 --- !u!114 &7419103201812263830
 MonoBehaviour:
@@ -731,10 +732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 7759282104696667848}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
-  m_Elasticity: 0.1
+  m_Elasticity: 0.075
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
