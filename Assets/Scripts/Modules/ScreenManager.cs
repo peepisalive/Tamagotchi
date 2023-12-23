@@ -74,7 +74,9 @@ namespace Modules
                 screen.transform.SetAsFirstSibling();
             }
 
+            screen.Setup();
             screen.Show(direction, DestroyPreviousScreen);
+
             _currentScreen = screen;
             // send event
         }

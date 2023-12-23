@@ -10,6 +10,11 @@ namespace UI.Screen.Controller
         [SerializeField] private NavigationPanel _navigationPanel;
         private const float ANIMATION_DURATION = .2f;
 
+        public virtual void Setup()
+        {
+            _navigationPanel?.Setup();
+        }
+
         public void Show(Vector2 direction, Action onComplete = null)
         {
             DoShowAnimation(direction, onComplete);
@@ -69,11 +74,6 @@ namespace UI.Screen.Controller
             }
 
             return Vector3.zero;
-        }
-
-        private void Start()
-        {
-            _navigationPanel?.Setup();
         }
     }
 }

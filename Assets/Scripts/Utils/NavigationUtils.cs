@@ -49,6 +49,32 @@ namespace Utils
             return null;
         }
 
+        public static NavigationBlock GetCurrentNavigationBlock(this EcsFilter<BlockComponent, Active> filter)
+        {
+            foreach (var i in filter)
+            {
+                if (filter.Get2(i).Order != filter.GetEntitiesCount() - 1)
+                    continue;
+
+                return filter.Get1(i).NavigationBlock;
+            }
+
+            return null;
+        }
+
+        public static NavigationPoint GetCurrentNavigationPoint(this EcsFilter<BlockComponent, Active> filter)
+        {
+            foreach (var i in filter)
+            {
+                if (filter.Get2(i).Order != filter.GetEntitiesCount() - 1)
+                    continue;
+
+                return filter.Get1(i).NavigationBlock.CurrentPoint;
+            }
+
+            return null;
+        }
+
         public static NavigationButtonData GetNavigationButtonData(this EcsFilter<BlockComponent> filter, NavigationBlockType blockType, NavigationElementType type, INavigationElement element)
         {
             foreach (var i in filter)

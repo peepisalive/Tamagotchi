@@ -20,5 +20,15 @@ namespace Tamagotchi
         {
             return _activeBlockFilter.GetCurrentBlockType();
         }
+
+        public NavigationBlock GetCurrentNavigationBlock()
+        {
+            return _activeBlockFilter.GetCurrentNavigationBlock();
+        }
+
+        public NavigationPoint GetCurrentNavigationPoint()
+        {
+            return _activeBlockFilter.GetCurrentNavigationPoint();
+        }
     }
 }
