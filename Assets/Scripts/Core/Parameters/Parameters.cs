@@ -13,6 +13,14 @@ namespace Core
             _parameters = new Dictionary<ParameterType, Parameter>();
         }
 
+        public Parameter Get(ParameterType type)
+        {
+            if (_parameters.ContainsKey(type))
+                return _parameters[type];
+
+            return null;
+        }
+
         public void Add(ParameterType type, Parameter parameter)
         {
             if (_parameters.ContainsKey(type))
