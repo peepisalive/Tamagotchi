@@ -66,6 +66,14 @@ namespace Modules.Navigation
             return buttonData;
         }
 
+        public NavigationScreenData GetNavigationScreenData(NavigationElementType type)
+        {
+            if (_navigationElementsSet.TryGetElementSettings(type, out var settings))
+                return settings.GetNavigationScreenData();
+
+            return null;
+        }
+
         public IEnumerable<NavigationPoint> GetChildPointsOfType(NavigationElementType type)
         {
             if (_navigationElementsSet.TryGetElementSettings(type, out var settings))

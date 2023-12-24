@@ -38,18 +38,17 @@ namespace Systems.Navigation
 
         public bool OnClick(NavigationElementType elementType)
         {
-            UnityEngine.Debug.Log("pizda");
             return true;
         }
 
         public NavigationButtonData GetButtonData(NavigationElementType elementType)
         {
-            return null;
+            return _blockFilter.GetNavigationButtonData(NavigationBlockType.Menu, elementType, this);
         }
 
         public NavigationScreenData GetScreenData(NavigationElementType elementType)
         {
-            return null;
+            return _blockFilter.GetNavigationScreenData(NavigationBlockType.Menu, elementType);
         }
     }
 }

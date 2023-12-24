@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Localization
+namespace Modules.Localization
 {
     public sealed class LocalizationItem
     {

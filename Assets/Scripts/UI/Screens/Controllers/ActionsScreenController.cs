@@ -11,8 +11,8 @@ namespace UI.Screen.Controller
     {
         [Header("View")]
         [SerializeField] private ActionsScreenView _view;
-        [SerializeField] private NavigationButtonController _buttonPrefab;
         [SerializeField] private RectTransform _buttonsParent;
+        [SerializeField] private NavigationButtonController _buttonPrefab;
 
         private NavigationBlock _navigationBlock;
         private NavigationPoint _navigationPoint;
@@ -34,7 +34,8 @@ namespace UI.Screen.Controller
 
             foreach (var point in points)
             {
-                Instantiate(_buttonPrefab, _buttonsParent);
+                Instantiate(_buttonPrefab, _buttonsParent)
+                    .Setup(point, _navigationBlock.Type);
             }
         }
 

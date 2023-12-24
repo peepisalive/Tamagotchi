@@ -42,12 +42,12 @@ namespace Systems.Navigation
 
         public NavigationButtonData GetButtonData(NavigationElementType elementType)
         {
-            return null;
+            return _blockFilter.GetNavigationButtonData(NavigationBlockType.Main, elementType, this);
         }
 
         public NavigationScreenData GetScreenData(NavigationElementType elementType)
         {
-            return null;
+            return _blockFilter.GetNavigationScreenData(NavigationBlockType.Main, elementType);
         }
     }
 }

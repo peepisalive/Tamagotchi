@@ -1,4 +1,5 @@
 using GameLoading.LoadingOperations;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace GameLoading
                     yield return new WaitForEndOfFrame();
                 }
             }
+
+            SceneManager.LoadScene("MainScene", LoadSceneMode.Single); // to do: edit this, cringe
         } 
 
         private void Awake()

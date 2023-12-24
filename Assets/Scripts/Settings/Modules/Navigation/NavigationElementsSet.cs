@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Settings.Modules.Navigations
 {
-    [CreateAssetMenu(fileName = "NavigationElementsSet", menuName = "Settings/Navigation/NavigationElementsSet", order = 0)]
+    [CreateAssetMenu(fileName = "NavigationElementsSet", menuName = "Settings/Modules/Navigation/NavigationElementsSet", order = 0)]
     public sealed class NavigationElementsSet : ScriptableObject
     {
         [field: SerializeField] public List<NavigationElementSettings> NavigationElementSettings { get; private set; }

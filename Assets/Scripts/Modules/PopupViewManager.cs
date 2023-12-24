@@ -4,7 +4,7 @@ using System.Linq;
 using UI.Popups;
 using Settings;
 
-namespace Modules.Managers
+namespace Modules
 {
     public sealed class PopupViewManager
     {

@@ -6,7 +6,7 @@ using System;
 
 namespace Settings.Modules.Navigations
 {
-    [CreateAssetMenu(fileName = "NavigationSettings", menuName = "Settings/Navigation/NavigationSettings", order = 0)]
+    [CreateAssetMenu(fileName = "NavigationSettings", menuName = "Settings/Modules/Navigation/NavigationSettings", order = 0)]
     public sealed class NavigationSettings : ScriptableObject
     {
         [field: SerializeField] public List<NavigationSet> Sets { get; private set; }

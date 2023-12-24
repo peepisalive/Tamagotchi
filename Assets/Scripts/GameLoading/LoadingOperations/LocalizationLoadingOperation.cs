@@ -1,5 +1,5 @@
 using UnityEngine.Localization.Settings;
-using Localization;
+using Modules.Localization;
 
 namespace GameLoading.LoadingOperations
 {

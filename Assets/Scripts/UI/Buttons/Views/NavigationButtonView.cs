@@ -1,3 +1,4 @@
+using Modules.Navigation;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
@@ -14,28 +15,34 @@ namespace UI.View
         [SerializeField] private TMP_Text _titleLabel;
         [SerializeField] private TMP_Text _contentLabel;
 
-        public void SetIcon()
+        public void SetIcon(Sprite icon)
         {
             if (_mainIcon == null)
                 return;
+
+            _mainIcon.sprite = icon;
         }
 
-        private void SetTransitionIcon()
+        public void SetTransitionIcon(NavigationButtonState type)
         {
             if (_transitionIcon == null)
                 return;
         }
 
-        private void SetTitle()
+        public void SetTitle(string text)
         {
             if (_titleLabel == null)
                 return;
+
+            _titleLabel.text = text;
         }
 
-        private void SetContent()
+        public void SetContent(string text)
         {
             if (_contentLabel == null)
                 return;
+
+            _contentLabel.text = text;
         }
     }
 }

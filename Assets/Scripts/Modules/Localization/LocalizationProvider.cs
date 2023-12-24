@@ -1,13 +1,15 @@
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
+using Settings.Modules.Localization;
 using System.Collections.Generic;
 using UnityEngine.Localization;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Linq;
 using UnityEngine;
+using Settings;
 
-namespace Localization
+namespace Modules.Localization
 {
     public static class LocalizationProvider
     {
@@ -17,6 +19,7 @@ namespace Localization
         static LocalizationProvider()
         {
             _localizationFiles = new Dictionary<string, LocalizationFileData>();
+            _defaultLocalizedText = SettingsProvider.Get<LocalizationDefaultSettings>().DefaultLocalizationFile;
         }
 
         public static string GetText(LocalizedText asset, string tags)
@@ -82,7 +85,7 @@ namespace Localization
             var fileData = GetFileData(asset);
             var fileKey = GetFileDataKey(entryName, entryId);
 
-            if (!_localizationFiles.ContainsKey(fileKey))
+            if (_localizationFiles.ContainsKey(fileKey))
                 return;
 
             _localizationFiles.Add(fileKey, fileData);

@@ -16,7 +16,7 @@ MonoBehaviour:
     m_Code: en
   m_Metadata:
     m_Items:
-    - rid: 8916628686660960256
+    - rid: 1487637591063003143
   m_LocaleName: English (en)
   m_CustomFormatCultureCode: 
   m_UseCustomFormatter: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8916628686660960256
-      type: {class: SystemLanguageMetadata, ns: Localization, asm: Assembly-CSharp}
+    - rid: 1487637591063003143
+      type: {class: SystemLanguageMetadata, ns: Modules.Localization, asm: Assembly-CSharp}
       data:
         Language: 10

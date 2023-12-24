@@ -20,12 +20,22 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 1487637591063003138
   m_KeyGenerator:
     rid: 8916628686522286104
   references:
     version: 2
     RefIds:
+    - rid: 1487637591063003138
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 13385437184
+          m_TableCodes:
+          - en
+        m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
     - rid: 8916628686522286104
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:

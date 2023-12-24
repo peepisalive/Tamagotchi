@@ -89,5 +89,20 @@ namespace Utils
 
             return null;
         }
+
+        public static NavigationScreenData GetNavigationScreenData(this EcsFilter<BlockComponent> filter, NavigationBlockType blockType, NavigationElementType type)
+        {
+            foreach (var i in filter)
+            {
+                var block = filter.Get1(i).NavigationBlock;
+
+                if (block.Type != blockType)
+                    continue;
+
+                return block.GetNavigationScreenData(type);
+            }
+
+            return null;
+        }
     }
 }

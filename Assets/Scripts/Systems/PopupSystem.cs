@@ -1,6 +1,6 @@
-using Modules.Managers;
 using Leopotam.Ecs;
 using Components;
+using Modules;
 
 namespace Systems
 {
