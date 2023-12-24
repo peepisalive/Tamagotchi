@@ -34,6 +34,9 @@ public sealed class NavigationStarter : MonoBehaviour
             .Add(new MainScreenNavigationElements())
             .Add(new MenuScreenNavigationElements())
             .Add(new ActivitiesScreenNavigationElements())
+            .Add(new HealthActivitiesNavigationElements())
+            .Add(new SatietyActivitiesNavigationElements())
+            .Add(new HappinessActivitiesNavigationElements())
             .Add(Application.Model)
             .Inject(new ScreenManager());
 

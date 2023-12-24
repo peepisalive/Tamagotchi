@@ -6,15 +6,15 @@ using Utils;
 
 namespace Systems.Navigation
 {
-    public sealed class ActivitiesScreenNavigationElements : IEcsInitSystem, INavigationElement
+    public sealed class HealthActivitiesNavigationElements : IEcsInitSystem, INavigationElement
     {
         public HashSet<NavigationElementType> Types => new HashSet<NavigationElementType>
         {
-            NavigationElementType.ActivitiesScreen,
+            NavigationElementType.HealthActivities
         };
 
         private EcsFilter<BlockComponent> _blockFilter;
-        
+
         public void Init()
         {
             _blockFilter.RegisterElement(NavigationBlockType.Main, this);
