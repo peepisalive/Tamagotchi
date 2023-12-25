@@ -12,7 +12,7 @@ namespace UI
 
         private PetAppearance _petAppearance;
         private Transform _petContainer;
-        private Camera _petCamera;
+        private PetCamera _petCamera;
         private Pet _pet;
 
         public void Setup(Pet pet)
@@ -38,17 +38,17 @@ namespace UI
 
         private void InitializeRenderTexture()
         {
-            if (_petCamera.targetTexture != null)
+            if (_petCamera.Camera.targetTexture != null)
                 return;
-
-            _petCamera.targetTexture = new RenderTexture(new RenderTextureDescriptor(1024, 1024, RenderTextureFormat.Default));
-            _rawImage.texture = _petCamera.targetTexture;
+            
+            _petCamera.Camera.targetTexture = new RenderTexture(new RenderTextureDescriptor(1024, 1024, RenderTextureFormat.Default));
+            _rawImage.texture = _petCamera.Camera.targetTexture;
         }
 
         private void InitializeCamera()
         {
             _petCamera = Instantiate(SettingsProvider.Get<PrefabsSet>().PetCamera, _petContainer);
-            _petCamera.transform.position = new Vector3(_petCamera.transform.position.x, _petCamera.transform.position.y, _petCamera.transform.position.z - 10);
+            _petCamera.SetTarget(_petAppearance.transform);
         }
 
         private void InitializeAppearance()
@@ -60,7 +60,7 @@ namespace UI
         {
             if (_petCamera != null)
             {
-                _petCamera.targetTexture.Release();
+                _petCamera.Camera.targetTexture.Release();
                 Destroy(_petCamera.gameObject);
             }
 

@@ -16,6 +16,6 @@ namespace Settings
 
         [field: Header("Pet appearance")]
         [field: SerializeField] public PetAppearance PetAppearance { get; private set; }
-        [field: SerializeField] public Camera PetCamera { get; private set; }
+        [field: SerializeField] public PetCamera PetCamera { get; private set; }
     }
 }
