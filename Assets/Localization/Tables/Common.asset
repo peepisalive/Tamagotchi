@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db626ad063b13545924a9839ac5fa83, type: 3}
   m_Name: Common
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: 35d069f0086a56a419623f97835c7e18, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: dfb73ea2ce921274da2dab529a57de04, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: 801690055eb4012408da4ed898fc8592, type: 2}
+  - {fileID: 11400000, guid: 2ddd543d3de04ab46aedb64ea50c8b77, type: 2}
   m_Extensions: []
   m_Group: Asset Table
   references:

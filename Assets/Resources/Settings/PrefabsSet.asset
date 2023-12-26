@@ -21,5 +21,7 @@ MonoBehaviour:
   - {fileID: 4001805678011081209, guid: 7be7457b44aedca418603be95e438c9a, type: 3}
   <Popups>k__BackingField:
   - {fileID: 6123414769602510039, guid: 6760eb31516a79e4ebc2396491fabcd0, type: 3}
-  <PetAppearance>k__BackingField: {fileID: 1676819951062123788, guid: f6da234c83c046949982800f224ed9db, type: 3}
-  <PetCamera>k__BackingField: {fileID: -832103400836147908, guid: f37508361a7eb674682513b39444c667, type: 3}
+  <PetAppearance>k__BackingField: {fileID: 1116234352307207582, guid: 08030aaa8d8f1e949b96be2662c6d3a2,
+    type: 3}
+  <PetCamera>k__BackingField: {fileID: -832103400836147908, guid: f37508361a7eb674682513b39444c667,
+    type: 3}

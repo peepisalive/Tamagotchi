@@ -15,17 +15,17 @@ MonoBehaviour:
   m_GroupName: Localization-Asset-Tables-English (en)
   m_Data:
     m_SerializedData: []
-  m_GUID: 1e64aa5fe11f45d44b3e8c952a33ff9b
+  m_GUID: a2902bb95cb7b0045ab26164dce427a5
   m_SerializeEntries:
-  - m_GUID: 801690055eb4012408da4ed898fc8592
+  - m_GUID: 2ddd543d3de04ab46aedb64ea50c8b77
     m_Address: Common_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
     - Preload
   m_ReadOnly: 1
-  m_Settings: {fileID: 11400000, guid: 8022d074a17afbc43a46d513c6f06ffe, type: 2}
+  m_Settings: {fileID: 11400000, guid: e4beb3b521e1f6b4185fdb882a930f40, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 6ef2412d170a07f40b83ad047b8458c3, type: 2}
-    - {fileID: 11400000, guid: 46d4f2236eebd584e957e3a8e74fd659, type: 2}
+    - {fileID: 11400000, guid: 2420d859d3a3ed04cb130f112357b057, type: 2}
+    - {fileID: 11400000, guid: 73d8ca99f5526a74b8a1646d3c7b1240, type: 2}

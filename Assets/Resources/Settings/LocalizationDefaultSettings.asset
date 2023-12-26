@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DefaultLocalizationFile>k__BackingField:
     m_TableReference:
-      m_TableCollectionName: GUID:35d069f0086a56a419623f97835c7e18
+      m_TableCollectionName: GUID:dfb73ea2ce921274da2dab529a57de04
     m_TableEntryReference:
-      m_KeyId: 13385437184
+      m_KeyId: 8188694528
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
