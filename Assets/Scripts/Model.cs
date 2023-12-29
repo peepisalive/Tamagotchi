@@ -2,7 +2,9 @@ using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
+using Components;
 using Utils;
+using Core;
 
 namespace Tamagotchi
 {
@@ -10,7 +12,9 @@ namespace Tamagotchi
     {
         private EcsFilter<BlockComponent, Active> _activeBlockFilter;
         private EcsFilter<BlockComponent> _blockFilter;
+        private EcsFilter<PetComponent> _petFilter;
 
+        #region Navigation
         public IEnumerable<NavigationPoint> GetChildPointsOfType(NavigationBlockType blockType, NavigationElementType type)
         {
             return _blockFilter.GetChildPointsOfType(blockType, type);
@@ -29,6 +33,17 @@ namespace Tamagotchi
         public NavigationPoint GetCurrentNavigationPoint()
         {
             return _activeBlockFilter.GetCurrentNavigationPoint();
+        }
+        #endregion
+
+        public Pet GetCurrentPet()
+        {
+            foreach (var i in _petFilter)
+            {
+                return _petFilter.Get1(i).Pet;
+            }
+
+            return null;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace UI
         // test
         private void Start()
         {
-            Setup(new Pet(""));
+            Setup(Tamagotchi.Application.Model.GetCurrentPet());
         }
         // test
 
@@ -53,7 +53,13 @@ namespace UI
 
         private void InitializeAppearance()
         {
-            _petAppearance = Instantiate(SettingsProvider.Get<PrefabsSet>().PetAppearance, _petContainer);
+            var settings = SettingsProvider.Get<PetAppearanceSettings>();
+            var petAppearancePrefab = settings?.GetAppearance(_pet.Type);
+
+            if (petAppearancePrefab == null)
+                return;
+
+            _petAppearance = Instantiate(petAppearancePrefab, _petContainer);
         }
 
         private void ReleaseResources()
