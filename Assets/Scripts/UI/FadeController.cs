@@ -1,7 +1,9 @@
 using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
+using Modules;
 using System;
+using Events;
 using Core;
 
 namespace UI.Controller
@@ -11,9 +13,9 @@ namespace UI.Controller
         [SerializeField] private Image _image;
         private const float _fadeDuration = 1.1f;
 
-        public void FadeOff(Action onFadeOffAction = null)
+        public void FadeOff(float fadeDuration = _fadeDuration, Action onFadeOffAction = null)
         {
-            _image.DOFade(0f, _fadeDuration)
+            _image.DOFade(0f, fadeDuration)
                 .SetLink(gameObject)
                 .OnKill(() =>
                 {
@@ -22,10 +24,10 @@ namespace UI.Controller
                 });
         }
 
-        public void FadeOn(Action onFadeOnAction = null)
+        public void FadeOn(float fadeDuration = _fadeDuration, Action onFadeOnAction = null)
         {
             _image.enabled = true;
-            _image.DOFade(1f, _fadeDuration)
+            _image.DOFade(1f, fadeDuration)
                 .SetLink(gameObject)
                 .OnKill(() =>
                 {
@@ -33,14 +35,27 @@ namespace UI.Controller
                 });
         }
 
-        private void Start()
+        private void OnFirstScreenShowedEvent(ScreenReplacedEvent data)
         {
-            FadeOff();
+            if (!data.FadeOffRequired)
+                return;
+
+            FadeOff(4f);
         }
 
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start()
+        {
+            EventSystem.Subscribe<ScreenReplacedEvent>(OnFirstScreenShowedEvent);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<ScreenReplacedEvent>(OnFirstScreenShowedEvent);
         }
     }
 }

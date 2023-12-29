@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Settings;
 using System;
+using Events;
 
 namespace Modules
 {
@@ -61,7 +62,7 @@ namespace Modules
             Debug.Log($"show screen {screenControllerType.Name}");
         }
 
-        private void ShowScreen<TController>(TController prefab, Vector2 direction, bool overPrevious = true) where TController: ScreenController
+        private void ShowScreen<TController>(TController prefab, Vector2 direction, bool overPrevious = true) where TController : ScreenController
         {
             var screen = GameObject.Instantiate(prefab, ScreenParent);
 
@@ -78,7 +79,12 @@ namespace Modules
             screen.Show(direction, DestroyPreviousScreen);
 
             _currentScreen = screen;
-            // send event
+
+            EventSystem.Send(new ScreenReplacedEvent
+            {
+                CurrentScreen = _currentScreen,
+                FadeOffRequired = _previousScreen == null
+            });
         }
 
         private void DestroyPreviousScreen()
