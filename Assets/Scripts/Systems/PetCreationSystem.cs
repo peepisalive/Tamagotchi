@@ -2,7 +2,7 @@ using Leopotam.Ecs;
 using Components;
 using Core;
 
-namespace Systems
+namespace System
 {
     public sealed class PetCreationSystem : IEcsInitSystem
     {

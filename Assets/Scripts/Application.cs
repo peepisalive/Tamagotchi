@@ -1,10 +1,13 @@
 using UnityEngine;
+using Modules;
 
 namespace Tamagotchi
 {
     public static class Application
     {
+        public static SaveDataManager SaveDataManager { get; private set; }
         public static Model Model { get; private set; }
+
         public static RectTransform MainCanvas
         {
             get
@@ -20,6 +23,7 @@ namespace Tamagotchi
 
         static Application()
         {
+            SaveDataManager = new SaveDataManager();
             Model = new Model();
         }
     }

@@ -1,0 +1,37 @@
+using System.Security.Cryptography;
+using UnityEngine;
+using System.Text;
+using System.IO;
+using System;
+
+namespace Utils
+{
+    public static class SaveUtils
+    {
+        public static string RootPath
+        {
+            get
+            {
+                var rootPath = Application.persistentDataPath;
+#if UNITY_EDITOR
+                rootPath = Path.Combine(Application.dataPath, "..", "Saves");
+#endif
+                return rootPath;
+            }
+        }
+
+        public static void DeleteDirectory(string path)
+        {
+            if (!Directory.Exists(path))
+                return;
+
+            Directory.Delete(path, true);
+        }
+
+        public static string GetHashSum(string text)
+        {
+            var hashBytes = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(text));
+            return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+        }
+    }
+}
