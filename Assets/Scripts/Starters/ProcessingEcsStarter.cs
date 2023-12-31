@@ -1,5 +1,6 @@
 using Leopotam.Ecs;
-using Systems;
+using Components;
+using System;
 
 namespace Starter
 {
@@ -10,18 +11,11 @@ namespace Starter
             Systems = new EcsSystems(world);
 
             Systems
+                .Add(new SaveDataSystem())
+                .OneFrame<SaveDataEvent>()
                 .Add(new PetCreationSystem());
 
             Systems.Init();
         }
-
-        //private void OnDestroy()
-        //{
-        //    _systems?.Destroy();
-        //    _systems = null;
-
-        //    _world?.Destroy();
-        //    _world = null;
-        //}
     }
 }
