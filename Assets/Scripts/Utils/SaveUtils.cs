@@ -15,6 +15,9 @@ namespace Utils
                 var rootPath = Application.persistentDataPath;
 #if UNITY_EDITOR
                 rootPath = Path.Combine(Application.dataPath, "..", "Saves");
+
+                if (!Directory.Exists(rootPath))
+                    Directory.CreateDirectory(rootPath);
 #endif
                 return rootPath;
             }

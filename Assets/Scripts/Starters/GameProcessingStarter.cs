@@ -4,7 +4,7 @@ using System;
 
 namespace Starter
 {
-    public sealed class ProcessingEcsStarter : Starter
+    public sealed class GameProcessingStarter : Starter
     {
         public override void InitSystems(EcsWorld world)
         {

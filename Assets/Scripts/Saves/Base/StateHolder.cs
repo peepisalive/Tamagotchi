@@ -11,6 +11,11 @@ namespace Save
 
         public virtual string Id => string.Empty;
 
+        public StateHolder()
+        {
+            State = new T();
+        }
+
         public string StateToString()
         {
             return State.ToString();

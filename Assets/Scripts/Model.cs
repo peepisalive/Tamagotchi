@@ -10,6 +10,8 @@ namespace Tamagotchi
 {
     public sealed class Model : IEcsSystem
     {
+        private EcsWorld _world;
+
         private EcsFilter<BlockComponent, Active> _activeBlockFilter;
         private EcsFilter<BlockComponent> _blockFilter;
         private EcsFilter<PetComponent> _petFilter;
@@ -44,6 +46,11 @@ namespace Tamagotchi
             }
 
             return null;
+        }
+
+        public void Send<T>(T component) where T : struct
+        {
+            _world.NewEntity().Replace(component);
         }
     }
 }

@@ -19,10 +19,13 @@ namespace Save
 
         private bool _isSavingRoutine;
 
-        private void HandleSaveDataRequest(Events.SaveDataEvent e)
+        private void HandleSaveDataRequest(SaveDataEvent e)
         {
             if (_saveDataQueue == null)
+            {
                 _saveDataQueue = new Queue<List<SaveData>>();
+                _provider = new SaveDataProvider();
+            }
 
             _saveDataQueue.Enqueue(e.SaveData);
 
@@ -95,12 +98,12 @@ namespace Save
 
         private void Start()
         {
-            EventSystem.Subscribe<Events.SaveDataEvent>(HandleSaveDataRequest);
+            EventSystem.Subscribe<SaveDataEvent>(HandleSaveDataRequest);
         }
 
         private void OnDestroy()
         {
-            EventSystem.Unsubscribe<Events.SaveDataEvent>(HandleSaveDataRequest);
+            EventSystem.Unsubscribe<SaveDataEvent>(HandleSaveDataRequest);
         }
     }
 

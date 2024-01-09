@@ -15,6 +15,8 @@ namespace Save
 
     public sealed class PetState : IState
     {
+        public string Name = "lol";
+
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
