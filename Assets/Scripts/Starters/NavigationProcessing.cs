@@ -7,7 +7,7 @@ using Modules;
 
 namespace Starter
 {
-    public sealed class NavigationProcessingStarter : Starter
+    public sealed class NavigationProcessing : EcsProcessing
     {
         public override void InitSystems(EcsWorld world)
         {

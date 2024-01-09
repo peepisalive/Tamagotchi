@@ -1,12 +1,11 @@
 using Application = Tamagotchi.Application;
 using Leopotam.Ecs;
-using UnityEngine;
 using Components;
 using System;
 
 namespace Starter
 {
-    public sealed class SaveProcessingStarter : Starter
+    public sealed class SaveProcessing : EcsProcessing
     {
         public override void InitSystems(EcsWorld world)
         {
@@ -14,6 +13,8 @@ namespace Starter
 
             Systems
                 .Add(new SaveDataSystem())
+                .OneFrame<SaveDataEvent>()
+                .Inject(Application.SaveDataManager)
                 .Init();
         }
 

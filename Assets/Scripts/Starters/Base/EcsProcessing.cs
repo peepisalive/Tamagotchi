@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Starter
 {
-    public abstract class Starter : MonoBehaviour
+    public abstract class EcsProcessing : MonoBehaviour
     {
         protected EcsSystems Systems;
 

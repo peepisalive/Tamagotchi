@@ -3,31 +3,34 @@ using UnityEngine;
 
 namespace Starter
 {
-    public class GameStarter : MonoBehaviour
+    public sealed class GameStarter : MonoBehaviour
     {
         private EcsWorld _world;
 
-        [SerializeField] private Starter _navigationStater;
-        [SerializeField] private Starter _processingEcsStarter;
+        [SerializeField] private EcsProcessing _navigationProcessing;
+        [SerializeField] private EcsProcessing _gameProcessing;
+        [SerializeField] private EcsProcessing _saveProcessing;
 
         private void Update()
         {
-            _processingEcsStarter.RunSystems();
-            _navigationStater.RunSystems();
+            _navigationProcessing.RunSystems();
+            _gameProcessing.RunSystems();
         }
 
         private void Awake()
         {
             _world = new EcsWorld();
 
-            _processingEcsStarter.InitSystems(_world);
-            _navigationStater.InitSystems(_world);
+            _navigationProcessing.InitSystems(_world);
+            _saveProcessing.InitSystems(_world);
+            _gameProcessing.InitSystems(_world);
         }
 
         private void OnDestroy()
         {
-            _processingEcsStarter.DestroySystems();
-            _navigationStater.DestroySystems();
+            _navigationProcessing.DestroySystems();
+            _gameProcessing.DestroySystems();
+            _saveProcessing.DestroySystems();
 
             _world?.Destroy();
             _world = null;

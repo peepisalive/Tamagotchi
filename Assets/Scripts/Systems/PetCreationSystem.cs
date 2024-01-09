@@ -12,7 +12,7 @@ namespace System
         {
             _world.NewEntity().Replace(new PetComponent
             {
-                Pet = new Pet(PetType.Frog, null, "")
+                Pet = new Pet("Frogggg", PetType.Frog, null, Guid.NewGuid().ToString())
             });
         }
     }

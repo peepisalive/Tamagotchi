@@ -23,6 +23,11 @@ namespace Modules
             InitializeStateHolders();
         }
 
+        public T GetStateHolder<T>() where T : IStateHolder
+        {
+            return (T) _stateHolders[typeof(T)];
+        }
+
         #region Clear saves
         [MenuItem("Tamagotchi/Clear saves")]
         public static void ClearSaves()
@@ -34,6 +39,7 @@ namespace Modules
         }
         #endregion
 
+        #region Save
         public void SaveData(Type type, bool isAsync)
         {
             if (_stateHolders.TryGetValue(type, out var stateHolder))
@@ -72,7 +78,9 @@ namespace Modules
                 IsAsync = isAsync
             });
         }
+        #endregion
 
+        #region Load
         public bool TryLoadData(Type type)
         {
             if (_stateHolders.TryGetValue(type, out var stateHolder))
@@ -103,6 +111,7 @@ namespace Modules
                 TryLoadData(stateHolder.Key);
             }
         }
+        #endregion
 
         private string GetFilePath(string fileName)
         {

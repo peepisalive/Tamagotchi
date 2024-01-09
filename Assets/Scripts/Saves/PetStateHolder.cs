@@ -15,7 +15,7 @@ namespace Save
 
     public sealed class PetState : IState
     {
-        public string Name = "lol";
+        public string Name;
 
         public override string ToString()
         {

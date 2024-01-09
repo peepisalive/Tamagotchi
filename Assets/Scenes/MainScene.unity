@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 1175451678}
   - component: {fileID: 1175451679}
   m_Layer: 0
-  m_Name: GameProcessingStarter
+  m_Name: GameProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -656,8 +656,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59f6cdbdc7295847aa7591a4642706f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _navigationStater: {fileID: 1667270349}
-  _processingEcsStarter: {fileID: 1175451679}
+  _navigationProcessing: {fileID: 1667270349}
+  _gameProcessing: {fileID: 1175451679}
+  _saveProcessing: {fileID: 2034811144}
 --- !u!1 &1667270347
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +670,7 @@ GameObject:
   - component: {fileID: 1667270348}
   - component: {fileID: 1667270349}
   m_Layer: 0
-  m_Name: NavigationProcessingStarter
+  m_Name: NavigationProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,7 +888,7 @@ GameObject:
   - component: {fileID: 2034811143}
   - component: {fileID: 2034811144}
   m_Layer: 0
-  m_Name: SaveProcessingStarter
+  m_Name: SaveProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
