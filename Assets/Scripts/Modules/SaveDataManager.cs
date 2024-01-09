@@ -38,7 +38,7 @@ namespace Modules
         {
             if (_stateHolders.TryGetValue(type, out var stateHolder))
             {
-                EventSystem.Send(new Events.SaveDataEvent
+                EventSystem.Send(new SaveDataEvent
                 {
                     SaveData = new List<SaveData>
                     {
@@ -84,6 +84,16 @@ namespace Modules
             }
 
             return false;
+
+            bool TryLoadFile(string filePath, out string loadedData)
+            {
+                loadedData = string.Empty;
+
+                if (!File.Exists(filePath))
+                    return false;
+
+                return _provider.TryLoadFile(filePath, out loadedData);
+            }
         }
 
         public void TryLoadData()
@@ -92,16 +102,6 @@ namespace Modules
             {
                 TryLoadData(stateHolder.Key);
             }
-        }
-
-        private bool TryLoadFile(string filePath, out string loadedData)
-        {
-            loadedData = string.Empty;
-
-            if (!File.Exists(filePath))
-                return false;
-
-            return _provider.TryLoadFile(filePath, out loadedData);
         }
 
         private string GetFilePath(string fileName)
