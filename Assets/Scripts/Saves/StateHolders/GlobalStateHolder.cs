@@ -5,17 +5,17 @@ using UnityEngine;
 using Extensions;
 using System;
 
-namespace Save
+namespace Save.State
 {
-    public sealed class PetStateHolder : StateHolder<PetState>
+    public sealed class GlobalStateHolder : StateHolder<GlobalState>
     {
-        public override string Id => "Pet";
+        public override string Id => "Global";
     }
 
 
-    public sealed class PetState : IState
+    public sealed class GlobalState : IState
     {
-        public string Name;
+        public float PlayTimeSeconds;
 
         public override string ToString()
         {

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Save
+namespace Save.State
 {
     public class StateHolder { }
 

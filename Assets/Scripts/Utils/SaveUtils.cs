@@ -23,14 +23,6 @@ namespace Utils
             }
         }
 
-        public static void DeleteDirectory(string path)
-        {
-            if (!Directory.Exists(path))
-                return;
-
-            Directory.Delete(path, true);
-        }
-
         public static string GetHashSum(string text)
         {
             var hashBytes = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(text));

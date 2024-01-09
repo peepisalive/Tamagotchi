@@ -1,4 +1,4 @@
-namespace Save
+namespace Save.State
 {
     public interface IStateHolder
     {

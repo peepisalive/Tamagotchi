@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace Save
+namespace Save.State
 {
     public interface IState
     {

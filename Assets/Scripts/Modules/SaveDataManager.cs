@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEditor;
+using Save.State;
 using System.IO;
 using System;
 using Events;
@@ -32,9 +33,9 @@ namespace Modules
         [MenuItem("Tamagotchi/Clear saves")]
         public static void ClearSaves()
         {
-            foreach (var savePath in Directory.EnumerateDirectories(SaveUtils.RootPath))
+            foreach (var saveFilePath in Directory.EnumerateFiles(SaveUtils.RootPath))
             {
-                SaveUtils.DeleteDirectory(savePath);
+                File.Delete(saveFilePath);
             }
         }
         #endregion
@@ -121,6 +122,9 @@ namespace Modules
         private void InitializeStateHolders()
         {
             _stateHolders.Add(typeof(PetStateHolder), new PetStateHolder());
+            _stateHolders.Add(typeof(GlobalStateHolder), new GlobalStateHolder());
+
+            TryLoadData();
         }
     }
 }
