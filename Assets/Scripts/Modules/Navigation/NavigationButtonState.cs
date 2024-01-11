@@ -1,6 +1,6 @@
 namespace Modules.Navigation
 {
-    public enum NavigationButtonState
+    public enum NavigationButtonState : sbyte
     {
         Transition = 1,
         Locked = 2,

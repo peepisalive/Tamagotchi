@@ -1,6 +1,6 @@
 namespace Core
 {
-    public enum ParameterType
+    public enum ParameterType : sbyte
     {
         Health = 0,
         Happiness = 1,

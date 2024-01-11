@@ -71,7 +71,7 @@ namespace GameLoading.LoadingOperations
         }
 
 
-        public enum ExecutionMethod
+        public enum ExecutionMethod : sbyte
         {
             Parallel = 0,
             Sequently = 1

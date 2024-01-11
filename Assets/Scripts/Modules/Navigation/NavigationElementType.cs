@@ -1,6 +1,6 @@
 namespace Modules.Navigation
 {
-    public enum NavigationElementType
+    public enum NavigationElementType : byte
     {
         None = 0,
         MainScreen = 1,
