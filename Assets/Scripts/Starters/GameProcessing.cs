@@ -1,4 +1,5 @@
 using Leopotam.Ecs;
+using Systems;
 using System;
 
 namespace Starter
@@ -10,7 +11,8 @@ namespace Starter
             Systems = new EcsSystems(world);
 
             Systems
-                .Add(new PetCreationSystem());
+                .Add(new PetCreationSystem())
+                .Add(new ParametersSystem());
 
             Systems.Init();
         }
