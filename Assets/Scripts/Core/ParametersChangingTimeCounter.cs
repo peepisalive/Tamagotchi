@@ -12,9 +12,11 @@ namespace Core
 
         private IEnumerator ParametersChangingRoutine()
         {
-            yield return new WaitForSecondsRealtime(5f);
-            EventSystem.Send(new ChangeParametersEvent());
-            yield return StartCoroutine(nameof(ParametersChangingRoutine));
+            while (true)
+            {
+                yield return new WaitForSecondsRealtime(5f); // edit time
+                EventSystem.Send(new ChangeParametersEvent());
+            }
         }
 
         private void Awake()
