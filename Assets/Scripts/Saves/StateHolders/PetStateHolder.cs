@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using Extensions;
 using System;
+using Core;
 
 namespace Save.State
 {
@@ -15,7 +16,9 @@ namespace Save.State
 
     public sealed class PetState : IState
     {
+        public string Id;
         public string Name;
+        public PetType Type;
 
         public override string ToString()
         {

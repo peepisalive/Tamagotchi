@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEditor;
+using Components;
+using Tamagotchi;
 using Save.State;
 using System.IO;
 using System;
-using Events;
 using Utils;
 using Save;
 
@@ -45,7 +46,7 @@ namespace Modules
         {
             if (_stateHolders.TryGetValue(type, out var stateHolder))
             {
-                EventSystem.Send(new SaveDataEvent
+                EventSystem.Send(new Events.SaveDataEvent
                 {
                     SaveData = new List<SaveData>
                     {
@@ -73,7 +74,7 @@ namespace Modules
                 });
             }
 
-            EventSystem.Send(new SaveDataEvent
+            EventSystem.Send(new Events.SaveDataEvent
             {
                 SaveData = saveData,
                 IsAsync = isAsync
@@ -87,9 +88,10 @@ namespace Modules
             if (_stateHolders.TryGetValue(type, out var stateHolder))
             {
                 if (TryLoadFile(GetFilePath(stateHolder.Id), out var loadedData))
+                {
                     stateHolder.RestoreState(loadedData);
-
-                return true;
+                    return true;
+                }
             }
 
             return false;
@@ -107,10 +109,15 @@ namespace Modules
 
         public void TryLoadData()
         {
+            var isLoaded = true;
+
             foreach (var stateHolder in _stateHolders)
             {
-                TryLoadData(stateHolder.Key);
+                isLoaded &= TryLoadData(stateHolder.Key);
             }
+
+            if (isLoaded)
+                Application.Model.Send(new SaveDataLoadedComponent(_stateHolders));
         }
         #endregion
 
@@ -123,8 +130,6 @@ namespace Modules
         {
             _stateHolders.Add(typeof(PetStateHolder), new PetStateHolder());
             _stateHolders.Add(typeof(GlobalStateHolder), new GlobalStateHolder());
-
-            TryLoadData();
         }
     }
 }
