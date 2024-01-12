@@ -35,7 +35,9 @@ namespace System
                 var stateHolder = _saveDataManager.GetStateHolder<PetStateHolder>();
                 var pet = _petFilter.Get1(i).Pet;
 
+                stateHolder.State.Id = pet.Id;
                 stateHolder.State.Name = pet.Name;
+                stateHolder.State.Type = pet.Type;
             }
 
             _saveDataManager.SaveData(isAsync);

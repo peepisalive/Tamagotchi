@@ -23,8 +23,8 @@ namespace Tamagotchi
 
         static Application()
         {
-            SaveDataManager = new SaveDataManager();
             Model = new Model();
+            SaveDataManager = new SaveDataManager();
         }
     }
 }
