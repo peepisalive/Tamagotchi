@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
 using Newtonsoft.Json;
@@ -19,17 +20,24 @@ namespace Save.State
         public string Id;
         public string Name;
         public PetType Type;
+        public List<ParameterSave> Parameters;
 
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All,
+            });
         }
 
         public async Task<string> ToStringAsync(CancellationToken ct)
         {
             ct.ThrowIfCancellationRequested();
 
-            var task = this.SerializeJsonAsync(ct: ct);
+            var task = this.SerializeJsonAsync(Formatting.Indented, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All,
+            }, ct: ct);
 
             try
             {

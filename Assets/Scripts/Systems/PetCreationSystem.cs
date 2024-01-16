@@ -1,7 +1,7 @@
 using Leopotam.Ecs;
+using Save.State;
 using Components;
 using Core;
-using Save.State;
 
 namespace System
 {
@@ -24,9 +24,15 @@ namespace System
 
         private void CreatePet()
         {
+            var parameters = new Parameters();
+            var valueRange = new FloatRange(0f, 1f);
+
+            parameters.Add(ParameterType.Health, new Parameter(valueRange.Max, valueRange));
+            parameters.Add(ParameterType.Satiety, new Parameter(valueRange.Max, valueRange));
+
             _world.NewEntity().Replace(new PetComponent
             {
-                Pet = new Pet("Frogggg", PetType.Frog, null, Guid.NewGuid().ToString())
+                Pet = new Pet("Frogggg", PetType.Frog, parameters, Guid.NewGuid().ToString())
             });
         }
 
@@ -39,7 +45,7 @@ namespace System
 
                 _world.NewEntity().Replace(new PetComponent
                 {
-                    Pet = new Pet(save.Name, save.Type, null, save.Id)
+                    Pet = new Pet(save.Name, save.Type, new Parameters(save.Parameters), save.Id)
                 });
             }
         }
