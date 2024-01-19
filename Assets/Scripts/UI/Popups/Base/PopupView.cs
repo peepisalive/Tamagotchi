@@ -51,7 +51,7 @@ namespace UI.Popups
 
         private void InitializeButtons<B>(List<B> buttonSettings) where B : ButtonSettings
         {
-            if (buttonSettings == null && buttonSettings.Count == 0)
+            if (buttonSettings == null || buttonSettings.Count == 0)
                 return;
 
             var prefabsSet = SettingsProvider.Get<PrefabsSet>();
@@ -90,8 +90,6 @@ namespace UI.Popups
 
         private void DoShow()
         {
-            _rootRect ??= gameObject.GetComponent<RectTransform>();
-
             var startOffset = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
             var targetPosition = _rootRect.localPosition;
 

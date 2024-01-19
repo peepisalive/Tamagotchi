@@ -29,6 +29,7 @@ namespace Starter
                 .Add(new HealthActivitiesNavigationElements())
                 .Add(new SatietyActivitiesNavigationElements())
                 .Add(new HappinessActivitiesNavigationElements())
+                .Add(new TakeToVetNavigationElement())
                 .Add(Application.Model)
                 .Inject(new ScreenManager());
 

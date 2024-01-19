@@ -3,7 +3,7 @@ using Save.State;
 using Components;
 using Core;
 
-namespace System
+namespace System.Creation
 {
     public sealed class PetCreationSystem : IEcsInitSystem
     {

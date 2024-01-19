@@ -1,6 +1,6 @@
 namespace Modules.Navigation
 {
-    public enum NavigationElementType : byte
+    public enum NavigationElementType : short
     {
         None = 0,
         MainScreen = 1,
@@ -10,5 +10,7 @@ namespace Modules.Navigation
         HealthActivities = 100,
         SatietyActivities = 101,
         HappinessActivities = 102,
+
+        TakeToVetActivity = 200,
     }
 }
