@@ -1,12 +1,19 @@
 using Leopotam.Ecs;
 using Components;
+using Modules;
+using Events;
 
 namespace Systems
 {
-    public sealed class ParametersSystem : IEcsRunSystem
+    public sealed class ParametersSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private EcsFilter<PetComponent> _petsFilter;
         private EcsFilter<ChangeParameterEvent> _changeParameterFilter;
+
+        public void Init()
+        {
+            EventSystem.Subscribe<ChangeParametersEvent>(ChangeParameters);
+        }
 
         public void Run()
         {
@@ -30,6 +37,16 @@ namespace Systems
                     }
                 }
             }
+        }
+
+        public void Destroy()
+        {
+            EventSystem.Unsubscribe<ChangeParametersEvent>(ChangeParameters);
+        }
+
+        private void ChangeParameters(ChangeParametersEvent e)
+        {
+            // to do
         }
     }
 }

@@ -2,8 +2,10 @@ namespace Core
 {
     public enum ParameterType : sbyte
     {
-        Health = 0,
-        Happiness = 1,
-        Satiety = 2,
+        Happiness = 0,
+        Satiety = 1,
+        Hygiene = 2,
+        Fatigue = 3,
+        Health = 4,
     }
 }

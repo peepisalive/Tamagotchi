@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Save;
 
 namespace Core
 {
@@ -19,6 +20,13 @@ namespace Core
             ValueRange = valueRange;
         }
 
+        public Parameter(ParameterSave save)
+        {
+            ValueRange = new FloatRange(save.MinValue, save.MaxValue);
+            PreviousValue = save.PreviousValue;
+            Value = save.Value;
+        }
+
         public void Add(float value)
         {
             PreviousValue = Value;
@@ -33,6 +41,18 @@ namespace Core
             Value = Mathf.Clamp(Value - value, ValueRange.Min, ValueRange.Max);
 
             OnValueChanged?.Invoke(Value, PreviousValue);
+        }
+
+        public ParameterSave GetSave(ParameterType type)
+        {
+            return new ParameterSave
+            {
+                Type = type,
+                PreviousValue = PreviousValue,
+                Value = Value,
+                MaxValue = ValueRange.Max,
+                MinValue = ValueRange.Min,
+            };
         }
     }
 }

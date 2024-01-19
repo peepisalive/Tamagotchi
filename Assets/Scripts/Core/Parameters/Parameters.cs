@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using Save;
 
 namespace Core
 {
@@ -11,6 +12,14 @@ namespace Core
         public Parameters()
         {
             _parameters = new Dictionary<ParameterType, Parameter>();
+        }
+
+        public Parameters(List<ParameterSave> saves) : this()
+        {
+            saves.ForEach(save =>
+            {
+                _parameters.Add(save.Type, new Parameter(save));
+            });
         }
 
         public Parameter Get(ParameterType type)
@@ -43,6 +52,18 @@ namespace Core
             {
                 OnParameterValueChanged?.Invoke(type, value, previousValue);
             };
+        }
+
+        public List<ParameterSave> GetSaves()
+        {
+            var saves = new List<ParameterSave>();
+
+            foreach (var parameter in _parameters)
+            {
+                saves.Add(parameter.Value.GetSave(parameter.Key));
+            }
+
+            return saves;
         }
     }
 }

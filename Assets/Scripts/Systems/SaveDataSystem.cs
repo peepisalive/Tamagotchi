@@ -38,6 +38,7 @@ namespace System
                 stateHolder.State.Id = pet.Id;
                 stateHolder.State.Name = pet.Name;
                 stateHolder.State.Type = pet.Type;
+                stateHolder.State.Parameters = pet.Parameters.GetSaves();
             }
 
             _saveDataManager.SaveData(isAsync);
