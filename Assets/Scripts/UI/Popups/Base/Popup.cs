@@ -5,7 +5,7 @@ namespace UI.Popups
 {
     public class Popup
     {
-        public bool IgnoreOverlayButtonAction;
+        public bool IgnoreOverlayButton;
         public List<TextButtonSettings> ButtonSettings;
     }
 

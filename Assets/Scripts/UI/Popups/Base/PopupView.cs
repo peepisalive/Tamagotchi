@@ -1,19 +1,19 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UI.Controller;
 using UnityEngine;
 using DG.Tweening;
 using UI.Settings;
 using Settings;
+using Modules;
+using Events;
 
 namespace UI.Popups
 {
     public class PopupView<T> : PopupViewBase where T : Popup
     {
         [Header("Base")]
-        [SerializeField] private RectTransform _rootRect;
-        [SerializeField] private Button _overlayButton;
+        [SerializeField] private RectTransform _popupRect;
 
         [Header("Blocks")]
         [SerializeField] private RectTransform _topParent;
@@ -25,27 +25,23 @@ namespace UI.Popups
         [SerializeField] private RectTransform _oneButtonParent;
 
         private readonly float _durationTween = 0.3f;
-        private bool _ignoreOverlayButtonAction;
+        private bool _ignoreOverlayButton;
 
         public virtual void Setup(T settings)
         {
-            _ignoreOverlayButtonAction = settings.IgnoreOverlayButtonAction;
+            _ignoreOverlayButton = settings.IgnoreOverlayButton;
             InitializeButtons(settings.ButtonSettings);
         }
 
         public override void Show()
         {
             base.Show();
-
-            AddListeners();
             DoShow();
         }
 
         public override void Hide()
         {
             base.Hide();
-
-            RemoveListeners();
             DoHide();
         }
 
@@ -90,42 +86,34 @@ namespace UI.Popups
 
         private void DoShow()
         {
+            EventSystem.Send(new ShowPopupEvent
+            {
+                IgnoreOverlayButton = _ignoreOverlayButton
+            });
+
             var startOffset = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
-            var targetPosition = _rootRect.localPosition;
+            var targetPosition = _popupRect.localPosition;
 
             if (Mathf.Abs(startOffset.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) <= Mathf.Epsilon)
                 return;
 
-            _rootRect.localPosition += startOffset;
-            _rootRect.DOAnchorPos(targetPosition, _durationTween)
-                .SetEase(Ease.InOutCubic)
-                .OnComplete(() => _overlayButton.gameObject.SetActive(true));
+            _popupRect.localPosition += startOffset;
+            _popupRect.DOAnchorPos(targetPosition, _durationTween)
+                .SetEase(Ease.InOutCubic);
         }
 
         private void DoHide()
         {
+            EventSystem.Send(new HidePopupEvent());
+
             var targetPosition = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
 
             if (Mathf.Abs(targetPosition.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) <= Mathf.Epsilon)
                 return;
 
-            _overlayButton.gameObject.SetActive(false);
-            _rootRect.DOAnchorPos(targetPosition, _durationTween)
+            _popupRect.DOAnchorPos(targetPosition, _durationTween)
                 .SetEase(Ease.InOutCubic)
                 .OnComplete(() => Destroy(gameObject));
-        }
-
-        private void AddListeners()
-        {
-            if (_ignoreOverlayButtonAction)
-                return;
-
-            _overlayButton?.onClick.AddListener(Hide);
-        }
-
-        private void RemoveListeners()
-        {
-            _overlayButton?.onClick?.RemoveListener(Hide);
         }
     }
 }
