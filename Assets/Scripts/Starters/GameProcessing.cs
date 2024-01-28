@@ -1,6 +1,7 @@
 using Systems.Activities;
 using System.Creation;
 using Leopotam.Ecs;
+using Components;
 using Systems;
 
 namespace Starter
@@ -15,7 +16,10 @@ namespace Starter
                 .Add(new PopupSystem())
                 .Add(new PetCreationSystem())
                 .Add(new ParametersSystem())
-                .Add(new TakeToVetActivitySystem());
+                .Add(new BankAccountSystem())
+                .Add(new TakeToVetActivitySystem())
+                .OneFrame<ChangeParameterEvent>()
+                .OneFrame<ChangeBankAccountValueEvent>();
 
             Systems.Init();
         }

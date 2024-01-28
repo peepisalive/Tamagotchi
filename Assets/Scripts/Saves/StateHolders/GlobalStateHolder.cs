@@ -15,6 +15,7 @@ namespace Save.State
 
     public sealed class GlobalState : IState
     {
+        public int BankAccountValue;
         public float PlayTimeSeconds;
 
         public override string ToString()
