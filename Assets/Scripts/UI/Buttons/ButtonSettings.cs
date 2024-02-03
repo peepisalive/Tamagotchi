@@ -11,7 +11,6 @@ namespace UI.Settings
     public sealed class TextButtonSettings : ButtonSettings
     {
         public string Title;
-        public Color? Color = null;
     }
 
     public sealed class ImageButtonSettings : ButtonSettings

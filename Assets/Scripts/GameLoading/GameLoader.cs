@@ -26,7 +26,7 @@ namespace GameLoading
                 }
             }
 
-            SceneManager.LoadScene("MainScene", LoadSceneMode.Single); // to do: edit this, cringe
+            SceneManager.LoadScene("MainScene", LoadSceneMode.Single); // TO DO: edit this, cringe
         } 
 
         private void Awake()

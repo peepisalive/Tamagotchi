@@ -17,15 +17,5 @@ namespace Core
             Value += value;
             OnValueChangedEvent?.Invoke(Value);
         }
-
-        public void Dec(int value)
-        {
-            Value += value;
-
-            if (Value <= 0)
-                Value = 0;
-
-            OnValueChangedEvent?.Invoke(Value);
-        }
     }
 }

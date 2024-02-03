@@ -16,13 +16,5 @@ namespace UI.View
 
             _titleLabel.text = text;
         }
-
-        public void SetButtonColor(Color? color)
-        {
-            if (_buttonImage == null || color == null)
-                return;
-
-            _buttonImage.color = (Color)color;
-        }
     }
 }

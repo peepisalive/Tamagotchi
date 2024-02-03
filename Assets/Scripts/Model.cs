@@ -14,6 +14,8 @@ namespace Tamagotchi
 
         private EcsFilter<BlockComponent, Active> _activeBlockFilter;
         private EcsFilter<BlockComponent> _blockFilter;
+
+        private EcsFilter<BankAccountComponent> _bankAccountFilter;
         private EcsFilter<PetComponent> _petFilter;
 
         #region Navigation
@@ -43,6 +45,16 @@ namespace Tamagotchi
             foreach (var i in _petFilter)
             {
                 return _petFilter.Get1(i).Pet;
+            }
+
+            return null;
+        }
+
+        public BankAccount GetBankAccount()
+        {
+            foreach (var i in _bankAccountFilter)
+            {
+                return _bankAccountFilter.Get1(i).BankAccount;
             }
 
             return null;
