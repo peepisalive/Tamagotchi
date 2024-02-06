@@ -1,15 +1,24 @@
+using Settings.Activities;
 using Modules.Navigation;
 using Leopotam.Ecs;
 using Components;
+using Settings;
 
 namespace Systems.Activities
 {
-    public abstract class ActivitySystem : IEcsRunSystem
+    public abstract class ActivitySystem : IEcsInitSystem, IEcsRunSystem
     {
         protected abstract NavigationElementType Type { get; }
 
         protected EcsWorld World;
         protected EcsFilter<ActivityComponent> ActivityFilter;
+        
+        protected ActivitySettings ActivitySettings;
+
+        public void Init()
+        {
+            ActivitySettings = SettingsProvider.Get<ActivitiesSettings>().Get(Type);
+        }
 
         public void Run()
         {
