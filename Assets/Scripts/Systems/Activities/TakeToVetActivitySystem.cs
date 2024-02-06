@@ -13,7 +13,7 @@ namespace Systems.Activities
     {
         protected override NavigationElementType Type => NavigationElementType.TakeToVetActivity;
 
-        protected override void StartInteraction(NavigationElementType type, bool isEnable)
+        protected override void StartInteraction(bool isEnable)
         {
             World.NewEntity().Replace(new ShowPopup
             {

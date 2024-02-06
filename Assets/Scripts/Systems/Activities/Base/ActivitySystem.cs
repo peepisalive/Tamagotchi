@@ -23,12 +23,12 @@ namespace Systems.Activities
                 if (comp.Type != Type)
                     continue;
 
-                StartInteraction(comp.Type, comp.IsEnable);
+                StartInteraction(comp.IsEnable);
 
                 ActivityFilter.GetEntity(i).Destroy();
             }
         }
 
-        protected abstract void StartInteraction(NavigationElementType type, bool isEnable);
+        protected abstract void StartInteraction(bool isEnable);
     }
 }
