@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
+using UI.Settings;
 using Components;
 using UI.Popups;
+using Modules;
+using Events;
 
 namespace Systems.Activities
 {
@@ -15,7 +19,25 @@ namespace Systems.Activities
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
+                    ButtonSettings = new List<TextButtonSettings>
+                    {
+                        new TextButtonSettings
+                        {
+                            Title = "Close", // to do: use localization system
+                            Action = () =>
+                            {
+                                EventSystem.Send<HidePopupEvent>();
+                            }
+                        },
+                        new TextButtonSettings
+                        {
+                            Title = "Take to vet", // to do: use localization system
+                            Action = () =>
+                            {
 
+                            }
+                        }
+                    }
                 })
             });
         }

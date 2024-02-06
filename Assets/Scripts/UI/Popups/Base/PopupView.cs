@@ -87,7 +87,7 @@ namespace UI.Popups
 
         private void DoShow()
         {
-            EventSystem.Send(new ShowPopupEvent
+            EventSystem.Send(new OnShowPopupEvent
             {
                 IgnoreOverlayButton = _ignoreOverlayButton
             });
@@ -105,7 +105,7 @@ namespace UI.Popups
 
         private void DoHide()
         {
-            EventSystem.Send(new HidePopupEvent());
+            EventSystem.Send(new OnHidePopupEvent());
 
             var targetPosition = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
 

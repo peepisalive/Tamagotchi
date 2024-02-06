@@ -9,23 +9,23 @@ namespace Systems.Activities
         protected abstract NavigationElementType Type { get; }
 
         protected EcsWorld World;
-        protected EcsFilter<ActivityComponent> _activityFilter;
+        protected EcsFilter<ActivityComponent> ActivityFilter;
 
         public void Run()
         {
-            if (_activityFilter.IsEmpty())
+            if (ActivityFilter.IsEmpty())
                 return;
 
-            foreach (var i in _activityFilter)
+            foreach (var i in ActivityFilter)
             {
-                var comp = _activityFilter.Get1(i);
+                var comp = ActivityFilter.Get1(i);
 
                 if (comp.Type != Type)
                     continue;
 
                 StartInteraction(comp.Type, comp.IsEnable);
 
-                _activityFilter.GetEntity(i).Destroy();
+                ActivityFilter.GetEntity(i).Destroy();
             }
         }
 
