@@ -29,11 +29,6 @@ namespace Systems
 
         public void Run()
         {
-            foreach (var i in _bankAccountFilter)
-            {
-                _bankAccountFilter.Get1(i).BankAccount.Add(1);
-            }
-
             if (_changeValueFilter.IsEmpty())
                 return;
 
