@@ -13,5 +13,6 @@ namespace Modules.Navigation
 
         TakeToVetActivity = 200,
         SpaTreatmentsActivity = 201,
+        TrainingActivity = 202,
     }
 }

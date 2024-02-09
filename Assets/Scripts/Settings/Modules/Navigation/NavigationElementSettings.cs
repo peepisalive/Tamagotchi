@@ -19,8 +19,8 @@ namespace Settings.Modules.Navigations
             return new NavigationButtonData
             {
                 Type = Type,
-                Title = LocalizationProvider.GetText(string.Format(TITLE_KEY, Type.ToString())),
-                Description = LocalizationProvider.GetText(string.Format(DESCR_KEY, Type.ToString())),
+                Title = LocalizationProvider.GetNavigationText(string.Format(TITLE_KEY, Type.ToString())),
+                Description = LocalizationProvider.GetNavigationText(string.Format(DESCR_KEY, Type.ToString())),
             };
         }
 
@@ -29,7 +29,7 @@ namespace Settings.Modules.Navigations
             return new NavigationScreenData
             {
                 Type = Type,
-                Title = LocalizationProvider.GetText(string.Format(TITLE_KEY, Type.ToString())),
+                Title = LocalizationProvider.GetNavigationText(string.Format(TITLE_KEY, Type.ToString())),
             };
         }
     }

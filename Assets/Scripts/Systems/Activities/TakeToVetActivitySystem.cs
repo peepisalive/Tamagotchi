@@ -5,8 +5,7 @@ using Leopotam.Ecs;
 using UI.Settings;
 using Components;
 using UI.Popups;
-using Modules;
-using Events;
+using Utils;
 
 namespace Systems.Activities
 {
@@ -14,7 +13,9 @@ namespace Systems.Activities
     {
         protected override NavigationElementType Type => NavigationElementType.TakeToVetActivity;
 
-        protected override void StartInteraction(bool isEnable)
+        private EcsFilter<BankAccountComponent> _bankAccountFilter;
+
+        protected override void StartActivity(bool isEnable)
         {
             World.NewEntity().Replace(new ShowPopup
             {
@@ -28,7 +29,7 @@ namespace Systems.Activities
                             Title = "Close", // to do: use localization system
                             Action = () =>
                             {
-                                EventSystem.Send<HidePopupEvent>();
+                                World.NewEntity().Replace(new HidePopup());
                             }
                         },
                         new TextButtonSettings
@@ -36,7 +37,18 @@ namespace Systems.Activities
                             Title = "Take to vet", // to do: use localization system
                             Action = () =>
                             {
+                                World.NewEntity().Replace(new HidePopup());
 
+                                if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
+                                {
+                                    PopupUtils.ShowNotEnoughMoneyPopup();
+                                    return;
+                                }
+
+                                World.NewEntity().Replace(new ChangeBankAccountValueEvent
+                                {
+                                    Value = Settings.Price
+                                });
                             }
                         }
                     }

@@ -17,11 +17,19 @@ namespace Starter
                 .Add(new PetCreationSystem())
                 .Add(new ParametersSystem())
                 .Add(new BankAccountSystem())
-                .Add(new TakeToVetActivitySystem())
+                .Add(HealthActivities(world))
                 .OneFrame<ChangeParameterEvent>()
                 .OneFrame<ChangeBankAccountValueEvent>();
 
             Systems.Init();
+        }
+
+        private EcsSystems HealthActivities(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new TakeToVetActivitySystem())
+                .Add(new SpaTreatmentsActivitySystem())
+                .Add(new TrainingActivitySystem());
         }
     }
 }

@@ -32,12 +32,12 @@ namespace Systems.Activities
                 if (comp.Type != Type)
                     continue;
 
-                StartInteraction(comp.IsEnable);
+                StartActivity(comp.IsEnable);
 
                 ActivityFilter.GetEntity(i).Destroy();
             }
         }
 
-        protected abstract void StartInteraction(bool isEnable);
+        protected abstract void StartActivity(bool isEnable);
     }
 }

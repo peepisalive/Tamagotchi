@@ -14,12 +14,17 @@ namespace Modules.Localization
     public static class LocalizationProvider
     {
         private static Dictionary<string, LocalizationFileData> _localizationFiles;
+
+        private static LocalizedText _navigationLocalizedText;
         private static LocalizedText _defaultLocalizedText;
 
         static LocalizationProvider()
         {
+            var localizationSettings = SettingsProvider.Get<LocalizationDefaultSettings>();
+
             _localizationFiles = new Dictionary<string, LocalizationFileData>();
-            _defaultLocalizedText = SettingsProvider.Get<LocalizationDefaultSettings>().DefaultLocalizationFile;
+            _defaultLocalizedText = localizationSettings.DefaultLocalizationFile;
+            _navigationLocalizedText = localizationSettings.NavigationLocalizationFile;
         }
 
         public static string GetText(LocalizedText asset, string tags)
@@ -41,6 +46,19 @@ namespace Modules.Localization
 
             var entryName = _defaultLocalizedText.TableReference.TableCollectionName;
             var entryId = _defaultLocalizedText.TableEntryReference.KeyId;
+
+            if (_localizationFiles.TryGetValue(GetFileDataKey(entryName, entryId), out var fileData))
+                fileData.TryGetValue(tags, out text);
+
+            return text;
+        }
+
+        public static string GetNavigationText(string tags)
+        {
+            var text = string.Empty;
+
+            var entryName = _navigationLocalizedText.TableReference.TableCollectionName;
+            var entryId = _navigationLocalizedText.TableEntryReference.KeyId;
 
             if (_localizationFiles.TryGetValue(GetFileDataKey(entryName, entryId), out var fileData))
                 fileData.TryGetValue(tags, out text);

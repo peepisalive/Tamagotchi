@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 281a0e3ce598dd341b9fb4c727d518e5, type: 3}
-  m_Name: TakeToVetActivitySettings
+  m_Script: {fileID: 11500000, guid: 889dd3b54c5cd2d439921d469538e57a, type: 3}
+  m_Name: SpaTreatmentsActivitySettings
   m_EditorClassIdentifier: 
-  _price: 550
+  _price: 350

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: ActivitiesSettings
   m_EditorClassIdentifier: 
   _settings:
+  - {fileID: 11400000, guid: 687a03a0c31fd13419d39227e97ad2ed, type: 2}
   - {fileID: 11400000, guid: 7403982e406c4b74cbd78195f6f963f5, type: 2}
+  - {fileID: 11400000, guid: 18f76cb177e3b9d4c80a568bbd9ccd1b, type: 2}

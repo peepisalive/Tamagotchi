@@ -8,9 +8,9 @@ using UI.Popups;
 
 namespace Systems.Activities
 {
-    public sealed class SpaTreatmentsActivitySystem : ActivitySystem<SpaTreatmentsActivitySettings>
+    public sealed class TrainingActivitySystem : ActivitySystem<TrainingActivitySettings>
     {
-        protected override NavigationElementType Type => NavigationElementType.SpaTreatmentsActivity;
+        protected override NavigationElementType Type => NavigationElementType.TrainingActivity;
 
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
 
@@ -33,7 +33,7 @@ namespace Systems.Activities
                         },
                         new TextButtonSettings
                         {
-                            Title = "Spa treatments", // to do: use localization system
+                            Title = "Training", // to do: use localization system
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new ChangeBankAccountValueEvent
