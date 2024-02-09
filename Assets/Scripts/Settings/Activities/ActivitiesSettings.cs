@@ -10,13 +10,21 @@ namespace Settings.Activities
     {
         [SerializeField] private List<ActivitySettings> _settings;
 
-        public ActivitySettings Get(NavigationElementType type)
+        public T Get<T>(NavigationElementType type) where T : ActivitySettings
         {
 #if UNITY_EDITOR
             if (!_settings.Any(s => s.Type == type))
                 Debug.LogError($"Not found settings by [{type}] type");
 #endif
-            return _settings.FirstOrDefault(s => s.Type == type);
+            return (T)_settings.FirstOrDefault(s => s.Type == type);
+        }
+
+        public void Add(ActivitySettings settings)
+        {
+            if (_settings.Contains(settings))
+                return;
+
+            _settings.Add(settings);
         }
     }
 }

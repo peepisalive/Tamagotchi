@@ -6,18 +6,18 @@ using Settings;
 
 namespace Systems.Activities
 {
-    public abstract class ActivitySystem : IEcsInitSystem, IEcsRunSystem
+    public abstract class ActivitySystem<T> : IEcsInitSystem, IEcsRunSystem where T : ActivitySettings
     {
         protected abstract NavigationElementType Type { get; }
 
         protected EcsWorld World;
         protected EcsFilter<ActivityComponent> ActivityFilter;
         
-        protected ActivitySettings ActivitySettings;
+        protected T Settings;
 
         public void Init()
         {
-            ActivitySettings = SettingsProvider.Get<ActivitiesSettings>().Get(Type);
+            Settings = SettingsProvider.Get<ActivitiesSettings>().Get<T>(Type);
         }
 
         public void Run()

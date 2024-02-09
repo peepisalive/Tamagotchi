@@ -10,9 +10,9 @@ using Events;
 
 namespace Systems.Activities
 {
-    public sealed class TakeToVetActivitySystem : ActivitySystem<TakeToVetActivitySettings>
+    public sealed class SpaTreatmentsActivitySystem : ActivitySystem<TakeToVetActivitySettings>
     {
-        protected override NavigationElementType Type => NavigationElementType.TakeToVetActivity;
+        protected override NavigationElementType Type => NavigationElementType.SpaTreatmentsActivity;
 
         protected override void StartInteraction(bool isEnable)
         {
@@ -33,7 +33,7 @@ namespace Systems.Activities
                         },
                         new TextButtonSettings
                         {
-                            Title = "Take to vet", // to do: use localization system
+                            Title = "Spa treatments", // to do: use localization system
                             Action = () =>
                             {
 

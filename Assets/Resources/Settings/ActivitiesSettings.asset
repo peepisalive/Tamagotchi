@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ebfb14ae0f18246803d2c863ad7983, type: 3}
   m_Name: ActivitiesSettings
   m_EditorClassIdentifier: 
-  _settings: []
+  _settings:
+  - {fileID: 11400000, guid: 7403982e406c4b74cbd78195f6f963f5, type: 2}
