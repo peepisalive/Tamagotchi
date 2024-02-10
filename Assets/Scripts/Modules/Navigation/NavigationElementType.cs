@@ -12,5 +12,7 @@ namespace Modules.Navigation
         HappinessActivities = 102,
 
         TakeToVetActivity = 200,
+        SpaTreatmentsActivity = 201,
+        TrainingActivity = 202,
     }
 }

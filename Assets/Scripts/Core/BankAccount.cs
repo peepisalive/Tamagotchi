@@ -15,17 +15,16 @@ namespace Core
         public void Add(int value)
         {
             Value += value;
-            OnValueChangedEvent?.Invoke(Value);
-        }
 
-        public void Dec(int value)
-        {
-            Value += value;
-
-            if (Value <= 0)
+            if (Value < 0)
                 Value = 0;
 
             OnValueChangedEvent?.Invoke(Value);
+        }
+
+        public bool IsMoneyAvailable(int value)
+        {
+            return Value >= -value;
         }
     }
 }

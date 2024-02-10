@@ -37,7 +37,7 @@ namespace Systems.Navigation
 
         public bool OnClick(NavigationElementType elementType)
         {
-            return true;
+            return false;
         }
 
         public NavigationButtonData GetButtonData(NavigationElementType elementType)

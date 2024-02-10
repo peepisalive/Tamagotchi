@@ -39,13 +39,14 @@ namespace Modules
         {
             if (_currentPopup == null)
             {
-#if DEBUG
+#if UNITY_EDITOR
                 Debug.LogError("Try close current Popup[null]");
 #endif
                 return;
             }
 
             _currentPopup.Hide();
+            _currentPopup = null;
         }
     }
 }

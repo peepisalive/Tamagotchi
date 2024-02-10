@@ -11,7 +11,7 @@ namespace UI.Controller
         [SerializeField] private RectTransform _root;
         [SerializeField] private Button _button;
 
-        private void UpdateState(ShowPopupEvent e)
+        private void UpdateState(OnShowPopupEvent e)
         {
             _root.gameObject.SetActive(true);
 
@@ -21,7 +21,7 @@ namespace UI.Controller
             _button.onClick.AddListener(SendHidePopupEvent);
         }
 
-        private void UpdateState(HidePopupEvent e)
+        private void UpdateState(OnHidePopupEvent e)
         {
             _root.gameObject.SetActive(false);
             _button.onClick?.RemoveListener(SendHidePopupEvent);
@@ -34,14 +34,14 @@ namespace UI.Controller
 
         private void Start()
         {
-            EventSystem.Subscribe<ShowPopupEvent>(UpdateState);
-            EventSystem.Subscribe<HidePopupEvent>(UpdateState);
+            EventSystem.Subscribe<OnShowPopupEvent>(UpdateState);
+            EventSystem.Subscribe<OnHidePopupEvent>(UpdateState);
         }
 
         private void OnDestroy()
         {
-            EventSystem.Unsubscribe<ShowPopupEvent>(UpdateState);
-            EventSystem.Unsubscribe<HidePopupEvent>(UpdateState);
+            EventSystem.Unsubscribe<OnShowPopupEvent>(UpdateState);
+            EventSystem.Unsubscribe<OnHidePopupEvent>(UpdateState);
         }
     }
 }

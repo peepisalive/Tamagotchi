@@ -1,10 +1,10 @@
 [
-	{"tags": ["navigation_title_HealthActivities"], "topic": "Health activities"},
-	{"tags": ["navigation_descr_HealthActivities"], "topic": "[test]"},
-	{"tags": ["navigation_title_HappinessActivities"], "topic": "Happiness activities"},
-	{"tags": ["navigation_descr_HappinessActivities"], "topic": "[test]"},
-	{"tags": ["navigation_title_SatietyActivities"], "topic": "Satiety activities"},
-	{"tags": ["navigation_descr_SatietyActivities"], "topic": "[test]"},
-	{"tags": ["navigation_title_TakeToVetActivity"], "topic": "Take to vet activity"},
-	{"tags": ["navigation_descr_TakeToVetActivity"], "topic": "[test]"},
+	{
+		"tags": [ "test" ],
+		"topic": "ttestest"
+	},
+	{
+		"tags": [ "test" ],
+		"topic": "test"
+	}
 ]

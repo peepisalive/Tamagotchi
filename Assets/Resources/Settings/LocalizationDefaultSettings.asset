@@ -20,3 +20,11 @@ MonoBehaviour:
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
+  <NavigationLocalizationFile>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:dfb73ea2ce921274da2dab529a57de04
+    m_TableEntryReference:
+      m_KeyId: 16325416769130496
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0

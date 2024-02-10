@@ -4,6 +4,7 @@ using UI.Controller;
 using UnityEngine;
 using DG.Tweening;
 using UI.Settings;
+using System.Linq;
 using Settings;
 using Modules;
 using Events;
@@ -59,34 +60,34 @@ namespace UI.Popups
             {
                 var settings = buttonSettings[0];
 
-                //if (settings is TextButtonSettings textButtonSettings)
-                //{
-                //    var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
-                //        .GetComponent<TextButtonController>();
+                if (settings is TextButtonSettings textButtonSettings)
+                {
+                    var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
+                        .GetComponent<TextButtonController>();
 
-                //    Instantiate(prefab, _oneButtonParent, false)
-                //        .Setup(textButtonSettings);
-                //}
+                    Instantiate(prefab, _oneButtonParent, false)
+                        .Setup(textButtonSettings);
+                }
             }
             else
             {
-                //foreach (var setting in buttonSettings)
-                //{
-                //    if (setting is TextButtonSettings textButtonSettings)
-                //    {
-                //        var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
-                //            .GetComponent<TextButtonController>();
+                foreach (var setting in buttonSettings)
+                {
+                    if (setting is TextButtonSettings textButtonSettings)
+                    {
+                        var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
+                            .GetComponent<TextButtonController>();
 
-                //        Instantiate(prefab, _someButtonParent, false)
-                //            .Setup(textButtonSettings);
-                //    }
-                //}
+                        Instantiate(prefab, _someButtonParent, false)
+                            .Setup(textButtonSettings);
+                    }
+                }
             }
         }
 
         private void DoShow()
         {
-            EventSystem.Send(new ShowPopupEvent
+            EventSystem.Send(new OnShowPopupEvent
             {
                 IgnoreOverlayButton = _ignoreOverlayButton
             });
@@ -104,7 +105,7 @@ namespace UI.Popups
 
         private void DoHide()
         {
-            EventSystem.Send(new HidePopupEvent());
+            EventSystem.Send(new OnHidePopupEvent());
 
             var targetPosition = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
 

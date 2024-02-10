@@ -7,5 +7,6 @@ namespace Settings.Modules.Localization
     public sealed class LocalizationDefaultSettings : ScriptableObject
     {
         [field: SerializeField] public LocalizedText DefaultLocalizationFile { get; private set; }
+        [field: SerializeField] public LocalizedText NavigationLocalizationFile { get; private set; }
     }
 }

@@ -1,34 +1,43 @@
+using Settings.Activities;
 using Modules.Navigation;
 using Leopotam.Ecs;
 using Components;
+using Settings;
 
 namespace Systems.Activities
 {
-    public abstract class ActivitySystem : IEcsRunSystem
+    public abstract class ActivitySystem<T> : IEcsInitSystem, IEcsRunSystem where T : ActivitySettings
     {
         protected abstract NavigationElementType Type { get; }
 
         protected EcsWorld World;
-        protected EcsFilter<ActivityComponent> _activityFilter;
+        protected EcsFilter<ActivityComponent> ActivityFilter;
+        
+        protected T Settings;
+
+        public void Init()
+        {
+            Settings = SettingsProvider.Get<ActivitiesSettings>().Get<T>(Type);
+        }
 
         public void Run()
         {
-            if (_activityFilter.IsEmpty())
+            if (ActivityFilter.IsEmpty())
                 return;
 
-            foreach (var i in _activityFilter)
+            foreach (var i in ActivityFilter)
             {
-                var comp = _activityFilter.Get1(i);
+                var comp = ActivityFilter.Get1(i);
 
                 if (comp.Type != Type)
                     continue;
 
-                StartInteraction(comp.Type, comp.IsEnable);
+                StartActivity(comp.IsEnable);
 
-                _activityFilter.GetEntity(i).Destroy();
+                ActivityFilter.GetEntity(i).Destroy();
             }
         }
 
-        protected abstract void StartInteraction(NavigationElementType type, bool isEnable);
+        protected abstract void StartActivity(bool isEnable);
     }
 }

@@ -19,6 +19,10 @@ MonoBehaviour:
     m_Key: Common
     m_Metadata:
       m_Items: []
+  - m_Id: 16325416769130496
+    m_Key: Navigation
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 1487637638706364418
@@ -37,6 +41,9 @@ MonoBehaviour:
       data:
         m_Entries:
         - m_KeyId: 8188694528
+          m_TableCodes:
+          - en
+        - m_KeyId: 16325416769130496
           m_TableCodes:
           - en
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,

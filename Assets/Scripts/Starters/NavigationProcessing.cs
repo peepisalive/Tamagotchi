@@ -26,14 +26,34 @@ namespace Starter
                 .Add(new MainScreenNavigationElements())
                 .Add(new MenuScreenNavigationElements())
                 .Add(new ActivitiesScreenNavigationElements())
-                .Add(new HealthActivitiesNavigationElements())
-                .Add(new SatietyActivitiesNavigationElements())
-                .Add(new HappinessActivitiesNavigationElements())
-                .Add(new TakeToVetNavigationElement())
+                .Add(HealthActivitiesElements(world))
+                .Add(SatietyActivitiesElements(world))
+                .Add(HappinessActivitiesElements(world))
                 .Add(Application.Model)
                 .Inject(new ScreenManager());
 
             Systems.Init();
+        }
+
+        private EcsSystems HealthActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new HealthActivitiesNavigationElements())
+                .Add(new TakeToVetNavigationElement())
+                .Add(new SpaTreatmentsNavigationElement())
+                .Add(new TrainingNavigationElement());
+        }
+
+        private EcsSystems SatietyActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new SatietyActivitiesNavigationElements());
+        }
+
+        private EcsSystems HappinessActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new HappinessActivitiesNavigationElements());
         }
     }
 }
