@@ -6,8 +6,7 @@ using DG.Tweening;
 using UI.Settings;
 using System.Linq;
 using Settings;
-using Modules;
-using Events;
+using System;
 
 namespace UI.Popups
 {
@@ -25,12 +24,10 @@ namespace UI.Popups
         [SerializeField] private RectTransform _someButtonParent;
         [SerializeField] private RectTransform _oneButtonParent;
 
-        private readonly float _durationTween = 0.3f;
-        private bool _ignoreOverlayButton;
+        private readonly float _durationTween = 0.25f;
 
         public virtual void Setup(T settings)
         {
-            _ignoreOverlayButton = settings.IgnoreOverlayButton;
             InitializeButtons(settings.ButtonSettings);
         }
 
@@ -40,10 +37,10 @@ namespace UI.Popups
             DoShow();
         }
 
-        public override void Hide()
+        public override void Hide(Action onHideCallback = null)
         {
             base.Hide();
-            DoHide();
+            DoHide(onHideCallback);
         }
 
         private void InitializeButtons<B>(List<B> buttonSettings) where B : ButtonSettings
@@ -87,11 +84,6 @@ namespace UI.Popups
 
         private void DoShow()
         {
-            EventSystem.Send(new OnShowPopupEvent
-            {
-                IgnoreOverlayButton = _ignoreOverlayButton
-            });
-
             var startOffset = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
             var targetPosition = _popupRect.localPosition;
 
@@ -103,10 +95,8 @@ namespace UI.Popups
                 .SetEase(Ease.InOutCubic);
         }
 
-        private void DoHide()
+        private void DoHide(Action onHideCallback = null)
         {
-            EventSystem.Send(new OnHidePopupEvent());
-
             var targetPosition = Vector3.down.normalized * Application.MainCanvas.sizeDelta.y;
 
             if (Mathf.Abs(targetPosition.sqrMagnitude) - Mathf.Abs(Vector2.zero.sqrMagnitude) <= Mathf.Epsilon)
@@ -114,7 +104,11 @@ namespace UI.Popups
 
             _popupRect.DOAnchorPos(targetPosition, _durationTween)
                 .SetEase(Ease.InOutCubic)
-                .OnComplete(() => Destroy(gameObject));
+                .OnComplete(() =>
+                {
+                    onHideCallback?.Invoke();
+                    Destroy(gameObject);
+                });
         }
     }
 }

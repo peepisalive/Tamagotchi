@@ -13,6 +13,9 @@ namespace UI.Controller
 
         private void UpdateState(OnShowPopupEvent e)
         {
+            if (_root.gameObject.activeInHierarchy)
+                return;
+
             _root.gameObject.SetActive(true);
 
             if (e.IgnoreOverlayButton)

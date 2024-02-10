@@ -37,8 +37,6 @@ namespace Systems.Activities
                             Title = "Take to vet", // to do: use localization system
                             Action = () =>
                             {
-                                World.NewEntity().Replace(new HidePopup());
-
                                 if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
                                 {
                                     PopupUtils.ShowNotEnoughMoneyPopup();
@@ -49,6 +47,7 @@ namespace Systems.Activities
                                 {
                                     Value = Settings.Price
                                 });
+                                World.NewEntity().Replace(new HidePopup());
                             }
                         }
                     }
