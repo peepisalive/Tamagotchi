@@ -3,10 +3,11 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-namespace UI.Screen.Controller
+namespace UI.Controller.Screen
 {
     public class ScreenController : MonoBehaviour
     {
+        [Header("Base")]
         [SerializeField] private NavigationPanel _navigationPanel;
         private const float ANIMATION_DURATION = .2f;
 

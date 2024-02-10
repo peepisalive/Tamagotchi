@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UI.Screen.Controller;
+using UI.Controller.Screen;
 using UI.Controller;
 using UnityEngine;
 using UI.Popups;

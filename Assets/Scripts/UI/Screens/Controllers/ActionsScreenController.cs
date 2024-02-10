@@ -1,10 +1,9 @@
 using Application = Tamagotchi.Application;
 using Modules.Navigation;
-using UI.Screen.View;
-using UI.Controller;
+using UI.View.Screen;
 using UnityEngine;
 
-namespace UI.Screen.Controller
+namespace UI.Controller.Screen
 {
     [RequireComponent(typeof(ActionsScreenView))]
     public sealed class ActionsScreenController : ScreenController

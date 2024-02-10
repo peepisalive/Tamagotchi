@@ -26,14 +26,9 @@ namespace Systems
                     foreach (var j in _petsFilter)
                     {
                         var pet = _petsFilter.Get1(j).Pet;
+                        var parameter = pet.Parameters.Get(comp.Type);
 
-                        if (pet.Id != comp.PetId)
-                            continue;
-
-                        var request = comp.Request;
-                        var parameter = pet.Parameters.Get(request.ParameterType);
-
-                        parameter.Add(comp.Request.Value);
+                        parameter.Add(comp.Value);
                     }
                 }
             }

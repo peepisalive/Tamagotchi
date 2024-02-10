@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.Screen.View
+namespace UI.View.Screen
 {
     public sealed class ActionsScreenView : MonoBehaviour
     {

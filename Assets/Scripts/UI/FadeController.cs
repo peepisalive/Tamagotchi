@@ -35,7 +35,7 @@ namespace UI.Controller
                 });
         }
 
-        private void OnFirstScreenShowedEvent(ScreenReplacedEvent data)
+        private void OnScreenWithFadeOffShowedEvent(ScreenReplacedEvent data)
         {
             if (!data.FadeOffRequired)
                 return;
@@ -50,12 +50,12 @@ namespace UI.Controller
 
         private void Start()
         {
-            EventSystem.Subscribe<ScreenReplacedEvent>(OnFirstScreenShowedEvent);
+            EventSystem.Subscribe<ScreenReplacedEvent>(OnScreenWithFadeOffShowedEvent);
         }
 
         private void OnDestroy()
         {
-            EventSystem.Unsubscribe<ScreenReplacedEvent>(OnFirstScreenShowedEvent);
+            EventSystem.Unsubscribe<ScreenReplacedEvent>(OnScreenWithFadeOffShowedEvent);
         }
     }
 }

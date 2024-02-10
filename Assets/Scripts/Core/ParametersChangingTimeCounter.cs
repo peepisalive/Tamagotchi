@@ -14,7 +14,7 @@ namespace Core
         {
             while (true)
             {
-                yield return new WaitForSecondsRealtime(5f); // edit time
+                yield return new WaitForSecondsRealtime(5f); // to do: edit time
                 EventSystem.Send(new ChangeParametersEvent());
             }
         }

@@ -1,4 +1,4 @@
-using UI.Screen.Controller;
+using UI.Controller.Screen;
 
 namespace Events
 {

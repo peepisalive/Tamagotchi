@@ -1,4 +1,4 @@
-namespace UI.Screen.Controller
+namespace UI.Controller.Screen
 {
     public sealed class MenuScreenController : ScreenController
     {

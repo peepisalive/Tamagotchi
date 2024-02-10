@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UI.Screen.Controller;
+using UI.Controller.Screen;
 using UnityEngine;
 using System.Linq;
 using Settings;

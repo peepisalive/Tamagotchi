@@ -1,5 +1,5 @@
 using Components.Modules.Navigation;
-using UI.Screen.Controller;
+using UI.Controller.Screen;
 using Modules.Navigation;
 using Leopotam.Ecs;
 using UnityEngine;
