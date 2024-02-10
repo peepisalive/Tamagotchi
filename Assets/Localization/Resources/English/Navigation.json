@@ -41,10 +41,34 @@
   },
   {
     "tags": [ "navigation_title_TrainingActivity" ],
-    "topic": "Training with a professional"
+    "topic": "Training"
   },
   {
     "tags": [ "navigation_descr_TrainingActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_WalkActivity" ],
+    "topic": "Walk"
+  },
+  {
+    "tags": [ "navigation_descr_WalkActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_YogaActivity" ],
+    "topic": "Yoga"
+  },
+  {
+    "tags": [ "navigation_descr_YogaActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_BallGameActivity" ],
+    "topic": "Ball game"
+  },
+  {
+    "tags": [ "navigation_descr_BallGameActivity" ],
     "topic": "[test]"
   }
 ]

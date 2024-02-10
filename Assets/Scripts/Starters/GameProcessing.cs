@@ -29,7 +29,10 @@ namespace Starter
             return new EcsSystems(world)
                 .Add(new TakeToVetActivitySystem())
                 .Add(new SpaTreatmentsActivitySystem())
-                .Add(new TrainingActivitySystem());
+                .Add(new TrainingActivitySystem())
+                .Add(new WalkActivitySystem())
+                .Add(new YogaActivitySystem())
+                .Add(new BallGameActivitySystem());
         }
     }
 }

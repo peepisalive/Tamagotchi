@@ -4,14 +4,11 @@ using Leopotam.Ecs;
 using UI.Settings;
 using Components;
 using UI.Popups;
-using Utils;
 
 namespace Systems.Activities
 {
-    public sealed class SpaTreatmentsActivitySystem : ActivitySystem<SpaTreatmentsActivitySettings>
+    public sealed class BallGameActivitySystem : ActivitySystem<BallGameActivitySettings>
     {
-        private EcsFilter<BankAccountComponent> _bankAccountFilter;
-
         protected override void StartActivity(bool isEnable)
         {
             World.NewEntity().Replace(new ShowPopup
@@ -31,20 +28,10 @@ namespace Systems.Activities
                         },
                         new TextButtonSettings
                         {
-                            Title = "Spa treatments", // to do: use localization system
+                            Title = "Start the ball game", // to do: use localization system
                             Action = () =>
                             {
-                                if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
-                                {
-                                    PopupUtils.ShowNotEnoughMoneyPopup();
-                                    return;
-                                }
 
-                                World.NewEntity().Replace(new ChangeBankAccountValueEvent
-                                {
-                                    Value = Settings.Price
-                                });
-                                World.NewEntity().Replace(new HidePopup());
                             }
                         }
                     }

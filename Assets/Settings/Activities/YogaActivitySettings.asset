@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d959e808a4bcecf47a4624e223a040a3, type: 3}
-  m_Name: HealthActivities
+  m_Script: {fileID: 11500000, guid: 626bc13dd5c8df44b83ef47ba142bf92, type: 3}
+  m_Name: YogaActivitySettings
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 100
-  <ChildTypes>k__BackingField: c800c900ca00cb00cc00cd00
+  _price: 0

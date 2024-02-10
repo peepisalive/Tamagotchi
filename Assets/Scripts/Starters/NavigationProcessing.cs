@@ -41,7 +41,10 @@ namespace Starter
                 .Add(new HealthActivitiesNavigationElements())
                 .Add(new TakeToVetNavigationElement())
                 .Add(new SpaTreatmentsNavigationElement())
-                .Add(new TrainingNavigationElement());
+                .Add(new TrainingNavigationElement())
+                .Add(new WalkNavigationElement())
+                .Add(new YogaNavigationElement())
+                .Add(new BallGameNavigationElement());
         }
 
         private EcsSystems SatietyActivitiesElements(EcsWorld world)

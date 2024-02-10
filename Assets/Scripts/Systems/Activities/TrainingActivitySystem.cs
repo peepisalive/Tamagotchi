@@ -1,17 +1,15 @@
 using System.Collections.Generic;
 using Settings.Activities;
-using Modules.Navigation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
 using UI.Popups;
+using Utils;
 
 namespace Systems.Activities
 {
     public sealed class TrainingActivitySystem : ActivitySystem<TrainingActivitySettings>
     {
-        protected override NavigationElementType Type => NavigationElementType.TrainingActivity;
-
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
 
         protected override void StartActivity(bool isEnable)
@@ -20,7 +18,7 @@ namespace Systems.Activities
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Type.ToString(), // to do: edit this
+                    Title = Settings.Type.ToString(), // to do: edit this
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -36,10 +34,17 @@ namespace Systems.Activities
                             Title = "Training", // to do: use localization system
                             Action = () =>
                             {
+                                if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
+                                {
+                                    PopupUtils.ShowNotEnoughMoneyPopup();
+                                    return;
+                                }
+
                                 World.NewEntity().Replace(new ChangeBankAccountValueEvent
                                 {
                                     Value = Settings.Price
                                 });
+                                World.NewEntity().Replace(new HidePopup());
                             }
                         }
                     }

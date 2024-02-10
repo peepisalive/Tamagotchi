@@ -8,16 +8,17 @@ namespace Systems.Activities
 {
     public abstract class ActivitySystem<T> : IEcsInitSystem, IEcsRunSystem where T : ActivitySettings
     {
-        protected abstract NavigationElementType Type { get; }
-
         protected EcsWorld World;
         protected EcsFilter<ActivityComponent> ActivityFilter;
         
         protected T Settings;
 
+        private NavigationElementType Type;
+
         public void Init()
         {
-            Settings = SettingsProvider.Get<ActivitiesSettings>().Get<T>(Type);
+            Settings = SettingsProvider.Get<ActivitiesSettings>().Get<T>();
+            Type = Settings.Type;
         }
 
         public void Run()

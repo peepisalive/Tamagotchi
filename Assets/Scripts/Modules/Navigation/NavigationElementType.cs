@@ -14,5 +14,8 @@ namespace Modules.Navigation
         TakeToVetActivity = 200,
         SpaTreatmentsActivity = 201,
         TrainingActivity = 202,
+        WalkActivity = 203,
+        YogaActivity = 204,
+        BallGameActivity = 205,
     }
 }
