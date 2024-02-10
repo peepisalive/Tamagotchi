@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Linq;
 using UI.Popups;
 using Settings;
+using System;
+using Events;
 
 namespace Modules
 {
@@ -19,8 +21,21 @@ namespace Modules
 
         public void ShowPopup<T>(T settings) where T : Popup
         {
+            EventSystem.Send(new OnShowPopupEvent
+            {
+                IgnoreOverlayButton = settings.IgnoreOverlayButton
+            });
+
             if (_currentPopup != null)
+            {
+                HideCurrentPopup(() =>
+                {
+                    _currentPopup = null;
+                    ShowPopup(settings);
+                });
+
                 return;
+            }
 
             if (_popupParent == null)
                 _popupParent = GameObject.FindGameObjectWithTag("PopupParent").transform;
@@ -35,7 +50,7 @@ namespace Modules
             _currentPopup = instance;
         }
 
-        public void HideCurrentPopup()
+        public void HideCurrentPopup(Action onHideCallback = null)
         {
             if (_currentPopup == null)
             {
@@ -45,8 +60,16 @@ namespace Modules
                 return;
             }
 
-            _currentPopup.Hide();
-            _currentPopup = null;
+            if (onHideCallback == null)
+                EventSystem.Send(new OnHidePopupEvent());
+
+            _currentPopup.Hide(() =>
+            {
+                if (onHideCallback == null)
+                    _currentPopup = null;
+
+                onHideCallback?.Invoke();
+            });
         }
     }
 }

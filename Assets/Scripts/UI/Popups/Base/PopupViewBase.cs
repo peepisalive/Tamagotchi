@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 namespace UI.Popups
 {
@@ -9,6 +10,6 @@ namespace UI.Popups
             gameObject.SetActive(true);
         }
 
-        public virtual void Hide() { }
+        public virtual void Hide(Action callback = null) { }
     }
 }
