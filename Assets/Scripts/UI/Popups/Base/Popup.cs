@@ -13,4 +13,12 @@ namespace UI.Popups
     {
         public string Title;
     }
+
+    public sealed class ResultPopup : Popup
+    {
+        public string Title;
+        public string Content;
+
+        public bool IsCloseButtonEnable;
+    }
 }

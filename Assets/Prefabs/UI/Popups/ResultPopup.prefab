@@ -965,6 +965,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4259898688894267767}
+  - component: {fileID: -2175869308806759632}
   m_Layer: 0
   m_Name: ResultPopup
   m_TagString: Untagged
@@ -994,6 +995,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-2175869308806759632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134369430668255378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd9b3a2205e2ba4f9930fca3afaa813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _popupRect: {fileID: 1986408626}
+  _topParent: {fileID: 1747403363}
+  _middleParent: {fileID: 312221872}
+  _bottomParent: {fileID: 521272347}
+  _someButtonParent: {fileID: 2057078888}
+  _oneButtonParent: {fileID: 391278940}
+  _title: {fileID: 1828400657}
 --- !u!1001 &768759460
 PrefabInstance:
   m_ObjectHideFlags: 0
