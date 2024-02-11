@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using TMPro;
 
 namespace UI.Popups
@@ -13,6 +14,17 @@ namespace UI.Popups
             base.Setup(settings);
 
             SetTitle(settings.Title);
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            DoResultShow();
+        }
+
+        public override void Hide(Action onHideCallback = null)
+        {
+            base.Hide(onHideCallback);
         }
 
         private void SetTitle(string text)
