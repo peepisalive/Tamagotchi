@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Settings.Activities;
+using Modules.Navigation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -7,15 +8,17 @@ using UI.Popups;
 
 namespace Systems.Activities
 {
-    public sealed class FeedActivitySystem : ActivitySystem<FeedActivitySettings>
+    public sealed class FeedActivitySystem : ActivitySystem<FreeActivitySettings>
     {
+        protected override NavigationElementType Type => NavigationElementType.FeedActivity;
+
         protected override void StartActivity(bool isEnable)
         {
             World.NewEntity().Replace(new ShowPopup
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Settings.Type.ToString(), // to do: edit this
+                    Title = Type.ToString(), // to do: edit this
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings

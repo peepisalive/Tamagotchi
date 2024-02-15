@@ -41,7 +41,7 @@ namespace Starter
             return new EcsSystems(world)
                 .Add(new HappinessActivitiesNavigationElements())
                 .Add(new WalkNavigationElement())
-                .Add(new BallGameNavigationElement());
+                .Add(new PlayNavigationElement());
         }
 
         private EcsSystems SatietyActivitiesElements(EcsWorld world)
