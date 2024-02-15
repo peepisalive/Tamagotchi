@@ -15,7 +15,6 @@ namespace Settings
         [field: SerializeField] public List<PopupViewBase> Popups { get; private set; }
 
         [field: Header("Pet appearance")]
-        [field: SerializeField] public PetAppearance PetAppearance { get; private set; }
         [field: SerializeField] public PetCamera PetCamera { get; private set; }
     }
 }
