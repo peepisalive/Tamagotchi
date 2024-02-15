@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: ActivitiesSettings
   m_EditorClassIdentifier: 
   _settings:
-  - {fileID: 11400000, guid: 34203ee425c45bc4da6eb0020ada84aa, type: 2}
-  - {fileID: 11400000, guid: 687a03a0c31fd13419d39227e97ad2ed, type: 2}
-  - {fileID: 11400000, guid: 7403982e406c4b74cbd78195f6f963f5, type: 2}
-  - {fileID: 11400000, guid: 18f76cb177e3b9d4c80a568bbd9ccd1b, type: 2}
-  - {fileID: 11400000, guid: 63128ff3b7cc2904c8dac2141e6023ec, type: 2}
-  - {fileID: 11400000, guid: f394e73eaad03774ba0c70b08c0b8d2a, type: 2}
+  - {fileID: 11400000, guid: 2ca180ae6eef44d419bbbb1213b8d6be, type: 2}
+  - {fileID: 11400000, guid: 57274ea1105a33841bb381fac165ec8d, type: 2}
+  - {fileID: 11400000, guid: 26c57eb712a6bad43bb8526a18b747cb, type: 2}
+  - {fileID: 11400000, guid: f54e4d6b314753346a2289106a8e0157, type: 2}
+  - {fileID: 11400000, guid: 937b96a2cffc4ea4a92bad2a8b3dd379, type: 2}
+  - {fileID: 11400000, guid: e6c787542df441e4486883450f249c71, type: 2}
+  - {fileID: 11400000, guid: 62d636b83ee1f9b4cbf1b8c13eacf2c7, type: 2}
+  - {fileID: 11400000, guid: ed903bf6c82123c4ba72f8c45b225856, type: 2}
+  - {fileID: 11400000, guid: 914c87bc556866b449117176f9716f21, type: 2}

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Modules.Navigation;
 using System.Linq;
 using UnityEngine;
 
@@ -9,13 +10,13 @@ namespace Settings.Activities
     {
         [SerializeField] private List<ActivitySettings> _settings;
 
-        public T Get<T>() where T : ActivitySettings
+        public T Get<T>(NavigationElementType type) where T : ActivitySettings
         {
 #if UNITY_EDITOR
-            if (!_settings.Any(s => s is T))
-                Debug.LogError($"Not found settings [{nameof(T)}]");
+            if (!_settings.Any(s => s.Type == type))
+                Debug.LogError($"Not found settings by type: [{type}]");
 #endif
-            return (T)_settings.FirstOrDefault(s => s is T);
+            return (T)_settings.FirstOrDefault(s => s.Type == type);
         }
 
         public void Add(ActivitySettings settings)

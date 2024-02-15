@@ -31,7 +31,7 @@ namespace Starter
         {
             return new EcsSystems(world)
                 .Add(new WalkActivitySystem())
-                .Add(new BallGameActivitySystem());
+                .Add(new PlayActivitySystem());
         }
 
         private EcsSystems SatietyActivitiesElements(EcsWorld world)

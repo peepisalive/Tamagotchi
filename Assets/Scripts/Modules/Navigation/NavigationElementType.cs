@@ -18,7 +18,7 @@ namespace Modules.Navigation
         TrainingActivity = 202,
         WalkActivity = 203,
         YogaActivity = 204,
-        BallGameActivity = 205,
+        PlayActivity = 205,
         WashActivity = 206,
         FeedActivity = 207,
         DrinkActivity = 208,

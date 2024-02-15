@@ -80,11 +80,11 @@
     "topic": "[test]"
   },
   {
-    "tags": [ "navigation_title_BallGameActivity" ],
-    "topic": "Ball game"
+    "tags": [ "navigation_title_PlayActivity" ],
+    "topic": "Play"
   },
   {
-    "tags": [ "navigation_descr_BallGameActivity" ],
+    "tags": [ "navigation_descr_PlayActivity" ],
     "topic": "[test]"
   },
   {

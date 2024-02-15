@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Settings.Activities;
+using Modules.Navigation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -8,8 +9,10 @@ using Utils;
 
 namespace Systems.Activities
 {
-    public sealed class TakeToVetActivitySystem : ActivitySystem<TakeToVetActivitySettings>
+    public sealed class TakeToVetActivitySystem : ActivitySystem<PaidActivitySettings>
     {
+        protected override NavigationElementType Type => NavigationElementType.TakeToVetActivity;
+
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
 
         protected override void StartActivity(bool isEnable)
@@ -18,7 +21,7 @@ namespace Systems.Activities
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Settings.Type.ToString(), // to do: edit this
+                    Title = Type.ToString(), // to do: edit this
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
