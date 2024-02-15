@@ -58,6 +58,9 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.MainScreen => typeof(MainScreenController),
                 NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
+                NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
+                NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
+                NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
                 _ => null
             };
@@ -70,6 +73,9 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.MainScreen => typeof(MainScreenController),
                 NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
+                NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
+                NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
+                NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
                 _ => null
             };

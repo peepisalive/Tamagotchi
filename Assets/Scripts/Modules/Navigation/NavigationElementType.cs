@@ -7,9 +7,11 @@ namespace Modules.Navigation
         MenuScreen = 2,
         ActivitiesScreen = 3,
         
-        HealthActivities = 100,
+        HappinessActivities = 100,
         SatietyActivities = 101,
-        HappinessActivities = 102,
+        HygieneActivities = 102,
+        FatigueActivities = 103,
+        HealthActivities = 104,
 
         TakeToVetActivity = 200,
         SpaTreatmentsActivity = 201,
@@ -17,5 +19,8 @@ namespace Modules.Navigation
         WalkActivity = 203,
         YogaActivity = 204,
         BallGameActivity = 205,
+        WashActivity = 206,
+        FeedActivity = 207,
+        DrinkActivity = 208,
     }
 }

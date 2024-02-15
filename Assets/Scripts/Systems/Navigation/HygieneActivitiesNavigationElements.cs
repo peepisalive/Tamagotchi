@@ -6,11 +6,11 @@ using Utils;
 
 namespace Systems.Navigation
 {
-    public sealed class HappinessActivitiesNavigationElements : IEcsInitSystem, INavigationElement
+    public sealed class HygieneActivitiesNavigationElements : IEcsInitSystem, INavigationElement
     {
         public HashSet<NavigationElementType> Types => new HashSet<NavigationElementType>
         {
-            NavigationElementType.HappinessActivities
+            NavigationElementType.HygieneActivities
         };
 
         private EcsFilter<BlockComponent> _blockFilter;

@@ -26,13 +26,37 @@ namespace Starter
                 .Add(new MainScreenNavigationElements())
                 .Add(new MenuScreenNavigationElements())
                 .Add(new ActivitiesScreenNavigationElements())
-                .Add(HealthActivitiesElements(world))
-                .Add(SatietyActivitiesElements(world))
                 .Add(HappinessActivitiesElements(world))
+                .Add(SatietyActivitiesElements(world))
+                .Add(HygieneActivitiesElements(world))
+                .Add(HealthActivitiesElements(world))
                 .Add(Application.Model)
                 .Inject(new ScreenManager());
 
             Systems.Init();
+        }
+
+        private EcsSystems HappinessActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new HappinessActivitiesNavigationElements())
+                .Add(new WalkNavigationElement())
+                .Add(new BallGameNavigationElement());
+        }
+
+        private EcsSystems SatietyActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new SatietyActivitiesNavigationElements())
+                .Add(new FeedNavigationElement())
+                .Add(new DrinkNavigationElement());
+        }
+
+        private EcsSystems HygieneActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new HygieneActivitiesNavigationElements())
+                .Add(new WashNavigationElement());
         }
 
         private EcsSystems HealthActivitiesElements(EcsWorld world)
@@ -42,21 +66,7 @@ namespace Starter
                 .Add(new TakeToVetNavigationElement())
                 .Add(new SpaTreatmentsNavigationElement())
                 .Add(new TrainingNavigationElement())
-                .Add(new WalkNavigationElement())
-                .Add(new YogaNavigationElement())
-                .Add(new BallGameNavigationElement());
-        }
-
-        private EcsSystems SatietyActivitiesElements(EcsWorld world)
-        {
-            return new EcsSystems(world)
-                .Add(new SatietyActivitiesNavigationElements());
-        }
-
-        private EcsSystems HappinessActivitiesElements(EcsWorld world)
-        {
-            return new EcsSystems(world)
-                .Add(new HappinessActivitiesNavigationElements());
+                .Add(new YogaNavigationElement());
         }
     }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d959e808a4bcecf47a4624e223a040a3, type: 3}
   m_Name: HappinessActivities
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 102
-  <ChildTypes>k__BackingField: 
+  <Type>k__BackingField: 100
+  <ChildTypes>k__BackingField: cb00cd00

@@ -1,13 +1,5 @@
 [
   {
-    "tags": [ "navigation_title_HealthActivities" ],
-    "topic": "Health activities"
-  },
-  {
-    "tags": [ "navigation_descr_HealthActivities" ],
-    "topic": "[test]"
-  },
-  {
     "tags": [ "navigation_title_HappinessActivities" ],
     "topic": "Happiness activities"
   },
@@ -21,6 +13,30 @@
   },
   {
     "tags": [ "navigation_descr_SatietyActivities" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_HygieneActivities" ],
+    "topic": "Hygiene activities"
+  },
+  {
+    "tags": [ "navigation_descr_HygieneActivities" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_FatigueActivities" ],
+    "topic": "Fatigue activities"
+  },
+  {
+    "tags": [ "navigation_descr_FatigueActivities" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_HealthActivities" ],
+    "topic": "Health activities"
+  },
+  {
+    "tags": [ "navigation_descr_HealthActivities" ],
     "topic": "[test]"
   },
   {
@@ -69,6 +85,30 @@
   },
   {
     "tags": [ "navigation_descr_BallGameActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_WashActivity" ],
+    "topic": "To wash the pet"
+  },
+  {
+    "tags": [ "navigation_descr_WashActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_FeedActivity" ],
+    "topic": "Feed pet"
+  },
+  {
+    "tags": [ "navigation_descr_FeedActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_DrinkActivity" ],
+    "topic": "Give your pet a drink"
+  },
+  {
+    "tags": [ "navigation_descr_DrinkActivity" ],
     "topic": "[test]"
   }
 ]

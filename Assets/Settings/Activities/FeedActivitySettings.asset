@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d959e808a4bcecf47a4624e223a040a3, type: 3}
-  m_Name: ActivitiesScreen
+  m_Script: {fileID: 11500000, guid: 835bc894bef2f504aadf15511e8f9672, type: 3}
+  m_Name: FeedActivitySettings
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 3
-  <ChildTypes>k__BackingField: 6400650066006800
+  _price: 0

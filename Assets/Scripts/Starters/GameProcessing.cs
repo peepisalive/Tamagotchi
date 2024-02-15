@@ -17,11 +17,34 @@ namespace Starter
                 .Add(new PetCreationSystem())
                 .Add(new ParametersSystem())
                 .Add(new BankAccountSystem())
+                .Add(HappinessActivitiesElements(world))
+                .Add(SatietyActivitiesElements(world))
+                .Add(HygieneActivities(world))
                 .Add(HealthActivities(world))
                 .OneFrame<ChangeParameterEvent>()
                 .OneFrame<ChangeBankAccountValueEvent>();
 
             Systems.Init();
+        }
+
+        private EcsSystems HappinessActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new WalkActivitySystem())
+                .Add(new BallGameActivitySystem());
+        }
+
+        private EcsSystems SatietyActivitiesElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new FeedActivitySystem())
+                .Add(new DrinkActivitySystem());
+        }
+
+        private EcsSystems HygieneActivities(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new WashActivitySystem());
         }
 
         private EcsSystems HealthActivities(EcsWorld world)
@@ -30,9 +53,7 @@ namespace Starter
                 .Add(new TakeToVetActivitySystem())
                 .Add(new SpaTreatmentsActivitySystem())
                 .Add(new TrainingActivitySystem())
-                .Add(new WalkActivitySystem())
-                .Add(new YogaActivitySystem())
-                .Add(new BallGameActivitySystem());
+                .Add(new YogaActivitySystem());
         }
     }
 }
