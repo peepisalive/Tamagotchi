@@ -24,7 +24,8 @@ namespace UI.Popups
 
         public override void Hide(Action onHideCallback = null)
         {
-            base.Hide(onHideCallback);
+            Destroy(gameObject);
+            onHideCallback?.Invoke();
         }
 
         private void SetTitle(string text)
