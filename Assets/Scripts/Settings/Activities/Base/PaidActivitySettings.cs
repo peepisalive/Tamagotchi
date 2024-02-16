@@ -1,7 +1,7 @@
 using Modules.Navigation;
 using UnityEngine;
 
-namespace Settings.Activities
+namespace Settings.Activity
 {
     [CreateAssetMenu(fileName = "PaidActivitySettings", menuName = "Settings/Activities/PaidActivitySettings", order = 1)]
     public sealed class PaidActivitySettings : ActivitySettings

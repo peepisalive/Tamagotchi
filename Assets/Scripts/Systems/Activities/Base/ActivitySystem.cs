@@ -1,4 +1,4 @@
-using Settings.Activities;
+using Settings.Activity;
 using Modules.Navigation;
 using Leopotam.Ecs;
 using Components;

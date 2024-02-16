@@ -1,4 +1,4 @@
-using Settings.Activities;
+using Settings.Activity;
 using UnityEditor;
 using UnityEngine;
 

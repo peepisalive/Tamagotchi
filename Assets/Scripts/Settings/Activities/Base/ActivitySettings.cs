@@ -1,7 +1,7 @@
 using Modules.Navigation;
 using UnityEngine;
 
-namespace Settings.Activities
+namespace Settings.Activity
 {
     public abstract class ActivitySettings : ScriptableObject
     {

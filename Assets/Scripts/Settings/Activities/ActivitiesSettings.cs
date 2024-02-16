@@ -3,7 +3,7 @@ using Modules.Navigation;
 using System.Linq;
 using UnityEngine;
 
-namespace Settings.Activities
+namespace Settings.Activity
 {
     [CreateAssetMenu(fileName = "ActivitiesSettings", menuName = "Settings/Activities/ActivitiesSettings", order = 0)]
     public sealed class ActivitiesSettings : ScriptableObject
