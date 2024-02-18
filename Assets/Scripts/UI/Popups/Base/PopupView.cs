@@ -16,9 +16,7 @@ namespace UI.Popups
         [SerializeField] private RectTransform _popupRect;
 
         [Header("Blocks")]
-        [SerializeField] private RectTransform _topParent;
-        [SerializeField] private RectTransform _middleParent;
-        [SerializeField] private RectTransform _bottomParent;
+        [SerializeField] private List<RectTransform> _parentBlocks; 
 
         [Header("Button parents")]
         [SerializeField] private RectTransform _someButtonParent;
@@ -70,20 +68,24 @@ namespace UI.Popups
                 });
         }
 
+        protected void DoResultSetup()
+        {
+            foreach (var parentBlock in _parentBlocks)
+            {
+                parentBlock.localScale = Vector3.zero;
+            }
+        }
+
         protected void DoResultShow()
         {
             var sequence = DOTween.Sequence()
                 .SetLink(gameObject);
 
-            sequence.Append(_topParent.DOScale(0f, 0f));
-            sequence.Append(_middleParent.DOScale(0f, 0f));
-            sequence.Append(_bottomParent.DOScale(0f, 0f));
-
-            sequence.Append(_topParent.DOScale(1f, 0.1f).SetEase(Ease.OutBack));
-            sequence.AppendInterval(0.02f);
-            sequence.Append(_middleParent.DOScale(1f, 0.1f).SetEase(Ease.OutBack));
-            sequence.AppendInterval(0.02f);
-            sequence.Append(_bottomParent.DOScale(1f, 0.1f).SetEase(Ease.OutBack));
+            foreach (var parentBlock in _parentBlocks)
+            {
+                sequence.Append(parentBlock.DOScale(1f, 0.15f).SetEase(Ease.OutBack));
+                sequence.AppendInterval(0.02f);
+            }
         }
 
         private void InitializeButtons<B>(List<B> buttonSettings) where B : ButtonSettings

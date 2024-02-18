@@ -13,6 +13,7 @@ namespace UI.Popups
         public override void Setup(ResultPopup settings)
         {
             base.Setup(settings);
+            DoResultSetup();
 
             SetTitle(settings.Title);
             SetContent(settings.Content);

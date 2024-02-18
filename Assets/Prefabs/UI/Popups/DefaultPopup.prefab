@@ -447,9 +447,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _popupRect: {fileID: 6123414769602510032}
-  _topParent: {fileID: 1818549196948858193}
-  _middleParent: {fileID: 3205877784578671182}
-  _bottomParent: {fileID: 2682918686481079438}
+  _parentBlocks:
+  - {fileID: 1818549196948858193}
+  - {fileID: 3205877784578671182}
+  - {fileID: 2682918686481079438}
   _someButtonParent: {fileID: 5926180314786835293}
   _oneButtonParent: {fileID: 3115646638823139065}
   _title: {fileID: 8611378814642247176}
