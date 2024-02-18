@@ -1,0 +1,24 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Veterinarian"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "Choose your appointment:"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "Your pet survived the visit to the vet!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Examination and consultation"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Full examination"
+  }
+]

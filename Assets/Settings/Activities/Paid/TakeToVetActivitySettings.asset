@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2374924ba14f9458f59fd20342d903, type: 3}
   m_Name: TakeToVetActivitySettings
   m_EditorClassIdentifier: 
+  <Localization>k__BackingField:
+    _asset:
+      m_TableReference:
+        m_TableCollectionName: GUID:ea2f63027820b3e49ab537f16c497812
+      m_TableEntryReference:
+        m_KeyId: 17999171584
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   _type: 200
   _price: 550

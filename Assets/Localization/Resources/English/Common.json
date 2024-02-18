@@ -1,10 +1,6 @@
 [
 	{
-		"tags": [ "test" ],
-		"topic": "ttestest"
-	},
-	{
-		"tags": [ "test" ],
-		"topic": "test"
+		"tags": [ "not_enough_money" ],
+		"topic": "You don't have enough money."
 	}
 ]
