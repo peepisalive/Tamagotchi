@@ -8,12 +8,14 @@ namespace UI.Popups
     {
         [Header("Labels")]
         [SerializeField] private TMP_Text _title;
+        [SerializeField] private TMP_Text _content;
 
         public override void Setup(DefaultPopup settings)
         {
             base.Setup(settings);
 
             SetTitle(settings.Title);
+            SetContent(settings.Content);
         }
 
         public override void Show()
@@ -31,6 +33,11 @@ namespace UI.Popups
         private void SetTitle(string text)
         {
             _title.text = text;
+        }
+
+        private void SetContent(string text)
+        {
+            _content.text = text;
         }
     }
 }

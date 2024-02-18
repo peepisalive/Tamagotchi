@@ -453,6 +453,7 @@ MonoBehaviour:
   _someButtonParent: {fileID: 5926180314786835293}
   _oneButtonParent: {fileID: 3115646638823139065}
   _title: {fileID: 8611378814642247176}
+  _content: {fileID: 4984929476310175892}
 --- !u!114 &8395368535162027390
 MonoBehaviour:
   m_ObjectHideFlags: 0

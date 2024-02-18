@@ -1,6 +1,15 @@
 [
 	{
-		"tags": [ "not_enough_money" ],
-		"topic": "You don't have enough money."
+		"tags": [ "popup_not_enough_money", "title" ],
+		"topic": "Не по балансу"
+	},
+	{
+		"tags": [ "popup_not_enough_money", "content" ],
+		"topic": "You don't have enough money"
+	},
+
+	{
+		"tags": [ "ok", "button" ],
+		"topic": "Ok"
 	}
 ]

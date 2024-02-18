@@ -12,6 +12,7 @@ namespace UI.Popups
     public sealed class DefaultPopup : Popup
     {
         public string Title;
+        public string Content;
     }
 
     public sealed class ResultPopup : Popup

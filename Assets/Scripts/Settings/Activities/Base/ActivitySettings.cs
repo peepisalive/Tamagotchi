@@ -15,13 +15,15 @@ namespace Settings.Activity
     [Serializable]
     public sealed class ActivityLocalization
     {
-        public string Title => LocalizationProvider.GetText("title");
+        public string Title => LocalizationProvider.GetText(_asset, "title");
 
-        public string MainContent => LocalizationProvider.GetText("main_popup/content");
-        public string ResultContent => LocalizationProvider.GetText("result_popup/content");
+        public string MainContent => LocalizationProvider.GetText(_asset, "main_popup/content");
+        public string ResultContent => LocalizationProvider.GetText(_asset, "result_popup/content");
 
-        public string LeftButtonContent => LocalizationProvider.GetText("button_content/left");
-        public string RightButtonContent => LocalizationProvider.GetText("button_content/right");
+        public string LeftButtonContent => LocalizationProvider.GetText(_asset, "button_content/left");
+        public string RightButtonContent => LocalizationProvider.GetText(_asset, "button_content/right");
+
+        public string ResultButton => LocalizationProvider.GetText("ok/button");
 
 
         [SerializeField] private LocalizedText _asset;

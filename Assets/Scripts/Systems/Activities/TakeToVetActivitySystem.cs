@@ -21,12 +21,13 @@ namespace Systems.Activities
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Type.ToString(), // to do: edit this
+                    Title = Settings.Localization.Title,
+                    Content = Settings.Localization.MainContent,
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
                         {
-                            Title = "Close", // to do: use localization system
+                            Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new HidePopup());
@@ -34,19 +35,43 @@ namespace Systems.Activities
                         },
                         new TextButtonSettings
                         {
-                            Title = "Take to vet", // to do: use localization system
+                            Title = Settings.Localization.RightButtonContent,
                             Action = () =>
                             {
-                                if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
-                                {
-                                    PopupUtils.ShowNotEnoughMoneyPopup();
-                                    return;
-                                }
+                                //if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
+                                //{
+                                //    PopupUtils.ShowNotEnoughMoneyPopup();
+                                //    return;
+                                //}
 
                                 World.NewEntity().Replace(new ChangeBankAccountValueEvent
                                 {
                                     Value = Settings.Price
                                 });
+
+                                EndActivity();
+                            }
+                        }
+                    }
+                })
+            });
+        }
+
+        private void EndActivity()
+        {
+            World.NewEntity().Replace(new ShowPopup
+            {
+                Settings = new PopupToShow<ResultPopup>(new ResultPopup
+                {
+                    Title = Settings.Localization.Title,
+                    Content = Settings.Localization.ResultContent,
+                    ButtonSettings = new List<TextButtonSettings>
+                    {
+                        new TextButtonSettings
+                        {
+                            Title = Settings.Localization.ResultButton,
+                            Action = () =>
+                            {
                                 World.NewEntity().Replace(new HidePopup());
                             }
                         }
