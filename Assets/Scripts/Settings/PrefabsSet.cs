@@ -14,6 +14,9 @@ namespace Settings
         [field: SerializeField] public List<ScreenController> Screens { get; private set; }
         [field: SerializeField] public List<PopupViewBase> Popups { get; private set; }
 
+        [field: Header("Info elements")]
+        [field: SerializeField] public BarController InfoBar { get; private set; }
+
         [field: Header("Pet appearance")]
         [field: SerializeField] public PetCamera PetCamera { get; private set; }
     }

@@ -5,7 +5,7 @@ using Leopotam.Ecs;
 using UI.Settings;
 using Components;
 using UI.Popups;
-using Utils;
+using Core;
 
 namespace Systems.Activities
 {

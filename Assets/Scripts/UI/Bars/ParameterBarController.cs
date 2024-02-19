@@ -4,25 +4,24 @@ using Core;
 
 namespace UI.Controller
 {
-    [RequireComponent(typeof(ParameterBarView))]
-    public class ParameterBarController : MonoBehaviour
+    [RequireComponent(typeof(BarView))]
+    public class ParameterBarController : BarController
     {
         [field: SerializeField] public ParameterType Type { get; private set; }
 
-        [SerializeField] private ParameterBarView _view;
         private Parameter _parameter;
 
         public void Setup(Parameter parameter)
         {
             _parameter = parameter;
 
-            _view.SetFillValue(_parameter.Value, _parameter.PreviousValue);
-            _parameter.OnValueChanged += _view.SetFillValue;
+            SetValue(_parameter.Value, _parameter.PreviousValue);
+            _parameter.OnValueChanged += SetValue;
         }
 
         private void OnDestroy()
         {
-            _parameter.OnValueChanged -= _view.SetFillValue;
+            _parameter.OnValueChanged -= SetValue;
         }
     }
 }

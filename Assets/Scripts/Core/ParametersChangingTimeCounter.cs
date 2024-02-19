@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using Settings;
 using Modules;
 using Events;
 
@@ -8,8 +7,6 @@ namespace Core
 {
     public sealed class ParametersChangingTimeCounter : MonoBehaviour
     {
-        private ParametersChangingSettings _settings;
-
         private IEnumerator ParametersChangingRoutine()
         {
             while (true)
@@ -21,7 +18,7 @@ namespace Core
 
         private void Awake()
         {
-            _settings = SettingsProvider.Get<ParametersChangingSettings>();
+
         }
 
         private void Start()
