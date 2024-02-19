@@ -20,6 +20,8 @@ namespace UI.Popups
         public string Title;
         public string Content;
 
+        public List<InfoParameterSettings> InfoParameterSettings;
+
         public bool IsCloseButtonEnable;
     }
 }

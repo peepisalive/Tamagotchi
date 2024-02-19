@@ -8,7 +8,13 @@ namespace UI.Controller
     {
         [SerializeField] private BarView _view;
 
-        protected void SetValue(float value, float previousValue)
+        public void Setup(float value, Sprite icon)
+        {
+            SetValue(value);
+            _view.SetIcon(icon);
+        }
+
+        protected void SetValue(float value, float previousValue = 0f)
         {
             _view.SetFillValue(value);
         }
