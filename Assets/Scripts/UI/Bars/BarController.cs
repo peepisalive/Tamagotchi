@@ -4,13 +4,13 @@ using UI.View;
 namespace UI.Controller
 {
     [RequireComponent(typeof(BarView))]
-    public sealed class BarController : MonoBehaviour
+    public class BarController : MonoBehaviour
     {
         [SerializeField] private BarView _view;
 
-        public void Setup()
+        protected void SetValue(float value, float previousValue)
         {
-
+            _view.SetFillValue(value);
         }
     }
 }
