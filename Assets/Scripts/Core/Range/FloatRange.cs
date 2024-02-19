@@ -1,9 +1,13 @@
+using UnityEngine;
+using System;
+
 namespace Core
 {
+    [Serializable]
     public sealed class FloatRange
     {
-        public float Min { get; private set; }
-        public float Max { get; private set; }
+        [field: SerializeField] public float Min { get; private set; }
+        [field: SerializeField] public float Max { get; private set; }
 
         public FloatRange(float min, float max)
         {

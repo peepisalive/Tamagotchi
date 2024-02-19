@@ -1,13 +1,17 @@
+using System.Collections.Generic;
 using Modules.Localization;
 using Modules.Navigation;
 using UnityEngine;
 using System;
+using Core;
 
 namespace Settings.Activity
 {
     public abstract class ActivitySettings : ScriptableObject
     {
         [field: SerializeField] public ActivityLocalization Localization { get; private set; }
+        [field: SerializeField] public List<ParameterRange> ParametersChanges { get; private set; }
+
         public abstract NavigationElementType Type { get; }
     }
 
