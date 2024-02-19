@@ -4,12 +4,12 @@ using Core;
 
 namespace UI.Controller
 {
-    [RequireComponent(typeof(ParameterBarView))]
+    [RequireComponent(typeof(BarView))]
     public class ParameterBarController : MonoBehaviour
     {
         [field: SerializeField] public ParameterType Type { get; private set; }
 
-        [SerializeField] private ParameterBarView _view;
+        [SerializeField] private BarView _view;
         private Parameter _parameter;
 
         public void Setup(Parameter parameter)
