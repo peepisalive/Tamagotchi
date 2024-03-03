@@ -14,6 +14,7 @@ namespace Systems.Activities
         protected override NavigationElementType Type => NavigationElementType.TakeToVetActivity;
 
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
+        private EcsFilter<PetComponent> _petFilter;
 
         protected override void StartActivity(bool isEnable)
         {
@@ -59,12 +60,30 @@ namespace Systems.Activities
 
         private void EndActivity()
         {
+            var infoParametersSettings = new List<InfoParameterSettings>();
+
+            foreach (var i in _petFilter)
+            {
+                var pet = _petFilter.Get1(i).Pet;
+
+                foreach (var parameterChange in Settings.ParametersChanges)
+                {
+                    pet.Parameters.Get(parameterChange.Type).Add(parameterChange.Range.GetRandom());
+                    infoParametersSettings.Add(new InfoParameterSettings
+                    {
+                        Type = parameterChange.Type,
+                        Value = pet.Parameters.Get(parameterChange.Type).Value
+                    });
+                }
+            }
+
             World.NewEntity().Replace(new ShowPopup
             {
                 Settings = new PopupToShow<ResultPopup>(new ResultPopup
                 {
                     Title = Settings.Localization.Title,
                     Content = Settings.Localization.ResultContent,
+                    InfoParameterSettings = infoParametersSettings,
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
