@@ -25,14 +25,14 @@ MonoBehaviour:
   - <Type>k__BackingField: 4
     <Range>k__BackingField:
       <Min>k__BackingField: 0.1
-      <Max>k__BackingField: 0.25
+      <Max>k__BackingField: 0.2
   - <Type>k__BackingField: 2
     <Range>k__BackingField:
-      <Min>k__BackingField: -0.05
-      <Max>k__BackingField: -0.15
+      <Min>k__BackingField: -0.02
+      <Max>k__BackingField: -0.1
   - <Type>k__BackingField: 1
     <Range>k__BackingField:
-      <Min>k__BackingField: -0.1
-      <Max>k__BackingField: -0.2
+      <Min>k__BackingField: -0.02
+      <Max>k__BackingField: -0.1
   _type: 200
   _price: 550
