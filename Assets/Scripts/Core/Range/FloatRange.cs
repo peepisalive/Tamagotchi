@@ -14,5 +14,10 @@ namespace Core
             Min = min;
             Max = max;
         }
+
+        public float GetRandom()
+        {
+            return UnityEngine.Random.Range(Min, Max);
+        }
     }
 }
