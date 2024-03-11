@@ -13,6 +13,7 @@ namespace UI.Controller
         public virtual void Setup(ButtonSettings settings)
         {
             _button?.onClick.AddListener(() => settings.Action?.Invoke());
+            _button?.onClick.AddListener(() => settings.ActionWithInstance?.Invoke(settings.PopupInstance));
         }
 
         private void RemoveAllListeners()

@@ -61,7 +61,7 @@ namespace Systems.Activities
                         new TextButtonSettings
                         {
                             Title = Settings.Localization.RightButtonContent,
-                            Action = () =>
+                            ActionWithInstance = (popup) =>
                             {
                                 //if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
                                 //{

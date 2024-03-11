@@ -10,10 +10,17 @@ namespace UI.Controller
     {
         public int CurrentKey { get; private set; } 
 
+        private DropdownSettings _dropdownSettings;
         private GameObject _contentParent;
+
+        public T GetCurrentValue<T>()
+        {
+            return ((DropdownContent<T>)_dropdownSettings.DropdownContent[CurrentKey]).Value;
+        }
 
         public void Setup(DropdownSettings dropdownSettings)
         {
+            _dropdownSettings = dropdownSettings;
             AddOptions(dropdownSettings.DropdownContent.Select(content => content.Title).ToList());
         }
 

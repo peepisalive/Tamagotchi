@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UI.Controller;
 using UI.Settings;
 using UnityEngine;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace UI.Popups
 {
     public sealed class DefaultPopupView : PopupView<DefaultPopup>
     {
+        public List<DropdownController> Dropdowns { get; private set; }
+
         [Header("Labels")]
         [SerializeField] private TMP_Text _title;
         [SerializeField] private TMP_Text _content;
@@ -43,6 +46,8 @@ namespace UI.Popups
             if (dropdownsSettings == null || !dropdownsSettings.Any())
                 return;
 
+            Dropdowns = new List<DropdownController>();
+
             var prefabSet = SettingsProvider.Get<PrefabsSet>();
             var dropdownPrefab = prefabSet.Dropdown;
 
@@ -50,7 +55,10 @@ namespace UI.Popups
 
             dropdownsSettings.ForEach(settings =>
             {
-                Instantiate(dropdownPrefab, _infoParent).Setup(settings);
+                var dropdown = Instantiate(dropdownPrefab, _infoParent);
+
+                dropdown.Setup(settings);
+                Dropdowns.Add(dropdown);
             });
         }
 
