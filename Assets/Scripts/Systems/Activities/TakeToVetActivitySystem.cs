@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Settings.Activity;
 using Modules.Navigation;
+using Settings.Activity;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -39,6 +39,11 @@ namespace Systems.Activities
                                 {
                                     Title = "2",
                                     Value = "22",
+                                },
+                                new DropdownContent<string>
+                                {
+                                    Title = "3",
+                                    Value = "33"
                                 }
                             }
                         },
@@ -64,10 +69,10 @@ namespace Systems.Activities
                                 //    return;
                                 //}
 
-                                World.NewEntity().Replace(new ChangeBankAccountValueEvent
-                                {
-                                    Value = Settings.Price
-                                });
+                                //World.NewEntity().Replace(new ChangeBankAccountValueEvent
+                                //{
+                                //    Value = Settings.Price
+                                //});
 
                                 EndActivity();
                             }
