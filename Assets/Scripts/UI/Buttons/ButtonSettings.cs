@@ -1,4 +1,5 @@
 using UnityEngine;
+using UI.Popups;
 using System;
 
 namespace UI.Settings
@@ -6,6 +7,9 @@ namespace UI.Settings
     public class ButtonSettings
     {
         public Action Action;
+        public Action<PopupViewBase> ActionWithInstance;
+
+        public PopupViewBase PopupInstance;
     }
 
     public sealed class TextButtonSettings : ButtonSettings

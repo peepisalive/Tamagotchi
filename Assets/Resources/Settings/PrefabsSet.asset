@@ -22,6 +22,8 @@ MonoBehaviour:
   <Popups>k__BackingField:
   - {fileID: 6123414769602510039, guid: 6760eb31516a79e4ebc2396491fabcd0, type: 3}
   - {fileID: -2175869308806759632, guid: 9f11d1702619f97419f5f980aaf15567, type: 3}
+  <Dropdown>k__BackingField: {fileID: 2137537569152729328, guid: 266aef6408d2a964c90aeb9f70fc9667,
+    type: 3}
   <InfoBar>k__BackingField: {fileID: 1734975254943196885, guid: 9f2334bcc01efda45a087e1acac4dcf1,
     type: 3}
   <PetCamera>k__BackingField: {fileID: -832103400836147908, guid: f37508361a7eb674682513b39444c667,

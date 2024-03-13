@@ -13,6 +13,8 @@ namespace UI.Popups
     {
         public string Title;
         public string Content;
+
+        public List<DropdownSettings> DropdownSettings;
     }
 
     public sealed class ResultPopup : Popup

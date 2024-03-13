@@ -100,9 +100,12 @@ namespace UI.Popups
 
             if (buttonSettings.Count == 1)
             {
-                var settings = buttonSettings[0];
+                var setting = buttonSettings[0];
 
-                if (settings is TextButtonSettings textButtonSettings)
+                if (setting.ActionWithInstance != null)
+                    setting.PopupInstance = this;
+
+                if (setting is TextButtonSettings textButtonSettings)
                 {
                     var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
                         .GetComponent<TextButtonController>();
@@ -117,6 +120,9 @@ namespace UI.Popups
                 {
                     if (setting is TextButtonSettings textButtonSettings)
                     {
+                        if (setting.ActionWithInstance != null)
+                            setting.PopupInstance = this;
+
                         var prefab = prefabsSet.Buttons.First(x => x.GetComponent<TextButtonController>() != null)
                             .GetComponent<TextButtonController>();
 

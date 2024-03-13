@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Settings.Activity;
 using Modules.Navigation;
+using Settings.Activity;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -23,6 +23,31 @@ namespace Systems.Activities
                 {
                     Title = Settings.Localization.Title,
                     Content = Settings.Localization.MainContent,
+                    DropdownSettings = new List<DropdownSettings>
+                    {
+                        new DropdownSettings
+                        {
+                            Title = "dropdown",
+                            DropdownContent = new List<DropdownContent>
+                            {
+                                new DropdownContent<string>
+                                {
+                                    Title = "1",
+                                    Value = "11",
+                                },
+                                new DropdownContent<string>
+                                {
+                                    Title = "2",
+                                    Value = "22",
+                                },
+                                new DropdownContent<string>
+                                {
+                                    Title = "3",
+                                    Value = "33"
+                                }
+                            }
+                        },
+                    },
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -36,7 +61,7 @@ namespace Systems.Activities
                         new TextButtonSettings
                         {
                             Title = Settings.Localization.RightButtonContent,
-                            Action = () =>
+                            ActionWithInstance = (popup) =>
                             {
                                 //if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
                                 //{
@@ -44,10 +69,10 @@ namespace Systems.Activities
                                 //    return;
                                 //}
 
-                                World.NewEntity().Replace(new ChangeBankAccountValueEvent
-                                {
-                                    Value = Settings.Price
-                                });
+                                //World.NewEntity().Replace(new ChangeBankAccountValueEvent
+                                //{
+                                //    Value = Settings.Price
+                                //});
 
                                 EndActivity();
                             }
