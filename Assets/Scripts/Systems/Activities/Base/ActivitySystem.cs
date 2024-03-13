@@ -58,7 +58,7 @@ namespace Systems.Activities
             {
                 dropdownSettings.First().DropdownContent.Add(new DropdownContent<E>
                 {
-                    Title = type.ToString(),
+                    Title = Settings.Localization.GetValueTypeContent(type),
                     Value = type
                 });
             }
