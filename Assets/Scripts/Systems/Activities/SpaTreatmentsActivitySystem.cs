@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Settings.Activity;
 using Modules.Navigation;
+using Settings.Activity;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -22,6 +22,8 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Type.ToString(), // to do: edit this
+                    Content = "content",
+                    DropdownSettings = GetDropdownSettings<SpaTreatmentsType>(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -53,6 +55,14 @@ namespace Systems.Activities
                     }
                 })
             });
+        }
+
+
+        public enum SpaTreatmentsType
+        {
+            Massage = 0,
+            Wrapping = 1,
+            FaceMask = 2,
         }
     }
 }

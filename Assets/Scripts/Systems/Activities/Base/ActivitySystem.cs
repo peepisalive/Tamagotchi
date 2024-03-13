@@ -1,8 +1,12 @@
-using Settings.Activity;
+using System.Collections.Generic;
 using Modules.Navigation;
+using Settings.Activity;
 using Leopotam.Ecs;
+using UI.Settings;
+using System.Linq;
 using Components;
 using Settings;
+using System;
 
 namespace Systems.Activities
 {
@@ -36,6 +40,30 @@ namespace Systems.Activities
 
                 ActivityFilter.GetEntity(i).Destroy();
             }
+        }
+
+        protected List<DropdownSettings> GetDropdownSettings<E>() where E : Enum
+        {
+            var types = Enum.GetValues(typeof(E)).Cast<E>();
+            var dropdownSettings = new List<DropdownSettings>
+            {
+                new DropdownSettings
+                {
+                    Title = "test", // to do: edit this
+                    DropdownContent = new List<DropdownContent>()
+                }
+            };
+
+            foreach (var type in types)
+            {
+                dropdownSettings.First().DropdownContent.Add(new DropdownContent<E>
+                {
+                    Title = type.ToString(),
+                    Value = type
+                });
+            }
+
+            return dropdownSettings;
         }
 
         protected abstract void StartActivity(bool isEnable);
