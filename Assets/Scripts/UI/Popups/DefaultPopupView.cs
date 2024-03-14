@@ -69,6 +69,7 @@ namespace UI.Popups
 
         private void SetContent(string text)
         {
+            _content.gameObject.SetActive(true);
             _content.text = text;
         }
     }
