@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e10a783b5e26cf489e1eb8b781d99f8, type: 3}
-  m_Name: YogaActivitySettings
+  m_Script: {fileID: 11500000, guid: 2c2374924ba14f9458f59fd20342d903, type: 3}
+  m_Name: VisitCosmetologistActivitySettings
   m_EditorClassIdentifier: 
   <Localization>k__BackingField:
     _asset:
       m_TableReference:
         m_TableCollectionName: GUID:ea2f63027820b3e49ab537f16c497812
       m_TableEntryReference:
-        m_KeyId: 9075952933244928
+        m_KeyId: 9066690249068544
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
   <ParametersChanges>k__BackingField: []
-  _type: 301
+  _type: 210
+  _price: 650

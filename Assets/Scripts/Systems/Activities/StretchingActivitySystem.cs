@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Settings.Activity;
 using Modules.Navigation;
+using Settings.Activity;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -8,25 +8,34 @@ using UI.Popups;
 
 namespace Systems.Activities
 {
-    public sealed class TrainingActivitySystem : ActivitySystem<PaidActivitySettings>
+    public sealed class StretchingActivitySystem : ActivitySystem<FreeActivitySettings>
     {
-        protected override NavigationElementType Type => NavigationElementType.TrainingActivity;
+        protected override NavigationElementType Type => NavigationElementType.StretchingActivity;
 
         protected override void StartActivity(bool isEnable)
         {
             World.NewEntity().Replace(new ShowPopup
             {
-                Settings = new PopupToShow<ResultPopup>(new ResultPopup
+                Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Type.ToString(), // to do: edit this
+                    Title = Settings.Localization.Title,
+                    Content = Settings.Localization.MainContent,
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
                         {
-                            Title = "Ok", // to do: use localization system
+                            Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new HidePopup());
+                            }
+                        },
+                        new TextButtonSettings
+                        {
+                            Title = Settings.Localization.RightButtonContent,
+                            Action = () =>
+                            {
+
                             }
                         }
                     }

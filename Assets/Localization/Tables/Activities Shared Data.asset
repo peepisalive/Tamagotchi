@@ -27,6 +27,18 @@ MonoBehaviour:
     m_Key: Cook
     m_Metadata:
       m_Items: []
+  - m_Id: 9066690249068544
+    m_Key: VisitCosmetologist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9075900802240512
+    m_Key: Stretching
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9075952933244928
+    m_Key: Yoga
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 4152692015246082051
@@ -51,6 +63,15 @@ MonoBehaviour:
           m_TableCodes:
           - en
         - m_KeyId: 8959397851369472
+          m_TableCodes:
+          - en
+        - m_KeyId: 9066690249068544
+          m_TableCodes:
+          - en
+        - m_KeyId: 9075900802240512
+          m_TableCodes:
+          - en
+        - m_KeyId: 9075952933244928
           m_TableCodes:
           - en
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,

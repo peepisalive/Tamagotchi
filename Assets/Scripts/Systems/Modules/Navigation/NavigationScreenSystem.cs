@@ -62,6 +62,7 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
+                NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
                 _ => null
             };
         }
@@ -77,6 +78,7 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
+                NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
                 _ => null
             };
         }

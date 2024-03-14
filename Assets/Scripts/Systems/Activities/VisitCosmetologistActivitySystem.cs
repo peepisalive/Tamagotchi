@@ -8,9 +8,11 @@ using UI.Popups;
 
 namespace Systems.Activities
 {
-    public sealed class YogaActivitySystem : ActivitySystem<FreeActivitySettings>
+    public sealed class VisitCosmetologistActivitySystem : ActivitySystem<PaidActivitySettings>
     {
-        protected override NavigationElementType Type => NavigationElementType.YogaActivity;
+        protected override NavigationElementType Type => NavigationElementType.VisitCosmetologistActivity;
+
+        private EcsFilter<BankAccountComponent> _bankAccountFilter;
 
         protected override void StartActivity(bool isEnable)
         {

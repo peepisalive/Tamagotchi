@@ -66,8 +66,17 @@ namespace Starter
                 .Add(new HealthActivitiesNavigationElements())
                 .Add(new TakeToVetNavigationElement())
                 .Add(new SpaTreatmentsNavigationElement())
-                .Add(new TrainingNavigationElement())
-                .Add(new YogaNavigationElement());
+                .Add(TrainingActivities())
+                .Add(new VisitCosmetologistNavigationElement());
+
+
+            EcsSystems TrainingActivities()
+            {
+                return new EcsSystems(world)
+                    .Add(new TrainingNavigationElement())
+                    .Add(new YogaNavigationElement())
+                    .Add(new StretchingNavigationElement());
+            }
         }
     }
 }

@@ -51,10 +51,18 @@ namespace Starter
         private EcsSystems HealthActivities(EcsWorld world)
         {
             return new EcsSystems(world)
+                .Add(TrainingActivities())
                 .Add(new TakeToVetActivitySystem())
                 .Add(new SpaTreatmentsActivitySystem())
-                .Add(new TrainingActivitySystem())
-                .Add(new YogaActivitySystem());
+                .Add(new VisitCosmetologistActivitySystem());
+
+            
+            EcsSystems TrainingActivities()
+            {
+                return new EcsSystems(world)
+                    .Add(new YogaActivitySystem())
+                    .Add(new StretchingActivitySystem());
+            }
         }
     }
 }

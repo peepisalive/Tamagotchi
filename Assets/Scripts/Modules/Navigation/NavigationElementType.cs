@@ -15,13 +15,16 @@ namespace Modules.Navigation
 
         TakeToVetActivity = 200,
         SpaTreatmentsActivity = 201,
-        TrainingActivity = 202,
+        TrainingActivities = 202,
         WalkActivity = 203,
-        YogaActivity = 204,
         PlayActivity = 205,
         WashActivity = 206,
         FeedActivity = 207,
         DrinkActivity = 208,
         CookActivity = 209,
+        VisitCosmetologistActivity = 210,
+
+        StretchingActivity = 300,
+        YogaActivity = 301,
     }
 }
