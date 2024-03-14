@@ -61,7 +61,8 @@ namespace Starter
             {
                 return new EcsSystems(world)
                     .Add(new YogaActivitySystem())
-                    .Add(new StretchingActivitySystem());
+                    .Add(new StretchingActivitySystem())
+                    .Add(new ExerciseActivitySystem());
             }
         }
     }

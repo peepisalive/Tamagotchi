@@ -75,7 +75,8 @@ namespace Starter
                 return new EcsSystems(world)
                     .Add(new TrainingNavigationElement())
                     .Add(new YogaNavigationElement())
-                    .Add(new StretchingNavigationElement());
+                    .Add(new StretchingNavigationElement())
+                    .Add(new ExerciseNavigationElement());
             }
         }
     }

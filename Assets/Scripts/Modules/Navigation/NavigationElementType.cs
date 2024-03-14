@@ -26,5 +26,6 @@ namespace Modules.Navigation
 
         StretchingActivity = 300,
         YogaActivity = 301,
+        ExerciseActivity = 302,
     }
 }

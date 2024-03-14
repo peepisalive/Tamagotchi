@@ -134,5 +134,13 @@
   {
     "tags": [ "navigation_descr_StretchingActivity" ],
     "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_ExerciseActivity" ],
+    "topic": "Exercise"
+  },
+  {
+    "tags": [ "navigation_descr_ExerciseActivity" ],
+    "topic": "[test]"
   }
 ]
