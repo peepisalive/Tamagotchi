@@ -15,9 +15,9 @@ MonoBehaviour:
   <Localization>k__BackingField:
     _asset:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:ea2f63027820b3e49ab537f16c497812
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 8959397851369472
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0

@@ -19,6 +19,7 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Type.ToString(), // to do: edit this
+                    DropdownSettings = GetDropdownSettings<FoodType>(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -40,6 +41,14 @@ namespace Systems.Activities
                     }
                 })
             });
+        }
+
+
+        public enum FoodType
+        {
+            Fried = 0,
+            Boiled = 1,
+            Steamed = 2,
         }
     }
 }

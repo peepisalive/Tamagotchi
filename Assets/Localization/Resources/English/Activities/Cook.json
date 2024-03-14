@@ -1,12 +1,12 @@
 [
   {
     "tags": [ "title" ],
-    "topic": "Spa treatments"
+    "topic": "Cook"
   },
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "Choose a spa treatment:"
+    "topic": "Choose the type of food:"
   },
   {
     "tags": [ "result_popup", "content" ],
@@ -19,19 +19,19 @@
   },
   {
     "tags": [ "button_content", "right" ],
-    "topic": "Go"
+    "topic": "Cook"
   },
 
   {
-    "tags": [ "type", "Massage" ],
-    "topic": "Massage"
+    "tags": [ "type", "Fried" ],
+    "topic": "Fried food"
   },
   {
-    "tags": [ "type", "Wrapping" ],
-    "topic": "Wrapping"
+    "tags": [ "type", "Boiled" ],
+    "topic": "Boiled food"
   },
   {
-    "tags": [ "type", "FaceMask" ],
-    "topic": "Face mask"
+    "tags": [ "type", "Steamed" ],
+    "topic": "Steamed food"
   }
 ]

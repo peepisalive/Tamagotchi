@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: SpaTreatments
     m_Metadata:
       m_Items: []
+  - m_Id: 8959397851369472
+    m_Key: Cook
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 4152692015246082051
@@ -44,6 +48,9 @@ MonoBehaviour:
           m_TableCodes:
           - en
         - m_KeyId: 8701486998851584
+          m_TableCodes:
+          - en
+        - m_KeyId: 8959397851369472
           m_TableCodes:
           - en
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,
