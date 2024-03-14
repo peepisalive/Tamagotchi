@@ -18,13 +18,14 @@ namespace Systems.Activities
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Type.ToString(), // to do: edit this
+                    Title = Settings.Localization.Title,
+                    Content = Settings.Localization.MainContent,
                     DropdownSettings = GetDropdownSettings<FoodType>(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
                         {
-                            Title = "Close", // to do: use localization system
+                            Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new HidePopup());
@@ -32,7 +33,7 @@ namespace Systems.Activities
                         },
                         new TextButtonSettings
                         {
-                            Title = "Cook", // to do: use localization system
+                            Title = Settings.Localization.RightButtonContent,
                             Action = () =>
                             {
 

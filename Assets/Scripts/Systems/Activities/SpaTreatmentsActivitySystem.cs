@@ -21,14 +21,14 @@ namespace Systems.Activities
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Type.ToString(), // to do: edit this
-                    Content = "content",
+                    Title = Settings.Localization.Title,
+                    Content = Settings.Localization.MainContent,
                     DropdownSettings = GetDropdownSettings<SpaTreatmentsType>(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
                         {
-                            Title = "Close", // to do: use localization system
+                            Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new HidePopup());
@@ -36,7 +36,7 @@ namespace Systems.Activities
                         },
                         new TextButtonSettings
                         {
-                            Title = "Spa treatments", // to do: use localization system
+                            Title = Settings.Localization.RightButtonContent,
                             Action = () =>
                             {
                                 if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
