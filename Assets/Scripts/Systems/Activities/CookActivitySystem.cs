@@ -8,9 +8,9 @@ using UI.Popups;
 
 namespace Systems.Activities
 {
-    public sealed class DrinkActivitySystem : ActivitySystem<FreeActivitySettings>
+    public sealed class CookActivitySystem : ActivitySystem<FreeActivitySettings>
     {
-        protected override NavigationElementType Type => NavigationElementType.DrinkActivity;
+        protected override NavigationElementType Type => NavigationElementType.CookActivity;
 
         protected override void StartActivity(bool isEnable)
         {
@@ -31,7 +31,7 @@ namespace Systems.Activities
                         },
                         new TextButtonSettings
                         {
-                            Title = "Drink", // to do: use localization system
+                            Title = "Cook", // to do: use localization system
                             Action = () =>
                             {
 

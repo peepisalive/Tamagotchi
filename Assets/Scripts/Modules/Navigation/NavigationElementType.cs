@@ -22,5 +22,6 @@ namespace Modules.Navigation
         WashActivity = 206,
         FeedActivity = 207,
         DrinkActivity = 208,
+        CookActivity = 209,
     }
 }

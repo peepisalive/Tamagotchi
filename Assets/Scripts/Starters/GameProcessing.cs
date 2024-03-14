@@ -38,7 +38,8 @@ namespace Starter
         {
             return new EcsSystems(world)
                 .Add(new FeedActivitySystem())
-                .Add(new DrinkActivitySystem());
+                .Add(new DrinkActivitySystem())
+                .Add(new CookActivitySystem());
         }
 
         private EcsSystems HygieneActivities(EcsWorld world)

@@ -110,5 +110,13 @@
   {
     "tags": [ "navigation_descr_DrinkActivity" ],
     "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_CookActivity" ],
+    "topic": "Cook"
+  },
+  {
+    "tags": [ "navigation_descr_CookActivity" ],
+    "topic": "[test]"
   }
 ]

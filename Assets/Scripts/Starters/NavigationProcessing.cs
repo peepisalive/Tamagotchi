@@ -49,7 +49,8 @@ namespace Starter
             return new EcsSystems(world)
                 .Add(new SatietyActivitiesNavigationElements())
                 .Add(new FeedNavigationElement())
-                .Add(new DrinkNavigationElement());
+                .Add(new DrinkNavigationElement())
+                .Add(new CookNavigationElement());
         }
 
         private EcsSystems HygieneActivitiesElements(EcsWorld world)
