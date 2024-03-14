@@ -69,6 +69,9 @@ namespace UI.Popups
 
         private void SetContent(string text)
         {
+            if (string.IsNullOrEmpty(text))
+                return;
+
             _content.gameObject.SetActive(true);
             _content.text = text;
         }
