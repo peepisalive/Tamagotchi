@@ -12,11 +12,12 @@ namespace Settings.Activity
 
         public T Get<T>(NavigationElementType type) where T : ActivitySettings
         {
+            var settings = (T)_settings.FirstOrDefault(s => s.Type == type);
 #if UNITY_EDITOR
-            if (!_settings.Any(s => s.Type == type))
+            if (settings == null)
                 Debug.LogError($"Not found settings by type: [{type}]");
 #endif
-            return (T)_settings.FirstOrDefault(s => s.Type == type);
+            return settings;
         }
 
         public void Add(ActivitySettings settings)
