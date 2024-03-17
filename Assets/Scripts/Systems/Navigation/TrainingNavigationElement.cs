@@ -2,7 +2,6 @@ using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
-using Components;
 using Utils;
 
 namespace Systems.Navigation
@@ -11,10 +10,9 @@ namespace Systems.Navigation
     {
         public HashSet<NavigationElementType> Types => new HashSet<NavigationElementType>
         {
-            NavigationElementType.TrainingActivity
+            NavigationElementType.TrainingActivities
         };
 
-        private EcsWorld _world;
         private EcsFilter<BlockComponent> _blockFilter;
 
         public void Init()
@@ -39,13 +37,7 @@ namespace Systems.Navigation
 
         public bool OnClick(NavigationElementType elementType)
         {
-            _world.NewEntity().Replace(new ActivityComponent
-            {
-                Type = elementType,
-                IsEnable = IsEnable(elementType)
-            });
-
-            return false;
+            return true;
         }
 
         public NavigationButtonData GetButtonData(NavigationElementType elementType)

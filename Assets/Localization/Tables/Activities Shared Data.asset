@@ -27,6 +27,50 @@ MonoBehaviour:
     m_Key: Cook
     m_Metadata:
       m_Items: []
+  - m_Id: 9066690249068544
+    m_Key: VisitCosmetologist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9075900802240512
+    m_Key: Stretching
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9075952933244928
+    m_Key: Yoga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9078030321684480
+    m_Key: Exercise
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10135667599577088
+    m_Key: Wash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10138131782537216
+    m_Key: CleanTheRoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10142690739326976
+    m_Key: VentilateTheRoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10145947410862080
+    m_Key: Drink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10146197206831104
+    m_Key: Feed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10147989231603712
+    m_Key: Walk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10147999998382080
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 4152692015246082051
@@ -51,6 +95,39 @@ MonoBehaviour:
           m_TableCodes:
           - en
         - m_KeyId: 8959397851369472
+          m_TableCodes:
+          - en
+        - m_KeyId: 9066690249068544
+          m_TableCodes:
+          - en
+        - m_KeyId: 9075900802240512
+          m_TableCodes:
+          - en
+        - m_KeyId: 9075952933244928
+          m_TableCodes:
+          - en
+        - m_KeyId: 9078030321684480
+          m_TableCodes:
+          - en
+        - m_KeyId: 10135667599577088
+          m_TableCodes:
+          - en
+        - m_KeyId: 10138131782537216
+          m_TableCodes:
+          - en
+        - m_KeyId: 10142690739326976
+          m_TableCodes:
+          - en
+        - m_KeyId: 10145947410862080
+          m_TableCodes:
+          - en
+        - m_KeyId: 10146197206831104
+          m_TableCodes:
+          - en
+        - m_KeyId: 10147999998382080
+          m_TableCodes:
+          - en
+        - m_KeyId: 10147989231603712
           m_TableCodes:
           - en
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,

@@ -57,7 +57,9 @@ namespace Starter
         {
             return new EcsSystems(world)
                 .Add(new HygieneActivitiesNavigationElements())
-                .Add(new WashNavigationElement());
+                .Add(new WashNavigationElement())
+                .Add(new CleanTheRoomNavigationElement())
+                .Add(new VentilateTheRoomNavigationElement());
         }
 
         private EcsSystems HealthActivitiesElements(EcsWorld world)
@@ -66,8 +68,18 @@ namespace Starter
                 .Add(new HealthActivitiesNavigationElements())
                 .Add(new TakeToVetNavigationElement())
                 .Add(new SpaTreatmentsNavigationElement())
-                .Add(new TrainingNavigationElement())
-                .Add(new YogaNavigationElement());
+                .Add(TrainingActivities())
+                .Add(new VisitCosmetologistNavigationElement());
+
+
+            EcsSystems TrainingActivities()
+            {
+                return new EcsSystems(world)
+                    .Add(new TrainingNavigationElement())
+                    .Add(new YogaNavigationElement())
+                    .Add(new StretchingNavigationElement())
+                    .Add(new ExerciseNavigationElement());
+            }
         }
     }
 }

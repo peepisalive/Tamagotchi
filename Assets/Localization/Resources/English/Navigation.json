@@ -56,11 +56,11 @@
     "topic": "[test]"
   },
   {
-    "tags": [ "navigation_title_TrainingActivity" ],
-    "topic": "Training"
+    "tags": [ "navigation_title_TrainingActivities" ],
+    "topic": "Training activities"
   },
   {
-    "tags": [ "navigation_descr_TrainingActivity" ],
+    "tags": [ "navigation_descr_TrainingActivities" ],
     "topic": "[test]"
   },
   {
@@ -117,6 +117,46 @@
   },
   {
     "tags": [ "navigation_descr_CookActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_VisitCosmetologistActivity" ],
+    "topic": "To visit a cosmetologist"
+  },
+  {
+    "tags": [ "navigation_descr_VisitCosmetologistActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_StretchingActivity" ],
+    "topic": "Stretching"
+  },
+  {
+    "tags": [ "navigation_descr_StretchingActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_ExerciseActivity" ],
+    "topic": "Exercise"
+  },
+  {
+    "tags": [ "navigation_descr_ExerciseActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_CleanTheRoomActivity" ],
+    "topic": "Clean the room"
+  },
+  {
+    "tags": [ "navigation_descr_CleanTheRoomActivity" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_VentilateTheRoomActivity" ],
+    "topic": "Ventilate the room"
+  },
+  {
+    "tags": [ "navigation_descr_VentilateTheRoomActivity" ],
     "topic": "[test]"
   }
 ]

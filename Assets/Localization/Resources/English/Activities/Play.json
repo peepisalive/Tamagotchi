@@ -1,0 +1,33 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Play"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "[test]"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Cancel"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Play"
+  },
+
+  {
+    "tags": [ "type", "WithABall" ],
+    "topic": "Ball"
+  },
+  {
+    "tags": [ "type", "WithAToy" ],
+    "topic": "Toy"
+  }
+]
