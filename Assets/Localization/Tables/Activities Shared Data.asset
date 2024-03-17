@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: Feed
     m_Metadata:
       m_Items: []
+  - m_Id: 10147989231603712
+    m_Key: Walk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10147999998382080
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 4152692015246082051
@@ -114,6 +122,12 @@ MonoBehaviour:
           m_TableCodes:
           - en
         - m_KeyId: 10146197206831104
+          m_TableCodes:
+          - en
+        - m_KeyId: 10147999998382080
+          m_TableCodes:
+          - en
+        - m_KeyId: 10147989231603712
           m_TableCodes:
           - en
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,
