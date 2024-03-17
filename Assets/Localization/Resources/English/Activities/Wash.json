@@ -1,0 +1,37 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Wash"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "[test]"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Cancel"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Wash"
+  },
+
+  {
+    "tags": [ "type", "Muzzle" ],
+    "topic": "Muzzle"
+  },
+  {
+    "tags": [ "type", "Body" ],
+    "topic": "Body"
+  },
+  {
+    "tags": [ "type", "Paws" ],
+    "topic": "Paws"
+  }
+]
