@@ -58,7 +58,8 @@ namespace Starter
             return new EcsSystems(world)
                 .Add(new HygieneActivitiesNavigationElements())
                 .Add(new WashNavigationElement())
-                .Add(new CleanTheRoomNavigationElement());
+                .Add(new CleanTheRoomNavigationElement())
+                .Add(new VentilateTheRoomNavigationElement());
         }
 
         private EcsSystems HealthActivitiesElements(EcsWorld world)

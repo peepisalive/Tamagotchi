@@ -28,5 +28,6 @@ namespace Modules.Navigation
         YogaActivity = 301,
         ExerciseActivity = 302,
         CleanTheRoomActivity = 303,
+        VentilateTheRoomActivity = 304,
     }
 }

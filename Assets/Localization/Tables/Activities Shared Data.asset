@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: CleanTheRoom
     m_Metadata:
       m_Items: []
+  - m_Id: 10142690739326976
+    m_Key: VentilateTheRoom
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 4152692015246082051
@@ -93,6 +97,9 @@ MonoBehaviour:
           m_TableCodes:
           - en
         - m_KeyId: 10138131782537216
+          m_TableCodes:
+          - en
+        - m_KeyId: 10142690739326976
           m_TableCodes:
           - en
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,

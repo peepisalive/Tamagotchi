@@ -150,5 +150,13 @@
   {
     "tags": [ "navigation_descr_CleanTheRoomActivity" ],
     "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_VentilateTheRoomActivity" ],
+    "topic": "Ventilate the room"
+  },
+  {
+    "tags": [ "navigation_descr_VentilateTheRoomActivity" ],
+    "topic": "[test]"
   }
 ]
