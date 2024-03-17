@@ -6,7 +6,6 @@ namespace Modules.Navigation
     {
         public NavigationElementType Type;
         public NavigationButtonState StateType;
-
         public Sprite Icon;
         public string Title;
         public string Description;

@@ -13,7 +13,7 @@ namespace Settings.Modules.Navigations
 
         public Sprite GetIcon(NavigationElementType type)
         {
-            var icon = _icons.FirstOrDefault(navigationIcon => navigationIcon.Type == type).Icon;
+            var icon = _icons.FirstOrDefault(navigationIcon => navigationIcon.Type == type)?.Icon;
 
 #if UNITY_EDITOR
             if (icon == null)

@@ -19,6 +19,7 @@ namespace Settings.Modules.Navigations
             return new NavigationButtonData
             {
                 Type = Type,
+                Icon = SettingsProvider.Get<NavigationIconSettings>().GetIcon(Type),
                 Title = LocalizationProvider.GetNavigationText(string.Format(TITLE_KEY, Type.ToString())),
                 Description = LocalizationProvider.GetNavigationText(string.Format(DESCR_KEY, Type.ToString())),
             };
