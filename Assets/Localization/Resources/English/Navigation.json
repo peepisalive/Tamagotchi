@@ -142,5 +142,13 @@
   {
     "tags": [ "navigation_descr_ExerciseActivity" ],
     "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_CleanTheRoomActivity" ],
+    "topic": "Clean the room"
+  },
+  {
+    "tags": [ "navigation_descr_CleanTheRoomActivity" ],
+    "topic": "[test]"
   }
 ]

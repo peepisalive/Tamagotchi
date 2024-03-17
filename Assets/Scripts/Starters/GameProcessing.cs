@@ -45,7 +45,8 @@ namespace Starter
         private EcsSystems HygieneActivities(EcsWorld world)
         {
             return new EcsSystems(world)
-                .Add(new WashActivitySystem());
+                .Add(new WashActivitySystem())
+                .Add(new CleanTheRoomActivitySystem());
         }
 
         private EcsSystems HealthActivities(EcsWorld world)
