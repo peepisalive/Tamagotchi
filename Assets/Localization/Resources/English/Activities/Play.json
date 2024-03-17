@@ -20,5 +20,14 @@
   {
     "tags": [ "button_content", "right" ],
     "topic": "Play"
+  },
+
+  {
+    "tags": [ "type", "WithABall" ],
+    "topic": "Ball"
+  },
+  {
+    "tags": [ "type", "WithAToy" ],
+    "topic": "Toy"
   }
 ]

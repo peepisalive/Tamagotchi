@@ -19,6 +19,7 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Settings.Localization.Title,
+                    DropdownSettings = GetDropdownSettings<PlayType>(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -40,6 +41,13 @@ namespace Systems.Activities
                     }
                 })
             });
+        }
+
+
+        private enum PlayType
+        {
+            WithABall = 0,
+            WithAToy = 1,
         }
     }
 }
