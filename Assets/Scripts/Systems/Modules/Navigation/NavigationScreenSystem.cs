@@ -92,8 +92,13 @@ namespace Systems.Modules.Navigation
 
             if (screenControllerType == typeof(MainScreenController))
             {
-                if (_screenManager.CurrentScreen?.GetType() == typeof(ActionsScreenController))
+                var currentScreenType = _screenManager.CurrentScreen?.GetType();
+
+                if (currentScreenType == typeof(ActionsScreenController)
+                    || currentScreenType == typeof(MenuScreenController))
+                {
                     return Vector2.left;
+                }
             }
 
             return Vector2.right;
