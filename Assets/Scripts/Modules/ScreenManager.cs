@@ -10,6 +10,9 @@ namespace Modules
 {
     public sealed class ScreenManager
     {
+        public ScreenController CurrentScreen { get; private set; }
+        public ScreenController PreviousScreen { get; private set; }
+
         private Transform ScreenParent
         {
             get
@@ -21,10 +24,7 @@ namespace Modules
             }
         }
 
-        private ScreenController _previousScreen;
-        private ScreenController _currentScreen;
         private List<ScreenController> _screens;
-
         private Transform _screenParent;
 
         public ScreenManager()
@@ -52,9 +52,9 @@ namespace Modules
                 return;
             }
 
-            if (_currentScreen != null)
+            if (CurrentScreen != null)
             {
-                _previousScreen = _currentScreen;
+                PreviousScreen = CurrentScreen;
             }
 
             ShowScreen(screen, showDirection, overPrevious);
@@ -78,21 +78,21 @@ namespace Modules
             screen.Setup();
             screen.Show(direction, DestroyPreviousScreen);
 
-            _currentScreen = screen;
+            CurrentScreen = screen;
 
             EventSystem.Send(new ScreenReplacedEvent
             {
-                CurrentScreen = _currentScreen,
-                FadeOffRequired = _previousScreen == null
+                CurrentScreen = CurrentScreen,
+                FadeOffRequired = PreviousScreen == null
             });
         }
 
         private void DestroyPreviousScreen()
         {
-            if (_previousScreen == null)
+            if (PreviousScreen == null)
                 return;
 
-            GameObject.Destroy(_previousScreen.gameObject);
+            GameObject.Destroy(PreviousScreen.gameObject);
         }
     }
 }
