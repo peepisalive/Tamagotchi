@@ -92,7 +92,7 @@ namespace Modules
             if (PreviousScreen == null)
                 return;
 
-            GameObject.Destroy(PreviousScreen.gameObject);
+            UnityEngine.Object.Destroy(PreviousScreen.gameObject);
         }
     }
 }

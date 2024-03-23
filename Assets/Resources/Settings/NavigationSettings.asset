@@ -15,7 +15,5 @@ MonoBehaviour:
   <Sets>k__BackingField:
   - <BlockType>k__BackingField: 0
     <RootElementType>k__BackingField: 1
-    <ElementsSet>k__BackingField: {fileID: 11400000, guid: 185d62c9a9327b54aac2e2cd63580bca, type: 2}
-  - <BlockType>k__BackingField: 1
-    <RootElementType>k__BackingField: 2
-    <ElementsSet>k__BackingField: {fileID: 11400000, guid: a77901187830dda47b20cfca23e3601a, type: 2}
+    <ElementsSet>k__BackingField: {fileID: 11400000, guid: 185d62c9a9327b54aac2e2cd63580bca,
+      type: 2}

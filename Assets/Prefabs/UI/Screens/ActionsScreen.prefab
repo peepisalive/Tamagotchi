@@ -179,7 +179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4001805678011081208}
   - component: {fileID: 4001805678011081209}
-  - component: {fileID: 7419103201812263830}
   m_Layer: 5
   m_Name: ActionsScreen
   m_TagString: Untagged
@@ -221,22 +220,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navigationPanel: {fileID: 8696986728491578970}
-  _view: {fileID: 7419103201812263830}
   _buttonsParent: {fileID: 7759282104696667848}
   _buttonPrefab: {fileID: 5772065219032252831, guid: 373b2bb06f534a647a9cd5a5ffac345c,
     type: 3}
---- !u!114 &7419103201812263830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4001805678011081211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 335f8a6581c39af46a3a38169f311e58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4316902765550241775
 GameObject:
   m_ObjectHideFlags: 0

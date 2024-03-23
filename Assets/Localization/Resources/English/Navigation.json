@@ -158,5 +158,13 @@
   {
     "tags": [ "navigation_descr_VentilateTheRoomActivity" ],
     "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_SoundProvider" ],
+    "topic": "Sound"
+  },
+  {
+    "tags": [ "navigation_descr_SoundProvider" ],
+    "topic": "[test]"
   }
 ]

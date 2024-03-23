@@ -1,8 +1,7 @@
 namespace Modules.Navigation
 {
-    public enum NavigationBlockType : sbyte
+    public enum NavigationBlockType : byte
     {
         Main = 0,
-        Menu = 1,
     }
 }

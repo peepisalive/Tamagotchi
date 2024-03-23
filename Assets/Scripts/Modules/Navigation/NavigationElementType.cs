@@ -30,5 +30,7 @@ namespace Modules.Navigation
         ExerciseActivity = 302,
         CleanTheRoomActivity = 303,
         VentilateTheRoomActivity = 304,
+
+        SoundProvider = 1000,
     }
 }

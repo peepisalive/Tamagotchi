@@ -6,11 +6,11 @@ using Utils;
 
 namespace Systems.Navigation
 {
-    public sealed class MainScreenNavigationElements : IEcsInitSystem, INavigationElement
+    public sealed class SoundProviderNavigationElement : IEcsInitSystem, INavigationElement
     {
         public HashSet<NavigationElementType> Types => new HashSet<NavigationElementType>
         {
-            NavigationElementType.MainScreen,
+            NavigationElementType.SoundProvider,
         };
 
         private EcsFilter<BlockComponent> _blockFilter;
@@ -37,7 +37,7 @@ namespace Systems.Navigation
 
         public bool OnClick(NavigationElementType elementType)
         {
-            return IsEnable(elementType);
+            return false;
         }
 
         public NavigationButtonData GetButtonData(NavigationElementType elementType)

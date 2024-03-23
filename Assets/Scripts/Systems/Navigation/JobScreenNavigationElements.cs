@@ -6,7 +6,7 @@ using Utils;
 
 namespace Systems.Navigation
 {
-    public sealed class JobScreenNavigationElement : IEcsInitSystem, INavigationElement
+    public sealed class JobScreenNavigationElements : IEcsInitSystem, INavigationElement
     {
         public HashSet<NavigationElementType> Types => new HashSet<NavigationElementType>
         {
