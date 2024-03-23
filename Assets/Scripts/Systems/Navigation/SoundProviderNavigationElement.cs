@@ -2,6 +2,8 @@ using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
+using Modules;
+using Events;
 using Utils;
 
 namespace Systems.Navigation
@@ -37,12 +39,23 @@ namespace Systems.Navigation
 
         public bool OnClick(NavigationElementType elementType)
         {
+            SoundProvider.Instance.SwitchState();
+            EventSystem.Send(new NavigationToggleUpdateStateEvent
+            {
+                Type = NavigationElementType.SoundProvider,
+                State = SoundProvider.Instance.State
+            });
+
             return false;
         }
 
         public NavigationButtonData GetButtonData(NavigationElementType elementType)
         {
-            return _blockFilter.GetNavigationButtonData(NavigationBlockType.Main, elementType, this);
+            var buttonData = _blockFilter.GetNavigationButtonData(NavigationBlockType.Main, elementType, this);
+
+            buttonData.IsToggleButton = true;
+
+            return buttonData;
         }
 
         public NavigationScreenData GetScreenData(NavigationElementType elementType)
