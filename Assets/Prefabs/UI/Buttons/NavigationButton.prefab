@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 495299546594895275}
   - component: {fileID: 5772065219032252831}
   - component: {fileID: 166471986352183438}
+  - component: {fileID: 2061945031269435509}
   m_Layer: 5
   m_Name: NavigationButton
   m_TagString: Untagged
@@ -670,6 +671,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+--- !u!114 &2061945031269435509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759499444092311639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c900ef04c4a5645ad41e61df402ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundType: 0
 --- !u!1 &8886318173316247238
 GameObject:
   m_ObjectHideFlags: 0

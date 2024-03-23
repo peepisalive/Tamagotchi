@@ -9,6 +9,7 @@ namespace UI.Controller.Screen
     {
         [Header("Base")]
         [SerializeField] private NavigationPanel _navigationPanel;
+
         private const float ANIMATION_DURATION = .2f;
 
         public virtual void Setup()
@@ -32,6 +33,7 @@ namespace UI.Controller.Screen
 
             SetStartScreenPosition(direction);
             DoAnimation(targetPosition, onComplete);
+
 
             void SetStartScreenPosition(Vector2 direction)
             {

@@ -24,10 +24,8 @@ namespace Starter
                 .OneFrame<NavigationElementInteractionEvent>()
                 .OneFrame<NavigationPointChangedEvent>()
                 .Add(ScreenElements(world))
-                .Add(HappinessActivitiesElements(world))
-                .Add(SatietyActivitiesElements(world))
-                .Add(HygieneActivitiesElements(world))
-                .Add(HealthActivitiesElements(world))
+                .Add(MenuScreenElements(world))
+                .Add(ActivitiesScreenElements(world))
                 .Add(Application.Model)
                 .Inject(new ScreenManager());
 
@@ -40,52 +38,68 @@ namespace Starter
                 .Add(new MainScreenNavigationElements())
                 .Add(new MenuScreenNavigationElements())
                 .Add(new ActivitiesScreenNavigationElements())
-                .Add(new JobScreenNavigationElement());
+                .Add(new JobScreenNavigationElements());
         }
 
-        private EcsSystems HappinessActivitiesElements(EcsWorld world)
+        private EcsSystems MenuScreenElements(EcsWorld world)
         {
             return new EcsSystems(world)
-                .Add(new HappinessActivitiesNavigationElements())
-                .Add(new WalkNavigationElement())
-                .Add(new PlayNavigationElement());
+                .Add(new SoundProviderNavigationElement());
         }
 
-        private EcsSystems SatietyActivitiesElements(EcsWorld world)
+        private EcsSystems ActivitiesScreenElements(EcsWorld world)
         {
             return new EcsSystems(world)
-                .Add(new SatietyActivitiesNavigationElements())
-                .Add(new FeedNavigationElement())
-                .Add(new DrinkNavigationElement())
-                .Add(new CookNavigationElement());
-        }
-
-        private EcsSystems HygieneActivitiesElements(EcsWorld world)
-        {
-            return new EcsSystems(world)
-                .Add(new HygieneActivitiesNavigationElements())
-                .Add(new WashNavigationElement())
-                .Add(new CleanTheRoomNavigationElement())
-                .Add(new VentilateTheRoomNavigationElement());
-        }
-
-        private EcsSystems HealthActivitiesElements(EcsWorld world)
-        {
-            return new EcsSystems(world)
-                .Add(new HealthActivitiesNavigationElements())
-                .Add(new TakeToVetNavigationElement())
-                .Add(new SpaTreatmentsNavigationElement())
-                .Add(TrainingActivities())
-                .Add(new VisitCosmetologistNavigationElement());
+                .Add(HappinessActivitiesElements())
+                .Add(SatietyActivitiesElements())
+                .Add(HygieneActivitiesElements())
+                .Add(HealthActivitiesElements());
 
 
-            EcsSystems TrainingActivities()
+            EcsSystems HappinessActivitiesElements()
             {
                 return new EcsSystems(world)
-                    .Add(new TrainingNavigationElement())
-                    .Add(new YogaNavigationElement())
-                    .Add(new StretchingNavigationElement())
-                    .Add(new ExerciseNavigationElement());
+                    .Add(new HappinessActivitiesNavigationElements())
+                    .Add(new WalkNavigationElement())
+                    .Add(new PlayNavigationElement());
+            }
+
+            EcsSystems SatietyActivitiesElements()
+            {
+                return new EcsSystems(world)
+                    .Add(new SatietyActivitiesNavigationElements())
+                    .Add(new FeedNavigationElement())
+                    .Add(new DrinkNavigationElement())
+                    .Add(new CookNavigationElement());
+            }
+
+            EcsSystems HygieneActivitiesElements()
+            {
+                return new EcsSystems(world)
+                    .Add(new HygieneActivitiesNavigationElements())
+                    .Add(new WashNavigationElement())
+                    .Add(new CleanTheRoomNavigationElement())
+                    .Add(new VentilateTheRoomNavigationElement());
+            }
+
+            EcsSystems HealthActivitiesElements()
+            {
+                return new EcsSystems(world)
+                    .Add(new HealthActivitiesNavigationElements())
+                    .Add(new TakeToVetNavigationElement())
+                    .Add(new SpaTreatmentsNavigationElement())
+                    .Add(TrainingActivities())
+                    .Add(new VisitCosmetologistNavigationElement());
+
+
+                EcsSystems TrainingActivities()
+                {
+                    return new EcsSystems(world)
+                        .Add(new TrainingNavigationElement())
+                        .Add(new YogaNavigationElement())
+                        .Add(new StretchingNavigationElement())
+                        .Add(new ExerciseNavigationElement());
+                }
             }
         }
     }

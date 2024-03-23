@@ -1,17 +1,14 @@
 using Application = Tamagotchi.Application;
 using Modules.Navigation;
-using UI.View.Screen;
 using UnityEngine;
 
 namespace UI.Controller.Screen
 {
-    [RequireComponent(typeof(ActionsScreenView))]
     public sealed class ActionsScreenController : ScreenController
     {
-        [Header("View")]
-        [SerializeField] private ActionsScreenView _view;
-        [SerializeField] private RectTransform _buttonsParent;
+        [Header("Controller")]
         [SerializeField] private NavigationButtonController _buttonPrefab;
+        [SerializeField] private RectTransform _buttonsParent;
 
         private NavigationBlock _navigationBlock;
         private NavigationPoint _navigationPoint;

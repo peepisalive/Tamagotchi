@@ -13,12 +13,11 @@ namespace Systems.Navigation
             NavigationElementType.MenuScreen
         };
         
-        private EcsWorld _world;
         private EcsFilter<BlockComponent> _blockFilter;
 
         public void Init()
         {
-            _blockFilter.RegisterElement(NavigationBlockType.Menu, this);
+            _blockFilter.RegisterElement(NavigationBlockType.Main, this);
         }
 
         public bool CanDisplay(NavigationElementType elementType)
@@ -43,12 +42,12 @@ namespace Systems.Navigation
 
         public NavigationButtonData GetButtonData(NavigationElementType elementType)
         {
-            return _blockFilter.GetNavigationButtonData(NavigationBlockType.Menu, elementType, this);
+            return _blockFilter.GetNavigationButtonData(NavigationBlockType.Main, elementType, this);
         }
 
         public NavigationScreenData GetScreenData(NavigationElementType elementType)
         {
-            return _blockFilter.GetNavigationScreenData(NavigationBlockType.Menu, elementType);
+            return _blockFilter.GetNavigationScreenData(NavigationBlockType.Main, elementType);
         }
     }
 }

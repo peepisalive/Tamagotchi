@@ -220,6 +220,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navigationPanel: {fileID: 5118986574353328518}
+  _buttonsParent: {fileID: 1169284612340472073}
+  _buttonPrefab: {fileID: 5772065219032252831, guid: 373b2bb06f534a647a9cd5a5ffac345c,
+    type: 3}
 --- !u!1 &5527059125905927462
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +360,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -514,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7427168716680888578
 RectTransform:
   m_ObjectHideFlags: 0

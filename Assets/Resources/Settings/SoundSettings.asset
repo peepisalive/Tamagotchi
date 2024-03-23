@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ee8019ef3a55f409dfb11fd0e98c5a, type: 3}
-  m_Name: Menu
+  m_Script: {fileID: 11500000, guid: e1d7943c2fd50e34693a9f1c2b458ba6, type: 3}
+  m_Name: SoundSettings
   m_EditorClassIdentifier: 
-  <NavigationElementSettings>k__BackingField:
-  - {fileID: 11400000, guid: 22a452839c2ad2d4381447aea5de9390, type: 2}
+  _sounds: []
