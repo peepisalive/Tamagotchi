@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41960785, g: 0.59607846, b: 0.45029825, a: 1}
+  m_Color: {r: 0.41960785, g: 0.5460353, b: 0.59607846, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -777,11 +777,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4154595657603394226}
     m_Modifications:
-    - target: {fileID: 1407782689741731697, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
-        type: 3}
-      propertyPath: m_Name
-      value: MoneyPanel
-      objectReference: {fileID: 0}
     - target: {fileID: 3619160272394063568, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
         type: 3}
       propertyPath: m_Pivot.x

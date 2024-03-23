@@ -58,6 +58,7 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.MainScreen => typeof(MainScreenController),
                 NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
+                NavigationElementType.JobScreen => typeof(JobScreenController),
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
@@ -74,6 +75,7 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.MainScreen => typeof(MainScreenController),
                 NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
+                NavigationElementType.JobScreen => typeof(JobScreenController),
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
@@ -85,11 +87,28 @@ namespace Systems.Modules.Navigation
 
         private Vector2 GetShowDirection(Type screenControllerType)
         {
+            if (screenControllerType == typeof(JobScreenController))
+                return Vector2.left;
+
+            if (screenControllerType == typeof(MainScreenController))
+            {
+                var currentScreenType = _screenManager.CurrentScreen?.GetType();
+
+                if (currentScreenType == typeof(ActionsScreenController)
+                    || currentScreenType == typeof(MenuScreenController))
+                {
+                    return Vector2.left;
+                }
+            }
+
             return Vector2.right;
         }
 
         private Vector2 GetHideDirection(Type screenControllerType)
         {
+            if (screenControllerType == typeof(JobScreenController))
+                return Vector2.right;
+
             return Vector2.left;
         }
     }

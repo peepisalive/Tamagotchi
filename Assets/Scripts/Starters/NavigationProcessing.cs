@@ -23,9 +23,7 @@ namespace Starter
                 .Add(new NavigationScreenSystem())
                 .OneFrame<NavigationElementInteractionEvent>()
                 .OneFrame<NavigationPointChangedEvent>()
-                .Add(new MainScreenNavigationElements())
-                .Add(new MenuScreenNavigationElements())
-                .Add(new ActivitiesScreenNavigationElements())
+                .Add(ScreenElements(world))
                 .Add(HappinessActivitiesElements(world))
                 .Add(SatietyActivitiesElements(world))
                 .Add(HygieneActivitiesElements(world))
@@ -34,6 +32,15 @@ namespace Starter
                 .Inject(new ScreenManager());
 
             Systems.Init();
+        }
+
+        private EcsSystems ScreenElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new MainScreenNavigationElements())
+                .Add(new MenuScreenNavigationElements())
+                .Add(new ActivitiesScreenNavigationElements())
+                .Add(new JobScreenNavigationElement());
         }
 
         private EcsSystems HappinessActivitiesElements(EcsWorld world)

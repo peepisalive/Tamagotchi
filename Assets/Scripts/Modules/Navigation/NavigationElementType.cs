@@ -6,6 +6,7 @@ namespace Modules.Navigation
         MainScreen = 1,
         MenuScreen = 2,
         ActivitiesScreen = 3,
+        JobScreen = 4,
         
         HappinessActivities = 100,
         SatietyActivities = 101,
