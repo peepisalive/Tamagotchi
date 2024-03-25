@@ -1,7 +1,7 @@
 using Application = Tamagotchi.Application;
 using Leopotam.Ecs;
 using Components;
-using System;
+using Systems;
 
 namespace Starter
 {

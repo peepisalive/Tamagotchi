@@ -1,9 +1,10 @@
 using Leopotam.Ecs;
 using Save.State;
 using Components;
+using System;
 using Core;
 
-namespace System.Creation
+namespace Systems.Creation
 {
     public sealed class PetCreationSystem : IEcsInitSystem
     {

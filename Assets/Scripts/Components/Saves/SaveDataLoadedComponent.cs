@@ -20,7 +20,7 @@ namespace Components
             if (_stateHolders.ContainsKey(type))
                 return (T)_stateHolders[type];
 
-            return default(T);
+            return default;
         }
     }
 }

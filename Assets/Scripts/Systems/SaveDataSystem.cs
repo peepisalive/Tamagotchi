@@ -3,7 +3,7 @@ using Components;
 using Save.State;
 using Modules;
 
-namespace System
+namespace Systems
 {
     public sealed class SaveDataSystem : IEcsInitSystem, IEcsRunSystem
     {
@@ -32,6 +32,8 @@ namespace System
 
         private void SaveData(bool isAsync)
         {
+            SaveDataSettings();
+
             SaveDataBankAccount();
             SaveDataPet();
 
@@ -61,6 +63,13 @@ namespace System
                 stateHolder.State.Type = pet.Type;
                 stateHolder.State.Parameters = pet.Parameters.GetSaves();
             }
+        }
+
+        private void SaveDataSettings()
+        {
+            var stateHolder = _saveDataManager.GetStateHolder<SettingsStateHolder>();
+
+            stateHolder.State.SoundState = SoundProvider.Instance.State;
         }
     }
 }
