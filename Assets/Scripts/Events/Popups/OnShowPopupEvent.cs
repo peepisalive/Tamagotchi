@@ -1,4 +1,4 @@
-namespace Events
+namespace Events.Popups
 {
     public sealed class OnShowPopupEvent
     {

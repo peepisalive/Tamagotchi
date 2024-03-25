@@ -1,7 +1,7 @@
+using Events.Popups;
 using Leopotam.Ecs;
 using Components;
 using Modules;
-using Events;
 
 namespace Systems
 {
@@ -24,16 +24,13 @@ namespace Systems
         {
             foreach (var i in _hidePopupFilter)
             {
-                HidePopup();
+                _popupViewManager.HideCurrentPopup();
                 _hidePopupFilter.GetEntity(i).Destroy();
             }
 
             foreach (var i in _showPopupFilter)
             {
-                ShowPopup(new ShowPopupEvent
-                {
-                    Settings = _showPopupFilter.Get1(i).Settings
-                });
+                _showPopupFilter.Get1(i).Settings.ShowPopup(_popupViewManager);
                 _showPopupFilter.GetEntity(i).Destroy();
             }
         }

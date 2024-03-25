@@ -1,10 +1,10 @@
 using Object = UnityEngine.Object;
+using Events.Popups;
 using UnityEngine;
 using System.Linq;
 using UI.Popups;
 using Settings;
 using System;
-using Events;
 
 namespace Modules
 {

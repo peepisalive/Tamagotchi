@@ -1,8 +1,8 @@
 using UnityEngine.UI;
+using Events.Popups;
 using UnityEngine;
 using Components;
 using Modules;
-using Events;
 
 namespace UI.Controller
 {
