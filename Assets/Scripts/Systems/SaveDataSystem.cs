@@ -32,26 +32,14 @@ namespace Systems
 
         private void SaveData(bool isAsync)
         {
-            SaveDataSettings();
-
-            SaveDataBankAccount();
-            SaveDataPet();
+            SaveSettingsData();
+            SaveGlobalData();
+            SavePetData();
 
             _saveDataManager.SaveData(isAsync);
         }
 
-        private void SaveDataBankAccount()
-        {
-            foreach (var i in _bankAccountFilter)
-            {
-                var stateHolder = _saveDataManager.GetStateHolder<GlobalStateHolder>();
-                var bankAccount = _bankAccountFilter.Get1(i).BankAccount;
-
-                stateHolder.State.BankAccountValue = bankAccount.Value;
-            }
-        }
-
-        private void SaveDataPet()
+        private void SavePetData()
         {
             foreach (var i in _petFilter)
             {
@@ -65,11 +53,38 @@ namespace Systems
             }
         }
 
-        private void SaveDataSettings()
+        private void SaveSettingsData()
         {
             var stateHolder = _saveDataManager.GetStateHolder<SettingsStateHolder>();
 
-            stateHolder.State.SoundState = SoundProvider.Instance.State;
+            SaveSoundData();
+
+
+            void SaveSoundData()
+            {
+                stateHolder.State.SoundState = SoundProvider.Instance.State;
+            }
+        }
+
+        private void SaveGlobalData()
+        {
+            var stateHolder = _saveDataManager.GetStateHolder<GlobalStateHolder>();
+
+            SaveBankAccountData();
+            SavePlayTimeData();
+
+
+            void SavePlayTimeData()
+            {
+                stateHolder.State.PlayTimeSeconds = InGameTimeManager.Instance.PlayTimeSeconds;
+            }
+            void SaveBankAccountData()
+            {
+                foreach (var i in _bankAccountFilter)
+                {
+                    stateHolder.State.BankAccountValue = _bankAccountFilter.Get1(i).BankAccount.Value;
+                }
+            }
         }
     }
 }

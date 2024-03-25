@@ -54,6 +54,7 @@ namespace Systems.Navigation
             var buttonData = _blockFilter.GetNavigationButtonData(NavigationBlockType.Main, elementType, this);
 
             buttonData.IsToggleButton = true;
+            buttonData.DefaultToggleState = SoundProvider.Instance.State;
 
             return buttonData;
         }

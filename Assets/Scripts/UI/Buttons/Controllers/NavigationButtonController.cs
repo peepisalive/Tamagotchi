@@ -35,7 +35,10 @@ namespace UI.Controller
             _transitionIcon.gameObject.SetActive(!buttonData.IsToggleButton);
 
             if (buttonData.IsToggleButton)
+            {
+                _toggle.isOn = buttonData.DefaultToggleState;
                 SubscribeOnToggleUpdateStateEvent();
+            }
         }
 
         private void UpdateToggleState(NavigationToggleUpdateStateEvent e)

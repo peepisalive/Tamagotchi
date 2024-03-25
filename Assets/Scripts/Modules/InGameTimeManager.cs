@@ -1,29 +1,33 @@
 using Application = Tamagotchi.Application;
 using UnityEngine;
 using Save.State;
+using Core;
 
 namespace Modules
 {
-    public sealed class InGameTimeManager : MonoBehaviour
+    public sealed class InGameTimeManager : MonoBehaviourSingleton<InGameTimeManager>, IStateLoadable
     {
-        private GlobalStateHolder _stateHolder;
+        [field: SerializeField] public float PlayTimeSeconds { get; private set; }
+
+        public void LoadState()
+        {
+            var stateHolder = Application.SaveDataManager.GetStateHolder<GlobalStateHolder>();
+
+            if (stateHolder == null)
+                return;
+
+            PlayTimeSeconds = stateHolder.State.PlayTimeSeconds;
+        }
 
         private void Update()
         {
-            _stateHolder.State.PlayTimeSeconds += Time.deltaTime;
+            PlayTimeSeconds += Time.deltaTime;
         }
 
-        private void Start()
+        private void Awake()
         {
-            _stateHolder = Application.SaveDataManager.GetStateHolder<GlobalStateHolder>();
-        }
-
-        private void OnApplicationFocus(bool focus)
-        {
-            if (!focus)
-            {
-
-            }
+            Instance = this;
+            LoadState();
         }
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Save;
 
-namespace Events
+namespace Events.Saves
 {
     public sealed class SaveDataEvent
     {

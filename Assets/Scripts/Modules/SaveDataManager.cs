@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Events.Saves;
 using UnityEditor;
 using Components;
 using Tamagotchi;
@@ -31,7 +32,7 @@ namespace Modules
         }
 
         #region Clear saves
-        [MenuItem("Tamagotchi/Clear saves")]
+        [MenuItem("Tamagotchi/Clear saves %&c")]
         public static void ClearSaves()
         {
             foreach (var saveFilePath in Directory.EnumerateFiles(SaveUtils.RootPath))
@@ -46,7 +47,7 @@ namespace Modules
         {
             if (_stateHolders.TryGetValue(type, out var stateHolder))
             {
-                EventSystem.Send(new Events.SaveDataEvent
+                EventSystem.Send(new Events.Saves.SaveDataEvent
                 {
                     SaveData = new List<SaveData>
                     {
@@ -74,7 +75,7 @@ namespace Modules
                 });
             }
 
-            EventSystem.Send(new Events.SaveDataEvent
+            EventSystem.Send(new Events.Saves.SaveDataEvent
             {
                 SaveData = saveData,
                 IsAsync = isAsync
@@ -116,8 +117,11 @@ namespace Modules
                 isLoaded &= TryLoadData(stateHolder.Key);
             }
 
-            if (isLoaded)
-                Application.Model.Send(new SaveDataLoadedComponent(_stateHolders));
+            if (!isLoaded)
+                return;
+
+            Application.Model.Send(new SaveDataLoadedComponent(_stateHolders));
+            EventSystem.Send(new SaveDataLoadedEvent(_stateHolders));
         }
         #endregion
 

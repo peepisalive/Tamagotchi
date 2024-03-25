@@ -13,5 +13,6 @@ namespace Modules.Navigation
         public string Description;
 
         public bool IsToggleButton;
+        public bool DefaultToggleState;
     }
 }

@@ -1,12 +1,14 @@
+using Application = Tamagotchi.Application;
 using Settings.Modules;
 using UnityEngine;
 using Extensions;
+using Save.State;
 using Settings;
 using Core;
 
 namespace Modules
 {
-    public sealed class SoundProvider : MonoBehaviourSingleton<SoundProvider>
+    public sealed class SoundProvider : MonoBehaviourSingleton<SoundProvider>, IStateLoadable
     {
 #if UNITY_EDITOR
         [field: ReadOnly]
@@ -35,12 +37,24 @@ namespace Modules
             State = !State;
         }
 
+        public void LoadState()
+        {
+            var stateHolder = Application.SaveDataManager.GetStateHolder<SettingsStateHolder>();
+
+            if (stateHolder == null)
+                return;
+
+            State = stateHolder.State.SoundState;
+        }
+
         private void Awake()
         {
             Instance = this;
 
             _audioSource = GetComponentInChildren<AudioSource>();
             _settings = SettingsProvider.Get<SoundSettings>();
+
+            LoadState();
         }
     }
 }
