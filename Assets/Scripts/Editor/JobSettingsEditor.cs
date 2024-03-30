@@ -1,11 +1,11 @@
-using Settings.Activity;
+using Settings.Job;
 using UnityEditor;
 using UnityEngine;
 
 namespace InEditor
 {
-    [CustomEditor(typeof(ActivitiesSettings))]
-    public sealed class ActivitiesSettingsEditor : Editor
+    [CustomEditor(typeof(JobSettings))]
+    public sealed class JobSettingsEditor : Editor
     {
         public override void OnInspectorGUI()
         {
@@ -24,19 +24,19 @@ namespace InEditor
 
         private void FillSettings()
         {
-            var activitiesSettings = (ActivitiesSettings)target;
-            var path = "Assets/Settings/Activities";
-            var guids = AssetDatabase.FindAssets("t:ActivitySettings", new string[] { path });
+            var jobSettings = (JobSettings)target;
+            var path = "Assets/Settings/Job";
+            var guids = AssetDatabase.FindAssets("t:JobTypeSettings", new string[] { path });
 
             foreach (var guid in guids)
             {
                 var settingsPath = AssetDatabase.GUIDToAssetPath(guid);
-                var settings = AssetDatabase.LoadAssetAtPath<ActivitySettings>(settingsPath);
+                var settings = AssetDatabase.LoadAssetAtPath<JobTypeSettings>(settingsPath);
 
-                activitiesSettings.Add(settings);
+                jobSettings.Add(settings);
             }
 
-            EditorUtility.SetDirty(activitiesSettings);
+            EditorUtility.SetDirty(jobSettings);
             AssetDatabase.SaveAssets();
         }
     }

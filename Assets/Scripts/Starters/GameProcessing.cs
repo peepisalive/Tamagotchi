@@ -14,7 +14,7 @@ namespace Starter
 
             Systems
                 .Add(new PopupSystem())
-                .Add(new PetCreationSystem())
+                .Add(CreationSystems(world))
                 .Add(new ParametersSystem())
                 .Add(new BankAccountSystem())
                 .Add(HappinessActivitiesElements(world))
@@ -25,6 +25,13 @@ namespace Starter
                 .OneFrame<ChangeBankAccountValueEvent>();
 
             Systems.Init();
+        }
+
+        private EcsSystems CreationSystems(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new PetCreationSystem())
+                .Add(new JobCreationSystem());
         }
 
         private EcsSystems HappinessActivitiesElements(EcsWorld world)
