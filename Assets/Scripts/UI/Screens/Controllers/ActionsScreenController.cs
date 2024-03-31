@@ -20,12 +20,6 @@ namespace UI.Controller.Screen
             if (_navigationBlock == null || _navigationPoint == null)
                 return;
 
-            foreach (var navigationPoint in _navigationBlock.NavigationChain)
-            {
-                if (navigationPoint.Type == _navigationPoint.Type)
-                    _navigationPoint = navigationPoint;
-            }
-
             var points = Application.Model.GetChildPointsOfType(_navigationBlock.Type, _navigationPoint.Type);
 
             foreach (var point in points)
