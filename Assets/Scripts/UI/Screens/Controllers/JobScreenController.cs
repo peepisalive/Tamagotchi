@@ -1,10 +1,14 @@
 using Application = Tamagotchi.Application;
 using Modules.Navigation;
+using UnityEngine;
 
 namespace UI.Controller.Screen
 {
     public sealed class JobScreenController : ScreenController
     {
+        [Header("Controller")]
+        [SerializeField] private RectTransform _buttonParent;
+
         private NavigationBlock _navigationBlock;
         private NavigationPoint _navigationPoint;
 
