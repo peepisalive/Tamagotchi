@@ -1,13 +1,13 @@
 using Application = Tamagotchi.Application;
 using Modules.Navigation;
 using UnityEngine;
+using Settings;
 
 namespace UI.Controller.Screen
 {
     public sealed class ActionsScreenController : ScreenController
     {
         [Header("Controller")]
-        [SerializeField] private NavigationButtonController _buttonPrefab;
         [SerializeField] private RectTransform _buttonsParent;
 
         private NavigationBlock _navigationBlock;
@@ -21,10 +21,11 @@ namespace UI.Controller.Screen
                 return;
 
             var points = Application.Model.GetChildPointsOfType(_navigationBlock.Type, _navigationPoint.Type);
+            var buttonPrefab = SettingsProvider.Get<PrefabsSet>().NavigationButton;
 
             foreach (var point in points)
             {
-                Instantiate(_buttonPrefab, _buttonsParent)
+                Instantiate(buttonPrefab, _buttonsParent)
                     .Setup(point, _navigationBlock.Type);
             }
         }
