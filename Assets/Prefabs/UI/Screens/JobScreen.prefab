@@ -553,7 +553,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navigationPanel: {fileID: 5118986574353328518}
-  _buttonParent: {fileID: 3602265745890948287}
+  _layoutsParent: {fileID: 3602265745890948287}
+  _buttonPrefab: {fileID: 5750416437399397376, guid: 4fb4e8a72a7b0754896a7dc815f7aa4b,
+    type: 3}
+  _layoutPrefab: {fileID: 3683116867061773725, guid: c2d8d5804b3b0ae40a292ed92708e6c7,
+    type: 3}
 --- !u!1 &5527059125905927462
 GameObject:
   m_ObjectHideFlags: 0

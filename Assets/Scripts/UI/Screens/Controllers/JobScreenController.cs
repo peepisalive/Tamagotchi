@@ -1,4 +1,5 @@
 using Application = Tamagotchi.Application;
+using System.Collections.Generic;
 using Modules.Navigation;
 using UnityEngine;
 
@@ -7,7 +8,11 @@ namespace UI.Controller.Screen
     public sealed class JobScreenController : ScreenController
     {
         [Header("Controller")]
-        [SerializeField] private RectTransform _buttonParent;
+        [SerializeField] private RectTransform _layoutsParent;
+
+        [Space]
+        [SerializeField] private JobButtonController _buttonPrefab;
+        [SerializeField] private RectTransform _layoutPrefab;
 
         private NavigationBlock _navigationBlock;
         private NavigationPoint _navigationPoint;
@@ -19,7 +24,24 @@ namespace UI.Controller.Screen
             if (_navigationBlock == null || _navigationPoint == null)
                 return;
 
-            var job = Application.Model.GetAvailableJob();
+            var jobList = Application.Model.GetAvailableJob();
+
+            if (jobList == null)
+                return;
+
+            var layoutRectList = new List<RectTransform>();
+            var layoutRectIdx = 0;
+
+            for (var i = 0; i < jobList.Count; ++i)
+            {
+                if (layoutRectList.Count - 1 < layoutRectIdx)
+                    layoutRectList.Add(Instantiate(_layoutPrefab, _layoutsParent));
+
+                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]);
+
+                if (i % 2 != 0)
+                    ++layoutRectIdx;
+            }
         }
 
         private void Awake()
