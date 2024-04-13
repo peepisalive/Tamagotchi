@@ -1,3 +1,5 @@
+using Save;
+
 namespace Core.Job
 {
     public sealed class PartTimeJob : Job
@@ -9,6 +11,15 @@ namespace Core.Job
         public PartTimeJob(int salary, PartTimeJobType jobType) : base(salary)
         {
             JobType = jobType;
+        }
+
+        public override JobSave GetSave()
+        {
+            return new PartTimeJobSave
+            {
+                Salary = Salary,
+                JobType = JobType
+            };
         }
     }
 }

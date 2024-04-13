@@ -1,4 +1,5 @@
 using Settings.Job;
+using Save;
 
 namespace Core.Job
 {
@@ -9,6 +10,13 @@ namespace Core.Job
             var jobSettings = settings as PartTimeJobSettings;
 
             return new PartTimeJob(jobSettings.Salary, jobSettings.JobType);
+        }
+
+        public override Job Create(JobSave save)
+        {
+            var jobSave = save as PartTimeJobSave;
+
+            return new PartTimeJob(jobSave.Salary, jobSave.JobType);
         }
     }
 }

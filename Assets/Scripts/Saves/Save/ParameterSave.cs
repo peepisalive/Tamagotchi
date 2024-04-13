@@ -1,7 +1,9 @@
+using System;
 using Core;
 
 namespace Save
 {
+    [Serializable]
     public sealed class ParameterSave
     {
         public ParameterType Type;

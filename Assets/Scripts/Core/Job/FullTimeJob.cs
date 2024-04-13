@@ -1,3 +1,5 @@
+using Save;
+
 namespace Core.Job
 {
     public sealed class FullTimeJob : Job
@@ -11,6 +13,16 @@ namespace Core.Job
         {
             JobType = jobType;
             WorkingHours = workingHours;
+        }
+
+        public override JobSave GetSave()
+        {
+            return new FullTimeJobSave
+            {
+                Salary = Salary,
+                JobType = JobType,
+                WorkingHours = WorkingHours
+            };
         }
     }
 }

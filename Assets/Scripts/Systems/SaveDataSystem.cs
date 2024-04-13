@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using Leopotam.Ecs;
+using System.Linq;
 using Components;
 using Save.State;
+using Core.Job;
 using Modules;
+using Save;
 
 namespace Systems
 {
@@ -11,6 +15,7 @@ namespace Systems
 
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
         private EcsFilter<PetComponent> _petFilter;
+        private EcsFilter<JobComponent> _jobFilter;
 
         private SaveDataManager _saveDataManager;
 
@@ -35,6 +40,7 @@ namespace Systems
             SaveSettingsData();
             SaveGlobalData();
             SavePetData();
+            SaveJobData();
 
             _saveDataManager.SaveData(isAsync);
         }
@@ -50,6 +56,27 @@ namespace Systems
                 stateHolder.State.Name = pet.Name;
                 stateHolder.State.Type = pet.Type;
                 stateHolder.State.Parameters = pet.Parameters.GetSaves();
+            }
+        }
+
+        private void SaveJobData()
+        {
+            foreach (var i in _jobFilter)
+            {
+                var stateHolder = _saveDataManager.GetStateHolder<JobStateHolder>();
+                var component = _jobFilter.Get1(i);
+
+                if (component.CurrentJob != null)
+                    stateHolder.State.CurrentJob = component.CurrentJob.GetSave() as FullTimeJobSave;
+
+                var jobSaves = new List<JobSave>();
+
+                component.AvailableJob.ToList().ForEach(job =>
+                {
+                    jobSaves.Add(job.GetSave());
+                });
+                stateHolder.State.FullTimeJob.AddRange(jobSaves.Where(save => save is FullTimeJobSave).Cast<FullTimeJobSave>());
+                stateHolder.State.PartTimeJob.AddRange(jobSaves.Where(save => save is PartTimeJobSave).Cast<PartTimeJobSave>());
             }
         }
 

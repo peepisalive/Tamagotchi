@@ -1,4 +1,5 @@
 using Settings.Job;
+using Save;
 
 namespace Core.Job
 {
@@ -9,6 +10,13 @@ namespace Core.Job
             var jobSettings = settings as FullTimeJobSettings;
 
             return new FullTimeJob(jobSettings.Salary, jobSettings.JobType, jobSettings.WorkingHours);
+        }
+
+        public override Job Create(JobSave save)
+        {
+            var jobSave = save as FullTimeJobSave;
+
+            return new FullTimeJob(jobSave.Salary, jobSave.JobType, jobSave.WorkingHours);
         }
     }
 }

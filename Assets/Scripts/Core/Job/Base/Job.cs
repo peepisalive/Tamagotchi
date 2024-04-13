@@ -1,3 +1,5 @@
+using Save;
+
 namespace Core.Job
 {
     public abstract class Job
@@ -9,5 +11,7 @@ namespace Core.Job
         {
             Salary = salary;
         }
+
+        public abstract JobSave GetSave();
     }
 }
