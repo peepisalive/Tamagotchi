@@ -1,8 +1,10 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
 using Modules.Navigation;
+using Settings.Job;
 using UnityEngine;
 using System.Linq;
+using Core.Job;
 
 namespace UI.Controller.Screen
 {
@@ -17,6 +19,8 @@ namespace UI.Controller.Screen
 
         private NavigationBlock _navigationBlock;
         private NavigationPoint _navigationPoint;
+
+        private JobSettings _settings;
 
         public override void Setup()
         {
@@ -38,7 +42,19 @@ namespace UI.Controller.Screen
                 if (layoutRectList.Count - 1 < layoutRectIdx)
                     layoutRectList.Add(Instantiate(_layoutPrefab, _layoutsParent));
 
-                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(jobList[i]);
+                var icon = (Sprite)default;
+                var job = jobList[i];
+
+                if (job is FullTimeJob fullTimeJob)
+                {
+                    icon = _settings.GetFullTimeJobSettings(fullTimeJob.JobType).Icon;
+                }
+                else if (job is PartTimeJob partTimeJob)
+                {
+                    icon = _settings.GetPartTimeJobSettings(partTimeJob.JobType).Icon;
+                }
+
+                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon);
 
                 if (i % 2 != 0)
                     ++layoutRectIdx;
