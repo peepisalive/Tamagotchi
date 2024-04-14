@@ -2,6 +2,7 @@ using Application = Tamagotchi.Application;
 using System.Collections.Generic;
 using Modules.Navigation;
 using UnityEngine;
+using System.Linq;
 
 namespace UI.Controller.Screen
 {
@@ -24,7 +25,7 @@ namespace UI.Controller.Screen
             if (_navigationBlock == null || _navigationPoint == null)
                 return;
 
-            var jobList = Application.Model.GetAvailableJob();
+            var jobList = Application.Model.GetAvailableJob().ToArray();
 
             if (jobList == null)
                 return;
@@ -32,12 +33,12 @@ namespace UI.Controller.Screen
             var layoutRectList = new List<RectTransform>();
             var layoutRectIdx = 0;
 
-            for (var i = 0; i < jobList.Count; ++i)
+            for (var i = 0; i < jobList.Length; ++i)
             {
                 if (layoutRectList.Count - 1 < layoutRectIdx)
                     layoutRectList.Add(Instantiate(_layoutPrefab, _layoutsParent));
 
-                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]);
+                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(jobList[i]);
 
                 if (i % 2 != 0)
                     ++layoutRectIdx;

@@ -5,7 +5,6 @@ namespace Core.Job
     public sealed class FullTimeJob : Job
     {
         public override JobType Type => Core.Job.JobType.FullTime;
-
         public FullTimeJobType JobType { get; private set; }
         public int WorkingHours { get; private set; }
 
