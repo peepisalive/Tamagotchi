@@ -3,7 +3,6 @@ using Leopotam.Ecs;
 using System.Linq;
 using Components;
 using Save.State;
-using Core.Job;
 using Modules;
 using Save;
 
@@ -52,6 +51,8 @@ namespace Systems
                 var stateHolder = _saveDataManager.GetStateHolder<PetStateHolder>();
                 var pet = _petFilter.Get1(i).Pet;
 
+                stateHolder.ResetState();
+
                 stateHolder.State.Id = pet.Id;
                 stateHolder.State.Name = pet.Name;
                 stateHolder.State.Type = pet.Type;
@@ -65,6 +66,8 @@ namespace Systems
             {
                 var stateHolder = _saveDataManager.GetStateHolder<JobStateHolder>();
                 var component = _jobFilter.Get1(i);
+
+                stateHolder.ResetState();
 
                 if (component.CurrentJob != null)
                     stateHolder.State.CurrentJob = component.CurrentJob.GetSave() as FullTimeJobSave;
@@ -84,6 +87,8 @@ namespace Systems
         {
             var stateHolder = _saveDataManager.GetStateHolder<SettingsStateHolder>();
 
+            stateHolder.ResetState();
+
             SaveSoundData();
 
 
@@ -96,6 +101,8 @@ namespace Systems
         private void SaveGlobalData()
         {
             var stateHolder = _saveDataManager.GetStateHolder<GlobalStateHolder>();
+
+            stateHolder.ResetState();
 
             SaveBankAccountData();
             SavePlayTimeData();

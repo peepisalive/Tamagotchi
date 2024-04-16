@@ -13,6 +13,11 @@ namespace Save.State
 
         public StateHolder()
         {
+            ResetState();
+        }
+
+        public void ResetState()
+        {
             State = new T();
         }
 
