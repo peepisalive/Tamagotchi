@@ -5,6 +5,7 @@ using Settings.Job;
 using UnityEngine;
 using System.Linq;
 using Core.Job;
+using Settings;
 
 namespace UI.Controller.Screen
 {
@@ -65,6 +66,8 @@ namespace UI.Controller.Screen
         {
             _navigationBlock = Application.Model.GetCurrentNavigationBlock();
             _navigationPoint = Application.Model.GetCurrentNavigationPoint();
+
+            _settings = SettingsProvider.Get<JobSettings>();
         }
     }
 }
