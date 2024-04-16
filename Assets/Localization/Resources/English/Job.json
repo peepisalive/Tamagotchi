@@ -1,0 +1,27 @@
+[
+	{
+		"tags": [ "title", "full_time", "Loader" ],
+		"topic": "Loader"
+	},
+	{
+		"tags": [ "title", "full_time", "ITSupport" ],
+		"topic": "IT Support"
+	},
+	{
+		"tags": [ "title", "full_time", "Electrician" ],
+		"topic": "Electrician"
+	},
+
+	{
+		"tags": [ "title", "part_time", "VideoGameTester" ],
+		"topic": "Video game tester"
+	},
+	{
+		"tags": [ "title", "part_time", "PoolCleaner" ],
+		"topic": "Pool cleaner"
+	},
+	{
+		"tags": [ "title", "part_time", "Secretary" ],
+		"topic": "Secretary"
+	}
+]

@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f5f5447b100c4fab0c709b5baeb4d, type: 3}
   m_Name: JobSettings
   m_EditorClassIdentifier: 
+  <Localization>k__BackingField:
+    _asset:
+      m_TableReference:
+        m_TableCollectionName: GUID:d56843cb4e331ee448b738b19604e4ca
+      m_TableEntryReference:
+        m_KeyId: 5561958400
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   <JobTypeSettings>k__BackingField:
   - {fileID: 11400000, guid: ef0d39508877a894f872c025ceb05a31, type: 2}
   - {fileID: 11400000, guid: 5df63ecfdfd473e49be1eb795137307e, type: 2}

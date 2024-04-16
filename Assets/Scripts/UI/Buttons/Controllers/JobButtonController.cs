@@ -10,11 +10,12 @@ namespace UI.Controller
         [SerializeField] private JobButtonView _view;
         private Job _job;
 
-        public void Setup(Job job, Sprite icon)
+        public void Setup(Job job, Sprite icon, string title)
         {
             _job = job;
 
-            
+            _view.SetIcon(icon);
+            _view.SetTitle(title);
         }
     }
 }

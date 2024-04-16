@@ -44,18 +44,21 @@ namespace UI.Controller.Screen
                     layoutRectList.Add(Instantiate(_layoutPrefab, _layoutsParent));
 
                 var icon = (Sprite)default;
+                var title = string.Empty;
                 var job = jobList[i];
 
                 if (job is FullTimeJob fullTimeJob)
                 {
                     icon = _settings.GetFullTimeJobSettings(fullTimeJob.JobType).Icon;
+                    title = _settings.Localization.GetFulltimeJobName(fullTimeJob.JobType);
                 }
                 else if (job is PartTimeJob partTimeJob)
                 {
                     icon = _settings.GetPartTimeJobSettings(partTimeJob.JobType).Icon;
+                    title = _settings.Localization.GetParttimeJobName(partTimeJob.JobType);
                 }
 
-                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon);
+                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title);
 
                 if (i % 2 != 0)
                     ++layoutRectIdx;

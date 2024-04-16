@@ -9,12 +9,12 @@ namespace UI.View
         [SerializeField] private TMP_Text _title;
         [SerializeField] private Image _icon;
 
-        private void SetTitle(string text)
+        public void SetTitle(string text)
         {
             _title.text = text;
         }
 
-        private void SetIcon(Sprite icon)
+        public void SetIcon(Sprite icon)
         {
             _icon.sprite = icon;
         }
