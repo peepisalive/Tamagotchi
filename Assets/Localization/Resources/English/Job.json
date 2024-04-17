@@ -23,5 +23,10 @@
 	{
 		"tags": [ "title", "part_time", "Secretary" ],
 		"topic": "Secretary"
+	},
+
+	{
+		"tags": [ "description", "hours" ],
+		"topic": "hours"
 	}
 ]

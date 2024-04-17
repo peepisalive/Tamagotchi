@@ -42,6 +42,8 @@ namespace Settings.Job
         [Serializable]
         public sealed class JobLocalization
         {
+            public string HoursText => LocalizationProvider.GetText(_asset, "description/hours");
+
             [SerializeField] private LocalizedText _asset;
 
             public string GetFulltimeJobName(FullTimeJobType type)

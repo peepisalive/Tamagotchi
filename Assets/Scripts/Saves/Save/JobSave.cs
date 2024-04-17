@@ -21,6 +21,6 @@ namespace Save
     public sealed class FullTimeJobSave : JobSave
     {
         public FullTimeJobType JobType;
-        public int WorkingHours;
+        public int[] WorkingHours;
     }
 }

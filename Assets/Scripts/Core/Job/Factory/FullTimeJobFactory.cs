@@ -9,7 +9,7 @@ namespace Core.Job
         {
             var jobSettings = settings as FullTimeJobSettings;
 
-            return new FullTimeJob(jobSettings.Salary, jobSettings.JobType, jobSettings.WorkingHours);
+            return new FullTimeJob(jobSettings.Salary, jobSettings.JobType, jobSettings.WorkingHours.ToArray());
         }
 
         public override Job Create(JobSave save)

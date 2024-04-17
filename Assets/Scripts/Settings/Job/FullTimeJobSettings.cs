@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Core.Job;
 
@@ -10,6 +11,6 @@ namespace Settings.Job
 
         [field: Header("Settings")]
         [field: SerializeField] public FullTimeJobType JobType { get; private set; }
-        [field: SerializeField][field: Range(1, 24)] public int WorkingHours { get; private set; }
+        [field: SerializeField][field: Range(1, 24)] public List<int> WorkingHours { get; private set; }
     }
 }

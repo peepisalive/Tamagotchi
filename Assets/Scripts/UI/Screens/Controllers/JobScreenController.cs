@@ -44,13 +44,24 @@ namespace UI.Controller.Screen
                     layoutRectList.Add(Instantiate(_layoutPrefab, _layoutsParent));
 
                 var icon = (Sprite)default;
-                var title = string.Empty;
                 var job = jobList[i];
+
+                var title = string.Empty;
+                var description = string.Empty;
 
                 if (job is FullTimeJob fullTimeJob)
                 {
-                    icon = _settings.GetFullTimeJobSettings(fullTimeJob.JobType).Icon;
+                    var settings = _settings.GetFullTimeJobSettings(fullTimeJob.JobType);
+
+                    icon = settings.Icon;
                     title = _settings.Localization.GetFulltimeJobName(fullTimeJob.JobType);
+
+                    for (int j = 0; j < settings.WorkingHours.Count; ++j)
+                    {
+                        description += (j == settings.WorkingHours.Count - 1)
+                            ? $"{settings.WorkingHours[j]} {_settings.Localization.HoursText}"
+                            : $"{settings.WorkingHours[j]}, ";
+                    }
                 }
                 else if (job is PartTimeJob partTimeJob)
                 {
@@ -58,7 +69,7 @@ namespace UI.Controller.Screen
                     title = _settings.Localization.GetParttimeJobName(partTimeJob.JobType);
                 }
 
-                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title);
+                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, description);
 
                 if (i % 2 != 0)
                     ++layoutRectIdx;
