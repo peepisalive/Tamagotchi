@@ -9,8 +9,7 @@ using Events;
 
 namespace UI.Controller
 {
-    [RequireComponent(typeof(MainScreenNavButtonView))]
-    [RequireComponent(typeof(NavigationElement))]
+    [RequireComponent(typeof(MainScreenNavButtonView), typeof(NavigationElement))]
     public sealed class MainScreenNavButtonController : MonoBehaviour, IUpdatable<UpdateCurrentScreenEvent>
     {
         [SerializeField] private NavigationElementType _type;

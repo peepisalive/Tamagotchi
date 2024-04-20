@@ -4,7 +4,7 @@ using UI.View;
 
 namespace UI.Controller
 {
-    [RequireComponent(typeof(JobButtonView))]
+    [RequireComponent(typeof(JobButtonView), typeof(UnityEngine.UI.Button))]
     public sealed class JobButtonController : MonoBehaviour
     {
         [SerializeField] private JobButtonView _view;
