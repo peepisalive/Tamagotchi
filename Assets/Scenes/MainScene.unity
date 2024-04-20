@@ -713,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd751b440b80424eab601d47213efb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayTimeSeconds>k__BackingField: 0
 --- !u!1 &1369154600
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +991,7 @@ MonoBehaviour:
   m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1102,7 +1103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <State>k__BackingField: 1
-  _audioSource: {fileID: 1369154602}
 --- !u!1 &1763601655
 GameObject:
   m_ObjectHideFlags: 0
