@@ -47,7 +47,7 @@ namespace UI.Controller.Screen
                 var job = jobList[i];
 
                 var title = string.Empty;
-                var description = string.Empty;
+                var content = string.Empty;
 
                 if (job is FullTimeJob fullTimeJob)
                 {
@@ -58,7 +58,7 @@ namespace UI.Controller.Screen
 
                     for (int j = 0; j < settings.WorkingHours.Count; ++j)
                     {
-                        description += (j == settings.WorkingHours.Count - 1)
+                        content += (j == settings.WorkingHours.Count - 1)
                             ? $"{settings.WorkingHours[j]} {_settings.Localization.HoursText}"
                             : $"{settings.WorkingHours[j]}, ";
                     }
@@ -69,7 +69,7 @@ namespace UI.Controller.Screen
                     title = _settings.Localization.GetParttimeJobName(partTimeJob.JobType);
                 }
 
-                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, description);
+                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, content);
 
                 if (i % 2 != 0)
                     ++layoutRectIdx;
