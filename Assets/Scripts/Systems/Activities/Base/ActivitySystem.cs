@@ -49,7 +49,7 @@ namespace Systems.Activities
             {
                 new DropdownSettings
                 {
-                    Title = "test", // to do: edit this
+                    Title = "[test]", // to do: use localization system
                     DropdownContent = new List<DropdownContent>()
                 }
             };
