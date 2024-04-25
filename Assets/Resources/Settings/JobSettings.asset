@@ -28,3 +28,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e8dd6a9c89a53a4ba86d6e9596ed325, type: 2}
   - {fileID: 11400000, guid: 8b55d98fbfc194e40a773b307f0b63e3, type: 2}
   - {fileID: 11400000, guid: 4daae753e60954e418b5467041e52a93, type: 2}
+  <PartTimeJobAmountPerDay>k__BackingField: 4
