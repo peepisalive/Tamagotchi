@@ -1,12 +1,16 @@
 using YandexMobileAds.Base;
 using YandexMobileAds;
 using UnityEngine;
+using System;
 using Core;
 
 namespace Modules
 {
     public sealed class RewardedAdManager : MonoBehaviourSingleton<RewardedAdManager>
     {
+        public event Action OnAdFailedToShowCallback;
+        public event Action OnAdImpressionCallback;
+
         private RewardedAdLoader _rewardedAdLoader;
         private RewardedAd _rewardedAd;
 
@@ -49,21 +53,21 @@ namespace Modules
 
             _rewardedAd.OnAdFailedToShow += OnAdFailedToShow;
             _rewardedAd.OnAdImpression += OnAdImpression;
-            _rewardedAd.OnRewarded += OnRewarded;
 
             Debug.Log("Ad loaded");
         }
 
         private void OnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
         {
-            // Ad {args.AdUnitId} failed for to load with {args.Message}
-            // Attempting to load new ad from the OnAdFailedToLoad event is strongly discouraged.
+            OnAdFailedToShowCallback?.Invoke();
 
-            Debug.Log("Ad failed to load");
+            Debug.Log($"Ad failed to load: {args.Message}");
         }
 
         public void OnAdFailedToShow(object sender, AdFailureEventArgs args)
         {
+            OnAdFailedToShowCallback?.Invoke();
+
             DestroyRewardedAd();
             RequestRewardedAd();
 
@@ -76,11 +80,6 @@ namespace Modules
             RequestRewardedAd();
 
             Debug.Log("Ad impression");
-        }
-
-        private void OnRewarded(object sender, Reward e)
-        {
-            Debug.Log("Rewarded");
         }
 
         private void Awake()
