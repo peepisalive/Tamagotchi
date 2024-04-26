@@ -14,7 +14,8 @@ namespace UI.Controller
         {
             base.Setup(settings);
 
-            _view?.SetIcon(settings.Icon);
+            _view.SetIcon(settings.Icon);
+            _view.SetAdsSignState(settings.AdsSignState);
         }
     }
 }

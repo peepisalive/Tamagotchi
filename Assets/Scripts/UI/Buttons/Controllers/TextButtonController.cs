@@ -15,6 +15,7 @@ namespace UI.Controller
             base.Setup(settings);
 
             _view.SetText(settings.Title);
+            _view.SetAdsSignState(settings.AdsSignState);
         }
     }
 }

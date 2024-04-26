@@ -1,13 +1,12 @@
-using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
 namespace UI.View
 {
-    public sealed class TextButtonView : MonoBehaviour
+    public sealed class TextButtonView : ButtonView
     {
+        [Header("View")]
         [SerializeField] private TMP_Text _titleLabel;
-        [SerializeField] private Image _buttonImage;
 
         public void SetText(string text)
         {
