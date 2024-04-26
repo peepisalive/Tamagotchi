@@ -10,6 +10,8 @@ namespace UI.Settings
         public Action<PopupViewBase> ActionWithInstance;
 
         public PopupViewBase PopupInstance;
+
+        public bool AdsSignState;
     }
 
     public sealed class TextButtonSettings : ButtonSettings
