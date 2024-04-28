@@ -10,78 +10,89 @@ using Modules;
 namespace UI.Controller
 {
     [RequireComponent(typeof(JobButtonView), typeof(UnityEngine.UI.Button))]
-    public sealed class JobButtonController : MonoBehaviour
+    public class JobButtonController : MonoBehaviour
     {
-        [SerializeField] private JobButtonView _view;
+        protected string Title;
+        protected string Content;
+        protected JobButtonView View;
+
         [SerializeField] private UnityEngine.UI.Button _button;
 
         private Job _job;
 
-        private string _title;
-        private string _content;
-
-        public void Setup(Job job, Sprite icon, string title, string content)
+        public virtual void Setup(Job job, Sprite icon, string title, string content)
         {
             _job = job;
-            _title = title;
-            _content = content;
+            Title = title;
+            Content = content;
 
-            _view.SetIcon(icon);
-            _view.SetTitle(_title);
-            _view.SetDescription(_content);
+            View.SetIcon(icon);
+            View.SetTitle(Title);
+            View.SetDescription(Content);
         }
 
-        private void OnClick()
+        protected virtual void OnClick()
         {
-            var dropdownSettings = GetDropdownSettings();
-
             EventSystem.Send(new ShowPopupEvent
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = _title,
-                    DropdownSettings = dropdownSettings,
+                    Title = Title,
+                    DropdownSettings = GetDropdownSettings(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
+                        new TextButtonSettings
+                        {
+                            Action = () =>
+                            {
+                                EventSystem.Send(new HidePopupEvent());
+                            }
+                        },
+                        new TextButtonSettings
+                        {
+                            Action = () =>
+                            {
 
+                            }
+                        }
                     }
                 })
             });
+        }
 
+        protected List<DropdownSettings> GetDropdownSettings()
+        {
+            var dropdownSettings = (List<DropdownSettings>)null;
 
-            List<DropdownSettings> GetDropdownSettings()
+            if (_job is FullTimeJob fullTimeJob)
             {
-                var dropdownSettings = (List<DropdownSettings>)null;
-
-                if (_job is FullTimeJob fullTimeJob)
+                var settings = new DropdownSettings
                 {
-                    var settings = new DropdownSettings
-                    {
-                        Title = "[test]", // to do: use localization system
-                        DropdownContent = new List<DropdownContent>()
-                    };
+                    Title = "[test]", // to do: use localization system
+                    DropdownContent = new List<DropdownContent>()
+                };
 
-                    foreach (var item in fullTimeJob.WorkingHours)
+                foreach (var item in fullTimeJob.WorkingHours)
+                {
+                    settings.DropdownContent.Add(new DropdownContent<int>
                     {
-                        settings.DropdownContent.Add(new DropdownContent<int>
-                        {
-                            Title = item.ToString(), // to do: edit this (add hours)
-                            Value = item
-                        });
-                    }
-
-                    dropdownSettings = new List<DropdownSettings>
-                    {
-                        settings
-                    };
+                        Title = item.ToString(), // to do: edit this (add hours)
+                        Value = item
+                    });
                 }
 
-                return dropdownSettings;
+                dropdownSettings = new List<DropdownSettings>
+                {
+                    settings
+                };
             }
+
+            return dropdownSettings;
         }
 
         private void Awake()
         {
+            View = GetComponent<JobButtonView>();
             _button.onClick.AddListener(OnClick);
         }
 

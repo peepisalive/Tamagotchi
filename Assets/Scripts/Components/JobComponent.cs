@@ -8,6 +8,6 @@ namespace Components
         public HashSet<Job> AvailableJob;
         public FullTimeJob CurrentJob;
 
-        public int PartTimeJobAmount;
+        public int PartTimeJobAmountPerDay;
     }
 }

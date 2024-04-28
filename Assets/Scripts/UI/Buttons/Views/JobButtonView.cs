@@ -4,7 +4,7 @@ using TMPro;
 
 namespace UI.View
 {
-    public sealed class JobButtonView : MonoBehaviour
+    public class JobButtonView : MonoBehaviour
     {
         [SerializeField] private Image _icon;
 

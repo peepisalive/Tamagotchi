@@ -62,6 +62,16 @@ namespace Tamagotchi
             return null;
         }
 
+        public int GetJobPartTimeJobAmountPerDay()
+        {
+            foreach (var i in _jobFilter)
+            {
+                return _jobFilter.Get1(i).PartTimeJobAmountPerDay;
+            }
+
+            return 0;
+        }
+
         public BankAccount GetBankAccount()
         {
             foreach (var i in _bankAccountFilter)

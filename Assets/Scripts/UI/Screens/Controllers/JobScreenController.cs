@@ -14,8 +14,9 @@ namespace UI.Controller.Screen
         [Header("Controller")]
         [SerializeField] private RectTransform _layoutsParent;
 
-        [Space]
-        [SerializeField] private JobButtonController _buttonPrefab;
+        [Header("Prefabs")]
+        [SerializeField] private PartTimeJobButtonController _partTimeJobButtonPrefab;
+        [SerializeField] private JobButtonController _jobButtonPrefab;
         [SerializeField] private RectTransform _layoutPrefab;
 
         private NavigationBlock _navigationBlock;
@@ -62,14 +63,16 @@ namespace UI.Controller.Screen
                             ? $"{settings.WorkingHours[j]} {_settings.Localization.HoursText}"
                             : $"{settings.WorkingHours[j]}, ";
                     }
+
+                    Instantiate(_jobButtonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, content);
                 }
                 else if (job is PartTimeJob partTimeJob)
                 {
                     icon = _settings.GetPartTimeJobSettings(partTimeJob.JobType).Icon;
                     title = _settings.Localization.GetParttimeJobName(partTimeJob.JobType);
-                }
 
-                Instantiate(_buttonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, content);
+                    Instantiate(_partTimeJobButtonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, content);
+                }
 
                 if (i % 2 != 0)
                     ++layoutRectIdx;

@@ -554,7 +554,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navigationPanel: {fileID: 5118986574353328518}
   _layoutsParent: {fileID: 3602265745890948287}
-  _buttonPrefab: {fileID: 5750416437399397376, guid: 4fb4e8a72a7b0754896a7dc815f7aa4b,
+  _partTimeJobButtonPrefab: {fileID: 2824856477656211061, guid: 463a1c00e1700724496d1259522800c5,
+    type: 3}
+  _jobButtonPrefab: {fileID: 5750416437399397376, guid: 4fb4e8a72a7b0754896a7dc815f7aa4b,
     type: 3}
   _layoutPrefab: {fileID: 3683116867061773725, guid: c2d8d5804b3b0ae40a292ed92708e6c7,
     type: 3}
