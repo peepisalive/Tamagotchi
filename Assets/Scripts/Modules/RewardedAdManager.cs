@@ -16,6 +16,14 @@ namespace Modules
 
         public void ShowRewardedAd()
         {
+#if UNITY_EDITOR
+            OnRewardedCallback?.Invoke();
+
+            OnAdFailedToShowCallback = null;
+            OnRewardedCallback = null;
+
+            return;
+#endif
             if (_rewardedAd == null)
                 return;
 
