@@ -4,10 +4,10 @@ using UI.View;
 public sealed class PartTimeJobButtonView : JobButtonView
 {
     [Space(10)]
-    [SerializeField] private RectTransform _adsParent;
+    [SerializeField] private RectTransform _adParent;
 
-    public void SetAdsState(bool state)
+    public void SetAdState(bool state)
     {
-        _adsParent.gameObject.SetActive(state);
+        _adParent.gameObject.SetActive(state);
     }
 }

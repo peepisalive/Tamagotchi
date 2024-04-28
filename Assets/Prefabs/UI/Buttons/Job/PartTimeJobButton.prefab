@@ -159,7 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4010d2ba311e649a3cda7005777069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 3401919537354220748}
   _button: {fileID: 3685490269560505833}
 --- !u!114 &3401919537354220748
 MonoBehaviour:
@@ -176,7 +175,7 @@ MonoBehaviour:
   _icon: {fileID: 2319612878218295297}
   _title: {fileID: 7276110596229726384}
   _description: {fileID: 8149381786288689052}
-  _adsParent: {fileID: 2683020111892024099}
+  _adParent: {fileID: 2683020111892024099}
 --- !u!1 &2694229501869610800
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +188,7 @@ GameObject:
   - component: {fileID: 6763269859574844090}
   - component: {fileID: 2435636921911573999}
   m_Layer: 5
-  m_Name: AdsSign
+  m_Name: AdSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2683020111892024099}
   m_Layer: 5
-  m_Name: AdsParent
+  m_Name: AdParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

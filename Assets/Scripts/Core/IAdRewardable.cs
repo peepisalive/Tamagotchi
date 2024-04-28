@@ -1,6 +1,6 @@
 namespace Core
 {
-    public interface IAdsRewardable
+    public interface IAdRewardable
     {
         public void OnAdFailedToShow();
         public void OnRewarded();

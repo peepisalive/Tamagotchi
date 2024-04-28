@@ -11,12 +11,12 @@ using Core;
 
 namespace UI.Controller
 {
-    public sealed class PartTimeJobButtonController : JobButtonController, IAdsRewardable
+    public sealed class PartTimeJobButtonController : JobButtonController, IAdRewardable
     {
         public override void Setup(Job job, UnityEngine.Sprite icon, string title, string content)
         {
             base.Setup(job, icon, title, content);
-            (View as PartTimeJobButtonView).SetAdsState(GetAdsSignState());
+            (View as PartTimeJobButtonView).SetAdState(GetAdsSignState());
         }
 
         public void OnAdFailedToShow()
