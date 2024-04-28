@@ -4,13 +4,11 @@ using Modules.Navigation;
 using UnityEngine;
 using System.Linq;
 using UI.View;
-using Modules;
-using Events;
 
 namespace UI.Controller
 {
     [RequireComponent(typeof(MainScreenNavButtonView), typeof(NavigationElement))]
-    public sealed class MainScreenNavButtonController : MonoBehaviour, IUpdatable<UpdateCurrentScreenEvent>
+    public sealed class MainScreenNavButtonController : MonoBehaviour
     {
         [SerializeField] private NavigationElementType _type;
 
@@ -31,27 +29,11 @@ namespace UI.Controller
                 return;
 
             _element.Setup(navigationPoint, currentBlockType.Value);
-            UpdateState();
-        }
-
-        public void UpdateState(UpdateCurrentScreenEvent data = null)
-        {
-            
         }
 
         private void Start()
         {
             Setup();
-        }
-
-        private void Awake()
-        {
-            EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
-        }
-
-        private void OnDestroy()
-        {
-            EventSystem.Unsubscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
     }
 }

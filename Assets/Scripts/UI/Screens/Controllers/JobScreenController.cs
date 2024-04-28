@@ -6,10 +6,12 @@ using UnityEngine;
 using System.Linq;
 using Core.Job;
 using Settings;
+using Modules;
+using Events;
 
 namespace UI.Controller.Screen
 {
-    public sealed class JobScreenController : ScreenController
+    public sealed class JobScreenController : ScreenController, IUpdatable<UpdateCurrentScreenEvent>
     {
         [Header("Controller")]
         [SerializeField] private RectTransform _layoutsParent;
@@ -31,10 +33,20 @@ namespace UI.Controller.Screen
             if (_navigationBlock == null || _navigationPoint == null)
                 return;
 
+            UpdateState();
+        }
+
+        public void UpdateState(UpdateCurrentScreenEvent data = null)
+        {
             var jobList = Application.Model.GetAvailableJob().ToArray();
 
             if (jobList == null)
                 return;
+
+            foreach (Transform child in _layoutsParent)
+            {
+                Destroy(child.gameObject);
+            }
 
             var layoutRectList = new List<RectTransform>();
             var layoutRectIdx = 0;
@@ -44,18 +56,13 @@ namespace UI.Controller.Screen
                 if (layoutRectList.Count - 1 < layoutRectIdx)
                     layoutRectList.Add(Instantiate(_layoutPrefab, _layoutsParent));
 
-                var icon = (Sprite)default;
                 var job = jobList[i];
-
-                var title = string.Empty;
                 var content = string.Empty;
 
                 if (job is FullTimeJob fullTimeJob)
                 {
                     var settings = _settings.GetFullTimeJobSettings(fullTimeJob.JobType);
-
-                    icon = settings.Icon;
-                    title = _settings.Localization.GetFulltimeJobName(fullTimeJob.JobType);
+                    var title = _settings.Localization.GetFulltimeJobName(fullTimeJob.JobType);
 
                     for (int j = 0; j < settings.WorkingHours.Count; ++j)
                     {
@@ -64,12 +71,12 @@ namespace UI.Controller.Screen
                             : $"{settings.WorkingHours[j]}, ";
                     }
 
-                    Instantiate(_jobButtonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, content);
+                    Instantiate(_jobButtonPrefab, layoutRectList[layoutRectIdx]).Setup(job, settings.Icon, title, content);
                 }
                 else if (job is PartTimeJob partTimeJob)
                 {
-                    icon = _settings.GetPartTimeJobSettings(partTimeJob.JobType).Icon;
-                    title = _settings.Localization.GetParttimeJobName(partTimeJob.JobType);
+                    var icon = _settings.GetPartTimeJobSettings(partTimeJob.JobType).Icon;
+                    var title = _settings.Localization.GetPartTimeJobName(partTimeJob.JobType);
 
                     Instantiate(_partTimeJobButtonPrefab, layoutRectList[layoutRectIdx]).Setup(job, icon, title, content);
                 }
@@ -83,8 +90,14 @@ namespace UI.Controller.Screen
         {
             _navigationBlock = Application.Model.GetCurrentNavigationBlock();
             _navigationPoint = Application.Model.GetCurrentNavigationPoint();
-
             _settings = SettingsProvider.Get<JobSettings>();
+
+            EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
     }
 }

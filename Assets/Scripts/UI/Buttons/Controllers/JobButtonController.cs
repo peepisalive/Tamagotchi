@@ -14,15 +14,15 @@ namespace UI.Controller
     {
         protected string Title;
         protected string Content;
+
         protected JobButtonView View;
+        protected Job Job;
 
         [SerializeField] private UnityEngine.UI.Button _button;
 
-        private Job _job;
-
         public virtual void Setup(Job job, Sprite icon, string title, string content)
         {
-            _job = job;
+            Job = job;
             Title = title;
             Content = content;
 
@@ -64,7 +64,7 @@ namespace UI.Controller
         {
             var dropdownSettings = (List<DropdownSettings>)null;
 
-            if (_job is FullTimeJob fullTimeJob)
+            if (Job is FullTimeJob fullTimeJob)
             {
                 var settings = new DropdownSettings
                 {

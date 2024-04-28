@@ -2,18 +2,21 @@ using Application = Tamagotchi.Application;
 using System.Collections.Generic;
 using Events.Popups;
 using Settings.Job;
+using UnityEngine;
 using UI.Settings;
 using UI.Popups;
 using Core.Job;
 using Settings;
 using Modules;
+using Events;
+using Utils;
 using Core;
 
 namespace UI.Controller
 {
     public sealed class PartTimeJobButtonController : JobButtonController, IAdRewardable
     {
-        public override void Setup(Job job, UnityEngine.Sprite icon, string title, string content)
+        public override void Setup(Job job, Sprite icon, string title, string content)
         {
             base.Setup(job, icon, title, content);
             (View as PartTimeJobButtonView).SetAdState(GetAdsSignState());
@@ -21,12 +24,16 @@ namespace UI.Controller
 
         public void OnAdFailedToShow()
         {
-            // to do
+            PopupUtils.ShowNoAdsAvailablePopup();
         }
 
         public void OnRewarded()
         {
-            // to do
+            // to do: ++ part time job amount per day
+            EventSystem.Send(new ChangeBankAccountValueEvent
+            {
+                Value = Job.Salary
+            });
         }
 
         protected override void OnClick()
@@ -62,6 +69,8 @@ namespace UI.Controller
                                 {
                                     OnRewarded();
                                 }
+
+                                EventSystem.Send(new HidePopupEvent());
                             },
                             AdsSignState = adsSignState
                         }

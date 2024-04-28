@@ -53,7 +53,7 @@ namespace Settings.Job
                 return LocalizationProvider.GetText(_asset, $"title/full_time/{type}");
             }
 
-            public string GetParttimeJobName(PartTimeJobType type)
+            public string GetPartTimeJobName(PartTimeJobType type)
             {
                 return LocalizationProvider.GetText(_asset, $"title/part_time/{type}");
             }
