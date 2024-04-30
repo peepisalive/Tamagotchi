@@ -70,7 +70,7 @@ namespace Systems
                         component.StartPartTimeJobRecovery = DateTime.Now;
 
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
-                        InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeJobAmountPerDay * 3600f, () =>
+                        InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeJobAmountPerDay, () =>
                         {
                             EventSystem.Send<Events.EndOfRecoveryPartTimeJobEvent>();
                         });
@@ -140,6 +140,18 @@ namespace Systems
                 var currentJob = (save.CurrentJob != null)
                     ? _factory.Create(save.CurrentJob) as FullTimeJob
                     : null;
+                var currentDateTime = DateTime.Now;
+                var endOfRecoveryDateTime = save.StartPartTimeJobRecovery + TimeSpan.FromHours(_settings.PartTimeJobAmountPerDay);
+
+                if (endOfRecoveryDateTime > currentDateTime)
+                {
+                    var remainingSeconds = (endOfRecoveryDateTime - currentDateTime).TotalSeconds;
+
+                    InGameTimeManager.Instance.StartRecoveryCoroutine((float)remainingSeconds, () =>
+                    {
+                        EventSystem.Send<Events.EndOfRecoveryPartTimeJobEvent>();
+                    });
+                }
 
                 _world.NewEntity().Replace(new JobComponent
                 {
