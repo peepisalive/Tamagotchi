@@ -1,3 +1,4 @@
+using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Settings.Job;
 using Leopotam.Ecs;
@@ -99,10 +100,10 @@ namespace Systems
                 }
                 else if (job is FullTimeJob fullTimeJob)
                 {
-                    component.AvailableJob.Remove(fullTimeJob);
                     component.CurrentFullTimeJob = new CurrentFullTimeJob(fullTimeJob, DateTime.Now, workingHours);
 
-                    EventSystem.Send<Events.UpdateCurrentScreenEvent>();
+                    _world.NewEntity().Replace(new NavigationPointBackEvent());
+
                     InGameTimeManager.Instance.StartRecoveryCoroutine(30f, () =>
                     {
                         EventSystem.Send<Events.EndOfFullTimeJobEvent>();
@@ -203,7 +204,6 @@ namespace Systems
                             Value = currentFullTimeJob.Job.Salary
                         });
 
-                        availableJob.Add(currentFullTimeJob.Job);
                         currentFullTimeJob = null;
                     }
                 }
@@ -253,10 +253,7 @@ namespace Systems
                     Value = component.CurrentFullTimeJob.Job.Salary
                 });
 
-                component.AvailableJob.Add(component.CurrentFullTimeJob.Job);
                 component.CurrentFullTimeJob = null;
-
-                EventSystem.Send<Events.UpdateCurrentScreenEvent>();
             }
         }
 
