@@ -137,9 +137,12 @@ namespace Systems
                     availableJob.Add(_factory.Create(jobSave));
                 }
 
+                var partTimeJobAmountPerDay = save.PartTimeJobAmountPerDay;
+                var startPartTimeJobRecovery = save.StartPartTimeJobRecovery;
                 var currentJob = (save.CurrentJob != null)
                     ? _factory.Create(save.CurrentJob) as FullTimeJob
                     : null;
+
                 var currentDateTime = DateTime.Now;
                 var endOfRecoveryDateTime = save.StartPartTimeJobRecovery + TimeSpan.FromHours(_settings.PartTimeJobAmountPerDay);
 
@@ -152,13 +155,18 @@ namespace Systems
                         EventSystem.Send<Events.EndOfRecoveryPartTimeJobEvent>();
                     });
                 }
+                else
+                {
+                    partTimeJobAmountPerDay = 0;
+                    startPartTimeJobRecovery = default;
+                }
 
                 _world.NewEntity().Replace(new JobComponent
                 {
                     AvailableJob = availableJob,
                     CurrentJob = currentJob,
-                    PartTimeJobAmountPerDay = save.PartTimeJobAmountPerDay,
-                    StartPartTimeJobRecovery = save.StartPartTimeJobRecovery,
+                    PartTimeJobAmountPerDay = partTimeJobAmountPerDay,
+                    StartPartTimeJobRecovery = startPartTimeJobRecovery,
                     StartFullTimeJobRecovery = save.StartFullTimeJobRecovery
                 });
             }
