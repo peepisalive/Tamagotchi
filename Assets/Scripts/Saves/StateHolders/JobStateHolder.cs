@@ -20,6 +20,10 @@ namespace Save.State
         public List<PartTimeJobSave> PartTimeJob = new List<PartTimeJobSave>();
 
         public FullTimeJobSave CurrentJob;
+        public int PartTimeJobAmountPerDay;
+
+        public DateTime StartPartTimeJobRecovery;
+        public DateTime StartFullTimeJobRecovery;
 
         public override string ToString()
         {

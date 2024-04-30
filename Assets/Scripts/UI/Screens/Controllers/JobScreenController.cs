@@ -38,9 +38,12 @@ namespace UI.Controller.Screen
 
         public void UpdateState(UpdateCurrentScreenEvent data = null)
         {
-            var jobList = Application.Model.GetAvailableJob().ToArray();
+            var jobList = Application.Model.GetAvailableJob().ToList();
 
-            if (jobList == null)
+            if (!Application.Model.PartTimeJobIsAvailable())
+                jobList = jobList?.Where(j => j is not PartTimeJob)?.ToList();
+
+            if (jobList == null || !jobList.Any())
                 return;
 
             foreach (Transform child in _layoutsParent)
@@ -51,7 +54,7 @@ namespace UI.Controller.Screen
             var layoutRectList = new List<RectTransform>();
             var layoutRectIdx = 0;
 
-            for (var i = 0; i < jobList.Length; ++i)
+            for (var i = 0; i < jobList.Count; ++i)
             {
                 if (layoutRectList.Count - 1 < layoutRectIdx)
                     layoutRectList.Add(Instantiate(_layoutPrefab, _layoutsParent));

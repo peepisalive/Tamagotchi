@@ -42,16 +42,7 @@ namespace Tamagotchi
         }
         #endregion
 
-        public Pet GetCurrentPet()
-        {
-            foreach (var i in _petFilter)
-            {
-                return _petFilter.Get1(i).Pet;
-            }
-
-            return null;
-        }
-
+        #region Job
         public HashSet<Job> GetAvailableJob()
         {
             foreach (var i in _jobFilter)
@@ -62,14 +53,39 @@ namespace Tamagotchi
             return null;
         }
 
-        public int GetJobPartTimeJobAmountPerDay()
+        public int GetPartTimeJobAmountPerDay()
         {
+            var result = 0;
+
             foreach (var i in _jobFilter)
             {
-                return _jobFilter.Get1(i).PartTimeJobAmountPerDay;
+                result =  _jobFilter.Get1(i).PartTimeJobAmountPerDay;
             }
 
-            return 0;
+            return result;
+        }
+
+        public bool PartTimeJobIsAvailable()
+        {
+            var result = false;
+
+            foreach (var i in _jobFilter)
+            {
+                result = _jobFilter.Get1(i).PartTimeJobIsAvailable();
+            }
+
+            return result;
+        }
+        #endregion
+
+        public Pet GetCurrentPet()
+        {
+            foreach (var i in _petFilter)
+            {
+                return _petFilter.Get1(i).Pet;
+            }
+
+            return null;
         }
 
         public BankAccount GetBankAccount()

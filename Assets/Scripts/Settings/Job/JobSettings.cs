@@ -14,6 +14,7 @@ namespace Settings.Job
         [field: SerializeField] public List<JobTypeSettings> JobTypeSettings { get; private set; }
         [field: Space]
         [field: SerializeField][field: Range(3, 6)] public int PartTimeJobAmountPerDay { get; private set; }
+        [field: SerializeField][field: Range(1, 24)] public int RecoveryTimePartTimeJob { get; private set; }
 
         public FullTimeJobSettings GetFullTimeJobSettings(FullTimeJobType type)
         {

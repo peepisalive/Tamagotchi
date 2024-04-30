@@ -8,7 +8,7 @@ using TMPro;
 
 namespace UI
 {
-    public sealed class NavigationPanel : MonoBehaviour, IUpdatable<UpdateCurrentScreenEvent>
+    public sealed class NavigationPanel : MonoBehaviour
     {
         [Header("Buttons")]
         [SerializeField] private ImageButtonController _backButton;
@@ -35,26 +35,6 @@ namespace UI
                     EventSystem.Send(new NavigationPointHomeEvent());
                 }
             });
-
-            UpdateState();
-        }
-
-        public void UpdateState(UpdateCurrentScreenEvent data = null)
-        {
-            if (_type == default)
-                return;
-
-            // to do: set text
-        }
-
-        private void Start()
-        {
-            EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
-        }
-
-        private void OnDestroy()
-        {
-            EventSystem.Unsubscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
     }
 }

@@ -16,6 +16,8 @@ namespace UI.Controller
 {
     public sealed class PartTimeJobButtonController : JobButtonController, IAdRewardable
     {
+        private int _partTimeJobAmountPerDay;
+
         public override void Setup(Job job, Sprite icon, string title, string content)
         {
             base.Setup(job, icon, title, content);
@@ -29,7 +31,7 @@ namespace UI.Controller
 
         public void OnRewarded()
         {
-            // to do: ++ part time job amount per day
+            EventSystem.Send(new GettingJobEvent(Job));
             EventSystem.Send(new ChangeBankAccountValueEvent
             {
                 Value = Job.Salary
@@ -81,10 +83,10 @@ namespace UI.Controller
 
         private bool GetAdsSignState()
         {
-            var currentAmount = Application.Model.GetJobPartTimeJobAmountPerDay();
-            var amount = SettingsProvider.Get<JobSettings>().PartTimeJobAmountPerDay;
+            if (_partTimeJobAmountPerDay == 0)
+                _partTimeJobAmountPerDay = SettingsProvider.Get<JobSettings>().PartTimeJobAmountPerDay;
 
-            return currentAmount == amount - 1;
+            return Application.Model.GetPartTimeJobAmountPerDay() == _partTimeJobAmountPerDay - 1;
         }
     }
 }
