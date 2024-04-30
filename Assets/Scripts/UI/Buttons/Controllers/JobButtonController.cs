@@ -6,6 +6,7 @@ using UI.Popups;
 using Core.Job;
 using UI.View;
 using Modules;
+using Events;
 
 namespace UI.Controller
 {
@@ -50,9 +51,13 @@ namespace UI.Controller
                         },
                         new TextButtonSettings
                         {
-                            Action = () =>
+                            ActionWithInstance = (popup) =>
                             {
+                                var currentPopup = (DefaultPopupView)popup;
+                                var workingHours = currentPopup.Dropdowns[0].GetCurrentValue<int>();
 
+                                EventSystem.Send(new GettingJobEvent(Job, workingHours));
+                                EventSystem.Send(new HidePopupEvent());
                             }
                         }
                     }

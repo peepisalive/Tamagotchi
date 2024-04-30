@@ -9,12 +9,10 @@ namespace Components
     public struct JobComponent
     {
         public HashSet<Job> AvailableJob;
-        public FullTimeJob CurrentJob;
+        public CurrentFullTimeJob CurrentFullTimeJob;
 
         public int PartTimeAmountPerDay;
-
         public DateTime StartPartTimeRecovery;
-        public DateTime StartFullTimeRecovery;
 
         public bool PartTimeIsAvailable()
         {

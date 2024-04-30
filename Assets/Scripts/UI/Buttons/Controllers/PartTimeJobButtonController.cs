@@ -32,10 +32,6 @@ namespace UI.Controller
         public void OnRewarded()
         {
             EventSystem.Send(new GettingJobEvent(Job));
-            EventSystem.Send(new ChangeBankAccountValueEvent
-            {
-                Value = Job.Salary
-            });
         }
 
         protected override void OnClick()

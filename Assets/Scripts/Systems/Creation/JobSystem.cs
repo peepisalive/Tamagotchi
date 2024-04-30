@@ -35,6 +35,7 @@ namespace Systems
             }
 
             EventSystem.Subscribe<Events.EndOfRecoveryPartTimeEvent>(MakePartTimeJobIsAvailable);
+            EventSystem.Subscribe<Events.EndOfFullTimeJobEvent>(MakeFullTimeJobIsAvailable);
             EventSystem.Subscribe<Events.GettingJobEvent>(SendGettingJobEvent);
         }
 
@@ -44,7 +45,9 @@ namespace Systems
             {
                 foreach (var i in _gettingJobFilter)
                 {
-                    GetJob(_gettingJobFilter.Get1(i).Job);
+                    var component = _gettingJobFilter.Get1(i);
+
+                    GetJob(component.Job, component.WorkingHours);
                 }
             }
         }
@@ -52,10 +55,11 @@ namespace Systems
         public void Destroy()
         {
             EventSystem.Unsubscribe<Events.EndOfRecoveryPartTimeEvent>(MakePartTimeJobIsAvailable);
+            EventSystem.Unsubscribe<Events.EndOfFullTimeJobEvent>(MakeFullTimeJobIsAvailable);
             EventSystem.Unsubscribe<Events.GettingJobEvent>(SendGettingJobEvent);
         }
 
-        private void GetJob(Job job)
+        private void GetJob(Job job, int workingHours)
         {
             foreach (var i in _jobFilter)
             {
@@ -68,6 +72,11 @@ namespace Systems
                     if (!component.PartTimeIsAvailable())
                     {
                         component.StartPartTimeRecovery = DateTime.Now;
+
+                        _world.NewEntity().Replace(new ChangeBankAccountValueEvent
+                        {
+                            Value = job.Salary
+                        });
 
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
                         InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeRecoveryHours * 3600f, () =>
@@ -84,7 +93,13 @@ namespace Systems
                 if (job is FullTimeJob fullTimeJob)
                 {
                     component.AvailableJob.Remove(fullTimeJob);
-                    component.CurrentJob = fullTimeJob;
+                    component.CurrentFullTimeJob = new CurrentFullTimeJob(fullTimeJob, DateTime.Now, workingHours);
+
+                    EventSystem.Send<Events.UpdateCurrentScreenEvent>();
+                    InGameTimeManager.Instance.StartRecoveryCoroutine(workingHours * 3600f, () =>
+                    {
+                        EventSystem.Send<Events.EndOfFullTimeJobEvent>();
+                    });
                 }
             }
         }
@@ -130,6 +145,15 @@ namespace Systems
                     availableJob.Add(_factory.Create(jobSave));
                 }
 
+                var currentFullTimeJob = (save.CurrentFullTimeJob != null)
+                    ? new CurrentFullTimeJob
+                    (
+                        _factory.Create(save.CurrentFullTimeJob.JobSave) as FullTimeJob,
+                        save.CurrentFullTimeJob.StartFullTimeJobRecovery,
+                        save.CurrentFullTimeJob.WorkingHours
+                    )
+                    : null;
+
                 _factory = new PartTimeJobFactory();
 
                 foreach (var jobSave in save.PartTimeJob)
@@ -139,30 +163,50 @@ namespace Systems
 
                 var partTimeJobAmountPerDay = save.PartTimeJobAmountPerDay;
                 var startPartTimeJobRecovery = save.StartPartTimeJobRecovery;
-                var currentJob = (save.CurrentJob != null)
-                    ? _factory.Create(save.CurrentJob) as FullTimeJob
-                    : null;
 
                 var currentTime = DateTime.Now;
-                var endOfRecoveryPartTime = save.StartPartTimeJobRecovery + TimeSpan.FromHours(_settings.PartTimeRecoveryHours);
 
-                if (endOfRecoveryPartTime > currentTime)
+                if (partTimeJobAmountPerDay >= _settings.PartTimeAmountPerDay)
                 {
-                    StartRecoveryCoroutine<Events.EndOfRecoveryPartTimeEvent>(currentTime, endOfRecoveryPartTime);
+                    var endOfRecoveryPartTime = save.StartPartTimeJobRecovery + TimeSpan.FromHours(_settings.PartTimeRecoveryHours);
+
+                    if (endOfRecoveryPartTime > currentTime)
+                    {
+                        StartRecoveryCoroutine<Events.EndOfRecoveryPartTimeEvent>(currentTime, endOfRecoveryPartTime);
+                    }
+                    else
+                    {
+                        partTimeJobAmountPerDay = 0;
+                        startPartTimeJobRecovery = default;
+                    }
                 }
-                else
+
+                if (currentFullTimeJob != null)
                 {
-                    partTimeJobAmountPerDay = 0;
-                    startPartTimeJobRecovery = default;
+                    var endOfRecoveryFullTime = currentFullTimeJob.StartFullTimeJobRecovery + TimeSpan.FromHours(currentFullTimeJob.WorkingHours);
+
+                    if (endOfRecoveryFullTime > currentTime)
+                    {
+                        StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(currentTime, endOfRecoveryFullTime);
+                    }
+                    else
+                    {
+                        _world.NewEntity().Replace(new ChangeBankAccountValueEvent
+                        {
+                            Value = currentFullTimeJob.Job.Salary
+                        });
+
+                        availableJob.Add(currentFullTimeJob.Job);
+                        currentFullTimeJob = null;
+                    }
                 }
 
                 _world.NewEntity().Replace(new JobComponent
                 {
                     AvailableJob = availableJob,
-                    CurrentJob = currentJob,
+                    CurrentFullTimeJob = currentFullTimeJob,
                     PartTimeAmountPerDay = partTimeJobAmountPerDay,
                     StartPartTimeRecovery = startPartTimeJobRecovery,
-                    StartFullTimeRecovery = save.StartFullTimeJobRecovery
                 });
             }
 
@@ -191,11 +235,30 @@ namespace Systems
             }
         }
 
+        private void MakeFullTimeJobIsAvailable(Events.EndOfFullTimeJobEvent e)
+        {
+            foreach (var i in _jobFilter)
+            {
+                ref var component = ref _jobFilter.Get1(i);
+
+                _world.NewEntity().Replace(new ChangeBankAccountValueEvent
+                {
+                    Value = component.CurrentFullTimeJob.Job.Salary
+                });
+
+                component.AvailableJob.Add(component.CurrentFullTimeJob.Job);
+                component.CurrentFullTimeJob = null;
+
+                EventSystem.Send<Events.UpdateCurrentScreenEvent>();
+            }
+        }
+
         private void SendGettingJobEvent(Events.GettingJobEvent e)
         {
             _world.NewEntity().Replace(new GettingJobEvent
             {
-                Job = e.Job
+                Job = e.Job,
+                WorkingHours = e.WorkingHours
             });
         }
     }

@@ -69,8 +69,8 @@ namespace Systems
 
                 stateHolder.ResetState();
 
-                if (component.CurrentJob != null)
-                    stateHolder.State.CurrentJob = component.CurrentJob.GetSave() as FullTimeJobSave;
+                if (component.CurrentFullTimeJob != null)
+                    stateHolder.State.CurrentFullTimeJob = component.CurrentFullTimeJob.GetSave();
 
                 var jobSaves = new List<JobSave>();
 
@@ -83,9 +83,7 @@ namespace Systems
                 stateHolder.State.PartTimeJob.AddRange(jobSaves.Where(save => save is PartTimeJobSave).Cast<PartTimeJobSave>());
 
                 stateHolder.State.PartTimeJobAmountPerDay = component.PartTimeAmountPerDay;
-
                 stateHolder.State.StartPartTimeJobRecovery = component.StartPartTimeRecovery;
-                stateHolder.State.StartFullTimeJobRecovery = component.StartFullTimeRecovery;
             }
         }
 

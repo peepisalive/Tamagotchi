@@ -23,4 +23,13 @@ namespace Save
         public FullTimeJobType JobType;
         public int[] WorkingHours;
     }
+
+
+    [Serializable]
+    public sealed class CurrentFullTimeJobSave
+    {
+        public FullTimeJobSave JobSave;
+        public int WorkingHours;
+        public DateTime StartFullTimeJobRecovery;
+    }
 }
