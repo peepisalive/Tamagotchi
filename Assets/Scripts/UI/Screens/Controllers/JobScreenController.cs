@@ -40,7 +40,7 @@ namespace UI.Controller.Screen
         {
             var jobList = Application.Model.GetAvailableJob().ToList();
 
-            if (!Application.Model.PartTimeJobIsAvailable())
+            if (!Application.Model.PartTimeIsAvailable())
                 jobList = jobList?.Where(j => j is not PartTimeJob)?.ToList();
 
             if (jobList == null || !jobList.Any())

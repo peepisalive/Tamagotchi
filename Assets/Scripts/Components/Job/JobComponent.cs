@@ -11,14 +11,14 @@ namespace Components
         public HashSet<Job> AvailableJob;
         public FullTimeJob CurrentJob;
 
-        public int PartTimeJobAmountPerDay;
+        public int PartTimeAmountPerDay;
 
-        public DateTime StartPartTimeJobRecovery;
-        public DateTime StartFullTimeJobRecovery;
+        public DateTime StartPartTimeRecovery;
+        public DateTime StartFullTimeRecovery;
 
-        public bool PartTimeJobIsAvailable()
+        public bool PartTimeIsAvailable()
         {
-            return PartTimeJobAmountPerDay < SettingsProvider.Get<JobSettings>().PartTimeJobAmountPerDay;
+            return PartTimeAmountPerDay < SettingsProvider.Get<JobSettings>().PartTimeAmountPerDay;
         }
     }
 }

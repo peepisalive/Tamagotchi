@@ -53,25 +53,25 @@ namespace Tamagotchi
             return null;
         }
 
-        public int GetPartTimeJobAmountPerDay()
+        public int GetPartTimeAmountPerDay()
         {
             var result = 0;
 
             foreach (var i in _jobFilter)
             {
-                result =  _jobFilter.Get1(i).PartTimeJobAmountPerDay;
+                result =  _jobFilter.Get1(i).PartTimeAmountPerDay;
             }
 
             return result;
         }
 
-        public bool PartTimeJobIsAvailable()
+        public bool PartTimeIsAvailable()
         {
             var result = false;
 
             foreach (var i in _jobFilter)
             {
-                result = _jobFilter.Get1(i).PartTimeJobIsAvailable();
+                result = _jobFilter.Get1(i).PartTimeIsAvailable();
             }
 
             return result;

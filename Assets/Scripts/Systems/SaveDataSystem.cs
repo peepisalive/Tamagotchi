@@ -82,10 +82,10 @@ namespace Systems
                 stateHolder.State.FullTimeJob.AddRange(jobSaves.Where(save => save is FullTimeJobSave).Cast<FullTimeJobSave>());
                 stateHolder.State.PartTimeJob.AddRange(jobSaves.Where(save => save is PartTimeJobSave).Cast<PartTimeJobSave>());
 
-                stateHolder.State.PartTimeJobAmountPerDay = component.PartTimeJobAmountPerDay;
+                stateHolder.State.PartTimeJobAmountPerDay = component.PartTimeAmountPerDay;
 
-                stateHolder.State.StartPartTimeJobRecovery = component.StartPartTimeJobRecovery;
-                stateHolder.State.StartFullTimeJobRecovery = component.StartFullTimeJobRecovery;
+                stateHolder.State.StartPartTimeJobRecovery = component.StartPartTimeRecovery;
+                stateHolder.State.StartFullTimeJobRecovery = component.StartFullTimeRecovery;
             }
         }
 

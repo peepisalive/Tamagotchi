@@ -84,9 +84,9 @@ namespace UI.Controller
         private bool GetAdsSignState()
         {
             if (_partTimeJobAmountPerDay == 0)
-                _partTimeJobAmountPerDay = SettingsProvider.Get<JobSettings>().PartTimeJobAmountPerDay;
+                _partTimeJobAmountPerDay = SettingsProvider.Get<JobSettings>().PartTimeAmountPerDay;
 
-            return Application.Model.GetPartTimeJobAmountPerDay() == _partTimeJobAmountPerDay - 1;
+            return Application.Model.GetPartTimeAmountPerDay() == _partTimeJobAmountPerDay - 1;
         }
     }
 }

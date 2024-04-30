@@ -34,7 +34,7 @@ namespace Systems
                 LoadJob();
             }
 
-            EventSystem.Subscribe<Events.EndOfRecoveryPartTimeJobEvent>(MakePartTimeJobIsAvailable);
+            EventSystem.Subscribe<Events.EndOfRecoveryPartTimeEvent>(MakePartTimeJobIsAvailable);
             EventSystem.Subscribe<Events.GettingJobEvent>(SendGettingJobEvent);
         }
 
@@ -51,7 +51,7 @@ namespace Systems
 
         public void Destroy()
         {
-            EventSystem.Unsubscribe<Events.EndOfRecoveryPartTimeJobEvent>(MakePartTimeJobIsAvailable);
+            EventSystem.Unsubscribe<Events.EndOfRecoveryPartTimeEvent>(MakePartTimeJobIsAvailable);
             EventSystem.Unsubscribe<Events.GettingJobEvent>(SendGettingJobEvent);
         }
 
@@ -63,19 +63,19 @@ namespace Systems
 
                 if (job is PartTimeJob)
                 {
-                    ++component.PartTimeJobAmountPerDay;
+                    ++component.PartTimeAmountPerDay;
 
-                    if (!component.PartTimeJobIsAvailable())
+                    if (!component.PartTimeIsAvailable())
                     {
-                        component.StartPartTimeJobRecovery = DateTime.Now;
+                        component.StartPartTimeRecovery = DateTime.Now;
 
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
-                        InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeJobAmountPerDay, () =>
+                        InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeRecoveryHours * 3600f, () =>
                         {
-                            EventSystem.Send<Events.EndOfRecoveryPartTimeJobEvent>();
+                            EventSystem.Send<Events.EndOfRecoveryPartTimeEvent>();
                         });
                     }
-                    else if (component.PartTimeJobAmountPerDay == _settings.PartTimeJobAmountPerDay - 1)
+                    else if (component.PartTimeAmountPerDay == _settings.PartTimeAmountPerDay - 1)
                     {
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
                     }
@@ -143,17 +143,12 @@ namespace Systems
                     ? _factory.Create(save.CurrentJob) as FullTimeJob
                     : null;
 
-                var currentDateTime = DateTime.Now;
-                var endOfRecoveryDateTime = save.StartPartTimeJobRecovery + TimeSpan.FromHours(_settings.PartTimeJobAmountPerDay);
+                var currentTime = DateTime.Now;
+                var endOfRecoveryPartTime = save.StartPartTimeJobRecovery + TimeSpan.FromHours(_settings.PartTimeRecoveryHours);
 
-                if (endOfRecoveryDateTime > currentDateTime)
+                if (endOfRecoveryPartTime > currentTime)
                 {
-                    var remainingSeconds = (endOfRecoveryDateTime - currentDateTime).TotalSeconds;
-
-                    InGameTimeManager.Instance.StartRecoveryCoroutine((float)remainingSeconds, () =>
-                    {
-                        EventSystem.Send<Events.EndOfRecoveryPartTimeJobEvent>();
-                    });
+                    StartRecoveryCoroutine<Events.EndOfRecoveryPartTimeEvent>(currentTime, endOfRecoveryPartTime);
                 }
                 else
                 {
@@ -165,21 +160,32 @@ namespace Systems
                 {
                     AvailableJob = availableJob,
                     CurrentJob = currentJob,
-                    PartTimeJobAmountPerDay = partTimeJobAmountPerDay,
-                    StartPartTimeJobRecovery = startPartTimeJobRecovery,
-                    StartFullTimeJobRecovery = save.StartFullTimeJobRecovery
+                    PartTimeAmountPerDay = partTimeJobAmountPerDay,
+                    StartPartTimeRecovery = startPartTimeJobRecovery,
+                    StartFullTimeRecovery = save.StartFullTimeJobRecovery
+                });
+            }
+
+
+            static void StartRecoveryCoroutine<T>(DateTime currentTime, DateTime endOfRecoveryPartTimeJob) where T : class, new()
+            {
+                var remainingSeconds = (endOfRecoveryPartTimeJob - currentTime).TotalSeconds;
+
+                InGameTimeManager.Instance.StartRecoveryCoroutine((float)remainingSeconds, () =>
+                {
+                    EventSystem.Send(new T());
                 });
             }
         }
 
-        private void MakePartTimeJobIsAvailable(Events.EndOfRecoveryPartTimeJobEvent e)
+        private void MakePartTimeJobIsAvailable(Events.EndOfRecoveryPartTimeEvent e)
         {
             foreach (var i in _jobFilter)
             {
                 ref var component = ref _jobFilter.Get1(i);
 
-                component.PartTimeJobAmountPerDay = 0;
-                component.StartPartTimeJobRecovery = default;
+                component.PartTimeAmountPerDay = 0;
+                component.StartPartTimeRecovery = default;
 
                 EventSystem.Send<Events.UpdateCurrentScreenEvent>();
             }
