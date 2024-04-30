@@ -17,6 +17,8 @@ namespace Systems
         private EcsFilter<JobComponent> _jobFilter;
         private EcsFilter<GettingJobEvent> _gettingJobFilter;
         private EcsFilter<SaveDataLoadedComponent> _saveDataFilter;
+        private EcsFilter<EndOfFullTimeJobEvent> _recoveryFullTimeFilter;
+        private EcsFilter<EndOfRecoveryPartTimeEvent> _recoveryPartTimeFilter;
 
         private JobSettings _settings;
         private JobFactory _factory;
@@ -34,8 +36,8 @@ namespace Systems
                 LoadJob();
             }
 
-            EventSystem.Subscribe<Events.EndOfRecoveryPartTimeEvent>(MakePartTimeJobIsAvailable);
-            EventSystem.Subscribe<Events.EndOfFullTimeJobEvent>(MakeFullTimeJobIsAvailable);
+            EventSystem.Subscribe<Events.EndOfRecoveryPartTimeEvent>(SendEndOfRecoveryPartTimeEvent);
+            EventSystem.Subscribe<Events.EndOfFullTimeJobEvent>(SendEndOfFullTimeJobEvent);
             EventSystem.Subscribe<Events.GettingJobEvent>(SendGettingJobEvent);
         }
 
@@ -50,12 +52,18 @@ namespace Systems
                     GetJob(component.Job, component.WorkingHours);
                 }
             }
+
+            if (!_recoveryFullTimeFilter.IsEmpty())
+                MakeFullTimeJobIsAvailable();
+
+            if (!_recoveryPartTimeFilter.IsEmpty())
+                MakePartTimeJobIsAvailable();
         }
 
         public void Destroy()
         {
-            EventSystem.Unsubscribe<Events.EndOfRecoveryPartTimeEvent>(MakePartTimeJobIsAvailable);
-            EventSystem.Unsubscribe<Events.EndOfFullTimeJobEvent>(MakeFullTimeJobIsAvailable);
+            EventSystem.Unsubscribe<Events.EndOfRecoveryPartTimeEvent>(SendEndOfRecoveryPartTimeEvent);
+            EventSystem.Unsubscribe<Events.EndOfFullTimeJobEvent>(SendEndOfFullTimeJobEvent);
             EventSystem.Unsubscribe<Events.GettingJobEvent>(SendGettingJobEvent);
         }
 
@@ -89,14 +97,13 @@ namespace Systems
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
                     }
                 }
-
-                if (job is FullTimeJob fullTimeJob)
+                else if (job is FullTimeJob fullTimeJob)
                 {
                     component.AvailableJob.Remove(fullTimeJob);
                     component.CurrentFullTimeJob = new CurrentFullTimeJob(fullTimeJob, DateTime.Now, workingHours);
 
                     EventSystem.Send<Events.UpdateCurrentScreenEvent>();
-                    InGameTimeManager.Instance.StartRecoveryCoroutine(workingHours * 3600f, () =>
+                    InGameTimeManager.Instance.StartRecoveryCoroutine(30f, () =>
                     {
                         EventSystem.Send<Events.EndOfFullTimeJobEvent>();
                     });
@@ -183,7 +190,7 @@ namespace Systems
 
                 if (currentFullTimeJob != null)
                 {
-                    var endOfRecoveryFullTime = currentFullTimeJob.StartFullTimeJobRecovery + TimeSpan.FromHours(currentFullTimeJob.WorkingHours);
+                    var endOfRecoveryFullTime = currentFullTimeJob.StartFullTimeJobRecovery + TimeSpan.FromSeconds(30f);
 
                     if (endOfRecoveryFullTime > currentTime)
                     {
@@ -222,7 +229,7 @@ namespace Systems
             }
         }
 
-        private void MakePartTimeJobIsAvailable(Events.EndOfRecoveryPartTimeEvent e)
+        private void MakePartTimeJobIsAvailable()
         {
             foreach (var i in _jobFilter)
             {
@@ -235,7 +242,7 @@ namespace Systems
             }
         }
 
-        private void MakeFullTimeJobIsAvailable(Events.EndOfFullTimeJobEvent e)
+        private void MakeFullTimeJobIsAvailable()
         {
             foreach (var i in _jobFilter)
             {
@@ -251,6 +258,16 @@ namespace Systems
 
                 EventSystem.Send<Events.UpdateCurrentScreenEvent>();
             }
+        }
+
+        private void SendEndOfRecoveryPartTimeEvent(Events.EndOfRecoveryPartTimeEvent e)
+        {
+            _world.NewEntity().Replace(new EndOfRecoveryPartTimeEvent());
+        }
+
+        private void SendEndOfFullTimeJobEvent(Events.EndOfFullTimeJobEvent e)
+        {
+            _world.NewEntity().Replace(new EndOfFullTimeJobEvent());
         }
 
         private void SendGettingJobEvent(Events.GettingJobEvent e)

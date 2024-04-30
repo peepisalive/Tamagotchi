@@ -22,8 +22,10 @@ namespace Starter
                 .Add(SatietyActivitiesElements(world))
                 .Add(HygieneActivities(world))
                 .Add(HealthActivities(world))
-                .OneFrame<GettingJobEvent>()
+                .Add(JobOneFrameEvents(world))
                 .OneFrame<ChangeParameterEvent>()
+                .OneFrame<EndOfFullTimeJobEvent>()
+                .OneFrame<EndOfRecoveryPartTimeEvent>()
                 .OneFrame<ChangeBankAccountValueEvent>();
 
             Systems.Init();
@@ -74,6 +76,14 @@ namespace Starter
                     .Add(new StretchingActivitySystem())
                     .Add(new ExerciseActivitySystem());
             }
+        }
+
+        private EcsSystems JobOneFrameEvents(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .OneFrame<GettingJobEvent>()
+                .OneFrame<EndOfFullTimeJobEvent>()
+                .OneFrame<EndOfRecoveryPartTimeEvent>();
         }
     }
 }
