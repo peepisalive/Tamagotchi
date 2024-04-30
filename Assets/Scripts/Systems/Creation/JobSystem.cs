@@ -70,7 +70,7 @@ namespace Systems
                         component.StartPartTimeJobRecovery = DateTime.Now;
 
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
-                        InGameTimeManager.Instance.StartRecoveryCoroutine(30f, () =>
+                        InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeJobAmountPerDay * 3600f, () =>
                         {
                             EventSystem.Send<Events.EndOfRecoveryPartTimeJobEvent>();
                         });
