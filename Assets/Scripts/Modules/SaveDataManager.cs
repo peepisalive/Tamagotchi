@@ -133,6 +133,7 @@ namespace Modules
         private void InitializeStateHolders()
         {
             _stateHolders.Add(typeof(PetStateHolder), new PetStateHolder());
+            _stateHolders.Add(typeof(JobStateHolder), new JobStateHolder());
             _stateHolders.Add(typeof(GlobalStateHolder), new GlobalStateHolder());
             _stateHolders.Add(typeof(SettingsStateHolder), new SettingsStateHolder());
         }

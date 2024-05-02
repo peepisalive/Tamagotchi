@@ -9,13 +9,21 @@ namespace Modules
     public sealed class RewardedAdManager : MonoBehaviourSingleton<RewardedAdManager>
     {
         public event Action OnAdFailedToShowCallback;
-        public event Action OnAdImpressionCallback;
+        public event Action OnRewardedCallback;
 
         private RewardedAdLoader _rewardedAdLoader;
         private RewardedAd _rewardedAd;
 
         public void ShowRewardedAd()
         {
+#if UNITY_EDITOR
+            OnRewardedCallback?.Invoke();
+
+            OnAdFailedToShowCallback = null;
+            OnRewardedCallback = null;
+
+            return;
+#endif
             if (_rewardedAd == null)
                 return;
 
@@ -29,6 +37,9 @@ namespace Modules
 
             _rewardedAd.Destroy();
             _rewardedAd = null;
+
+            OnAdFailedToShowCallback = null;
+            OnRewardedCallback = null;
         }
 
         private void SetupLoader()
@@ -52,15 +63,13 @@ namespace Modules
             _rewardedAd = args.RewardedAd;
 
             _rewardedAd.OnAdFailedToShow += OnAdFailedToShow;
-            _rewardedAd.OnAdImpression += OnAdImpression;
+            _rewardedAd.OnRewarded += OnRewarded;
 
             Debug.Log("Ad loaded");
         }
 
         private void OnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
         {
-            OnAdFailedToShowCallback?.Invoke();
-
             Debug.Log($"Ad failed to load: {args.Message}");
         }
 
@@ -74,12 +83,14 @@ namespace Modules
             Debug.Log("Ad failed to show");
         }
 
-        public void OnAdImpression(object sender, ImpressionData impressionData)
+        private void OnRewarded(object sender, Reward e)
         {
+            OnRewardedCallback?.Invoke();
+
             DestroyRewardedAd();
             RequestRewardedAd();
 
-            Debug.Log("Ad impression");
+            Debug.Log("Rewarded");
         }
 
         private void Awake()

@@ -1,7 +1,6 @@
 using UnityEngine.UI;
 using Events.Popups;
 using UnityEngine;
-using Components;
 using Modules;
 
 namespace UI.Controller
@@ -32,7 +31,7 @@ namespace UI.Controller
 
         private void SendHidePopupEvent()
         {
-            Tamagotchi.Application.Model.Send(new HidePopup());
+            EventSystem.Send(new HidePopupEvent());
         }
 
         private void Start()

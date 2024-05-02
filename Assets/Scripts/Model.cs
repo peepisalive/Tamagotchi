@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
 using Components;
+using Core.Job;
 using Utils;
 using Core;
 
@@ -16,6 +17,7 @@ namespace Tamagotchi
         private EcsFilter<BlockComponent> _blockFilter;
 
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
+        private EcsFilter<JobComponent> _jobFilter;
         private EcsFilter<PetComponent> _petFilter;
 
         #region Navigation
@@ -37,6 +39,42 @@ namespace Tamagotchi
         public NavigationPoint GetCurrentNavigationPoint()
         {
             return _activeBlockFilter.GetCurrentNavigationPoint();
+        }
+        #endregion
+
+        #region Job
+        public HashSet<Job> GetAvailableJob()
+        {
+            foreach (var i in _jobFilter)
+            {
+                return _jobFilter.Get1(i).AvailableJob;
+            }
+
+            return null;
+        }
+
+        public int GetPartTimeAmountPerDay()
+        {
+            var result = 0;
+
+            foreach (var i in _jobFilter)
+            {
+                result =  _jobFilter.Get1(i).PartTimeAmountPerDay;
+            }
+
+            return result;
+        }
+
+        public bool PartTimeIsAvailable()
+        {
+            var result = false;
+
+            foreach (var i in _jobFilter)
+            {
+                result = _jobFilter.Get1(i).PartTimeIsAvailable();
+            }
+
+            return result;
         }
         #endregion
 

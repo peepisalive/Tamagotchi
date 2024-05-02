@@ -700,7 +700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: title
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a8a4befd22ac0494eb12e0588f1489c9, type: 2}
   m_sharedMaterial: {fileID: 1590146989578822239, guid: a8a4befd22ac0494eb12e0588f1489c9,
@@ -1079,6 +1079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575983340525583005}
   - component: {fileID: 8921037952230212044}
+  - component: {fileID: 3438153218123382069}
   - component: {fileID: 2137537569152729328}
   m_Layer: 6
   m_Name: Dropdown
@@ -1116,6 +1117,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7114722672099620703}
   m_CullTransparentMesh: 1
+--- !u!114 &3438153218123382069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114722672099620703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028556e6e2c87a4429acd2d21630bf8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _titleLabel: {fileID: 8834401036655798405}
 --- !u!114 &2137537569152729328
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,11 +1,12 @@
 using Leopotam.Ecs;
 using Components;
 using Save.State;
+using Modules;
 using Core;
 
 namespace Systems
 {
-    public sealed class BankAccountSystem : IEcsInitSystem, IEcsRunSystem
+    public sealed class BankAccountSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private EcsWorld _world;
         private EcsFilter<SaveDataLoadedComponent> _saveDataFilter;
@@ -25,6 +26,7 @@ namespace Systems
             }
 
             CreateBankAccount(value);
+            EventSystem.Subscribe<Events.ChangeBankAccountValueEvent>(SendEvent);
         }
 
         public void Run()
@@ -43,11 +45,24 @@ namespace Systems
             }
         }
 
+        public void Destroy()
+        {
+            EventSystem.Unsubscribe<Events.ChangeBankAccountValueEvent>(SendEvent);
+        }
+
         private void CreateBankAccount(int value)
         {
             _world.NewEntity().Replace(new BankAccountComponent
             {
                 BankAccount = new BankAccount(value)
+            });
+        }
+
+        private void SendEvent(Events.ChangeBankAccountValueEvent e)
+        {
+            _world.NewEntity().Replace(new ChangeBankAccountValueEvent
+            {
+                Value = e.Value,
             });
         }
     }

@@ -1,6 +1,8 @@
 using Application = Tamagotchi.Application;
+using System.Collections;
 using UnityEngine;
 using Save.State;
+using System;
 using Core;
 
 namespace Modules
@@ -19,6 +21,18 @@ namespace Modules
             PlayTimeSeconds = stateHolder.State.PlayTimeSeconds;
         }
 
+        public void StartRecoveryCoroutine(float seconds, Action recoveryCallback)
+        {
+            StartCoroutine(RecoveryRoutine(seconds, recoveryCallback));
+        }
+
+        private IEnumerator RecoveryRoutine(float seconds, Action recoveryCallback)
+        {
+            yield return new WaitForSecondsRealtime(seconds);
+            recoveryCallback?.Invoke();
+            yield break;
+        }
+
         private void Update()
         {
             PlayTimeSeconds += Time.deltaTime;
@@ -28,6 +42,11 @@ namespace Modules
         {
             Instance = this;
             LoadState();
+        }
+
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
         }
     }
 }

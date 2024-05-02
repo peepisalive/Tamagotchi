@@ -16,14 +16,9 @@ namespace UI.Controller
             _button?.onClick.AddListener(() => settings.ActionWithInstance?.Invoke(settings.PopupInstance));
         }
 
-        private void RemoveAllListeners()
-        {
-            _button?.onClick?.RemoveAllListeners();
-        }
-
         private void OnDestroy()
         {
-            RemoveAllListeners();
+            _button?.onClick?.RemoveAllListeners();
         }
     }
 }

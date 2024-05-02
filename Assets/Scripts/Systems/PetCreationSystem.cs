@@ -28,7 +28,7 @@ namespace Systems.Creation
             var parameters = new Parameters();
             var valueRange = new FloatRange(0f, 1f);
 
-            parameters.Add(ParameterType.Happiness, new Parameter(valueRange.Max, valueRange));
+            parameters.Add(ParameterType.Happiness, new Parameter(valueRange.Max, valueRange)); // to do: edit this (cringe)
             parameters.Add(ParameterType.Satiety, new Parameter(valueRange.Max, valueRange));
             parameters.Add(ParameterType.Hygiene, new Parameter(valueRange.Max, valueRange));
             parameters.Add(ParameterType.Fatigue, new Parameter(valueRange.Max, valueRange));
