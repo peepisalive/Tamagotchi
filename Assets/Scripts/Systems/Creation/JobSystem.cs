@@ -82,11 +82,6 @@ namespace Systems
                     {
                         component.StartPartTimeRecovery = DateTime.Now;
 
-                        _world.NewEntity().Replace(new ChangeBankAccountValueEvent
-                        {
-                            Value = job.Salary
-                        });
-
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
                         InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeRecoveryHours * 3600f, () =>
                         {
@@ -97,6 +92,11 @@ namespace Systems
                     {
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
                     }
+
+                    _world.NewEntity().Replace(new ChangeBankAccountValueEvent
+                    {
+                        Value = job.Salary
+                    });
                 }
                 else if (job is FullTimeJob fullTimeJob)
                 {
