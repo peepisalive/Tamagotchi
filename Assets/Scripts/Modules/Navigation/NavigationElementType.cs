@@ -7,6 +7,7 @@ namespace Modules.Navigation
         MenuScreen = 2,
         ActivitiesScreen = 3,
         JobScreen = 4,
+        PetActionsScreen = 5,
         
         HappinessActivities = 100,
         SatietyActivities = 101,

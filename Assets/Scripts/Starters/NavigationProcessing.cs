@@ -38,6 +38,7 @@ namespace Starter
                 .Add(new MainScreenNavigationElements())
                 .Add(new MenuScreenNavigationElements())
                 .Add(new ActivitiesScreenNavigationElements())
+                .Add(new PetActionsScreenNavigationElements())
                 .Add(new JobScreenNavigationElements());
         }
 
