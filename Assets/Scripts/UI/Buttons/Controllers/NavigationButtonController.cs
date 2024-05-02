@@ -8,8 +8,7 @@ using Events;
 
 namespace UI.Controller
 {
-    [RequireComponent(typeof(NavigationButtonView))]
-    [RequireComponent(typeof(NavigationElement))]
+    [RequireComponent(typeof(NavigationButtonView), typeof(NavigationElement))]
     public sealed class NavigationButtonController : MonoBehaviour
     {
         [Header("Controller")]

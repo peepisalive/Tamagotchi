@@ -184,11 +184,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8262855482521208662}
   m_Layer: 0
-  m_Name: AdsSignParent
+  m_Name: AdsParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!224 &8262855482521208662
 RectTransform:
@@ -358,11 +358,11 @@ GameObject:
   - component: {fileID: 449881220799584748}
   - component: {fileID: 7856452921152216908}
   m_Layer: 0
-  m_Name: AdsSignImage
+  m_Name: AdsSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &8261135969624825564
 RectTransform:

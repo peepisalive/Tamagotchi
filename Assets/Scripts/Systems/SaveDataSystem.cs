@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using Leopotam.Ecs;
+using System.Linq;
 using Components;
 using Save.State;
 using Modules;
+using Save;
 
 namespace Systems
 {
@@ -11,6 +14,7 @@ namespace Systems
 
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
         private EcsFilter<PetComponent> _petFilter;
+        private EcsFilter<JobComponent> _jobFilter;
 
         private SaveDataManager _saveDataManager;
 
@@ -35,6 +39,7 @@ namespace Systems
             SaveSettingsData();
             SaveGlobalData();
             SavePetData();
+            SaveJobData();
 
             _saveDataManager.SaveData(isAsync);
         }
@@ -46,6 +51,8 @@ namespace Systems
                 var stateHolder = _saveDataManager.GetStateHolder<PetStateHolder>();
                 var pet = _petFilter.Get1(i).Pet;
 
+                stateHolder.ResetState();
+
                 stateHolder.State.Id = pet.Id;
                 stateHolder.State.Name = pet.Name;
                 stateHolder.State.Type = pet.Type;
@@ -53,9 +60,38 @@ namespace Systems
             }
         }
 
+        private void SaveJobData()
+        {
+            foreach (var i in _jobFilter)
+            {
+                var stateHolder = _saveDataManager.GetStateHolder<JobStateHolder>();
+                var component = _jobFilter.Get1(i);
+
+                stateHolder.ResetState();
+
+                if (component.CurrentFullTimeJob != null)
+                    stateHolder.State.CurrentFullTimeJob = component.CurrentFullTimeJob.GetSave();
+
+                var jobSaves = new List<JobSave>();
+
+                component.AvailableJob.ToList().ForEach(job =>
+                {
+                    jobSaves.Add(job.GetSave());
+                });
+
+                stateHolder.State.FullTimeJob.AddRange(jobSaves.Where(save => save is FullTimeJobSave).Cast<FullTimeJobSave>());
+                stateHolder.State.PartTimeJob.AddRange(jobSaves.Where(save => save is PartTimeJobSave).Cast<PartTimeJobSave>());
+
+                stateHolder.State.PartTimeJobAmountPerDay = component.PartTimeAmountPerDay;
+                stateHolder.State.StartPartTimeJobRecovery = component.StartPartTimeRecovery;
+            }
+        }
+
         private void SaveSettingsData()
         {
             var stateHolder = _saveDataManager.GetStateHolder<SettingsStateHolder>();
+
+            stateHolder.ResetState();
 
             SaveSoundData();
 
@@ -69,6 +105,8 @@ namespace Systems
         private void SaveGlobalData()
         {
             var stateHolder = _saveDataManager.GetStateHolder<GlobalStateHolder>();
+
+            stateHolder.ResetState();
 
             SaveBankAccountData();
             SavePlayTimeData();

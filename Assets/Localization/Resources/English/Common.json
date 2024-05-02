@@ -1,11 +1,16 @@
 [
 	{
-		"tags": [ "popup_not_enough_money", "title" ],
-		"topic": "Не по балансу"
+		"tags": [ "oops", "title" ],
+		"topic": "Oops"
 	},
+
 	{
 		"tags": [ "popup_not_enough_money", "content" ],
 		"topic": "You don't have enough money"
+	},
+	{
+		"tags": [ "popup_not_ads_available", "content" ],
+		"topic": "No ads available to view"
 	},
 
 	{

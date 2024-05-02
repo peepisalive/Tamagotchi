@@ -65,6 +65,7 @@ namespace Save
             }
 
             _isSavingRoutine = false;
+            Debug.Log("All data saved");
         }
 
         private void SaveData()
@@ -94,6 +95,8 @@ namespace Save
                     _provider.SaveFile(sd.Path, sd.Data);
                 });
             }
+
+            Debug.Log("All data saved");
         }
 
         private void Start()

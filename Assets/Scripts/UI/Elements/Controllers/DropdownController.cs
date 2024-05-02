@@ -2,15 +2,18 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 using UI.Settings;
 using System.Linq;
+using UI.View;
 using TMPro;
 
 namespace UI.Controller
 {
+    [RequireComponent(typeof(DropdownView))]
     public sealed class DropdownController : TMP_Dropdown
     {
-        public int CurrentKey { get; private set; } 
+        public int CurrentKey { get; private set; }
 
         private DropdownSettings _dropdownSettings;
+        private DropdownView _dropdownView;
         private GameObject _contentParent;
 
         public T GetCurrentValue<T>()
@@ -21,6 +24,8 @@ namespace UI.Controller
         public void Setup(DropdownSettings dropdownSettings)
         {
             _dropdownSettings = dropdownSettings;
+            _dropdownView.SetTitle(dropdownSettings.Title);
+
             AddOptions(dropdownSettings.DropdownContent.Select(content => content.Title).ToList());
         }
 
@@ -48,6 +53,7 @@ namespace UI.Controller
             base.Awake();
 
             _contentParent = GameObject.FindGameObjectWithTag("DropdownContentParent");
+            _dropdownView = GetComponent<DropdownView>();
 
             onValueChanged.AddListener(OnValueChanged);
             SetContentParentState(false);

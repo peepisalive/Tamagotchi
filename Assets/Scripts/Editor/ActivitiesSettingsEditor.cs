@@ -36,7 +36,7 @@ namespace InEditor
                 activitiesSettings.Add(settings);
             }
 
-            EditorUtility.SetDirty(this);
+            EditorUtility.SetDirty(activitiesSettings);
             AssetDatabase.SaveAssets();
         }
     }

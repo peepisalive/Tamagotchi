@@ -221,8 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navigationPanel: {fileID: 8696986728491578970}
   _buttonsParent: {fileID: 7759282104696667848}
-  _buttonPrefab: {fileID: 5772065219032252831, guid: 373b2bb06f534a647a9cd5a5ffac345c,
-    type: 3}
 --- !u!1 &4316902765550241775
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +590,7 @@ MonoBehaviour:
   m_Color: {r: 0.41960785, g: 0.5460353, b: 0.59607846, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

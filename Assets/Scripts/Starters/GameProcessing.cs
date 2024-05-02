@@ -14,17 +14,27 @@ namespace Starter
 
             Systems
                 .Add(new PopupSystem())
-                .Add(new PetCreationSystem())
+                .Add(new JobSystem())
+                .Add(CreationSystems(world))
                 .Add(new ParametersSystem())
                 .Add(new BankAccountSystem())
                 .Add(HappinessActivitiesElements(world))
                 .Add(SatietyActivitiesElements(world))
                 .Add(HygieneActivities(world))
                 .Add(HealthActivities(world))
+                .Add(JobOneFrameEvents(world))
                 .OneFrame<ChangeParameterEvent>()
+                .OneFrame<EndOfFullTimeJobEvent>()
+                .OneFrame<EndOfRecoveryPartTimeEvent>()
                 .OneFrame<ChangeBankAccountValueEvent>();
 
             Systems.Init();
+        }
+
+        private EcsSystems CreationSystems(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new PetCreationSystem());
         }
 
         private EcsSystems HappinessActivitiesElements(EcsWorld world)
@@ -66,6 +76,14 @@ namespace Starter
                     .Add(new StretchingActivitySystem())
                     .Add(new ExerciseActivitySystem());
             }
+        }
+
+        private EcsSystems JobOneFrameEvents(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .OneFrame<GettingJobEvent>()
+                .OneFrame<EndOfFullTimeJobEvent>()
+                .OneFrame<EndOfRecoveryPartTimeEvent>();
         }
     }
 }

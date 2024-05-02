@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f5f5447b100c4fab0c709b5baeb4d, type: 3}
+  m_Name: JobSettings
+  m_EditorClassIdentifier: 
+  <Localization>k__BackingField:
+    _asset:
+      m_TableReference:
+        m_TableCollectionName: GUID:d56843cb4e331ee448b738b19604e4ca
+      m_TableEntryReference:
+        m_KeyId: 5561958400
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  <JobTypeSettings>k__BackingField:
+  - {fileID: 11400000, guid: ef0d39508877a894f872c025ceb05a31, type: 2}
+  - {fileID: 11400000, guid: 5df63ecfdfd473e49be1eb795137307e, type: 2}
+  - {fileID: 11400000, guid: 46d4f76c0eb55a344a8ae53d6a70cce7, type: 2}
+  - {fileID: 11400000, guid: 1e8dd6a9c89a53a4ba86d6e9596ed325, type: 2}
+  - {fileID: 11400000, guid: 8b55d98fbfc194e40a773b307f0b63e3, type: 2}
+  - {fileID: 11400000, guid: 4daae753e60954e418b5467041e52a93, type: 2}
+  <PartTimeAmountPerDay>k__BackingField: 4
+  <PartTimeRecoveryHours>k__BackingField: 24
