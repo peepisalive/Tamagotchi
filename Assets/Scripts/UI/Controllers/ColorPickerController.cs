@@ -6,7 +6,7 @@ using System;
 namespace UI.Controller
 {
     [RequireComponent(typeof(ColorPickerView))]
-    public class ColorPickerController : MonoBehaviour
+    public sealed class ColorPickerController : MonoBehaviour
     {
         public event Action<Color> OnColorChangeEvent;
 

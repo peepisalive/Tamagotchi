@@ -4,7 +4,7 @@ using System;
 
 namespace UI.Controller
 {
-    public class PickerController : MonoBehaviour, IDragHandler
+    public sealed class PickerController : MonoBehaviour, IDragHandler
     {
         public event Action<float, float> OnPickerChangePositionEvent;
 
