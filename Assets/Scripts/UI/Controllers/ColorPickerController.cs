@@ -1,13 +1,18 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UI.View;
+using System;
 
 namespace UI.Controller
 {
     [RequireComponent(typeof(ColorPickerView))]
     public class ColorPickerController : MonoBehaviour
     {
+        public event Action<Color> OnColorChangeEvent;
+
+        [SerializeField] private PickerController _pickerController;
         [SerializeField] private ColorPickerView _view;
+        [Space(10)]
         [SerializeField] private Slider _slider;
 
         private Texture2D _hueTexture;
@@ -16,6 +21,14 @@ namespace UI.Controller
         private float _currentValue;
         private float _currentHue;
         private float _currentSV;
+
+        private void UpdateColor(float currentSV, float currentValue)
+        {
+            _currentSV = currentSV;
+            _currentValue = currentValue;
+
+            OnColorChangeEvent?.Invoke(Color.HSVToRGB(_currentHue, _currentSV, _currentValue));
+        }
 
         private void UpdateSVTexture(float currentSliderValue)
         {
@@ -65,6 +78,7 @@ namespace UI.Controller
             }
 
             _svTexture.Apply();
+            OnColorChangeEvent?.Invoke(Color.HSVToRGB(_currentHue, _currentSV, _currentValue));
         }
 
         private void Awake()
@@ -72,11 +86,13 @@ namespace UI.Controller
             InitializeHueTexture();
             InitializeSVTexture();
 
+            _pickerController.OnPickerChangePositionEvent += UpdateColor;
             _slider.onValueChanged.AddListener(UpdateSVTexture);
         }
 
         private void OnDestroy()
         {
+            _pickerController.OnPickerChangePositionEvent -= UpdateColor;
             _slider.onValueChanged.RemoveListener(UpdateSVTexture);
 
             Destroy(_svTexture);
