@@ -26,6 +26,8 @@ namespace Modules.Navigation
         CookActivity = 209,
         VisitCosmetologistActivity = 210,
 
+        Accessories = 211,
+
         StretchingActivity = 300,
         YogaActivity = 301,
         ExerciseActivity = 302,

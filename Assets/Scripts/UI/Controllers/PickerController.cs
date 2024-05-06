@@ -38,7 +38,6 @@ namespace UI.Controller
 
         private void Awake()
         {
-            _pickerRect.localPosition = new Vector2(-(_parentRect.sizeDelta.x * 0.5f) + OFFSET, -(_parentRect.sizeDelta.y * 0.5f) + OFFSET);
             _mainCanvas = Tamagotchi.Application.MainCanvas.GetComponent<Canvas>();
         }
     }

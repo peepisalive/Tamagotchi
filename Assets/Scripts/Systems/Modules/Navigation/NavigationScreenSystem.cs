@@ -60,11 +60,14 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
                 NavigationElementType.PetActionsScreen => typeof(ActionsScreenController),
                 NavigationElementType.JobScreen => typeof(JobScreenController),
+
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
                 NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
+
+                NavigationElementType.Accessories => typeof(AccessoriesScreenController),
                 _ => null
             };
         }
@@ -78,11 +81,14 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
                 NavigationElementType.PetActionsScreen => typeof(ActionsScreenController),
                 NavigationElementType.JobScreen => typeof(JobScreenController),
+
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
                 NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
+
+                NavigationElementType.Accessories => typeof(AccessoriesScreenController),
                 _ => null
             };
         }
