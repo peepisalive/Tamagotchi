@@ -26,6 +26,7 @@ namespace Starter
                 .Add(ScreenElements(world))
                 .Add(MenuScreenElements(world))
                 .Add(ActivitiesScreenElements(world))
+                .Add(PetActionsScreenElements(world))
                 .Add(Application.Model)
                 .Inject(new ScreenManager());
 
@@ -38,6 +39,7 @@ namespace Starter
                 .Add(new MainScreenNavigationElements())
                 .Add(new MenuScreenNavigationElements())
                 .Add(new ActivitiesScreenNavigationElements())
+                .Add(new PetActionsScreenNavigationElements())
                 .Add(new JobScreenNavigationElements());
         }
 
@@ -45,6 +47,12 @@ namespace Starter
         {
             return new EcsSystems(world)
                 .Add(new SoundProviderNavigationElement());
+        }
+
+        private EcsSystems PetActionsScreenElements(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .Add(new AccessoriesNavigationElement());
         }
 
         private EcsSystems ActivitiesScreenElements(EcsWorld world)

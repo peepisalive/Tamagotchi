@@ -29,7 +29,7 @@ namespace UI
             InitializeRenderTexture();
         }
 
-        // test
+        // to do: test
         private void Start()
         {
             Setup(Tamagotchi.Application.Model.GetCurrentPet());

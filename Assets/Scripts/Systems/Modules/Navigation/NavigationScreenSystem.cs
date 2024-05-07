@@ -45,7 +45,7 @@ namespace Systems.Modules.Navigation
                 _screenManager.ReplacePreviousScreen
                 (
                     screenController,
-                    GetShowDirection(screenController),
+                    GetShowDirection(screenController, comp.CurrentPoint.Type),
                     GetHideDirection(screenController)
                 );
             }
@@ -58,12 +58,16 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.MainScreen => typeof(MainScreenController),
                 NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
+                NavigationElementType.PetActionsScreen => typeof(ActionsScreenController),
                 NavigationElementType.JobScreen => typeof(JobScreenController),
+
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
                 NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
+
+                NavigationElementType.Accessories => typeof(AccessoriesScreenController),
                 _ => null
             };
         }
@@ -75,19 +79,24 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.MainScreen => typeof(MainScreenController),
                 NavigationElementType.MenuScreen => typeof(MenuScreenController),
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
+                NavigationElementType.PetActionsScreen => typeof(ActionsScreenController),
                 NavigationElementType.JobScreen => typeof(JobScreenController),
+
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
                 NavigationElementType.HygieneActivities => typeof(ActionsScreenController),
                 NavigationElementType.HealthActivities => typeof(ActionsScreenController),
                 NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
+
+                NavigationElementType.Accessories => typeof(AccessoriesScreenController),
                 _ => null
             };
         }
 
-        private Vector2 GetShowDirection(Type screenControllerType)
+        private Vector2 GetShowDirection(Type screenControllerType, NavigationElementType currentElementType)
         {
-            if (screenControllerType == typeof(JobScreenController))
+            if (screenControllerType == typeof(JobScreenController)
+                || screenControllerType == typeof(ActionsScreenController) && currentElementType == NavigationElementType.PetActionsScreen)
                 return Vector2.left;
 
             if (screenControllerType == typeof(MainScreenController))
