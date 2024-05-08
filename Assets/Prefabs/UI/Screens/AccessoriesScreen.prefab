@@ -341,17 +341,32 @@ PrefabInstance:
     - target: {fileID: 1281387355094252410, guid: ee5a7a473b0167848ae4247bd1aa703f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281387355094252410, guid: ee5a7a473b0167848ae4247bd1aa703f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281387355094252410, guid: ee5a7a473b0167848ae4247bd1aa703f,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1313223112745843952, guid: ee5a7a473b0167848ae4247bd1aa703f,
         type: 3}
       propertyPath: m_Name
       value: ColorPickerController
       objectReference: {fileID: 0}
+    - target: {fileID: 1313223112745843952, guid: ee5a7a473b0167848ae4247bd1aa703f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2187209436207020372, guid: ee5a7a473b0167848ae4247bd1aa703f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 2329884146442392518, guid: ee5a7a473b0167848ae4247bd1aa703f,
         type: 3}
@@ -461,7 +476,12 @@ PrefabInstance:
     - target: {fileID: 4662839261923062902, guid: ee5a7a473b0167848ae4247bd1aa703f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662839261923062902, guid: ee5a7a473b0167848ae4247bd1aa703f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee5a7a473b0167848ae4247bd1aa703f, type: 3}
