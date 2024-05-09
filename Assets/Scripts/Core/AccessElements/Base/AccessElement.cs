@@ -9,6 +9,13 @@ namespace Core
         public bool IsUnlocked { get; private set; }
         public bool IsCurrent { get; private set; }
 
+        public AccessElement(AccessType accessType, bool isUnlocked, bool isCurrent)
+        {
+            AccessType = accessType;
+            IsUnlocked = isUnlocked;
+            IsCurrent = isCurrent;
+        }
+
         public void SetCurrentState(bool state)
         {
             IsCurrent = state;

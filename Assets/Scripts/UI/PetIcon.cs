@@ -29,13 +29,6 @@ namespace UI
             InitializeRenderTexture();
         }
 
-        // to do: test
-        private void Start()
-        {
-            Setup(Tamagotchi.Application.Model.GetCurrentPet());
-        }
-        // test
-
         private void InitializeRenderTexture()
         {
             if (_petCamera.Camera.targetTexture != null)
@@ -78,6 +71,13 @@ namespace UI
             if (_petAppearance != null)
                 Destroy(_petAppearance.gameObject);
         }
+
+        // to do: test
+        private void Awake()
+        {
+            Setup(Tamagotchi.Application.Model.GetCurrentPet());
+        }
+        // test
 
         private void OnDestroy()
         {

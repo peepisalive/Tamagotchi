@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UI.Controller;
 using System.Linq;
 using UI.Settings;
@@ -20,25 +21,48 @@ namespace UI
         private AccessoriesSettings _settings;
 
         private Accessory _currentAccessory;
+        private Accessory _selectedAccessory;
+
         private int _currentAccessoryIndex;
 
         private void Setup()
         {
             _settings = SettingsProvider.Get<AccessoriesSettings>();
 
-            var selectItems = _settings.Accessories.Select(accessory =>
+            var selectItems = (List<SelectItem<Accessory>>)default;
+            var accessories = new List<Accessory>();
+
+            FindObjectOfType<PetAppearance>().AccessoriesAppearances.ForEach(appearance =>
+            {
+                var accessory = _settings.GetAccessory(appearance.Type);
+
+                accessory.SetModel(appearance.gameObject);
+                accessories.Add(accessory);
+            });
+
+            accessories.Insert(0, new Accessory(AccessoryType.None, AccessType.Free, true, true));
+
+            selectItems = accessories.Select(accessory =>
             {
                 return new SelectItem<Accessory>(accessory, _settings.Localization.GetAccessoryName(accessory.Type));
             }).ToList();
 
             _currentAccessoryIndex = 0; // to do: del this
             _currentAccessory = selectItems[_currentAccessoryIndex].Item;
+            _selectedAccessory = selectItems[_currentAccessoryIndex].Item;
 
             _selectPanel.Setup(selectItems.Cast<SelectItem>().ToList(), 0);
         }
 
         private void OnSelectItemChanged(SelectItem item, int index)
         {
+            _selectedAccessory.Model?.SetActive(false);
+
+            _selectedAccessory = ((SelectItem<Accessory>)item).Item;
+
+            _currentAccessory.Model?.SetActive(false);
+            _selectedAccessory.Model?.SetActive(true);
+
             _confirmButton.SetState(_currentAccessoryIndex != index);
 
             Debug.Log($"Current index: {index}");
@@ -77,7 +101,7 @@ namespace UI
             _colorPicker.SetState(true);
         }
 
-        private void Awake()
+        private void Start()
         {
             Setup();
 

@@ -1,5 +1,9 @@
 [
 	{
+		"tags": [ "name", "None" ],
+		"topic": "None"
+	},
+	{
 		"tags": [ "name", "CowboyHat" ],
 		"topic": "Cowboy hat"
 	},
@@ -43,5 +47,9 @@
 	{
 		"tags": [ "button", "title", "save_changes" ],
 		"topic": "Save changes"
+	},
+	{
+		"tags": [ "title", "none" ],
+		"topic": "None"
 	}
 ]

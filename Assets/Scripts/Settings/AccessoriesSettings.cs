@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Modules.Localization;
 using UnityEngine;
+using System.Linq;
 using System;
 using Core;
 
@@ -10,13 +11,18 @@ namespace Settings
     public sealed class AccessoriesSettings : ScriptableObject
     {
         [field: SerializeField] public AccessoryLocalization Localization { get; private set; }
-        [field: SerializeField] public List<Accessory> Accessories { get; private set; }
+        [SerializeField] private List<Accessory> _accessories;
 
+        public Accessory GetAccessory(AccessoryType type)
+        {
+            return _accessories.First(a => a.Type == type);
+        }
 
         [Serializable]
         public sealed class AccessoryLocalization
         {
             public string SaveChangesTitle => LocalizationProvider.GetText(_asset, "button/title/save_changes");
+
 
             [SerializeField] private LocalizedText _asset;
 
