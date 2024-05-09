@@ -10,7 +10,7 @@ namespace UI.View
 
         public void SetText(string text)
         {
-            if (_titleLabel == null)
+            if (_titleLabel == null || text == null)
                 return;
 
             _titleLabel.text = text;

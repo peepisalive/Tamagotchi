@@ -12,34 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fa2d2a5989fe54a9eb2a351a704215, type: 3}
   m_Name: AccessoriesSettings
   m_EditorClassIdentifier: 
-  _accessories:
+  <Localization>k__BackingField:
+    _asset:
+      m_TableReference:
+        m_TableCollectionName: GUID:d56843cb4e331ee448b738b19604e4ca
+      m_TableEntryReference:
+        m_KeyId: 8179353854984192
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  <Accessories>k__BackingField:
   - <AccessType>k__BackingField: 0
+    <Type>k__BackingField: 0
     <Model>k__BackingField: {fileID: 100000, guid: a0dfaf0497ab5334a99165f16b697e6e,
       type: 3}
-  - <AccessType>k__BackingField: 0
+  - <AccessType>k__BackingField: 2
+    <Type>k__BackingField: 1
     <Model>k__BackingField: {fileID: 100000, guid: 598a1f45fefa08846b93be35e98f166e,
       type: 3}
-  - <AccessType>k__BackingField: 2
+  - <AccessType>k__BackingField: 1
+    <Type>k__BackingField: 2
     <Model>k__BackingField: {fileID: 100000, guid: 06c4131835f65024586454416f6b1f66,
       type: 3}
-  - <AccessType>k__BackingField: 1
+  - <AccessType>k__BackingField: 2
+    <Type>k__BackingField: 3
     <Model>k__BackingField: {fileID: 100000, guid: a9853556c4fc4d44087cd153918f7305,
       type: 3}
-  - <AccessType>k__BackingField: 1
+  - <AccessType>k__BackingField: 2
+    <Type>k__BackingField: 4
     <Model>k__BackingField: {fileID: 100000, guid: 1e46f1bfa8a3e6f4c89441c63032e7f4,
       type: 3}
-  - <AccessType>k__BackingField: 2
+  - <AccessType>k__BackingField: 1
+    <Type>k__BackingField: 5
     <Model>k__BackingField: {fileID: 100000, guid: 565e3543feaac1b408a41f8c0d67febd,
       type: 3}
-  - <AccessType>k__BackingField: 2
+  - <AccessType>k__BackingField: 1
+    <Type>k__BackingField: 6
     <Model>k__BackingField: {fileID: 100000, guid: cf015317a103ab34483db3f2dc6f0f59,
       type: 3}
-  - <AccessType>k__BackingField: 1
+  - <AccessType>k__BackingField: 2
+    <Type>k__BackingField: 7
     <Model>k__BackingField: {fileID: 100000, guid: c49b578c54f48fd47aca6b1eda6be743,
       type: 3}
   - <AccessType>k__BackingField: 2
+    <Type>k__BackingField: 8
     <Model>k__BackingField: {fileID: 100000, guid: 290f57b34312fbf448d3b8ca6b6bd41d,
       type: 3}
   - <AccessType>k__BackingField: 1
+    <Type>k__BackingField: 9
     <Model>k__BackingField: {fileID: 100000, guid: a20ea7771cebbda4696ef82ef45481a0,
       type: 3}
