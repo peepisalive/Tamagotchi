@@ -54,7 +54,7 @@ namespace UI
         private void InitializeAppearance()
         {
             var settings = SettingsProvider.Get<PetAppearanceSettings>();
-            var petAppearancePrefab = settings?.GetAppearance(_pet.Type);
+            var petAppearancePrefab = settings.GetAppearance(_pet.Type);
 
             if (petAppearancePrefab == null)
                 return;
