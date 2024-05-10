@@ -17,31 +17,21 @@ namespace UI.View
 
         public void SetIcon(Sprite icon)
         {
-            if (_mainIcon == null)
-                return;
-
             _mainIcon.sprite = icon;
         }
 
-        public void SetTransitionIcon(NavigationButtonState type)
+        public void SetTransitionIcon(Sprite icon)
         {
-            if (_transitionIcon == null)
-                return;
+            _transitionIcon.sprite = icon;
         }
 
         public void SetTitle(string text)
         {
-            if (_titleLabel == null)
-                return;
-
             _titleLabel.text = text;
         }
 
         public void SetContent(string text)
         {
-            if (_contentLabel == null)
-                return;
-
             _contentLabel.text = text;
         }
     }

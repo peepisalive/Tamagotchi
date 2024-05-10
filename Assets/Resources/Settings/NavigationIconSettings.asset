@@ -12,4 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2da012732cc4d34b8762d74ed33a374, type: 3}
   m_Name: NavigationIconSettings
   m_EditorClassIdentifier: 
-  _icons: []
+  _icons:
+  - <Type>k__BackingField: 100
+    <Icon>k__BackingField: {fileID: 21300000, guid: 3cfcfaf18122aa04685fe1430baca3d4,
+      type: 3}
+  - <Type>k__BackingField: 101
+    <Icon>k__BackingField: {fileID: 21300000, guid: 2006c839e4acb7841a0d7b891af8362a,
+      type: 3}
+  - <Type>k__BackingField: 102
+    <Icon>k__BackingField: {fileID: 21300000, guid: 16b8c3af6c30ae44a9a8e2bd4bde66d6,
+      type: 3}
+  - <Type>k__BackingField: 103
+    <Icon>k__BackingField: {fileID: 21300000, guid: 730fb81f6f5bcbf488fbfead83808863,
+      type: 3}
+  - <Type>k__BackingField: 104
+    <Icon>k__BackingField: {fileID: 21300000, guid: 240287f5329f6b34fb59896586d89c1d,
+      type: 3}
+  - <Type>k__BackingField: 1000
+    <Icon>k__BackingField: {fileID: 21300000, guid: 249a57b3fcc9d6944831b0724e344c86,
+      type: 3}
+  - <Type>k__BackingField: 211
+    <Icon>k__BackingField: {fileID: 21300000, guid: e019e36269f126643ab404d8eb0def37,
+      type: 3}

@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d7f583db771e642b7782625bfd4f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _navigationPanel: {fileID: 5118986574353328518}
+  _navigationPanel: {fileID: 2879273282249497258}
   _layoutsParent: {fileID: 3602265745890948287}
   _partTimeJobButtonPrefab: {fileID: 2824856477656211061, guid: 463a1c00e1700724496d1259522800c5,
     type: 3}
@@ -999,16 +999,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ca0e038b80ffdc4d8da50c99e96abc0, type: 3}
---- !u!114 &5118986574353328518 stripped
+--- !u!114 &2879273282249497258 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 659558185274809482, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
+  m_CorrespondingSourceObject: {fileID: 7626925467581444006, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
     type: 3}
   m_PrefabInstance: {fileID: 5633285729218163980}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4094f8e8f2dbbd348b9fee04fa16635f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f644a93d2fc47942a7b0d60a1223e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8940952105281289180 stripped

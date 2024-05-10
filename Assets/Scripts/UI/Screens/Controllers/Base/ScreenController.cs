@@ -8,7 +8,7 @@ namespace UI.Controller.Screen
     public class ScreenController : MonoBehaviour
     {
         [Header("Base")]
-        [SerializeField] private NavigationPanel _navigationPanel;
+        [SerializeField] private NavigationPanelController _navigationPanel;
 
         private const float ANIMATION_DURATION = .2f;
 

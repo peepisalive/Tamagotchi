@@ -1,5 +1,18 @@
 [
   {
+    "tags": [ "navigation_title_MenuScreen" ],
+    "topic": "Menu"
+  },
+  {
+    "tags": [ "navigation_title_ActivitiesScreen" ],
+    "topic": "Activities"
+  },
+  {
+    "tags": [ "navigation_title_PetActionsScreen" ],
+    "topic": "Pet customization"
+  },
+
+  {
     "tags": [ "navigation_title_HappinessActivities" ],
     "topic": "Happiness activities"
   },
