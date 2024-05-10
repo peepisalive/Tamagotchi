@@ -1,23 +1,22 @@
-using Modules.Navigation;
+using Application = Tamagotchi.Application;
+using Modules.Localization;
 using UI.Controller;
 using UnityEngine;
 using UI.Settings;
 using Modules;
+using UI.View;
 using Events;
-using TMPro;
 
 namespace UI
 {
-    public sealed class NavigationPanel : MonoBehaviour
+    [RequireComponent(typeof(NavigationPanelView))]
+    public sealed class NavigationPanelController : MonoBehaviour
     {
+        [SerializeField] private NavigationPanelView _view;
+
         [Header("Buttons")]
         [SerializeField] private ImageButtonController _backButton;
         [SerializeField] private ImageButtonController _homeButton;
-
-        [Header("Labels")]
-        [SerializeField] private TMP_Text _label;
-
-        private NavigationElementType _type;
 
         public void Setup()
         {
@@ -35,6 +34,11 @@ namespace UI
                     EventSystem.Send(new NavigationPointHomeEvent());
                 }
             });
+
+            var navigationPoint = Application.Model.GetCurrentNavigationPoint();
+            var screenTitle = LocalizationProvider.GetNavigationText($"navigation_title_{navigationPoint.Type}");
+
+            _view.SetText(screenTitle);
         }
     }
 }

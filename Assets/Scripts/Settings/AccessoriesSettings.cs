@@ -24,7 +24,7 @@ namespace Settings
         {
             [field: SerializeField] public AccessType AccessType { get; private set; }
             [field: SerializeField] public AccessoryType Type { get; private set; }
-            [field: SerializeField][field: Range(0, 1000)] public int Value { get; private set; }
+            [field: SerializeField][field: Range(-10000, 0)] public int Value { get; private set; }
         }
 
 

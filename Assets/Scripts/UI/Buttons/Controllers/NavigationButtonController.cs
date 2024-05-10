@@ -5,6 +5,8 @@ using UnityEngine;
 using Modules;
 using UI.View;
 using Events;
+using Settings;
+using Settings.Modules.Navigations;
 
 namespace UI.Controller
 {
@@ -21,14 +23,16 @@ namespace UI.Controller
 
         public void Setup(NavigationPoint point, NavigationBlockType blockType)
         {
+            var settings = SettingsProvider.Get<NavigationSettings>();
             var buttonData = point.Element.GetButtonData(point.Type);
+            var stateIcon = settings.GetStateIcon(buttonData.StateType);
 
             _element.Setup(point, blockType);
 
             _view.SetIcon(buttonData.Icon);
             _view.SetTitle(buttonData.Title);
             _view.SetContent(buttonData.Description);
-            _view.SetTransitionIcon(buttonData.StateType);
+            _view.SetTransitionIcon(stateIcon);
 
             _toggle.gameObject.SetActive(buttonData.IsToggleButton);
             _transitionIcon.gameObject.SetActive(!buttonData.IsToggleButton);
