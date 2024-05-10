@@ -58,6 +58,7 @@ namespace UI
             _currentAccessory = selectItems[_currentAccessoryIndex].Item;
             _selectedAccessory = selectItems[_currentAccessoryIndex].Item;
 
+            _colorChangeButton.SetState(_selectedAccessory.Model != null);
             _selectPanel.Setup(selectItems.Cast<SelectItem>().ToList(), _currentAccessoryIndex);
         }
 
@@ -70,7 +71,9 @@ namespace UI
             _currentAccessory.Model?.SetActive(false);
             _selectedAccessory.Model?.SetActive(true);
 
+            _colorChangeButton.SetState(_selectedAccessory.Model != null);
             _confirmButton.SetState(_currentAccessoryIndex != index);
+
             _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads && !_selectedAccessory.IsUnlocked);
             _confirmButton.SetMoneySignState(_selectedAccessory.AccessType == AccessType.Money && !_selectedAccessory.IsUnlocked);
 
