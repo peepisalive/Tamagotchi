@@ -52,9 +52,10 @@ namespace UI
 
             if (_pet.Accessories.Any(a => a.Type != AccessoryType.None && a.IsCurrent))
             {
-                var currentAccessoryType = _pet.Accessories.First(a => a.Type != AccessoryType.None && a.IsCurrent).Type;
-                var accessoryAppearance = _petAppearance.AccessoriesAppearances.First(aa => aa.Type == currentAccessoryType);
+                var currentAccessory = _pet.Accessories.First(a => a.Type != AccessoryType.None && a.IsCurrent);
+                var accessoryAppearance = _petAppearance.AccessoriesAppearances.First(aa => aa.Type == currentAccessory.Type);
 
+                accessoryAppearance.SetColor(currentAccessory.Color);
                 accessoryAppearance.gameObject.SetActive(true);
             }
         }

@@ -39,7 +39,17 @@ ModelImporter:
   - first:
       43: 4300002
     second: Crown
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default.011
+    second: {fileID: 2100000, guid: b9410e06cc76ebf4a8c459aeeba88981, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default.006
+    second: {fileID: 2100000, guid: 0ac17c9bd5b125f448e7fec4678490ca, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

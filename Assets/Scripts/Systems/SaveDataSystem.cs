@@ -65,7 +65,8 @@ namespace Systems
                     {
                         Type = accessory.Type,
                         Color = accessory.Color,
-                        IsCurrent = accessory.IsCurrent
+                        IsCurrent = accessory.IsCurrent,
+                        IsUnlocked = accessory.IsUnlocked
                     });
                 });
             }

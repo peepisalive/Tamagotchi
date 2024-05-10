@@ -33,7 +33,17 @@ ModelImporter:
   - first:
       43: 4300002
     second: CowboyHat
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default
+    second: {fileID: 2100000, guid: c44c9df5d40bc8a408087741de1aae28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 03 - Default
+    second: {fileID: 2100000, guid: 2c564e7e3a4b9f745be50410ed7c369d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

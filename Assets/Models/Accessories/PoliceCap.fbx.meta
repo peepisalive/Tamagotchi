@@ -51,7 +51,27 @@ ModelImporter:
   - first:
       43: 4300002
     second: PoliceCap
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default.008
+    second: {fileID: 2100000, guid: 676f4b9d22513784d878f6059db905c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default.003
+    second: {fileID: 2100000, guid: fe32e3a42c08a5941a437bdb76b34e01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 04 - Default.002
+    second: {fileID: 2100000, guid: 379e2976365d166439c616c28d849914, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 05 - Default.002
+    second: {fileID: 2100000, guid: fe32e3a42c08a5941a437bdb76b34e01, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
