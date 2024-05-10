@@ -25,7 +25,9 @@ namespace UI.Modules.Navigation
                 if (navigationSet.ElementsSet.TryGetElementSettings(navigationPoint.Type, out var elementSettings))
                 {
                     NavigationPoint = navigationPoint;
+#if UNITY_EDITOR
                     _type = navigationPoint.Type;
+#endif
                 }
             }
         }
