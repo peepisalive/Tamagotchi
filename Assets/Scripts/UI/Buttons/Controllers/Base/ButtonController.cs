@@ -12,10 +12,14 @@ namespace UI.Controller
 
         [Header("Base")]
         [SerializeField] private Button _button;
-        [SerializeField] private RectTransform _adsSignParent;
+
+        [Header("Signs")]
+        [SerializeField] private RectTransform _adsSign;
+        [SerializeField] private RectTransform _moneySign;
 
         private Tween _tween;
-        private Tween _adsParentTween;
+        private Tween _adsSignTween;
+        private Tween _moneySignTween;
 
         public virtual void Setup(ButtonSettings settings)
         {
@@ -44,17 +48,44 @@ namespace UI.Controller
         {
             if (state)
             {
-                if (_adsSignParent.gameObject.activeInHierarchy)
+                SetMoneySignState(false);
+
+                if (_adsSign.gameObject.activeInHierarchy)
                     return;
 
-                _adsParentTween?.Kill();
+                KillSignTweens();
 
-                _adsSignParent.localScale = Vector3.zero;
-                _adsParentTween = _adsSignParent.DOScale(Vector3.one, 0.075f)
+                _adsSign.localScale = Vector3.zero;
+                _adsSignTween = _adsSign.DOScale(Vector3.one, 0.075f)
                     .SetLink(gameObject);
             }
 
-            _adsSignParent.gameObject.SetActive(state);
+            _adsSign.gameObject.SetActive(state);
+        }
+
+        public void SetMoneySignState(bool state)
+        {
+            if (state)
+            {
+                SetAdsSignState(false);
+
+                if (_moneySign.gameObject.activeInHierarchy)
+                    return;
+
+                KillSignTweens();
+
+                _moneySign.localScale = Vector3.zero;
+                _moneySignTween = _moneySign.DOScale(Vector3.one, 0.075f)
+                    .SetLink(gameObject);
+            }
+
+            _moneySign.gameObject.SetActive(state);
+        }
+
+        private void KillSignTweens()
+        {
+            _adsSignTween?.Kill();
+            _moneySignTween?.Kill();
         }
 
         private void OnDestroy()

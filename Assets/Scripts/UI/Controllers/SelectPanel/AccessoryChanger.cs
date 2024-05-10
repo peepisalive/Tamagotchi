@@ -71,7 +71,8 @@ namespace UI
             _selectedAccessory.Model?.SetActive(true);
 
             _confirmButton.SetState(_currentAccessoryIndex != index);
-            _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads);
+            _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads && !_selectedAccessory.IsUnlocked);
+            _confirmButton.SetMoneySignState(_selectedAccessory.AccessType == AccessType.Money && !_selectedAccessory.IsUnlocked);
 
             Debug.Log($"Current index: {index}");
         }
