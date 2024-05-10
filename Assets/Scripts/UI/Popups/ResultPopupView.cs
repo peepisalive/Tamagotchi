@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UI.Settings;
 using UnityEngine;
 using System.Linq;
@@ -14,6 +15,10 @@ namespace UI.Popups
         [SerializeField] private TMP_Text _title;
         [SerializeField] private TMP_Text _content;
 
+        [Header("Icons")]
+        [SerializeField] private Image _icon;
+        [SerializeField] private RawImage _petIcon;
+
         [Header("Parents")]
         [SerializeField] private RectTransform _infoParent;
         [SerializeField] private RectTransform _parametersParent;
@@ -23,6 +28,7 @@ namespace UI.Popups
             base.Setup(settings);
             DoResultSetup();
 
+            SetIcons(settings);
             SetTitle(settings.Title);
             SetContent(settings.Content);
             SetParameterBars(settings.InfoParameterSettings);
@@ -72,6 +78,15 @@ namespace UI.Popups
                 Instantiate(prefab, _parametersParent)
                     .Setup(s.Value, parametersSettings.GetIcon(s.Type));
             });
+        }
+
+        private void SetIcons(ResultPopup settings)
+        {
+            if (settings.UseIcon)
+                _icon.sprite = settings.Icon;
+
+            _petIcon.gameObject.SetActive(settings.UsePetIcon);
+            _icon.gameObject.SetActive(settings.UseIcon);
         }
     }
 }

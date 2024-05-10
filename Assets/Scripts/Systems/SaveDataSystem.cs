@@ -64,7 +64,7 @@ namespace Systems
                     stateHolder.State.Accessories.Add(new AccessorySave
                     {
                         Type = accessory.Type,
-                        Color = accessory.Color,
+                        Color = new ColorSave(accessory.Color),
                         IsCurrent = accessory.IsCurrent,
                         IsUnlocked = accessory.IsUnlocked
                     });

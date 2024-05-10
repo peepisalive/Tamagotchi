@@ -78,7 +78,7 @@ namespace Systems.Activities
 
             World.NewEntity().Replace(new ShowPopup
             {
-                Settings = new PopupToShow<ResultPopup>(new ResultPopup
+                Settings = new PopupToShow<ResultPopup>(new ResultPopup()
                 {
                     Title = Settings.Localization.Title,
                     Content = Settings.Localization.ResultContent,
