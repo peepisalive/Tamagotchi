@@ -31,6 +31,9 @@ namespace GameLoading
 
         private void Awake()
         {
+#if !UNITY_EDITOR
+            Application.targetFrameRate = 60;
+#endif
             StartCoroutine(LoadGame());
         }
 
