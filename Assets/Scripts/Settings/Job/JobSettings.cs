@@ -40,6 +40,7 @@ namespace Settings.Job
 
             JobTypeSettings.Add(settings);
         }
+#endif
 
 
         [Serializable]
@@ -60,5 +61,4 @@ namespace Settings.Job
             }
         }
     }
-#endif
 }

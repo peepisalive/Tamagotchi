@@ -20,6 +20,7 @@ namespace Settings.Activity
             return settings;
         }
 
+#if UNITY_EDITOR
         public void Add(ActivitySettings settings)
         {
             if (_settings.Contains(settings))
@@ -27,5 +28,6 @@ namespace Settings.Activity
 
             _settings.Add(settings);
         }
+#endif
     }
 }
