@@ -1,5 +1,4 @@
 using Application = Tamagotchi.Application;
-using System.Collections.Generic;
 using UI.Controller;
 using System.Linq;
 using UI.Settings;
