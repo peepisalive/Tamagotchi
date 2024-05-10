@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using UI.Modules.Navigation;
+using Modules.Localization;
 using Modules.Navigation;
 using UnityEngine;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace UI.Controller
             if (navigationPoint == null)
                 return;
 
+            _view.SetTitle(LocalizationProvider.GetNavigationText($"navigation_title_{navigationPoint.Type}"));
             _element.Setup(navigationPoint, currentBlockType.Value);
         }
 
