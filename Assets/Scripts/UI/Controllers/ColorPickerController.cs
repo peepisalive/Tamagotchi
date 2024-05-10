@@ -1,14 +1,16 @@
 using UnityEngine.UI;
 using UnityEngine;
+using DG.Tweening;
 using UI.View;
 using System;
 
 namespace UI.Controller
 {
     [RequireComponent(typeof(ColorPickerView))]
-    public sealed class ColorPickerController : MonoBehaviour
+    public sealed class ColorPickerController : MonoBehaviour, IStateSettable
     {
         public event Action<Color> OnColorChangeEvent;
+        public bool CurrentState => gameObject.activeInHierarchy;
 
         [SerializeField] private PickerController _pickerController;
         [SerializeField] private ColorPickerView _view;
@@ -21,6 +23,18 @@ namespace UI.Controller
         private float _currentValue;
         private float _currentHue;
         private float _currentSV;
+
+        public void SetState(bool state)
+        {
+            gameObject.SetActive(state);
+
+            if (state)
+            {
+                transform.localScale = Vector3.zero;
+                transform.DOScale(Vector3.one, 0.075f)
+                    .SetLink(gameObject);
+            }
+        }
 
         private void UpdateColor(float currentSV, float currentValue)
         {

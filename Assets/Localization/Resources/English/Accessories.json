@@ -1,0 +1,55 @@
+[
+	{
+		"tags": [ "name", "None" ],
+		"topic": "None"
+	},
+	{
+		"tags": [ "name", "CowboyHat" ],
+		"topic": "Cowboy hat"
+	},
+	{
+		"tags": [ "name", "Crown" ],
+		"topic": "Crown"
+	},
+	{
+		"tags": [ "name", "MagicianHat" ],
+		"topic": "Magician hat"
+	},
+	{
+		"tags": [ "name", "MinerHat" ],
+		"topic": "Miner hat"
+	},
+	{
+		"tags": [ "name", "PajamaHat" ],
+		"topic": "Pajama hat"
+	},
+	{
+		"tags": [ "name", "PillboxHat" ],
+		"topic": "Pillbox hat"
+	},
+	{
+		"tags": [ "name", "PoliceCap" ],
+		"topic": "Police cap"
+	},
+	{
+		"tags": [ "name", "ShowerCap" ],
+		"topic": "Shower cap"
+	},
+	{
+		"tags": [ "name", "Sombrero" ],
+		"topic": "Sombrero"
+	},
+	{
+		"tags": [ "name", "VikingHelmet" ],
+		"topic": "Viking helmet"
+	},
+
+	{
+		"tags": [ "button", "title", "save_changes" ],
+		"topic": "Save changes"
+	},
+	{
+		"tags": [ "title", "none" ],
+		"topic": "None"
+	}
+]

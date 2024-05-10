@@ -1,6 +1,8 @@
 using Leopotam.Ecs;
+using System.Linq;
 using Save.State;
 using Components;
+using Settings;
 using System;
 using Core;
 
@@ -28,29 +30,63 @@ namespace Systems.Creation
             var parameters = new Parameters();
             var valueRange = new FloatRange(0f, 1f);
 
-            parameters.Add(ParameterType.Happiness, new Parameter(valueRange.Max, valueRange)); // to do: edit this (cringe)
-            parameters.Add(ParameterType.Satiety, new Parameter(valueRange.Max, valueRange));
-            parameters.Add(ParameterType.Hygiene, new Parameter(valueRange.Max, valueRange));
-            parameters.Add(ParameterType.Fatigue, new Parameter(valueRange.Max, valueRange));
-            parameters.Add(ParameterType.Health, new Parameter(valueRange.Max, valueRange));
-
-            _world.NewEntity().Replace(new PetComponent
+            foreach (var parameterType in Enum.GetValues(typeof(ParameterType)).OfType<ParameterType>())
             {
-                Pet = new Pet("Frogggg", PetType.Frog, parameters, Guid.NewGuid().ToString())
+                parameters.Add(parameterType, new Parameter(valueRange.Max, valueRange));
+            }
+
+            var pet = new Pet("Frog", PetType.Frog, parameters, Guid.NewGuid().ToString());
+            var accessoriesSettings = SettingsProvider.Get<AccessoriesSettings>();
+
+            accessoriesSettings.Accessories.ForEach(accessorySettings =>
+            {
+                var accessory = new Accessory
+                (
+                    accessorySettings.Type,
+                    accessorySettings.AccessType,
+                    accessorySettings.Value
+                );
+
+                if (accessorySettings.Type == AccessoryType.None)
+                {
+                    accessory.SetUnlockState(true);
+                    accessory.SetCurrentState(true);
+                }
+
+                pet.AddAccessory(accessory);
             });
+
+            _world.NewEntity().Replace(new PetComponent(pet));
         }
 
         private void LoadPet()
         {
+            var accessoriesSettings = SettingsProvider.Get<AccessoriesSettings>();
+
             foreach (var i in _saveDataFilter)
             {
                 var saveData = _saveDataFilter.Get1(i);
                 var save = saveData.Get<PetStateHolder>().State;
+                var pet = new Pet(save.Name, save.Type, new Parameters(save.Parameters), save.Id);
 
-                _world.NewEntity().Replace(new PetComponent
+                save.Accessories.ForEach(accessorySave =>
                 {
-                    Pet = new Pet(save.Name, save.Type, new Parameters(save.Parameters), save.Id)
+                    var accessorySettings = accessoriesSettings.GetAccessory(accessorySave.Type);
+                    var accessory = new Accessory
+                    (
+                        accessorySettings.Type,
+                        accessorySettings.AccessType,
+                        accessorySettings.Value
+                    );
+
+                    accessory.SetUnlockState(accessorySave.IsUnlocked);
+                    accessory.SetCurrentState(accessorySave.IsCurrent);
+                    accessory.SetColor(accessorySave.Color);
+
+                    pet.AddAccessory(accessory);
                 });
+
+                _world.NewEntity().Replace(new PetComponent(pet));
             }
         }
     }

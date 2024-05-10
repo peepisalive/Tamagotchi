@@ -1,10 +1,14 @@
+using System.Collections.Generic;
+
 namespace Core
 {
     public sealed class Pet : BaseObject
     {
-        public string Name { get; private set; }
-        public PetType Type { get; private set; }
-        public Parameters Parameters { get; private set; }
+        public List<Accessory> Accessories { get; private set; }
+
+        public readonly string Name;
+        public readonly PetType Type;
+        public readonly Parameters Parameters;
 
         public Pet(string id) : base(id) { }
 
@@ -13,6 +17,12 @@ namespace Core
             Name = name;
             Type = type;
             Parameters = parameters;
+        }
+
+        public void AddAccessory(Accessory accessory)
+        {
+            Accessories ??= new List<Accessory>();
+            Accessories.Add(accessory);
         }
     }
 }

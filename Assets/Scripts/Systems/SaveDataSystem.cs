@@ -57,6 +57,17 @@ namespace Systems
                 stateHolder.State.Name = pet.Name;
                 stateHolder.State.Type = pet.Type;
                 stateHolder.State.Parameters = pet.Parameters.GetSaves();
+                stateHolder.State.Accessories = new List<AccessorySave>();
+
+                pet.Accessories.ForEach(accessory =>
+                {
+                    stateHolder.State.Accessories.Add(new AccessorySave
+                    {
+                        Type = accessory.Type,
+                        Color = accessory.Color,
+                        IsCurrent = accessory.IsCurrent
+                    });
+                });
             }
         }
 

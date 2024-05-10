@@ -13,9 +13,12 @@ namespace UI.Controller
         public void Setup(ImageButtonSettings settings)
         {
             base.Setup(settings);
+            SetIcon(settings.Icon);
+        }
 
-            _view.SetIcon(settings.Icon);
-            _view.SetAdsSignState(settings.AdsSignState);
+        private void SetIcon(Sprite icon)
+        {
+            _view.SetIcon(icon);
         }
     }
 }

@@ -1,4 +1,6 @@
+using Application = Tamagotchi.Application;
 using UnityEngine.UI;
+using System.Linq;
 using UnityEngine;
 using Settings;
 using Core;
@@ -15,26 +17,16 @@ namespace UI
         private PetCamera _petCamera;
         private Pet _pet;
 
-        public void Setup(Pet pet)
+        private void Setup()
         {
-            if (pet == null)
-                return;
-            
             _petContainer = GameObject.FindGameObjectWithTag("PetContainer").transform;
-            _pet = pet;
+            _pet = Application.Model.GetCurrentPet();
 
             ReleaseResources();
             InitializeAppearance();
             InitializeCamera();
             InitializeRenderTexture();
         }
-
-        // to do: test
-        private void Start()
-        {
-            Setup(Tamagotchi.Application.Model.GetCurrentPet());
-        }
-        // test
 
         private void InitializeRenderTexture()
         {
@@ -54,12 +46,17 @@ namespace UI
         private void InitializeAppearance()
         {
             var settings = SettingsProvider.Get<PetAppearanceSettings>();
-            var petAppearancePrefab = settings?.GetAppearance(_pet.Type);
-
-            if (petAppearancePrefab == null)
-                return;
+            var petAppearancePrefab = settings.GetAppearance(_pet.Type);
 
             _petAppearance = Instantiate(petAppearancePrefab, _petContainer);
+
+            if (_pet.Accessories.Any(a => a.Type != AccessoryType.None && a.IsCurrent))
+            {
+                var currentAccessoryType = _pet.Accessories.First(a => a.Type != AccessoryType.None && a.IsCurrent).Type;
+                var accessoryAppearance = _petAppearance.AccessoriesAppearances.First(aa => aa.Type == currentAccessoryType);
+
+                accessoryAppearance.gameObject.SetActive(true);
+            }
         }
 
         private void ReleaseResources()
@@ -77,6 +74,11 @@ namespace UI
 
             if (_petAppearance != null)
                 Destroy(_petAppearance.gameObject);
+        }
+
+        private void Awake()
+        {
+            Setup();
         }
 
         private void OnDestroy()

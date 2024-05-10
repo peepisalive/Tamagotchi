@@ -20,7 +20,9 @@ namespace Save.State
         public string Id;
         public string Name;
         public PetType Type;
+
         public List<ParameterSave> Parameters;
+        public List<AccessorySave> Accessories;
 
         public override string ToString()
         {

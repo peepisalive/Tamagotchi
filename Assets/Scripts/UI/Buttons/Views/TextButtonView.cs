@@ -3,14 +3,13 @@ using TMPro;
 
 namespace UI.View
 {
-    public sealed class TextButtonView : ButtonView
+    public sealed class TextButtonView : MonoBehaviour
     {
-        [Header("View")]
         [SerializeField] private TMP_Text _titleLabel;
 
         public void SetText(string text)
         {
-            if (_titleLabel == null)
+            if (_titleLabel == null || text == null)
                 return;
 
             _titleLabel.text = text;
