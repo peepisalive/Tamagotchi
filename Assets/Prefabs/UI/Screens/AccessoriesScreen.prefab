@@ -1069,7 +1069,7 @@ PrefabInstance:
     - target: {fileID: 1315973962629643533, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
         type: 3}
       propertyPath: m_FlexibleHeight
-      value: 0.22
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3619160272394063568, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
         type: 3}
