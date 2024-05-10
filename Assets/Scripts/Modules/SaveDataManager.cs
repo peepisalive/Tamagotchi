@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Events.Saves;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using Components;
 using Tamagotchi;
 using Save.State;
@@ -32,6 +34,7 @@ namespace Modules
         }
 
         #region Clear saves
+#if UNITY_EDITOR
         [MenuItem("Tamagotchi/Clear saves %&c")]
         public static void ClearSaves()
         {
@@ -40,7 +43,8 @@ namespace Modules
                 File.Delete(saveFilePath);
             }
         }
-        #endregion
+#endif
+#endregion
 
         #region Save
         public void SaveData(Type type, bool isAsync)
