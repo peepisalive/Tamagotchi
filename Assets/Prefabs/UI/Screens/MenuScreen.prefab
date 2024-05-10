@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8247298f58f788a47997ae67b856c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _navigationPanel: {fileID: 5118986574353328518}
+  _navigationPanel: {fileID: 2879273282249497258}
   _buttonsParent: {fileID: 1169284612340472073}
 --- !u!1 &5527059125905927462
 GameObject:
@@ -358,7 +358,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -515,7 +515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7427168716680888578
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1003,16 +1003,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ca0e038b80ffdc4d8da50c99e96abc0, type: 3}
---- !u!114 &5118986574353328518 stripped
+--- !u!114 &2879273282249497258 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 659558185274809482, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
+  m_CorrespondingSourceObject: {fileID: 7626925467581444006, guid: 0ca0e038b80ffdc4d8da50c99e96abc0,
     type: 3}
   m_PrefabInstance: {fileID: 5633285729218163980}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4094f8e8f2dbbd348b9fee04fa16635f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f644a93d2fc47942a7b0d60a1223e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8940952105281289180 stripped

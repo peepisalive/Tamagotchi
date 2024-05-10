@@ -1,4 +1,5 @@
 using Application = Tamagotchi.Application;
+using System.Collections.Generic;
 using UI.Controller;
 using System.Linq;
 using UI.Settings;
@@ -26,18 +27,25 @@ namespace UI
         private Accessory _selectedAccessory;
         private int _currentAccessoryIndex;
 
+        private List<AccessoryAppearance> _accessoriesAppearances;
         private Pet _pet;
 
         private void Setup()
         {
             _settings = SettingsProvider.Get<AccessoriesSettings>();
             _pet = Application.Model.GetCurrentPet();
+            _accessoriesAppearances = FindObjectOfType<PetAppearance>().AccessoriesAppearances;
 
             var accessories = _pet.Accessories;
 
-            FindObjectOfType<PetAppearance>().AccessoriesAppearances.ForEach(appearance =>
+            _accessoriesAppearances.ForEach(appearance =>
             {
-                accessories.First(a => a.Type == appearance.Type).SetModel(appearance.gameObject);
+                var accessory = accessories.First(a => a.Type == appearance.Type);
+
+                accessory.SetModel(appearance.gameObject);
+
+                if (accessory.Color != default)
+                    appearance.SetColor(accessory.Color);
             });
 
             var currentAccessory = accessories.First(a => a.IsCurrent);
@@ -50,6 +58,7 @@ namespace UI
             _currentAccessory = selectItems[_currentAccessoryIndex].Item;
             _selectedAccessory = selectItems[_currentAccessoryIndex].Item;
 
+            _colorChangeButton.SetState(_selectedAccessory.Model != null);
             _selectPanel.Setup(selectItems.Cast<SelectItem>().ToList(), _currentAccessoryIndex);
         }
 
@@ -62,10 +71,19 @@ namespace UI
             _currentAccessory.Model?.SetActive(false);
             _selectedAccessory.Model?.SetActive(true);
 
+            _colorChangeButton.SetState(_selectedAccessory.Model != null);
             _confirmButton.SetState(_currentAccessoryIndex != index);
-            _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads);
+
+            _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads && !_selectedAccessory.IsUnlocked);
+            _confirmButton.SetMoneySignState(_selectedAccessory.AccessType == AccessType.Money && !_selectedAccessory.IsUnlocked);
 
             Debug.Log($"Current index: {index}");
+        }
+
+        private void OnItemColorChanged(Color color)
+        {
+            _pet.Accessories.First(a => a.Type == _selectedAccessory.Type).SetColor(color);
+            _accessoriesAppearances.First(a => a.Type == _selectedAccessory.Type).SetColor(color);
         }
 
         private void HandleUnlockAccessoryEvent(UnlockAccessoryEvent e)
@@ -96,7 +114,7 @@ namespace UI
             }
             else
             {
-                // to do: apply & save color
+                _colorPicker.OnColorChangeEvent -= OnItemColorChanged;
 
                 _colorPicker.SetState(false);
                 _selectPanel.SetState(true);
@@ -114,6 +132,8 @@ namespace UI
 
             _confirmButton.SetState(true);
             _colorPicker.SetState(true);
+
+            _colorPicker.OnColorChangeEvent += OnItemColorChanged;
         }
         #endregion
 
@@ -131,6 +151,7 @@ namespace UI
             _currentAccessoryIndex = _selectPanel.CurrentItemIndex;
 
             _confirmButton.SetState(false);
+            _confirmButton.SetAdsSignState(false);
         }
 
         private void Start()

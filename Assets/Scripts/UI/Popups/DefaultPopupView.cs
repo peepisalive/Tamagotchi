@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UI.Controller;
 using UI.Settings;
 using UnityEngine;
@@ -17,13 +18,19 @@ namespace UI.Popups
         [SerializeField] private TMP_Text _title;
         [SerializeField] private TMP_Text _content;
 
+        [Header("Icons")]
+        [SerializeField] private Image _icon;
+        [SerializeField] private RawImage _petIcon;
+
         [Header("Other")]
         [SerializeField] private RectTransform _infoParent;
+        [SerializeField] private RectTransform _iconParent;
 
         public override void Setup(DefaultPopup settings)
         {
             base.Setup(settings);
 
+            SetIcons(settings);
             SetTitle(settings.Title);
             SetContent(settings.Content);
             SetDropdown(settings.DropdownSettings);
@@ -39,6 +46,20 @@ namespace UI.Popups
         {
             base.Hide(onHideCallback);
             DoHide(onHideCallback);
+        }
+
+        private void SetTitle(string text)
+        {
+            _title.text = text;
+        }
+
+        private void SetContent(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return;
+
+            _content.gameObject.SetActive(true);
+            _content.text = text;
         }
 
         private void SetDropdown(List<DropdownSettings> dropdownsSettings)
@@ -62,18 +83,15 @@ namespace UI.Popups
             });
         }
 
-        private void SetTitle(string text)
+        private void SetIcons(DefaultPopup settings)
         {
-            _title.text = text;
-        }
+            _iconParent.gameObject.SetActive(settings.UseIcon || settings.UseIcon);
 
-        private void SetContent(string text)
-        {
-            if (string.IsNullOrEmpty(text))
-                return;
+            if (settings.UseIcon)
+                _icon.sprite = settings.Icon;
 
-            _content.gameObject.SetActive(true);
-            _content.text = text;
+            _petIcon.gameObject.SetActive(settings.UsePetIcon);
+            _icon.gameObject.SetActive(settings.UseIcon);
         }
     }
 }

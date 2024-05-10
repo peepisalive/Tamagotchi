@@ -1117,6 +1117,8 @@ MonoBehaviour:
   _oneButtonParent: {fileID: 391278940}
   _title: {fileID: 1828400657}
   _content: {fileID: 554384329}
+  _icon: {fileID: 1380642866}
+  _petIcon: {fileID: 4359992711287608614}
   _infoParent: {fileID: 3097993571684981865}
   _parametersParent: {fileID: 8846812374946293410}
 --- !u!1 &6164638587843263769
@@ -1426,3 +1428,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 768759460}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4359992711287608614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4359992711735231362, guid: d6bd6f8d88937534bbe593d1c35dafb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 768759460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

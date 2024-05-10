@@ -81,7 +81,7 @@ namespace Systems.Creation
 
                     accessory.SetUnlockState(accessorySave.IsUnlocked);
                     accessory.SetCurrentState(accessorySave.IsCurrent);
-                    accessory.SetColor(accessorySave.Color);
+                    accessory.SetColor(accessorySave.Color.GetColor());
 
                     pet.AddAccessory(accessory);
                 });

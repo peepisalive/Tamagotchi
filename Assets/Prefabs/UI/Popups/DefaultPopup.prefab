@@ -519,7 +519,10 @@ MonoBehaviour:
   _oneButtonParent: {fileID: 3115646638823139065}
   _title: {fileID: 8611378814642247176}
   _content: {fileID: 4984929476310175892}
+  _icon: {fileID: 6409547826470798388}
+  _petIcon: {fileID: 8486453199478747680}
   _infoParent: {fileID: 2722197664592809042}
+  _iconParent: {fileID: 6308666523489923659}
 --- !u!114 &8395368535162027390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6308666523489923659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -744,10 +747,10 @@ RectTransform:
   m_Father: {fileID: 819476417851730482}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -300}
+  m_SizeDelta: {x: 880, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110670476627820602
 MonoBehaviour:
@@ -877,8 +880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180.5, y: -391.17892}
-  m_SizeDelta: {x: 161, y: 29.642145}
+  m_AnchoredPosition: {x: 540, y: -78.445}
+  m_SizeDelta: {x: 880, y: 56.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2058397305305417640
 CanvasRenderer:
@@ -911,13 +914,14 @@ MonoBehaviour:
   m_text: content
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86721107c2a0bd745b735f401c6a8d40, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 8675509989056823747, guid: 86721107c2a0bd745b735f401c6a8d40,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286019453
+    rgba: 4282400832
   m_fontColor: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -974,7 +978,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8328380878879490401
@@ -1212,7 +1216,7 @@ PrefabInstance:
     - target: {fileID: 949681396144409667, guid: d6bd6f8d88937534bbe593d1c35dafb4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -380
       objectReference: {fileID: 0}
     - target: {fileID: 949681396144409667, guid: d6bd6f8d88937534bbe593d1c35dafb4,
         type: 3}
@@ -1284,6 +1288,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PetIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 1541520825303462897, guid: d6bd6f8d88937534bbe593d1c35dafb4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4359992711735231362, guid: d6bd6f8d88937534bbe593d1c35dafb4,
         type: 3}
       propertyPath: m_Maskable
@@ -1297,3 +1306,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5279413372522934690}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8486453199478747680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4359992711735231362, guid: d6bd6f8d88937534bbe593d1c35dafb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5279413372522934690}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

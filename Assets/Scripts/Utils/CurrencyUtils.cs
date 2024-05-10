@@ -9,7 +9,10 @@ namespace Utils
             var bankAccount = Application.Model.GetBankAccount();
 
             if (!bankAccount.IsMoneyAvailable(value))
+            {
+                PopupUtils.ShowNotEnoughMoneyPopup();
                 return false;
+            }
 
             bankAccount.Add(value);
 
