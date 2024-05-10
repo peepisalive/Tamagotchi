@@ -197,14 +197,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41960785, g: 0.5460353, b: 0.59607846, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 40e0f9237e738a4438aab1c7b6b4768a, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -741,6 +741,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6463458216019351090}
     m_Modifications:
+    - target: {fileID: 997882092330917455, guid: 7a545e7d041add746881c54e83de63e5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 705088df95a85934bb259edddb94a7b6,
+        type: 3}
     - target: {fileID: 3313083281561072405, guid: 7a545e7d041add746881c54e83de63e5,
         type: 3}
       propertyPath: m_Name
@@ -1317,11 +1323,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SelectPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1945704901913970225, guid: f1db690c7df223d429f2927d5cb07662,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1db690c7df223d429f2927d5cb07662, type: 3}

@@ -120,7 +120,6 @@ namespace UI
         private void UnlockAccessory()
         {
             _selectedAccessory.SetUnlockState(true);
-            _pet.AddAccessory(_selectedAccessory);
         }
 
         private void SwitchCurrentAccessory()
