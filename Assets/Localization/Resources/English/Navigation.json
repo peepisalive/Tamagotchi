@@ -18,7 +18,7 @@
   },
   {
     "tags": [ "navigation_descr_HappinessActivities" ],
-    "topic": "[test]"
+    "topic": "Help your pet get a lot of positive emotions"
   },
   {
     "tags": [ "navigation_title_SatietyActivities" ],
@@ -26,7 +26,7 @@
   },
   {
     "tags": [ "navigation_descr_SatietyActivities" ],
-    "topic": "[test]"
+    "topic": "Help your pet become full and happy"
   },
   {
     "tags": [ "navigation_title_HygieneActivities" ],
@@ -34,7 +34,7 @@
   },
   {
     "tags": [ "navigation_descr_HygieneActivities" ],
-    "topic": "[test]"
+    "topic": "Help your pet stay clean and tidy"
   },
   {
     "tags": [ "navigation_title_FatigueActivities" ],
@@ -50,7 +50,7 @@
   },
   {
     "tags": [ "navigation_descr_HealthActivities" ],
-    "topic": "[test]"
+    "topic": "Help your pet become even stronger and more energetic"
   },
   {
     "tags": [ "navigation_title_TakeToVetActivity" ],
@@ -58,7 +58,7 @@
   },
   {
     "tags": [ "navigation_descr_TakeToVetActivity" ],
-    "topic": "[test]"
+    "topic": "Take your pet to the veterinarian for a health check-up and necessary medical procedures"
   },
   {
     "tags": [ "navigation_title_SpaTreatmentsActivity" ],
@@ -66,7 +66,7 @@
   },
   {
     "tags": [ "navigation_descr_SpaTreatmentsActivity" ],
-    "topic": "[test]"
+    "topic": "Treat your pet to spa treatments to enhance its health, beauty, and well-being"
   },
   {
     "tags": [ "navigation_title_TrainingActivities" ],
@@ -74,7 +74,7 @@
   },
   {
     "tags": [ "navigation_descr_TrainingActivities" ],
-    "topic": "[test]"
+    "topic": "Improve your pet's health through diverse workouts"
   },
   {
     "tags": [ "navigation_title_WalkActivity" ],
@@ -82,7 +82,7 @@
   },
   {
     "tags": [ "navigation_descr_WalkActivity" ],
-    "topic": "[test]"
+    "topic": "A walk lifts your pet's mood, filling it with joy"
   },
   {
     "tags": [ "navigation_title_YogaActivity" ],
@@ -90,7 +90,7 @@
   },
   {
     "tags": [ "navigation_descr_YogaActivity" ],
-    "topic": "[test]"
+    "topic": "Practice yoga with your pet to improve its health and physical condition"
   },
   {
     "tags": [ "navigation_title_PlayActivity" ],
@@ -98,7 +98,7 @@
   },
   {
     "tags": [ "navigation_descr_PlayActivity" ],
-    "topic": "[test]"
+    "topic": "Play with your pet, boosting its mood and happiness"
   },
   {
     "tags": [ "navigation_title_WashActivity" ],
@@ -106,7 +106,7 @@
   },
   {
     "tags": [ "navigation_descr_WashActivity" ],
-    "topic": "[test]"
+    "topic": "Groom your pet in the bath to maintain its cleanliness and shiny"
   },
   {
     "tags": [ "navigation_title_FeedActivity" ],
@@ -114,7 +114,7 @@
   },
   {
     "tags": [ "navigation_descr_FeedActivity" ],
-    "topic": "[test]"
+    "topic": "Feed your pet to keep it satisfied, ready for new adventures"
   },
   {
     "tags": [ "navigation_title_DrinkActivity" ],
@@ -122,7 +122,7 @@
   },
   {
     "tags": [ "navigation_descr_DrinkActivity" ],
-    "topic": "[test]"
+    "topic": "Give your pet water for comfort and satiety"
   },
   {
     "tags": [ "navigation_title_CookActivity" ],
@@ -130,7 +130,7 @@
   },
   {
     "tags": [ "navigation_descr_CookActivity" ],
-    "topic": "[test]"
+    "topic": "Prepare delicious food for your pet to keep it full and content with your caring attention"
   },
   {
     "tags": [ "navigation_title_VisitCosmetologistActivity" ],
@@ -138,7 +138,7 @@
   },
   {
     "tags": [ "navigation_descr_VisitCosmetologistActivity" ],
-    "topic": "[test]"
+    "topic": "Take your pet to the cosmetologist to improve its overall condition and appearance"
   },
   {
     "tags": [ "navigation_title_StretchingActivity" ],
@@ -146,7 +146,7 @@
   },
   {
     "tags": [ "navigation_descr_StretchingActivity" ],
-    "topic": "[test]"
+    "topic": "Do stretching exercises with your pet to improve its health and flexibility"
   },
   {
     "tags": [ "navigation_title_ExerciseActivity" ],
@@ -154,7 +154,7 @@
   },
   {
     "tags": [ "navigation_descr_ExerciseActivity" ],
-    "topic": "[test]"
+    "topic": "Exercise with your pet to support its health and physical fitness"
   },
   {
     "tags": [ "navigation_title_CleanTheRoomActivity" ],
@@ -162,7 +162,7 @@
   },
   {
     "tags": [ "navigation_descr_CleanTheRoomActivity" ],
-    "topic": "[test]"
+    "topic": "Tidy up the room so your pet feels comfortable and cozy in a clean space"
   },
   {
     "tags": [ "navigation_title_VentilateTheRoomActivity" ],
@@ -170,7 +170,7 @@
   },
   {
     "tags": [ "navigation_descr_VentilateTheRoomActivity" ],
-    "topic": "[test]"
+    "topic": "Open the window to provide fresh air in the room and maintain your pet's hygiene"
   },
 
   {
@@ -179,7 +179,7 @@
   },
   {
     "tags": [ "navigation_descr_SoundProvider" ],
-    "topic": "[test]"
+    "topic": "Control the game sounds, toggling them on or off as desired"
   },
 
   {
@@ -188,6 +188,6 @@
   },
   {
     "tags": [ "navigation_descr_Accessories" ],
-    "topic": "[test]"
+    "topic": "Choose stylish accessories for your pet to express its individuality and add charm"
   }
 ]
