@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1452d2f966b0bc41a8e2c696942943d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _adsSignParent: {fileID: 8262855482521208662}
   _titleLabel: {fileID: 2949371215055490898}
 --- !u!114 &8299238814020050381
 MonoBehaviour:
@@ -173,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7737812645732210865}
+  _adsSignParent: {fileID: 8262855482521208662}
   _view: {fileID: 8368240804925735233}
 --- !u!1 &3986802989788810217
 GameObject:

@@ -11,12 +11,22 @@ namespace Settings
     public sealed class AccessoriesSettings : ScriptableObject
     {
         [field: SerializeField] public AccessoryLocalization Localization { get; private set; }
-        [SerializeField] private List<Accessory> _accessories;
+        [field: SerializeField] public List<AccessorySettings> Accessories { get; private set; }
 
-        public Accessory GetAccessory(AccessoryType type)
+        public AccessorySettings GetAccessory(AccessoryType type)
         {
-            return _accessories.First(a => a.Type == type);
+            return Accessories.First(a => a.Type == type);
         }
+
+
+        [Serializable]
+        public sealed class AccessorySettings
+        {
+            [field: SerializeField] public AccessType AccessType { get; private set; }
+            [field: SerializeField] public AccessoryType Type { get; private set; }
+            [field: SerializeField][field: Range(0, 1000)] public int Value { get; private set; }
+        }
+
 
         [Serializable]
         public sealed class AccessoryLocalization

@@ -1,9 +1,12 @@
+using Application = Tamagotchi.Application;
 using System.Collections.Generic;
 using UI.Controller;
 using System.Linq;
 using UI.Settings;
 using UnityEngine;
 using Settings;
+using Modules;
+using Events;
 using Core;
 
 namespace UI
@@ -22,36 +25,33 @@ namespace UI
 
         private Accessory _currentAccessory;
         private Accessory _selectedAccessory;
-
         private int _currentAccessoryIndex;
+
+        private Pet _pet;
 
         private void Setup()
         {
             _settings = SettingsProvider.Get<AccessoriesSettings>();
+            _pet = Application.Model.GetCurrentPet();
 
-            var selectItems = (List<SelectItem<Accessory>>)default;
-            var accessories = new List<Accessory>();
+            var accessories = _pet.Accessories;
 
             FindObjectOfType<PetAppearance>().AccessoriesAppearances.ForEach(appearance =>
             {
-                var accessory = _settings.GetAccessory(appearance.Type);
-
-                accessory.SetModel(appearance.gameObject);
-                accessories.Add(accessory);
+                accessories.First(a => a.Type == appearance.Type).SetModel(appearance.gameObject);
             });
 
-            accessories.Insert(0, new Accessory(AccessoryType.None, AccessType.Free, true, true));
-
-            selectItems = accessories.Select(accessory =>
+            var currentAccessory = accessories.First(a => a.IsCurrent);
+            var selectItems = accessories.Select(accessory =>
             {
                 return new SelectItem<Accessory>(accessory, _settings.Localization.GetAccessoryName(accessory.Type));
             }).ToList();
 
-            _currentAccessoryIndex = 0; // to do: del this
+            _currentAccessoryIndex = accessories.IndexOf(accessories.First(a => a.Type == currentAccessory.Type));
             _currentAccessory = selectItems[_currentAccessoryIndex].Item;
             _selectedAccessory = selectItems[_currentAccessoryIndex].Item;
 
-            _selectPanel.Setup(selectItems.Cast<SelectItem>().ToList(), 0);
+            _selectPanel.Setup(selectItems.Cast<SelectItem>().ToList(), _currentAccessoryIndex);
         }
 
         private void OnSelectItemChanged(SelectItem item, int index)
@@ -64,18 +64,34 @@ namespace UI
             _selectedAccessory.Model?.SetActive(true);
 
             _confirmButton.SetState(_currentAccessoryIndex != index);
+            _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads);
 
             Debug.Log($"Current index: {index}");
         }
 
+        private void HandleUnlockAccessoryEvent(UnlockAccessoryEvent e)
+        {
+            UnlockAccessory();
+            SwitchCurrentAccessory();
+        }
+
+        #region Button click handlers
         private void OnConfirmButtonClick()
         {
             if (_selectPanel.CurrentState)
             {
-                _currentAccessory = _selectPanel.GetCurrentSelectItem<Accessory>().Item;
-                _currentAccessoryIndex = _selectPanel.CurrentItemIndex;
-
-                _confirmButton.SetState(false);
+                if (_selectedAccessory.IsUnlocked)
+                {
+                    SwitchCurrentAccessory();
+                }
+                else
+                {
+                    if (_selectedAccessory.TryPurchase())
+                    {
+                        UnlockAccessory();
+                        SwitchCurrentAccessory();
+                    }
+                }
 
                 Debug.Log($"Current accessory: {_currentAccessory.Type}");
             }
@@ -100,12 +116,32 @@ namespace UI
             _confirmButton.SetState(true);
             _colorPicker.SetState(true);
         }
+        #endregion
+
+        private void UnlockAccessory()
+        {
+            _selectedAccessory.SetUnlockState(true);
+            _pet.AddAccessory(_selectedAccessory);
+        }
+
+        private void SwitchCurrentAccessory()
+        {
+            _currentAccessory.SetCurrentState(false);
+            _selectedAccessory.SetCurrentState(true);
+
+            _currentAccessory = _selectedAccessory;
+            _currentAccessoryIndex = _selectPanel.CurrentItemIndex;
+
+            _confirmButton.SetState(false);
+        }
 
         private void Start()
         {
             Setup();
 
             _selectPanel.OnValueChangeEvent += OnSelectItemChanged;
+            EventSystem.Subscribe<UnlockAccessoryEvent>(HandleUnlockAccessoryEvent);
+
             _confirmButton.Setup(new TextButtonSettings
             {
                 Title = _settings.Localization.SaveChangesTitle,
@@ -120,6 +156,7 @@ namespace UI
         private void OnDestroy()
         {
             _selectPanel.OnValueChangeEvent -= OnSelectItemChanged;
+            EventSystem.Unsubscribe<UnlockAccessoryEvent>(HandleUnlockAccessoryEvent);
         }
     }
 }

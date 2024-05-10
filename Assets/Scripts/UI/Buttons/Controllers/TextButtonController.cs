@@ -13,9 +13,7 @@ namespace UI.Controller
         public void Setup(TextButtonSettings settings)
         {
             base.Setup(settings);
-
-            _view.SetText(settings.Title);
-            _view.SetAdsSignState(settings.AdsSignState);
+            SetText(settings.Title);
         }
 
         public void SetText(string text)

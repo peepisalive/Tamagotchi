@@ -21,26 +21,16 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-  _accessories:
+  <Accessories>k__BackingField:
   - <AccessType>k__BackingField: 0
     <Type>k__BackingField: 0
+    <Value>k__BackingField: 0
   - <AccessType>k__BackingField: 0
     <Type>k__BackingField: 1
+    <Value>k__BackingField: 0
   - <AccessType>k__BackingField: 2
     <Type>k__BackingField: 2
-  - <AccessType>k__BackingField: 1
-    <Type>k__BackingField: 3
-  - <AccessType>k__BackingField: 2
-    <Type>k__BackingField: 4
-  - <AccessType>k__BackingField: 2
-    <Type>k__BackingField: 5
-  - <AccessType>k__BackingField: 1
-    <Type>k__BackingField: 6
+    <Value>k__BackingField: 100
   - <AccessType>k__BackingField: 1
     <Type>k__BackingField: 7
-  - <AccessType>k__BackingField: 2
-    <Type>k__BackingField: 8
-  - <AccessType>k__BackingField: 1
-    <Type>k__BackingField: 9
-  - <AccessType>k__BackingField: 2
-    <Type>k__BackingField: 10
+    <Value>k__BackingField: 0

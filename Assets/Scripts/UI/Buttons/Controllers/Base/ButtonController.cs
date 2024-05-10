@@ -12,8 +12,16 @@ namespace UI.Controller
 
         [Header("Base")]
         [SerializeField] private Button _button;
+        [SerializeField] private RectTransform _adsSignParent;
 
         private Tween _tween;
+        private Tween _adsParentTween;
+
+        public virtual void Setup(ButtonSettings settings)
+        {
+            _button?.onClick.AddListener(() => settings.Action?.Invoke());
+            _button?.onClick.AddListener(() => settings.ActionWithInstance?.Invoke(settings.PopupInstance));
+        }
 
         public void SetState(bool state)
         {
@@ -22,24 +30,31 @@ namespace UI.Controller
                 if (CurrentState)
                     return;
 
-                gameObject.SetActive(true);
-
                 _tween?.Kill();
 
                 _button.transform.localScale = Vector3.zero;
                 _tween = _button.transform.DOScale(Vector3.one, 0.075f)
                     .SetLink(gameObject);
             }
-            else
-            {
-                gameObject.SetActive(false);
-            }
+
+            gameObject.SetActive(state);
         }
 
-        public virtual void Setup(ButtonSettings settings)
+        public void SetAdsSignState(bool state)
         {
-            _button?.onClick.AddListener(() => settings.Action?.Invoke());
-            _button?.onClick.AddListener(() => settings.ActionWithInstance?.Invoke(settings.PopupInstance));
+            if (state)
+            {
+                if (_adsSignParent.gameObject.activeInHierarchy)
+                    return;
+
+                _adsParentTween?.Kill();
+
+                _adsSignParent.localScale = Vector3.zero;
+                _adsParentTween = _adsSignParent.DOScale(Vector3.one, 0.075f)
+                    .SetLink(gameObject);
+            }
+
+            _adsSignParent.gameObject.SetActive(state);
         }
 
         private void OnDestroy()

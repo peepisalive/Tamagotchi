@@ -4,7 +4,7 @@ namespace Core
 {
     public class AccessElement
     {
-        [field: SerializeField] public AccessType AccessType { get; private set; }
+        public AccessType AccessType { get; private set; }
 
         public bool IsUnlocked { get; private set; }
         public bool IsCurrent { get; private set; }
@@ -16,14 +16,14 @@ namespace Core
             IsCurrent = isCurrent;
         }
 
+        public void SetUnlockState(bool state)
+        {
+            IsUnlocked = state;
+        }
+
         public void SetCurrentState(bool state)
         {
             IsCurrent = state;
-        }
-
-        public void Unlock()
-        {
-            IsUnlocked = true;
         }
     }
 }
