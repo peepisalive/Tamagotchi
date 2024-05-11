@@ -16,5 +16,26 @@
 	{
 		"tags": [ "ok", "button" ],
 		"topic": "Ok"
+	},
+	{
+		"tags": [ "cancel", "button" ],
+		"topic": "Cancel"
+	},
+	{
+		"tags": [ "go", "button" ],
+		"topic": "Go"
+	},
+
+	{
+		"tags": [ "part_time_job", "title" ],
+		"topic": "Part time"
+	},
+	{
+		"tags": [ "full_time_job", "title" ],
+		"topic": "Full time"
+	},
+	{
+		"tags": [ "hours" ],
+		"topic": "Hours"
 	}
 ]

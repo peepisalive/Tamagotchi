@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
+using Modules.Localization;
 using Events.Popups;
 using Settings.Job;
 using UnityEngine;
@@ -42,13 +43,15 @@ namespace UI.Controller
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
-                    Title = Title,
+                    Title = LocalizationProvider.GetText("part_time_job/title"),
                     Icon = Icon,
+                    Content = Title,
                     DropdownSettings = GetDropdownSettings(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
                         {
+                            Title = LocalizationProvider.GetText("cancel/button"),
                             Action = () =>
                             {
                                 EventSystem.Send(new HidePopupEvent());
@@ -56,6 +59,7 @@ namespace UI.Controller
                         },
                         new TextButtonSettings
                         {
+                            Title = LocalizationProvider.GetText("go/button"),
                             Action = () =>
                             {
                                 if (adsSignState)
