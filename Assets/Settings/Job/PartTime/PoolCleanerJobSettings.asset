@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a29796779326804eb33e9c834686598, type: 3}
   m_Name: PoolCleanerJobSettings
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 75676a3b8cf2a6c4f9ab7f90103f64dd,
+    type: 3}
   <Salary>k__BackingField: 400
   <JobType>k__BackingField: 1

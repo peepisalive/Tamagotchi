@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c7b4d63cc8b2249b80ce7e66865310, type: 3}
   m_Name: LoaderJobSettings
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 26bdd4cf224e9b04f95d40d4e738456e,
+    type: 3}
   <Salary>k__BackingField: 2500
   <JobType>k__BackingField: 0
   <WorkingHours>k__BackingField: 0300000001000000

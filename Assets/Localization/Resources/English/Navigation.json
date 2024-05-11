@@ -9,7 +9,11 @@
   },
   {
     "tags": [ "navigation_title_PetActionsScreen" ],
-    "topic": "Pet customization"
+    "topic": "Customization"
+  },
+  {
+    "tags": [ "navigation_title_JobScreen" ],
+    "topic": "Job"
   },
 
   {

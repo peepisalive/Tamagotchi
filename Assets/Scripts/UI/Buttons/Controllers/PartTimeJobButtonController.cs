@@ -43,6 +43,7 @@ namespace UI.Controller
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Title,
+                    Icon = Icon,
                     DropdownSettings = GetDropdownSettings(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
@@ -72,7 +73,8 @@ namespace UI.Controller
                             },
                             AdsSignState = adsSignState
                         }
-                    }
+                    },
+                    UseIcon = true
                 })
             });
         }

@@ -19,15 +19,18 @@ namespace UI.Controller
         protected JobButtonView View;
         protected Job Job;
 
+        protected Sprite Icon;
+
         [SerializeField] private UnityEngine.UI.Button _button;
 
         public virtual void Setup(Job job, Sprite icon, string title, string content)
         {
             Job = job;
+            Icon = icon;
             Title = title;
             Content = content;
 
-            View.SetIcon(icon);
+            View.SetIcon(Icon);
             View.SetTitle(Title);
             View.SetDescription(Content);
         }
@@ -39,6 +42,7 @@ namespace UI.Controller
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Title,
+                    Icon = Icon,
                     DropdownSettings = GetDropdownSettings(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
@@ -60,7 +64,8 @@ namespace UI.Controller
                                 EventSystem.Send(new HidePopupEvent());
                             }
                         }
-                    }
+                    },
+                    UseIcon = true
                 })
             });
         }
