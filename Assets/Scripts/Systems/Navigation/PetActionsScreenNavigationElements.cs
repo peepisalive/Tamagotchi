@@ -2,6 +2,7 @@ using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
+using Components;
 using Utils;
 
 namespace Systems.Navigation
@@ -13,6 +14,7 @@ namespace Systems.Navigation
             NavigationElementType.PetActionsScreen,
         };
 
+        private EcsFilter<JobComponent> _jobFilter;
         private EcsFilter<BlockComponent> _blockFilter;
         
         public void Init()
@@ -27,7 +29,14 @@ namespace Systems.Navigation
 
         public bool IsEnable(NavigationElementType elementType)
         {
-            return true;
+            var result = true;
+
+            foreach (var i in _jobFilter)
+            {
+                result = _jobFilter.Get1(i).CurrentFullTimeJob == null;
+            }
+
+            return result;
         }
 
         public bool NotificationIsEnable(NavigationElementType elementType)

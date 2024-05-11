@@ -5,18 +5,20 @@ using Modules.Navigation;
 using UnityEngine;
 using System.Linq;
 using UI.View;
+using Modules;
+using Events;
 
 namespace UI.Controller
 {
     [RequireComponent(typeof(MainScreenNavButtonView), typeof(NavigationElement))]
-    public sealed class MainScreenNavButtonController : MonoBehaviour
+    public sealed class MainScreenNavButtonController : MonoBehaviour, IUpdatable<UpdateCurrentScreenEvent>
     {
         [SerializeField] private NavigationElementType _type;
 
         [Space][SerializeField] private NavigationElement _element;
         [SerializeField] private MainScreenNavButtonView _view;
 
-        private void Setup()
+        public void UpdateState(UpdateCurrentScreenEvent data = null)
         {
             var currentBlockType = Application.Model.GetCurrentBlockType();
 
@@ -33,9 +35,20 @@ namespace UI.Controller
             _element.Setup(navigationPoint, currentBlockType.Value);
         }
 
+        private void Setup()
+        {
+            UpdateState();
+        }
+
         private void Start()
         {
             Setup();
+            EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
     }
 }

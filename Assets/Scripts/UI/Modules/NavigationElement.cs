@@ -1,5 +1,6 @@
 using Settings.Modules.Navigations;
 using Modules.Navigation;
+using UnityEngine.UI;
 using UnityEngine;
 using Extensions;
 using Settings;
@@ -15,6 +16,7 @@ namespace UI.Modules.Navigation
         [ReadOnly]
         [SerializeField] private NavigationElementType _type;
 #endif
+        [SerializeField] private Button _button;
 
         public void Setup(NavigationPoint navigationPoint, NavigationBlockType blockType)
         {
@@ -28,16 +30,27 @@ namespace UI.Modules.Navigation
 #if UNITY_EDITOR
                     _type = navigationPoint.Type;
 #endif
+                    _button.interactable = NavigationPoint.Element.IsEnable(NavigationPoint.Type);
                 }
             }
         }
 
-        public void OnClick()
+        private void OnClick()
         {
             EventSystem.Send(new NavigationPointClickEvent
             {
                 NavigationPoint = NavigationPoint
             });
+        }
+
+        private void Awake()
+        {
+            _button.onClick.AddListener(OnClick);
+        }
+
+        private void OnDestroy()
+        {
+            _button.onClick?.RemoveListener(OnClick);
         }
     }
 }

@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _button: {fileID: 0}
 --- !u!114 &368642565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +778,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 7e4c3ac41c737894c8b641c3908d23c5, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: e7d45bb71964a1e479a3d3b981194828, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -788,19 +789,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 312854097}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 634196844}
-        m_TargetAssemblyTypeName: UI.Modules.Navigation.NavigationElement, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4951856635288158903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,6 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _button: {fileID: 9069678967068183938}
 --- !u!114 &634196843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,7 +1285,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 7e4c3ac41c737894c8b641c3908d23c5, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: e7d45bb71964a1e479a3d3b981194828, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1306,19 +1296,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1756295281}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1409664142}
-        m_TargetAssemblyTypeName: UI.Modules.Navigation.NavigationElement, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &26582434350354713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,6 +1343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _button: {fileID: 5173631944743259087}
 --- !u!114 &1409664141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,7 +1434,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 7e4c3ac41c737894c8b641c3908d23c5, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: e7d45bb71964a1e479a3d3b981194828, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1466,19 +1445,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 821917876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1440702250}
-        m_TargetAssemblyTypeName: UI.Modules.Navigation.NavigationElement, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7457401448616238211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _button: {fileID: 8164712683054763101}
 --- !u!114 &1440702249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2437,8 +2405,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313083281561072407, guid: 7a545e7d041add746881c54e83de63e5,
         type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e7d45bb71964a1e479a3d3b981194828,
+        type: 3}
+    - target: {fileID: 3313083281561072407, guid: 7a545e7d041add746881c54e83de63e5,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3313083281561072407, guid: 7a545e7d041add746881c54e83de63e5,
         type: 3}
@@ -2508,6 +2482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _button: {fileID: 3313083281643367306}
 --- !u!114 &2017394589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2521,6 +2496,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _titleLabel: {fileID: 0}
+--- !u!114 &3313083281643367306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3313083281561072407, guid: 7a545e7d041add746881c54e83de63e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 488167581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313083281643367304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3313083281643367307 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3313083281561072406, guid: 7a545e7d041add746881c54e83de63e5,

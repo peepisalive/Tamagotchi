@@ -83,10 +83,7 @@ namespace Systems
                         component.StartPartTimeRecovery = DateTime.Now;
 
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
-                        InGameTimeManager.Instance.StartRecoveryCoroutine(_settings.PartTimeRecoveryHours * 3600f, () =>
-                        {
-                            EventSystem.Send<Events.EndOfRecoveryPartTimeEvent>();
-                        });
+                        StartRecoveryCoroutine<Events.EndOfRecoveryPartTimeEvent>(_settings.PartTimeRecoveryHours * 3600f);
                     }
                     else if (component.PartTimeAmountPerDay == _settings.PartTimeAmountPerDay - 1)
                     {
@@ -103,12 +100,17 @@ namespace Systems
                     component.CurrentFullTimeJob = new CurrentFullTimeJob(fullTimeJob, DateTime.Now, workingHours);
 
                     _world.NewEntity().Replace(new NavigationPointBackEvent());
-
-                    InGameTimeManager.Instance.StartRecoveryCoroutine(30f, () =>
-                    {
-                        EventSystem.Send<Events.EndOfFullTimeJobEvent>();
-                    });
+                    StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(workingHours * 3600f);
                 }
+            }
+
+
+            static void StartRecoveryCoroutine<T>(float remainingSeconds) where T : class, new()
+            {
+                InGameTimeManager.Instance.StartRecoveryCoroutine(remainingSeconds, () =>
+                {
+                    EventSystem.Send(new T());
+                });
             }
         }
 
@@ -191,7 +193,7 @@ namespace Systems
 
                 if (currentFullTimeJob != null)
                 {
-                    var endOfRecoveryFullTime = currentFullTimeJob.StartFullTimeJobRecovery + TimeSpan.FromSeconds(30f);
+                    var endOfRecoveryFullTime = currentFullTimeJob.StartFullTimeJobRecovery + TimeSpan.FromSeconds(currentFullTimeJob.WorkingHours * 3600f);
 
                     if (endOfRecoveryFullTime > currentTime)
                     {
@@ -237,9 +239,9 @@ namespace Systems
 
                 component.PartTimeAmountPerDay = 0;
                 component.StartPartTimeRecovery = default;
-
-                EventSystem.Send<Events.UpdateCurrentScreenEvent>();
             }
+
+            EventSystem.Send<Events.UpdateCurrentScreenEvent>();
         }
 
         private void MakeFullTimeJobIsAvailable()
@@ -255,6 +257,8 @@ namespace Systems
 
                 component.CurrentFullTimeJob = null;
             }
+
+            EventSystem.Send(new Events.UpdateCurrentScreenEvent());
         }
 
         private void SendEndOfRecoveryPartTimeEvent(Events.EndOfRecoveryPartTimeEvent e)
