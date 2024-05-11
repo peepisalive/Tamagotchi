@@ -53,6 +53,16 @@ namespace Tamagotchi
             return null;
         }
 
+        public CurrentFullTimeJob GetCurrentFullTimeJob()
+        {
+            foreach (var i in _jobFilter)
+            {
+                return _jobFilter.Get1(i).CurrentFullTimeJob;
+            }
+
+            return null;
+        }
+
         public int GetPartTimeAmountPerDay()
         {
             var result = 0;

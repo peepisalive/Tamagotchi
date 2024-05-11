@@ -304,6 +304,7 @@ MonoBehaviour:
   _view: {fileID: 9072301131217936315}
   _backButton: {fileID: 5679192573873412559}
   _homeButton: {fileID: 4510338632076282773}
+  _fullTimeJobPanelController: {fileID: 0}
 --- !u!1001 &4141449623299633958
 PrefabInstance:
   m_ObjectHideFlags: 0

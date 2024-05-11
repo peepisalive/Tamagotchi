@@ -99,8 +99,11 @@ namespace Systems
                 {
                     component.CurrentFullTimeJob = new CurrentFullTimeJob(fullTimeJob, DateTime.Now, workingHours);
 
+                    var remainingSeconds = workingHours * 3600f;
+
                     _world.NewEntity().Replace(new NavigationPointBackEvent());
-                    StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(workingHours * 3600f);
+                    StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(remainingSeconds);
+                    InGameTimeManager.Instance.StartCountFullTimeJobTimeRoutine((int)remainingSeconds);
                 }
             }
 
@@ -179,10 +182,11 @@ namespace Systems
                 if (partTimeJobAmountPerDay >= _settings.PartTimeAmountPerDay)
                 {
                     var endOfRecoveryPartTime = save.StartPartTimeJobRecovery + TimeSpan.FromHours(_settings.PartTimeRecoveryHours);
+                    var remainingSeconds = (float)(endOfRecoveryPartTime - currentTime).TotalSeconds;
 
                     if (endOfRecoveryPartTime > currentTime)
                     {
-                        StartRecoveryCoroutine<Events.EndOfRecoveryPartTimeEvent>(currentTime, endOfRecoveryPartTime);
+                        StartRecoveryCoroutine<Events.EndOfRecoveryPartTimeEvent>(remainingSeconds);
                     }
                     else
                     {
@@ -194,10 +198,12 @@ namespace Systems
                 if (currentFullTimeJob != null)
                 {
                     var endOfRecoveryFullTime = currentFullTimeJob.StartFullTimeJobRecovery + TimeSpan.FromSeconds(currentFullTimeJob.WorkingHours * 3600f);
+                    var remainingSeconds = (float)(endOfRecoveryFullTime - currentTime).TotalSeconds;
 
                     if (endOfRecoveryFullTime > currentTime)
                     {
-                        StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(currentTime, endOfRecoveryFullTime);
+                        StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(remainingSeconds);
+                        InGameTimeManager.Instance.StartCountFullTimeJobTimeRoutine((int)remainingSeconds);
                     }
                     else
                     {
@@ -220,11 +226,9 @@ namespace Systems
             }
 
 
-            static void StartRecoveryCoroutine<T>(DateTime currentTime, DateTime endOfRecoveryPartTimeJob) where T : class, new()
+            static void StartRecoveryCoroutine<T>(float remainingSeconds) where T : class, new()
             {
-                var remainingSeconds = (endOfRecoveryPartTimeJob - currentTime).TotalSeconds;
-
-                InGameTimeManager.Instance.StartRecoveryCoroutine((float)remainingSeconds, () =>
+                InGameTimeManager.Instance.StartRecoveryCoroutine(remainingSeconds, () =>
                 {
                     EventSystem.Send(new T());
                 });

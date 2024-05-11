@@ -9,7 +9,10 @@ namespace Modules
 {
     public sealed class InGameTimeManager : MonoBehaviourSingleton<InGameTimeManager>, IStateLoadable
     {
+        public event Action<int> OnCountFullTimeJobTimeEvent;
+
         [field: SerializeField] public float PlayTimeSeconds { get; private set; }
+        [field: SerializeField] public int FullTimeJobRemainingSeconds { get; private set; }
 
         public void LoadState()
         {
@@ -24,13 +27,34 @@ namespace Modules
         public void StartRecoveryCoroutine(float seconds, Action recoveryCallback)
         {
             StartCoroutine(RecoveryRoutine(seconds, recoveryCallback));
+
+
+            static IEnumerator RecoveryRoutine(float seconds, Action recoveryCallback)
+            {
+                yield return new WaitForSecondsRealtime(seconds);
+                recoveryCallback?.Invoke();
+                yield break;
+            }
         }
 
-        private IEnumerator RecoveryRoutine(float seconds, Action recoveryCallback)
+        public void StartCountFullTimeJobTimeRoutine(int seconds)
         {
-            yield return new WaitForSecondsRealtime(seconds);
-            recoveryCallback?.Invoke();
-            yield break;
+            FullTimeJobRemainingSeconds = seconds;
+            StartCoroutine(CountRoutine());
+
+
+            IEnumerator CountRoutine()
+            {
+                while (FullTimeJobRemainingSeconds > 0)
+                {
+                    yield return new WaitForSecondsRealtime(1f);
+
+                    FullTimeJobRemainingSeconds -= 1;
+                    OnCountFullTimeJobTimeEvent?.Invoke(FullTimeJobRemainingSeconds);
+                }
+                
+                yield break;
+            }
         }
 
         private void Update()
