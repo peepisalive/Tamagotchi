@@ -82,7 +82,7 @@ namespace Systems.Activities
 
                 foreach (var parameterChange in Settings.ParametersChanges)
                 {
-                    pet.Parameters.Get(parameterChange.Type).Add(parameterChange.Range.GetRandom()); // to do: use event
+                    pet.Parameters.Get(parameterChange.Type).Add(parameterChange.Range.GetRandom());
                     infoParametersSettings.Add(new InfoParameterSettings
                     {
                         Type = parameterChange.Type,

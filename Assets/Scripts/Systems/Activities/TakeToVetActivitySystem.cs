@@ -101,7 +101,7 @@ namespace Systems.Activities
                     if (!_isFullExamination && value > 0f)
                         value /= 2f;
 
-                    pet.Parameters.Get(parameterChange.Type).Add(value); // to do: use event
+                    pet.Parameters.Get(parameterChange.Type).Add(value);
                     infoParametersSettings.Add(new InfoParameterSettings
                     {
                         Type = parameterChange.Type,

@@ -12,7 +12,7 @@ namespace Core
             while (true)
             {
                 yield return new WaitForSecondsRealtime(5f); // to do: edit time
-                EventSystem.Send(new ChangeParametersEvent());
+                EventSystem.Send(new ChangeParameterEvent());
             }
         }
 
@@ -23,12 +23,12 @@ namespace Core
 
         private void Start()
         {
-            StartCoroutine(nameof(ParametersChangingRoutine));
+            //StartCoroutine(nameof(ParametersChangingRoutine));
         }
 
         private void OnDestroy()
         {
-            StopCoroutine(nameof(ParametersChangingRoutine));
+            //StopCoroutine(nameof(ParametersChangingRoutine));
         }
     }
 }

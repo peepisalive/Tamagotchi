@@ -1,18 +1,18 @@
 using Leopotam.Ecs;
 using Components;
 using Modules;
-using Events;
 
 namespace Systems
 {
     public sealed class ParametersSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
+        private EcsWorld _world;
         private EcsFilter<PetComponent> _petsFilter;
         private EcsFilter<ChangeParameterEvent> _changeParameterFilter;
 
         public void Init()
         {
-            EventSystem.Subscribe<ChangeParametersEvent>(ChangeParameters);
+            EventSystem.Subscribe<Events.ChangeParameterEvent>(ChangeParameters);
         }
 
         public void Run()
@@ -36,12 +36,16 @@ namespace Systems
 
         public void Destroy()
         {
-            EventSystem.Unsubscribe<ChangeParametersEvent>(ChangeParameters);
+            EventSystem.Unsubscribe<Events.ChangeParameterEvent>(ChangeParameters);
         }
 
-        private void ChangeParameters(ChangeParametersEvent e)
+        private void ChangeParameters(Events.ChangeParameterEvent e)
         {
-            // to do
+            _world.NewEntity().Replace(new ChangeParameterEvent
+            {
+                Type = e.Type,
+                Value = e.Value
+            });
         }
     }
 }
