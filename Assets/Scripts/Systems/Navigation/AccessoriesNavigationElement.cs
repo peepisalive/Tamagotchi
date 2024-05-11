@@ -1,3 +1,4 @@
+using Application = Tamagotchi.Application;
 using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Navigation;
@@ -32,7 +33,7 @@ namespace Systems.Navigation
 
         public bool NotificationIsEnable(NavigationElementType elementType)
         {
-            return false;
+            return !Application.HasTrack(elementType);
         }
 
         public bool OnClick(NavigationElementType elementType)

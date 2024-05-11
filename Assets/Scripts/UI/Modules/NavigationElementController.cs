@@ -9,13 +9,15 @@ using Events;
 
 namespace UI.Modules.Navigation
 {
-    public sealed class NavigationElement : MonoBehaviour
+    [RequireComponent(typeof(NavigationElementView))]
+    public sealed class NavigationElementController : MonoBehaviour
     {
         public NavigationPoint NavigationPoint { get; private set; }
 #if UNITY_EDITOR
         [ReadOnly]
         [SerializeField] private NavigationElementType _type;
 #endif
+        [SerializeField] private NavigationElementView _view;
         [SerializeField] private Button _button;
 
         public void Setup(NavigationPoint navigationPoint, NavigationBlockType blockType)
@@ -31,6 +33,7 @@ namespace UI.Modules.Navigation
                     _type = navigationPoint.Type;
 #endif
                     _button.interactable = NavigationPoint.Element.IsEnable(NavigationPoint.Type);
+                    _view.SetNotifyIconState(NavigationPoint.Element.NotificationIsEnable(NavigationPoint.Type));
                 }
             }
         }
@@ -43,7 +46,7 @@ namespace UI.Modules.Navigation
             });
         }
 
-        private void Awake()
+        private void Start()
         {
             _button.onClick.AddListener(OnClick);
         }

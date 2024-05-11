@@ -919,6 +919,82 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.2
+--- !u!1 &8102481550896039382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3554367799138035355}
+  - component: {fileID: 745950039122149171}
+  - component: {fileID: 1358636323942049079}
+  m_Layer: 5
+  m_Name: NotifyIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
+--- !u!224 &3554367799138035355
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102481550896039382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3092786477781696035}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -40, y: -40}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &745950039122149171
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102481550896039382}
+  m_CullTransparentMesh: 1
+--- !u!114 &1358636323942049079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102481550896039382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7e9378929f4299344a7bd1b5b1d92a47, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8759499444092311639
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +1010,8 @@ GameObject:
   - component: {fileID: 6527281761623691665}
   - component: {fileID: 495299546594895275}
   - component: {fileID: 5772065219032252831}
-  - component: {fileID: 166471986352183438}
+  - component: {fileID: 5818032438183280889}
+  - component: {fileID: 1165746070744585020}
   - component: {fileID: 2061945031269435509}
   m_Layer: 5
   m_Name: NavigationButton
@@ -956,6 +1033,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8626257650834002948}
+  - {fileID: 3554367799138035355}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1095,10 +1173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 495299546594895275}
-  _element: {fileID: 166471986352183438}
+  _element: {fileID: 1165746070744585020}
   _transitionIcon: {fileID: 859674589184282398}
   _toggle: {fileID: 3830296401525093399}
---- !u!114 &166471986352183438
+--- !u!114 &5818032438183280889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1107,10 +1185,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8759499444092311639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 381664ed9aca5ea44a0c6922b1a00527, type: 3}
+  m_Script: {fileID: 11500000, guid: 836d9085781a1344b9923221b8673c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _notifyIcon: {fileID: 3554367799138035355}
+--- !u!114 &1165746070744585020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759499444092311639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7eb3a14b3f5b004da86021c8e6c3f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _view: {fileID: 5818032438183280889}
   _button: {fileID: 2878307105444558044}
 --- !u!114 &2061945031269435509
 MonoBehaviour:

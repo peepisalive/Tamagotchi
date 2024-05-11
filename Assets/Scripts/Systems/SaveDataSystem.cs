@@ -118,8 +118,6 @@ namespace Systems
         {
             var stateHolder = _saveDataManager.GetStateHolder<GlobalStateHolder>();
 
-            stateHolder.ResetState();
-
             SaveBankAccountData();
             SavePlayTimeData();
 

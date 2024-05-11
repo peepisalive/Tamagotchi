@@ -1,4 +1,6 @@
+using Modules.Navigation;
 using UnityEngine;
+using Save.State;
 using Modules;
 
 namespace Tamagotchi
@@ -25,6 +27,11 @@ namespace Tamagotchi
         {
             Model = new Model();
             SaveDataManager = new SaveDataManager();
+        }
+
+        public static bool HasTrack(NavigationElementType type)
+        {
+            return SaveDataManager.GetStateHolder<GlobalStateHolder>().State.NavigationTracks.Contains(type);
         }
     }
 }

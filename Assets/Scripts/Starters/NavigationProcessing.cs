@@ -16,6 +16,7 @@ namespace Starter
             Systems
                 .Add(new NavigationInitSystem())
                 .Add(new NavigationTransitionSystem())
+                .Add(new NavigationTrackSystem())
                 .OneFrame<NavigationPointClickEvent>()
                 .OneFrame<NavigationPointBackEvent>()
                 .OneFrame<NavigationPointHomeEvent>()

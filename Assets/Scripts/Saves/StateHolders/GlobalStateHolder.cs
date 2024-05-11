@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Modules.Navigation;
 using System.Threading;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -17,6 +19,8 @@ namespace Save.State
     {
         public int BankAccountValue;
         public float PlayTimeSeconds;
+
+        public HashSet<NavigationElementType> NavigationTracks = new HashSet<NavigationElementType>();
 
         public override string ToString()
         {

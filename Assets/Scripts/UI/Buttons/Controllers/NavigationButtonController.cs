@@ -1,21 +1,21 @@
+using Settings.Modules.Navigations;
 using UI.Modules.Navigation;
 using Modules.Navigation;
 using UnityEngine.UI;
 using UnityEngine;
+using Settings;
 using Modules;
 using UI.View;
 using Events;
-using Settings;
-using Settings.Modules.Navigations;
 
 namespace UI.Controller
 {
-    [RequireComponent(typeof(NavigationButtonView), typeof(NavigationElement))]
+    [RequireComponent(typeof(NavigationButtonView), typeof(NavigationElementController))]
     public sealed class NavigationButtonController : MonoBehaviour
     {
         [Header("Controller")]
         [SerializeField] private NavigationButtonView _view;
-        [SerializeField] private NavigationElement _element;
+        [SerializeField] private NavigationElementController _element;
 
         [Header("Other")]
         [SerializeField] private GameObject _transitionIcon;
