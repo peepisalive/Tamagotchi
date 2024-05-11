@@ -19,6 +19,7 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Settings.Localization.Title,
+                    Icon = Icon,
                     Content = Settings.Localization.MainContent,
                     DropdownSettings = GetDropdownSettings<FoodType>(),
                     ButtonSettings = new List<TextButtonSettings>
@@ -36,10 +37,11 @@ namespace Systems.Activities
                             Title = Settings.Localization.RightButtonContent,
                             Action = () =>
                             {
-
+                                EndActivity(true, false);
                             }
                         }
-                    }
+                    },
+                    UseIcon = true
                 })
             });
         }

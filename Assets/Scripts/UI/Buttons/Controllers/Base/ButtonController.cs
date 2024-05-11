@@ -25,6 +25,9 @@ namespace UI.Controller
         {
             _button?.onClick.AddListener(() => settings.Action?.Invoke());
             _button?.onClick.AddListener(() => settings.ActionWithInstance?.Invoke(settings.PopupInstance));
+
+            SetMoneySignState(settings.MoneySignState);
+            SetAdsSignState(settings.AdsSignState);
         }
 
         public void SetState(bool state)

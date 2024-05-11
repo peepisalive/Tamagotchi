@@ -10,12 +10,12 @@
   },
   {
     "tags": [ "result_popup", "content" ],
-    "topic": "[test]"
+    "topic": "You cooked such a concoction for your pet, but he liked it!"
   },
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Cancel"
+    "topic": "Don't cook anything"
   },
   {
     "tags": [ "button_content", "right" ],

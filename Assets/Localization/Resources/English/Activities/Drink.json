@@ -6,16 +6,16 @@
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "[test]"
+    "topic": "Prepare your pet a drink fit for the stars! With love and care, pour into their handcrafted bowl water that revitalizes every drop as if it were a little miracle. With each sip, your pet is enveloped in contentment, feeling satiated and content!"
   },
   {
     "tags": [ "result_popup", "content" ],
-    "topic": "[test]"
+    "topic": "After your pet takes a refreshing sip of water, it radiates happiness and contentment. Its belly is comfortably full, and its soul is filled with joy from your caring attention!"
   },
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Cancel"
+    "topic": "Do not give your pet a drink"
   },
   {
     "tags": [ "button_content", "right" ],

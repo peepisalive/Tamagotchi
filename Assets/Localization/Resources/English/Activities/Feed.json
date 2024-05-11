@@ -6,16 +6,16 @@
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "[test]"
+    "topic": "After feeding your pet, it will gratefully look at you with satisfied eyes. Its belly will be full, and its heart warmed by your caring attention!"
   },
   {
     "tags": [ "result_popup", "content" ],
-    "topic": "[test]"
+    "topic": "After feeding your pet, its belly is filled with joy and contentment. It gratefully purrs or wags its tail happily, feeling your care and love!"
   },
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Cancel"
+    "topic": "Dont feed your pet"
   },
   {
     "tags": [ "button_content", "right" ],

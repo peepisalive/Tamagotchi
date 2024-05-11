@@ -14,6 +14,7 @@ namespace Systems.Activities
         protected override NavigationElementType Type => NavigationElementType.SpaTreatmentsActivity;
 
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
+        private SpaTreatmentsType _selectedSpaTreatmentsType;
 
         protected override void StartActivity(bool isEnable)
         {
@@ -22,6 +23,7 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Settings.Localization.Title,
+                    Icon = Icon,
                     Content = Settings.Localization.MainContent,
                     DropdownSettings = GetDropdownSettings<SpaTreatmentsType>(),
                     ButtonSettings = new List<TextButtonSettings>
@@ -37,22 +39,49 @@ namespace Systems.Activities
                         new TextButtonSettings
                         {
                             Title = Settings.Localization.RightButtonContent,
+                            ActionWithInstance = (popup) =>
+                            {
+                                if (!_bankAccountFilter.TrySpendMoney(Settings.Price))
+                                    return;
+
+                                var defaultPopup = (DefaultPopupView)popup;
+                                _selectedSpaTreatmentsType = defaultPopup.Dropdowns[0].GetCurrentValue<SpaTreatmentsType>();
+
+                                EndActivity(true, false);
+                            },
+                            MoneySignState = true
+                        }
+                    },
+                    UseIcon = true
+                })
+            });
+        }
+
+        protected override void EndActivity(bool useIcon, bool usePetIcon)
+        {
+            var spaTreatmentsType = Settings.Localization.GetValueTypeContent(_selectedSpaTreatmentsType);
+
+            World.NewEntity().Replace(new ShowPopup
+            {
+                Settings = new PopupToShow<ResultPopup>(new ResultPopup()
+                {
+                    Title = Settings.Localization.Title,
+                    Icon = Icon,
+                    Content = string.Format(Settings.Localization.ResultContent, spaTreatmentsType.ToLower()),
+                    InfoParameterSettings = GetInfoParameterSettings(),
+                    ButtonSettings = new List<TextButtonSettings>
+                    {
+                        new TextButtonSettings
+                        {
+                            Title = Settings.Localization.ResultButton,
                             Action = () =>
                             {
-                                if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
-                                {
-                                    PopupUtils.ShowNotEnoughMoneyPopup();
-                                    return;
-                                }
-
-                                World.NewEntity().Replace(new ChangeBankAccountValueEvent
-                                {
-                                    Value = Settings.Price
-                                });
                                 World.NewEntity().Replace(new HidePopup());
                             }
                         }
-                    }
+                    },
+                    UseIcon = useIcon,
+                    UsePetIcon = usePetIcon
                 })
             });
         }

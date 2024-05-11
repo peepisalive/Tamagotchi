@@ -21,5 +21,17 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
-  <ParametersChanges>k__BackingField: []
+  <ParametersChanges>k__BackingField:
+  - <Type>k__BackingField: 4
+    <Range>k__BackingField:
+      <Min>k__BackingField: 0.045
+      <Max>k__BackingField: 0.095
+  - <Type>k__BackingField: 0
+    <Range>k__BackingField:
+      <Min>k__BackingField: 0.05
+      <Max>k__BackingField: 0.09
+  - <Type>k__BackingField: 3
+    <Range>k__BackingField:
+      <Min>k__BackingField: -0.02
+      <Max>k__BackingField: 0.01
   _type: 301

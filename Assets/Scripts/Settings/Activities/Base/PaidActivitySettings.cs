@@ -10,6 +10,6 @@ namespace Settings.Activity
         public int Price => -_price;
 
         [SerializeField] private NavigationElementType _type;
-        [SerializeField][Range(0, 1500)] private int _price;
+        [SerializeField][Range(0, 2000)] private int _price;
     }
 }

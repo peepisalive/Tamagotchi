@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Settings.Activity;
 using Modules.Navigation;
+using Settings.Activity;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -12,6 +12,8 @@ namespace Systems.Activities
     {
         protected override NavigationElementType Type => NavigationElementType.WashActivity;
 
+        private WashType _selectedWashType;
+
         protected override void StartActivity(bool isEnable)
         {
             World.NewEntity().Replace(new ShowPopup
@@ -19,6 +21,7 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Settings.Localization.Title,
+                    Icon = Icon,
                     DropdownSettings = GetDropdownSettings<WashType>(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
@@ -33,12 +36,45 @@ namespace Systems.Activities
                         new TextButtonSettings
                         {
                             Title = Settings.Localization.RightButtonContent,
-                            Action = () =>
+                            ActionWithInstance = (popup) =>
                             {
+                                var defaultPopup = (DefaultPopupView)popup;
+                                _selectedWashType = defaultPopup.Dropdowns[0].GetCurrentValue<WashType>();
 
+                                EndActivity(false, true);
                             }
                         }
-                    }
+                    },
+                    UseIcon = true
+                })
+            });
+        }
+
+        protected override void EndActivity(bool useIcon, bool usePetIcon)
+        {
+            var washType = Settings.Localization.GetValueTypeContent(_selectedWashType);
+
+            World.NewEntity().Replace(new ShowPopup
+            {
+                Settings = new PopupToShow<ResultPopup>(new ResultPopup()
+                {
+                    Title = Settings.Localization.Title,
+                    Icon = Icon,
+                    Content = string.Format(Settings.Localization.ResultContent, washType.ToLower()),
+                    InfoParameterSettings = GetInfoParameterSettings(),
+                    ButtonSettings = new List<TextButtonSettings>
+                    {
+                        new TextButtonSettings
+                        {
+                            Title = Settings.Localization.ResultButton,
+                            Action = () =>
+                            {
+                                World.NewEntity().Replace(new HidePopup());
+                            }
+                        }
+                    },
+                    UseIcon = useIcon,
+                    UsePetIcon = usePetIcon
                 })
             });
         }
