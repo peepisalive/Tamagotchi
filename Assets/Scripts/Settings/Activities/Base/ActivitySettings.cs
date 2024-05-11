@@ -29,6 +29,9 @@ namespace Settings.Activity
 
         public string ResultButton => LocalizationProvider.GetText("ok/button");
 
+        public string TypeName => LocalizationProvider.GetText(_asset, "name/type");
+
+
         [SerializeField] private LocalizedText _asset;
 
         public string GetValueTypeContent<T>(T type) where T : Enum

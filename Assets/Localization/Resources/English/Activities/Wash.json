@@ -33,5 +33,10 @@
   {
     "tags": [ "type", "Paws" ],
     "topic": "Paws"
+  },
+
+  {
+    "tags": [ "name", "type" ],
+    "topic": "Body part"
   }
 ]

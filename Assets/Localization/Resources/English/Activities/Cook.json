@@ -33,5 +33,10 @@
   {
     "tags": [ "type", "Steamed" ],
     "topic": "Steamed food"
+  },
+
+  {
+    "tags": [ "name", "type" ],
+    "topic": "Food type"
   }
 ]

@@ -29,5 +29,10 @@
   {
     "tags": [ "type", "WithAToy" ],
     "topic": "Toy"
+  },
+
+  {
+    "tags": [ "name", "type" ],
+    "topic": "Play type"
   }
 ]

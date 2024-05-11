@@ -55,7 +55,7 @@ namespace Systems.Activities
             {
                 new DropdownSettings
                 {
-                    Title = "[test]", // to do: use localization system
+                    Title = Settings.Localization.TypeName,
                     DropdownContent = new List<DropdownContent>()
                 }
             };
