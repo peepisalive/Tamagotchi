@@ -1,10 +1,13 @@
+using Settings.Modules.Navigations;
 using System.Collections.Generic;
 using Modules.Navigation;
 using Settings.Activity;
 using Leopotam.Ecs;
 using UI.Settings;
 using System.Linq;
+using UnityEngine;
 using Components;
+using UI.Popups;
 using Settings;
 using System;
 
@@ -15,13 +18,16 @@ namespace Systems.Activities
         protected abstract NavigationElementType Type { get; }
 
         protected EcsWorld World;
+        protected EcsFilter<PetComponent> PetFilter;
         protected EcsFilter<ActivityComponent> ActivityFilter;
 
         protected T Settings;
+        protected Sprite Icon;
 
         public void Init()
         {
             Settings = SettingsProvider.Get<ActivitiesSettings>().Get<T>(Type);
+            Icon = SettingsProvider.Get<NavigationIconSettings>().GetIcon(Type);
         }
 
         public void Run()
@@ -64,6 +70,55 @@ namespace Systems.Activities
             }
 
             return dropdownSettings;
+        }
+
+        protected virtual List<InfoParameterSettings> GetInfoParameterSettings()
+        {
+            var infoParametersSettings = new List<InfoParameterSettings>();
+
+            foreach (var i in PetFilter)
+            {
+                var pet = PetFilter.Get1(i).Pet;
+
+                foreach (var parameterChange in Settings.ParametersChanges)
+                {
+                    pet.Parameters.Get(parameterChange.Type).Add(parameterChange.Range.GetRandom()); // to do: use event
+                    infoParametersSettings.Add(new InfoParameterSettings
+                    {
+                        Type = parameterChange.Type,
+                        Value = pet.Parameters.Get(parameterChange.Type).Value
+                    });
+                }
+            }
+
+            return infoParametersSettings;
+        }
+
+        protected virtual void EndActivity(bool useIcon, bool usePetIcon)
+        {
+            World.NewEntity().Replace(new ShowPopup
+            {
+                Settings = new PopupToShow<ResultPopup>(new ResultPopup()
+                {
+                    Title = Settings.Localization.Title,
+                    Icon = Icon,
+                    Content = Settings.Localization.ResultContent,
+                    InfoParameterSettings = GetInfoParameterSettings(),
+                    ButtonSettings = new List<TextButtonSettings>
+                    {
+                        new TextButtonSettings
+                        {
+                            Title = Settings.Localization.ResultButton,
+                            Action = () =>
+                            {
+                                World.NewEntity().Replace(new HidePopup());
+                            }
+                        }
+                    },
+                    UseIcon = useIcon,
+                    UsePetIcon = usePetIcon
+                })
+            });
         }
 
         protected abstract void StartActivity(bool isEnable);

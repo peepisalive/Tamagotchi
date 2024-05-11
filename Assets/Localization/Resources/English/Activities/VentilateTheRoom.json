@@ -6,16 +6,16 @@
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "[test]"
+    "topic": "Crack open the window and let fresh air flow into your pet's space! Let the breeze sweep away all stale odors and fill the room with cleanliness and freshness, making your friend more comfortable and cared for!"
   },
   {
     "tags": [ "result_popup", "content" ],
-    "topic": "[test]"
+    "topic": "After airing out the space, your pet is surrounded by freshness! Its living area is filled with clean air, eliminating unpleasant odors and providing more hygienic conditions!"
   },
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Cancel"
+    "topic": "Dont ventilate"
   },
   {
     "tags": [ "button_content", "right" ],

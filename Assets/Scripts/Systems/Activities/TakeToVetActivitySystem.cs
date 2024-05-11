@@ -5,6 +5,7 @@ using Leopotam.Ecs;
 using UI.Settings;
 using Components;
 using UI.Popups;
+using Utils;
 
 namespace Systems.Activities
 {
@@ -13,7 +14,7 @@ namespace Systems.Activities
         protected override NavigationElementType Type => NavigationElementType.TakeToVetActivity;
 
         private EcsFilter<BankAccountComponent> _bankAccountFilter;
-        private EcsFilter<PetComponent> _petFilter;
+        private bool _isFullExamination;
 
         protected override void StartActivity(bool isEnable)
         {
@@ -22,6 +23,7 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Settings.Localization.Title,
+                    Icon = Icon,
                     Content = Settings.Localization.MainContent,
                     ButtonSettings = new List<TextButtonSettings>
                     {
@@ -30,59 +32,43 @@ namespace Systems.Activities
                             Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
-                                World.NewEntity().Replace(new HidePopup());
-                            }
+                                if (!_bankAccountFilter.TrySpendMoney(Settings.Price / 2))
+                                    return;
+
+                                _isFullExamination = false;
+                                EndActivity(true, false);
+                            },
+                            MoneySignState = true
                         },
                         new TextButtonSettings
                         {
                             Title = Settings.Localization.RightButtonContent,
-                            ActionWithInstance = (popup) =>
+                            Action = () =>
                             {
-                                //if (!_bankAccountFilter.IsMoneyAvailable(Settings.Price))
-                                //{
-                                //    PopupUtils.ShowNotEnoughMoneyPopup();
-                                //    return;
-                                //}
+                                if (!_bankAccountFilter.TrySpendMoney(Settings.Price))
+                                    return;
 
-                                //World.NewEntity().Replace(new ChangeBankAccountValueEvent
-                                //{
-                                //    Value = Settings.Price
-                                //});
-
-                                EndActivity();
-                            }
+                                _isFullExamination = true;
+                                EndActivity(true, false);
+                            },
+                            MoneySignState = true
                         }
-                    }
+                    },
+                    UseIcon = true
                 })
             });
         }
 
-        private void EndActivity()
+        protected override void EndActivity(bool useIcon, bool usePetIcon)
         {
-            var infoParametersSettings = new List<InfoParameterSettings>();
-
-            foreach (var i in _petFilter)
-            {
-                var pet = _petFilter.Get1(i).Pet;
-
-                foreach (var parameterChange in Settings.ParametersChanges)
-                {
-                    pet.Parameters.Get(parameterChange.Type).Add(parameterChange.Range.GetRandom());
-                    infoParametersSettings.Add(new InfoParameterSettings
-                    {
-                        Type = parameterChange.Type,
-                        Value = pet.Parameters.Get(parameterChange.Type).Value
-                    });
-                }
-            }
-
             World.NewEntity().Replace(new ShowPopup
             {
                 Settings = new PopupToShow<ResultPopup>(new ResultPopup()
                 {
                     Title = Settings.Localization.Title,
+                    Icon = Icon,
                     Content = Settings.Localization.ResultContent,
-                    InfoParameterSettings = infoParametersSettings,
+                    InfoParameterSettings = GetInfoParameterSettings(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -93,9 +79,38 @@ namespace Systems.Activities
                                 World.NewEntity().Replace(new HidePopup());
                             }
                         }
-                    }
+                    },
+                    UseIcon = useIcon,
+                    UsePetIcon = usePetIcon
                 })
             });
+        }
+
+        protected override List<InfoParameterSettings> GetInfoParameterSettings()
+        {
+            var infoParametersSettings = new List<InfoParameterSettings>();
+
+            foreach (var i in PetFilter)
+            {
+                var pet = PetFilter.Get1(i).Pet;
+
+                foreach (var parameterChange in Settings.ParametersChanges)
+                {
+                    var value = parameterChange.Range.GetRandom();
+
+                    if (!_isFullExamination && value > 0f)
+                        value /= 2f;
+
+                    pet.Parameters.Get(parameterChange.Type).Add(value); // to do: use event
+                    infoParametersSettings.Add(new InfoParameterSettings
+                    {
+                        Type = parameterChange.Type,
+                        Value = pet.Parameters.Get(parameterChange.Type).Value
+                    });
+                }
+            }
+
+            return infoParametersSettings;
         }
     }
 }

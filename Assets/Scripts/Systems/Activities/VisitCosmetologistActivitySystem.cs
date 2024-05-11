@@ -5,6 +5,7 @@ using Leopotam.Ecs;
 using UI.Settings;
 using Components;
 using UI.Popups;
+using Utils;
 
 namespace Systems.Activities
 {
@@ -21,6 +22,7 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Settings.Localization.Title,
+                    Icon = Icon,
                     Content = Settings.Localization.MainContent,
                     ButtonSettings = new List<TextButtonSettings>
                     {
@@ -37,10 +39,15 @@ namespace Systems.Activities
                             Title = Settings.Localization.RightButtonContent,
                             Action = () =>
                             {
+                                if (!_bankAccountFilter.TrySpendMoney(Settings.Price))
+                                    return;
 
-                            }
+                                EndActivity(true, false);
+                            },
+                            MoneySignState = true
                         }
-                    }
+                    },
+                    UseIcon = true
                 })
             });
         }

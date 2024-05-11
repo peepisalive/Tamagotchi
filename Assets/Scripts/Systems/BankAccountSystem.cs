@@ -15,7 +15,7 @@ namespace Systems
 
         public void Init()
         {
-            var value = 0;
+            var value = 10000; // to do: test, del this
 
             if (!_saveDataFilter.IsEmpty())
             {

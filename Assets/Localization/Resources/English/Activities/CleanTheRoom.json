@@ -6,16 +6,16 @@
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "[test]"
+    "topic": "Welcome your pet to the thrilling adventure in the Kingdom of Cleanliness! Armed with a magic brush and a bottle of enchanted shampoo, your pet embarks on an exciting journey across its room. Together, they will explore every nook, battle dust bunnies, and collect precious crystals of cleanliness. With each magical touch, your pet inches closer to achieving the maximum level of hygiene and shine!"
   },
   {
     "tags": [ "result_popup", "content" ],
-    "topic": "[test]"
+    "topic": "Here's the wonder! Your pet's room now sparkles with cleanliness and shine, as if it just passed through a magical portal! Every nook exudes the scent of freshness, and the air is filled with cleanliness. Now your pet dwells in a true hygienic paradise!"
   },
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Cancel"
+    "topic": "Dont clean up"
   },
   {
     "tags": [ "button_content", "right" ],

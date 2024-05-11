@@ -6,16 +6,16 @@
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "[test]"
+    "topic": "Choose what you want to wash for your pet:"
   },
   {
     "tags": [ "result_popup", "content" ],
-    "topic": "[test]"
+    "topic": "While you were washing your pet's {0}, he sprayed you all over!"
   },
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Cancel"
+    "topic": "Do not wash anything"
   },
   {
     "tags": [ "button_content", "right" ],

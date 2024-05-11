@@ -19,6 +19,8 @@ namespace Systems.Activities
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
                     Title = Settings.Localization.Title,
+                    Icon = Icon,
+                    Content = Settings.Localization.MainContent,
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -34,10 +36,11 @@ namespace Systems.Activities
                             Title = Settings.Localization.RightButtonContent,
                             Action = () =>
                             {
-
+                                EndActivity(true, false);
                             }
                         }
-                    }
+                    },
+                    UseIcon = true
                 })
             });
         }

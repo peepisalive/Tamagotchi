@@ -6,16 +6,16 @@
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "[test]"
+    "topic": "Play with your pet, choose the type of game:"
   },
   {
     "tags": [ "result_popup", "content" ],
-    "topic": "[test]"
+    "topic": "After you played a {0} game with your pet, he became even happier!"
   },
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Cancel"
+    "topic": "Dont play with your pet"
   },
   {
     "tags": [ "button_content", "right" ],
