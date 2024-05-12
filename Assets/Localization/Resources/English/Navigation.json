@@ -183,7 +183,16 @@
   },
   {
     "tags": [ "navigation_descr_SoundProvider" ],
-    "topic": "Control the game sounds, toggling them on or off as desired"
+    "topic": "Control the game sounds"
+  },
+
+  {
+    "tags": [ "navigation_title_HapticProvider" ],
+    "topic": "Vibration"
+  },
+  {
+    "tags": [ "navigation_descr_HapticProvider" ],
+    "topic": "Control the game vibrations"
   },
 
   {

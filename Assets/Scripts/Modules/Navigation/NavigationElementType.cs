@@ -35,5 +35,6 @@ namespace Modules.Navigation
         VentilateTheRoomActivity = 304,
 
         SoundProvider = 1000,
+        HapticProvider = 1001,
     }
 }

@@ -47,7 +47,8 @@ namespace Starter
         private EcsSystems MenuScreenElements(EcsWorld world)
         {
             return new EcsSystems(world)
-                .Add(new SoundProviderNavigationElement());
+                .Add(new SoundProviderNavigationElement())
+                .Add(new HapticProviderNavigationElement());
         }
 
         private EcsSystems PetActionsScreenElements(EcsWorld world)

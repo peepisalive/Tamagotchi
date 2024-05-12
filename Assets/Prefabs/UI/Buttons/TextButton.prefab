@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 753229011419661438}
   - component: {fileID: 8368240804925735233}
   - component: {fileID: 8299238814020050381}
+  - component: {fileID: 5615538756348478227}
+  - component: {fileID: 7103119393634829473}
   m_Layer: 0
   m_Name: TextButton
   m_TagString: Untagged
@@ -176,6 +178,32 @@ MonoBehaviour:
   _adsSign: {fileID: 8261135969624825564}
   _moneySign: {fileID: 4056171754146376711}
   _view: {fileID: 8368240804925735233}
+--- !u!114 &5615538756348478227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110568268016295295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c900ef04c4a5645ad41e61df402ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundType: 0
+--- !u!114 &7103119393634829473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110568268016295295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bb974bfd8b1ba4ab1107d7c0ecb9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hapticType: 5
 --- !u!1 &1777602195260916163
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,13 +106,8 @@ namespace Systems
 
             stateHolder.ResetState();
 
-            SaveSoundData();
-
-
-            void SaveSoundData()
-            {
-                stateHolder.State.SoundState = SoundProvider.Instance.State;
-            }
+            stateHolder.State.SoundState = SoundProvider.Instance.State;
+            stateHolder.State.HapticState = HapticProvider.Instance.State;
         }
 
         private void SaveGlobalData()

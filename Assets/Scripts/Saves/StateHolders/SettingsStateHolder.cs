@@ -16,6 +16,7 @@ namespace Save.State
     public sealed class SettingsState : IState
     {
         public bool SoundState = true;
+        public bool HapticState = true;
 
         public override string ToString()
         {

@@ -748,6 +748,8 @@ GameObject:
   - component: {fileID: 634196843}
   - component: {fileID: 6675608407977869306}
   - component: {fileID: 5226859347238048767}
+  - component: {fileID: 6474271816101237763}
+  - component: {fileID: 3463211959697814350}
   m_Layer: 5
   m_Name: JobScreenButton
   m_TagString: Untagged
@@ -898,6 +900,32 @@ MonoBehaviour:
   _type: 0
   _view: {fileID: 6675608407977869306}
   _button: {fileID: 9069678967068183938}
+--- !u!114 &6474271816101237763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634196841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c900ef04c4a5645ad41e61df402ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundType: 0
+--- !u!114 &3463211959697814350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634196841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bb974bfd8b1ba4ab1107d7c0ecb9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hapticType: 5
 --- !u!1 &821917874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1300,8 @@ GameObject:
   - component: {fileID: 1409664141}
   - component: {fileID: 6801877971950832403}
   - component: {fileID: 8356573585900918327}
+  - component: {fileID: 7992058873735922296}
+  - component: {fileID: 8042476858621593971}
   m_Layer: 5
   m_Name: PetActionsScreenButton
   m_TagString: Untagged
@@ -1422,6 +1452,32 @@ MonoBehaviour:
   _type: 0
   _view: {fileID: 6801877971950832403}
   _button: {fileID: 5173631944743259087}
+--- !u!114 &7992058873735922296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409664139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c900ef04c4a5645ad41e61df402ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundType: 0
+--- !u!114 &8042476858621593971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409664139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bb974bfd8b1ba4ab1107d7c0ecb9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hapticType: 5
 --- !u!1 &1440702247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,6 +1494,7 @@ GameObject:
   - component: {fileID: 893071117330441362}
   - component: {fileID: 5543390514657620687}
   - component: {fileID: 6031447495408500316}
+  - component: {fileID: 3592439926234071762}
   m_Layer: 5
   m_Name: ActivitiesScreenButton
   m_TagString: Untagged
@@ -1601,6 +1658,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundType: 0
+--- !u!114 &3592439926234071762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440702247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bb974bfd8b1ba4ab1107d7c0ecb9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hapticType: 5
 --- !u!1 &1756295279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,19 +3025,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _titleLabel: {fileID: 0}
---- !u!114 &1973158440980403254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3313083281643367304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c900ef04c4a5645ad41e61df402ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundType: 0
 --- !u!114 &5635907652441781887
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,7 +47,7 @@ namespace Modules
             State = stateHolder.State.SoundState;
         }
 
-        private void Awake()
+        private void Start()
         {
             Instance = this;
 
