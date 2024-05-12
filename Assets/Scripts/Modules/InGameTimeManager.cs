@@ -65,6 +65,10 @@ namespace Modules
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start()
+        {
             LoadState();
         }
 
