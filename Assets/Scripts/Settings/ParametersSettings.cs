@@ -9,6 +9,7 @@ namespace Settings
     [CreateAssetMenu(fileName = "ParametersSettings", menuName = "Settings/ParametersSettings", order = 1)]
     public sealed class ParametersSettings : ScriptableObject
     {
+        [field: SerializeField] public List<ParameterRange> ParameterDecRanges;
         [SerializeField] private List<ParameterIcon> _icons;
 
         public Sprite GetIcon(ParameterType type)
