@@ -13,6 +13,8 @@ namespace UI.Settings
 
         public bool MoneySignState;
         public bool AdsSignState;
+
+        public int MoneyValue;
     }
 
     public sealed class TextButtonSettings : ButtonSettings

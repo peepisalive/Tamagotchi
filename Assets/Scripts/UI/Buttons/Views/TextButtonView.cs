@@ -3,7 +3,7 @@ using TMPro;
 
 namespace UI.View
 {
-    public sealed class TextButtonView : MonoBehaviour
+    public sealed class TextButtonView : ButtonView
     {
         [SerializeField] private TMP_Text _titleLabel;
 

@@ -1,15 +1,15 @@
 using UnityEngine;
+using TMPro;
 
 namespace UI.View
 {
     public class ButtonView : MonoBehaviour
     {
-        [Header("Base")]
-        [SerializeField] private GameObject _adsSignParent;
+        [SerializeField] private TMP_Text _priceLabel;
 
-        public void SetAdsSignState(bool state)
+        public void SetPrice(string text)
         {
-            _adsSignParent.SetActive(state);
+            _priceLabel.text = text;
         }
     }
 }

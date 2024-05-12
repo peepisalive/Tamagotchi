@@ -49,7 +49,8 @@ namespace Systems.Activities
 
                                 EndActivity(true, false);
                             },
-                            MoneySignState = true
+                            MoneySignState = true,
+                            MoneyValue = Settings.Price
                         }
                     },
                     UseIcon = true

@@ -74,8 +74,13 @@ namespace UI
             _colorChangeButton.SetState(_selectedAccessory.Model != null);
             _confirmButton.SetState(_currentAccessoryIndex != index);
 
+            var moneyAccessoryIsLocked = _selectedAccessory.AccessType == AccessType.Money && !_selectedAccessory.IsUnlocked;
+
             _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads && !_selectedAccessory.IsUnlocked);
-            _confirmButton.SetMoneySignState(_selectedAccessory.AccessType == AccessType.Money && !_selectedAccessory.IsUnlocked);
+            _confirmButton.SetMoneySignState(moneyAccessoryIsLocked);
+
+            if (moneyAccessoryIsLocked)
+                _confirmButton.SetMoneyPrice(_selectedAccessory.Value);
 
             Debug.Log($"Current index: {index}");
         }

@@ -13,12 +13,16 @@ namespace UI.Controller
         public void Setup(TextButtonSettings settings)
         {
             base.Setup(settings);
-            SetText(settings.Title);
+
+            if (settings.MoneySignState)
+                SetMoneyPrice(settings.MoneyValue);
+
+            _view.SetText(settings.Title);
         }
 
-        public void SetText(string text)
+        public void SetMoneyPrice(int value)
         {
-            _view.SetText(text);
+            _view.SetPrice((-value).ToString());
         }
     }
 }

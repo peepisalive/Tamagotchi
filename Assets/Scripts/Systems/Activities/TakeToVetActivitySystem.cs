@@ -18,6 +18,8 @@ namespace Systems.Activities
 
         protected override void StartActivity(bool isEnable)
         {
+            var halfPrice = Settings.Price / 2;
+
             World.NewEntity().Replace(new ShowPopup
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
@@ -32,13 +34,14 @@ namespace Systems.Activities
                             Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
-                                if (!_bankAccountFilter.TrySpendMoney(Settings.Price / 2))
+                                if (!_bankAccountFilter.TrySpendMoney(halfPrice))
                                     return;
 
                                 _isFullExamination = false;
                                 EndActivity(true, false);
                             },
-                            MoneySignState = true
+                            MoneySignState = true,
+                            MoneyValue = halfPrice
                         },
                         new TextButtonSettings
                         {
@@ -51,7 +54,8 @@ namespace Systems.Activities
                                 _isFullExamination = true;
                                 EndActivity(true, false);
                             },
-                            MoneySignState = true
+                            MoneySignState = true,
+                            MoneyValue = Settings.Price
                         }
                     },
                     UseIcon = true
