@@ -9,6 +9,9 @@ namespace Core
 
         public void SetColor(Color color)
         {
+            if (color == Color.clear)
+                return;
+
             var material = Type != AccessoryType.Crown
                 ? _meshRenderer.materials[0]
                 : _meshRenderer.materials[1];

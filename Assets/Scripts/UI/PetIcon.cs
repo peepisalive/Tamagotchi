@@ -17,6 +17,8 @@ namespace UI
         private PetCamera _petCamera;
         private Pet _pet;
 
+        private static float _currentOffsetX = 100f;
+
         private void Setup()
         {
             _petContainer = GameObject.FindGameObjectWithTag("PetContainer").transform;
@@ -49,6 +51,9 @@ namespace UI
             var petAppearancePrefab = settings.GetAppearance(_pet.Type);
 
             _petAppearance = Instantiate(petAppearancePrefab, _petContainer);
+            _currentOffsetX = -_currentOffsetX;
+
+            _petAppearance.transform.localPosition = new Vector3(_currentOffsetX, 0f, 0f);
 
             if (_pet.Accessories.Any(a => a.Type != AccessoryType.None && a.IsCurrent))
             {
