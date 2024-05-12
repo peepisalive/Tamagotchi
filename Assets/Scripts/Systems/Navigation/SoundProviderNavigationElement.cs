@@ -12,7 +12,7 @@ namespace Systems.Navigation
     {
         public HashSet<NavigationElementType> Types => new HashSet<NavigationElementType>
         {
-            NavigationElementType.SoundProvider,
+            NavigationElementType.SoundProvider
         };
 
         private EcsFilter<BlockComponent> _blockFilter;
