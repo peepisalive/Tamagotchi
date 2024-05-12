@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NavigationElements512
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 48
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 48
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: e019e36269f126643ab404d8eb0def37, type: 3}
+    - {fileID: 2800000, guid: 0a778f69b2f65bd4a8c236556e006d95, type: 3}
+    - {fileID: 2800000, guid: f440dfe553bf1ab45beb6b0bd922913c, type: 3}
+    - {fileID: 2800000, guid: 1e3142fe904b0f54e92d9ac6431340ae, type: 3}
+    - {fileID: 2800000, guid: f9ec7e8c3e710e742915844affaf905f, type: 3}
+    - {fileID: 2800000, guid: 588980ea73f5393479711b9b6cf75dac, type: 3}
+    - {fileID: 2800000, guid: b1a06057bc41efc499528f6b2f9aee9c, type: 3}
+    - {fileID: 2800000, guid: f23f1e18e1faab44e99aa1e86fddd0a4, type: 3}
+    - {fileID: 2800000, guid: 2fb984c9874b2384595d589ed52fd30d, type: 3}
+    - {fileID: 2800000, guid: 49c9b7f59145b8e4abb259e5400d46c6, type: 3}
+    - {fileID: 2800000, guid: 0142524e10718064da4a40489f1c9fa7, type: 3}
+    - {fileID: 2800000, guid: 105daa89948824b4696cb3a8ac0b5d7b, type: 3}
+    - {fileID: 2800000, guid: 67d4616504cad374fba15740b3fa351d, type: 3}
+    - {fileID: 2800000, guid: 47c4a18d6dc886b41960adeeeb5f32a4, type: 3}
+    - {fileID: 2800000, guid: 6f29872b1a76ff747bc1525ecf48c98d, type: 3}
+    - {fileID: 2800000, guid: 9c7207e7e72b3134582ac02504f99fbd, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e019e36269f126643ab404d8eb0def37, type: 3}
+  - {fileID: 21300000, guid: 67d4616504cad374fba15740b3fa351d, type: 3}
+  - {fileID: 21300000, guid: f440dfe553bf1ab45beb6b0bd922913c, type: 3}
+  - {fileID: 21300000, guid: 49c9b7f59145b8e4abb259e5400d46c6, type: 3}
+  - {fileID: 21300000, guid: b1a06057bc41efc499528f6b2f9aee9c, type: 3}
+  - {fileID: 21300000, guid: 9c7207e7e72b3134582ac02504f99fbd, type: 3}
+  - {fileID: 21300000, guid: f23f1e18e1faab44e99aa1e86fddd0a4, type: 3}
+  - {fileID: 21300000, guid: 0a778f69b2f65bd4a8c236556e006d95, type: 3}
+  - {fileID: 21300000, guid: 105daa89948824b4696cb3a8ac0b5d7b, type: 3}
+  - {fileID: 21300000, guid: 2fb984c9874b2384595d589ed52fd30d, type: 3}
+  - {fileID: 21300000, guid: 588980ea73f5393479711b9b6cf75dac, type: 3}
+  - {fileID: 21300000, guid: 6f29872b1a76ff747bc1525ecf48c98d, type: 3}
+  - {fileID: 21300000, guid: f9ec7e8c3e710e742915844affaf905f, type: 3}
+  - {fileID: 21300000, guid: 47c4a18d6dc886b41960adeeeb5f32a4, type: 3}
+  - {fileID: 21300000, guid: 0142524e10718064da4a40489f1c9fa7, type: 3}
+  - {fileID: 21300000, guid: 1e3142fe904b0f54e92d9ac6431340ae, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - accessories_icon
+  - visit_a_cosmetologist_icon
+  - cook_icon
+  - take_to_vet_icon
+  - play_icon
+  - yoga_icon
+  - spa_treatments_icon
+  - clean_the_room_icon
+  - ventilate_the_room_icon
+  - stretching_icon
+  - feed_icon
+  - wash_icon
+  - exercise_icon
+  - walk_icon
+  - training_activities_icon
+  - drink_icon
+  m_RenderDataMap: {}
+  m_Tag: NavigationElements512
+  m_IsVariant: 0
