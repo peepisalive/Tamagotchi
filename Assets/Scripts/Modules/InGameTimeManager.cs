@@ -11,7 +11,9 @@ namespace Modules
     {
         public event Action<int> OnCountFullTimeJobTimeEvent;
 
-        [field: SerializeField] public float PlayTimeSeconds { get; private set; }
+        [field: SerializeField] public float TotalPlayTimeSeconds { get; private set; }
+        [field: SerializeField] public float LastSessionPlayTimeSeconds { get; private set; }
+
         [field: SerializeField] public int FullTimeJobRemainingSeconds { get; private set; }
 
         public void LoadState()
@@ -21,7 +23,7 @@ namespace Modules
             if (stateHolder == null)
                 return;
 
-            PlayTimeSeconds = stateHolder.State.PlayTimeSeconds;
+            TotalPlayTimeSeconds = stateHolder.State.TotalPlayTimeSeconds;
         }
 
         public void StartRecoveryCoroutine(float seconds, Action recoveryCallback)
@@ -59,17 +61,18 @@ namespace Modules
 
         private void Update()
         {
-            PlayTimeSeconds += Time.deltaTime;
-        }
-
-        private void Awake()
-        {
-            Instance = this;
+            TotalPlayTimeSeconds += Time.deltaTime;
+            LastSessionPlayTimeSeconds += Time.deltaTime;
         }
 
         private void Start()
         {
             LoadState();
+        }
+
+        private void Awake()
+        {
+            Instance = this;
         }
 
         private void OnDestroy()
