@@ -14,7 +14,7 @@ namespace Core
         private float _x;
         private float _y;
 
-        private const float SENSITIVITY = 0.25f;
+        private const float SENSITIVITY = 1.5f;
         private const float Z_OFFSET = 10f;
         private const float LIMIT = 80f;
 
