@@ -1,11 +1,14 @@
 using UnityEngine;
+using Modules;
+using Events;
 
 namespace Core
 {
     public sealed class PetCamera : MonoBehaviour
     {
         [field: SerializeField] public Camera Camera { get; private set; }
-        
+        public bool RotateState { get; private set; } = true;
+
         private Transform _target;
         private Vector3 _offset;
         private float _x;
@@ -25,9 +28,14 @@ namespace Core
             transform.position = _target.position + _offset;
         }
 
+        private void SetState(PetCameraRotateStateEvent e)
+        {
+            RotateState = e.State;
+        }
+
         private void Update()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && RotateState)
             {
                 if (_target == null)
                     return;
@@ -39,6 +47,16 @@ namespace Core
                 transform.localEulerAngles = new Vector3(-_y, _x, 0);
                 transform.position = transform.localRotation * _offset + _target.position;
             }
+        }
+
+        private void Start()
+        {
+            EventSystem.Subscribe<PetCameraRotateStateEvent>(SetState);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<PetCameraRotateStateEvent>(SetState);
         }
     }
 }
