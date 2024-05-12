@@ -32,7 +32,9 @@ namespace Systems.Creation
 
             foreach (var parameterType in Enum.GetValues(typeof(ParameterType)).OfType<ParameterType>())
             {
-                parameters.Add(parameterType, new Parameter(valueRange.Max, valueRange));
+                parameters.Add(parameterType, new Parameter(parameterType != ParameterType.Fatigue
+                    ? valueRange.Max
+                    : valueRange.Min, valueRange));
             }
 
             var pet = new Pet("Frog", PetType.Frog, parameters, Guid.NewGuid().ToString());
