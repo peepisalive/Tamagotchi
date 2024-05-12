@@ -33,7 +33,12 @@ namespace Systems.Modules.Navigation
 
             foreach (var i in _navigationPointClickFilter)
             {
-                GlobalStateHolder.State.NavigationTracks.Add(_navigationPointClickFilter.Get1(i).NavigationPoint.Type);
+                var type = _navigationPointClickFilter.Get1(i).NavigationPoint.Type;
+
+                if (GlobalStateHolder.State.NavigationTracks.Contains(type))
+                    break;
+
+                GlobalStateHolder.State.NavigationTracks.Add(type);
             }
         }
 

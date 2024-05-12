@@ -22,7 +22,7 @@ namespace UI.Popups
         [SerializeField] private RectTransform _someButtonParent;
         [SerializeField] private RectTransform _oneButtonParent;
 
-        private readonly float _durationTween = 0.25f;
+        private readonly float _durationTween = 0.2f;
 
         public virtual void Setup(T settings)
         {

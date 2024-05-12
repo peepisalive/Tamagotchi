@@ -65,14 +65,10 @@ namespace Modules
             LastSessionPlayTimeSeconds += Time.deltaTime;
         }
 
-        private void Start()
-        {
-            LoadState();
-        }
-
         private void Awake()
         {
             Instance = this;
+            LoadState();
         }
 
         private void OnDestroy()

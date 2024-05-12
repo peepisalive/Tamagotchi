@@ -22,14 +22,17 @@ namespace Save.State
         public float TotalPlayTimeSeconds;
         public float LastSessionPlayTimeSeconds;
 
-        public HashSet<NavigationElementType> NavigationTracks = new HashSet<NavigationElementType>();
+        public List<NavigationElementType> NavigationTracks = new List<NavigationElementType>();
 
         public DateTime LastLaunchDate;
         public DateTime LastExitDate;
 
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All,
+            });
         }
 
         public async Task<string> ToStringAsync(CancellationToken ct)

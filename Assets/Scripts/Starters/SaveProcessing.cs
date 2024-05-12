@@ -31,7 +31,6 @@ namespace Starter
             }
         }
 
-#if UNITY_EDITOR
         private void OnApplicationFocus(bool focus)
         {
             Systems?.Run();
@@ -44,6 +43,15 @@ namespace Starter
                 });
             }
         }
-#endif
+
+        private void OnApplicationQuit()
+        {
+            Systems?.Run();
+
+            Application.Model.Send(new SaveDataEvent
+            {
+                IsAsync = false
+            });
+        }
     }
 }

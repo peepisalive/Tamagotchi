@@ -40,10 +40,9 @@ namespace Modules
             State = stateHolder.State.HapticState;
         }
 
-        private void Start()
+        private void Awake()
         {
             Instance = this;
-
             LoadState();
         }
     }

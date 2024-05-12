@@ -10,7 +10,7 @@ namespace UI.Controller.Screen
         [Header("Base")]
         [SerializeField] private NavigationPanelController _navigationPanel;
 
-        private const float ANIMATION_DURATION = .2f;
+        private const float ANIMATION_DURATION = .15f;
 
         public virtual void Setup()
         {
