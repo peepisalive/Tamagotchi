@@ -4,6 +4,7 @@ using System.Linq;
 using Components;
 using Save.State;
 using Modules;
+using System;
 using Save;
 
 namespace Systems
@@ -120,11 +121,11 @@ namespace Systems
 
             SaveBankAccountData();
             SavePlayTimeData();
-
+            SaveExitDate();
 
             void SavePlayTimeData()
             {
-                stateHolder.State.PlayTimeSeconds = InGameTimeManager.Instance.PlayTimeSeconds;
+                stateHolder.State.TotalPlayTimeSeconds = InGameTimeManager.Instance.TotalPlayTimeSeconds;
             }
             void SaveBankAccountData()
             {
@@ -132,6 +133,14 @@ namespace Systems
                 {
                     stateHolder.State.BankAccountValue = _bankAccountFilter.Get1(i).BankAccount.Value;
                 }
+            }
+            void SaveExitDate()
+            {
+                var currentDate = DateTime.Now;
+                var lastSessionPlayTimeSeconds = InGameTimeManager.Instance.TotalPlayTimeSeconds;
+
+                stateHolder.State.LastExitDate = currentDate;
+                stateHolder.State.LastLaunchDate = currentDate - TimeSpan.FromSeconds(lastSessionPlayTimeSeconds);
             }
         }
     }

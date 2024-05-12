@@ -9,7 +9,10 @@ namespace Settings
     [CreateAssetMenu(fileName = "ParametersSettings", menuName = "Settings/ParametersSettings", order = 1)]
     public sealed class ParametersSettings : ScriptableObject
     {
-        [field: SerializeField] public List<ParameterRange> ParameterDecRanges;
+        [field: SerializeField] public List<ParameterRange> ParameterDecRanges { get; private set; }
+        [field: SerializeField][field: Range(30f, 60f)] public float ChangeTimeInSeconds { get; private set; }
+
+        [Space(10)]
         [SerializeField] private List<ParameterIcon> _icons;
 
         public Sprite GetIcon(ParameterType type)

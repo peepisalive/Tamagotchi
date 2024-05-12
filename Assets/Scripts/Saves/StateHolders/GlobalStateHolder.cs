@@ -18,9 +18,14 @@ namespace Save.State
     public sealed class GlobalState : IState
     {
         public int BankAccountValue;
-        public float PlayTimeSeconds;
+
+        public float TotalPlayTimeSeconds;
+        public float LastSessionPlayTimeSeconds;
 
         public HashSet<NavigationElementType> NavigationTracks = new HashSet<NavigationElementType>();
+
+        public DateTime LastLaunchDate;
+        public DateTime LastExitDate;
 
         public override string ToString()
         {

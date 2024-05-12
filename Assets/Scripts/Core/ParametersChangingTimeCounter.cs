@@ -14,7 +14,7 @@ namespace Core
         {
             while (true)
             {
-                yield return new WaitForSecondsRealtime(30f);
+                yield return new WaitForSecondsRealtime(_settings.ChangeTimeInSeconds);
 
                 _settings.ParameterDecRanges.ForEach(parameter =>
                 {

@@ -12,27 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d40412d623c904991dc9c7409270af, type: 3}
   m_Name: ParametersSettings
   m_EditorClassIdentifier: 
-  ParameterDecRanges:
+  <ParameterDecRanges>k__BackingField:
   - <Type>k__BackingField: 0
     <Range>k__BackingField:
-      <Min>k__BackingField: -0.01
-      <Max>k__BackingField: -0.05
+      <Min>k__BackingField: -0.003
+      <Max>k__BackingField: -0.002
   - <Type>k__BackingField: 1
     <Range>k__BackingField:
-      <Min>k__BackingField: -0.005
+      <Min>k__BackingField: -0.0015
       <Max>k__BackingField: -0.001
   - <Type>k__BackingField: 2
     <Range>k__BackingField:
-      <Min>k__BackingField: -0.005
+      <Min>k__BackingField: -0.002
       <Max>k__BackingField: -0.001
   - <Type>k__BackingField: 3
     <Range>k__BackingField:
-      <Min>k__BackingField: 0.001
-      <Max>k__BackingField: 0.005
+      <Min>k__BackingField: 0.002
+      <Max>k__BackingField: 0.004
   - <Type>k__BackingField: 4
     <Range>k__BackingField:
-      <Min>k__BackingField: -0.005
-      <Max>k__BackingField: -0.001
+      <Min>k__BackingField: -0.0015
+      <Max>k__BackingField: -0.0005
+  <ChangeTimeInSeconds>k__BackingField: 30
   _icons:
   - <Type>k__BackingField: 0
     <Icon>k__BackingField: {fileID: 21300000, guid: 3cfcfaf18122aa04685fe1430baca3d4,
