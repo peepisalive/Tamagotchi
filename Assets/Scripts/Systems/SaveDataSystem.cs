@@ -126,6 +126,7 @@ namespace Systems
             void SavePlayTimeData()
             {
                 stateHolder.State.TotalPlayTimeSeconds = InGameTimeManager.Instance.TotalPlayTimeSeconds;
+                stateHolder.State.LastSessionPlayTimeSeconds = InGameTimeManager.Instance.LastSessionPlayTimeSeconds;
             }
             void SaveBankAccountData()
             {
