@@ -6,7 +6,7 @@
 
   {
     "tags": [ "main_popup", "content" ],
-    "topic": "Choose your appointment:"
+    "topic": "Choose the type of vet checkup:"
   },
   {
     "tags": [ "result_popup", "content" ],
@@ -15,10 +15,10 @@
 
   {
     "tags": [ "button_content", "left" ],
-    "topic": "Examination and consultation"
+    "topic": "Half"
   },
   {
     "tags": [ "button_content", "right" ],
-    "topic": "Full examination"
+    "topic": "Full"
   }
 ]
