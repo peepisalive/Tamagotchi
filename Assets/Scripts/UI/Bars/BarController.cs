@@ -8,15 +8,15 @@ namespace UI.Controller
     {
         [SerializeField] private BarView _view;
 
-        public void Setup(float value, Sprite icon)
+        public void Setup(float value, Sprite icon, bool invertColor = false)
         {
-            SetValue(value);
+            SetValue(value, invertColor);
             _view.SetIcon(icon);
         }
 
-        protected void SetValue(float value, float previousValue = 0f)
+        protected void SetValue(float value, bool invertColor = false)
         {
-            _view.SetFillValue(value);
+            _view.SetFillValue(value, invertColor);
         }
     }
 }

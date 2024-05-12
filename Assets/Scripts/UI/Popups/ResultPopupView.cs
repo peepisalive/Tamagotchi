@@ -76,7 +76,7 @@ namespace UI.Popups
             settings.ForEach(s =>
             {
                 Instantiate(prefab, _parametersParent)
-                    .Setup(s.Value, parametersSettings.GetIcon(s.Type));
+                    .Setup(s.Value, parametersSettings.GetIcon(s.Type), s.Type == Core.ParameterType.Fatigue);
             });
         }
 

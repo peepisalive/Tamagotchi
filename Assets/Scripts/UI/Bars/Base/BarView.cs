@@ -1,6 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
+using Utils;
 
 namespace UI.View
 {
@@ -9,12 +10,22 @@ namespace UI.View
         [SerializeField] private Image _fillImage;
         [SerializeField] private Image _iconImage;
 
-        private Tween _tween;
+        private Tween _fillImageTween;
+        private Tween _colorImageTween;
 
-        public void SetFillValue(float value)
+        private const float TWEEN_DURATION = 1f;
+
+        public void SetFillValue(float value, bool invertColor = false)
         {
-            _tween.Kill();
-            _tween = _fillImage.DOFillAmount(value, 1f)
+            var duration = Mathf.Approximately(_fillImage.fillAmount, value) ? 0f : TWEEN_DURATION;
+            var color = ScreenUtils.GetBarColor(invertColor ? 1 - value : value);
+
+            _fillImageTween?.Kill();
+            _colorImageTween?.Kill();
+
+            _fillImageTween = _fillImage.DOFillAmount(value, duration)
+                .SetLink(gameObject);
+            _colorImageTween = _fillImage.DOColor(color, duration)
                 .SetLink(gameObject);
         }
 

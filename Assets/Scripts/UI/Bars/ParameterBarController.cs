@@ -19,6 +19,11 @@ namespace UI.Controller
             _parameter.OnValueChanged += SetValue;
         }
 
+        private void SetValue(float value, float previousValue)
+        {
+            SetValue(_parameter.Value, Type == ParameterType.Fatigue);
+        }
+
         private void OnDestroy()
         {
             _parameter.OnValueChanged -= SetValue;
