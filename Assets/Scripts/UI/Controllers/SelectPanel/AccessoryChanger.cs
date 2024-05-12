@@ -74,13 +74,7 @@ namespace UI
             _colorChangeButton.SetState(_selectedAccessory.Model != null);
             _confirmButton.SetState(_currentAccessoryIndex != index);
 
-            var moneyAccessoryIsLocked = _selectedAccessory.AccessType == AccessType.Money && !_selectedAccessory.IsUnlocked;
-
-            _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads && !_selectedAccessory.IsUnlocked);
-            _confirmButton.SetMoneySignState(moneyAccessoryIsLocked);
-
-            if (moneyAccessoryIsLocked)
-                _confirmButton.SetMoneyPrice(_selectedAccessory.Value);
+            SetConfirmButtonSignStates();
 
             Debug.Log($"Current index: {index}");
         }
@@ -122,6 +116,8 @@ namespace UI
                 EventSystem.Send(new PetCameraRotateStateEvent(true));
                 _colorPicker.OnColorChangeEvent -= OnItemColorChanged;
 
+                SetConfirmButtonSignStates();
+
                 _colorPicker.SetState(false);
                 _selectPanel.SetState(true);
 
@@ -135,6 +131,9 @@ namespace UI
                 return;
 
             _selectPanel.SetState(false);
+
+            _confirmButton.SetMoneySignState(false);
+            _confirmButton.SetAdsSignState(false);
 
             _confirmButton.SetState(true);
             _colorPicker.SetState(true);
@@ -159,6 +158,17 @@ namespace UI
 
             _confirmButton.SetState(false);
             _confirmButton.SetAdsSignState(false);
+        }
+
+        private void SetConfirmButtonSignStates()
+        {
+            var moneyAccessoryIsLocked = _selectedAccessory.AccessType == AccessType.Money && !_selectedAccessory.IsUnlocked;
+
+            if (moneyAccessoryIsLocked)
+                _confirmButton.SetMoneyPrice(_selectedAccessory.Value);
+
+            _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads && !_selectedAccessory.IsUnlocked);
+            _confirmButton.SetMoneySignState(moneyAccessoryIsLocked);
         }
 
         private void Start()
