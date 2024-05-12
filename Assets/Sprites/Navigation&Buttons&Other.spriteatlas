@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Navigation&Buttons&Other
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 48
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 48
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 43ceb07ff9264de4d814f080705a4705, type: 3}
+    - {fileID: 2800000, guid: b54a9779f6d333c4baa1db5588753ac5, type: 3}
+    - {fileID: 2800000, guid: 3fc693d9434033c4c8e84a0e6132ef21, type: 3}
+    - {fileID: 2800000, guid: 8316654bd784465459291c2e5793630a, type: 3}
+    - {fileID: 2800000, guid: ad9d3e5bbb985f642ac8b96073f2e579, type: 3}
+    - {fileID: 2800000, guid: c24d62cafb5919946b1e8c376ee6db10, type: 3}
+    - {fileID: 2800000, guid: 40e0f9237e738a4438aab1c7b6b4768a, type: 3}
+    - {fileID: 2800000, guid: 7be23506dd191e7418b116a12120bc7f, type: 3}
+    - {fileID: 2800000, guid: fe6a8e018a470994989509550e46bc50, type: 3}
+    - {fileID: 2800000, guid: c603f8f658d651f43a992b1b7c26f3ae, type: 3}
+    - {fileID: 2800000, guid: e7d45bb71964a1e479a3d3b981194828, type: 3}
+    - {fileID: 2800000, guid: 7e4c3ac41c737894c8b641c3908d23c5, type: 3}
+    - {fileID: 2800000, guid: 7e9378929f4299344a7bd1b5b1d92a47, type: 3}
+    - {fileID: 2800000, guid: bed5ac47370fe544186dcdbb5245d486, type: 3}
+    - {fileID: 2800000, guid: b90deb4bb6beeb341af014abf3242353, type: 3}
+    - {fileID: 2800000, guid: 705088df95a85934bb259edddb94a7b6, type: 3}
+    - {fileID: 2800000, guid: 4be691c54bc7796459c1d29967c34980, type: 3}
+    - {fileID: 2800000, guid: 0292de6b4b2f8014698d994c4e59c6f1, type: 3}
+    - {fileID: 2800000, guid: e52b92dc23e3113439e60ca26645b04f, type: 3}
+    - {fileID: 2800000, guid: 8efcd736c037204429548fba1fc24643, type: 3}
+    - {fileID: 2800000, guid: 0409b7978e9de484596967fa0478f4ad, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: fe6a8e018a470994989509550e46bc50, type: 3}
+  - {fileID: 21300000, guid: 7e9378929f4299344a7bd1b5b1d92a47, type: 3}
+  - {fileID: 21300000, guid: 40e0f9237e738a4438aab1c7b6b4768a, type: 3}
+  - {fileID: 21300000, guid: 7e4c3ac41c737894c8b641c3908d23c5, type: 3}
+  - {fileID: 21300000, guid: 4be691c54bc7796459c1d29967c34980, type: 3}
+  - {fileID: 21300000, guid: 7be23506dd191e7418b116a12120bc7f, type: 3}
+  - {fileID: 21300000, guid: 8efcd736c037204429548fba1fc24643, type: 3}
+  - {fileID: 21300000, guid: c603f8f658d651f43a992b1b7c26f3ae, type: 3}
+  - {fileID: 21300000, guid: bed5ac47370fe544186dcdbb5245d486, type: 3}
+  - {fileID: 21300000, guid: 0409b7978e9de484596967fa0478f4ad, type: 3}
+  - {fileID: 21300000, guid: e7d45bb71964a1e479a3d3b981194828, type: 3}
+  - {fileID: 21300000, guid: b54a9779f6d333c4baa1db5588753ac5, type: 3}
+  - {fileID: 21300000, guid: 3fc693d9434033c4c8e84a0e6132ef21, type: 3}
+  - {fileID: 21300000, guid: c24d62cafb5919946b1e8c376ee6db10, type: 3}
+  - {fileID: 21300000, guid: 8316654bd784465459291c2e5793630a, type: 3}
+  - {fileID: 21300000, guid: b90deb4bb6beeb341af014abf3242353, type: 3}
+  - {fileID: 21300000, guid: ad9d3e5bbb985f642ac8b96073f2e579, type: 3}
+  - {fileID: 21300000, guid: 0292de6b4b2f8014698d994c4e59c6f1, type: 3}
+  - {fileID: 21300000, guid: e52b92dc23e3113439e60ca26645b04f, type: 3}
+  - {fileID: 21300000, guid: 43ceb07ff9264de4d814f080705a4705, type: 3}
+  - {fileID: 21300000, guid: 705088df95a85934bb259edddb94a7b6, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Circle
+  - notify_icon
+  - filled_frame
+  - button_pressed
+  - icon_loading
+  - frame
+  - picker_handle
+  - button
+  - icon_ads_sign
+  - slider_handle
+  - button_gray
+  - home_icon
+  - main_screen_burger
+  - navigation_button_lock
+  - navigation_button_arrow
+  - money_icon
+  - navigation_button_dots
+  - popup_header
+  - slider_handle
+  - back_icon
+  - icon_colors
+  m_RenderDataMap: {}
+  m_Tag: Navigation&Buttons&Other
+  m_IsVariant: 0
