@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI.View
 {
-    public sealed class ImageButtonView : MonoBehaviour
+    public sealed class ImageButtonView : ButtonView
     {
         [SerializeField] private Image _image;
     

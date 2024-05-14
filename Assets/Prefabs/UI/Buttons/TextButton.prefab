@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 5444560134582054168}
   - component: {fileID: 8631541888159749932}
   m_Layer: 0
-  m_Name: Price
+  m_Name: PriceLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UI.Settings;
 using UI.View;
+using Utils;
 
 namespace UI.Controller
 {
@@ -22,7 +23,7 @@ namespace UI.Controller
 
         public void SetMoneyPrice(int value)
         {
-            _view.SetPrice((-value).ToString());
+            _view.SetPrice((-value).ToMoneyString());
         }
     }
 }
