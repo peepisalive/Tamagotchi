@@ -18,6 +18,7 @@ namespace Settings
         [field: SerializeField] public NavigationButtonController NavigationButton { get; private set; }
 
         [field: Header("Info elements")]
+        [field: SerializeField] public InfoFieldController InfoField { get; private set; }
         [field: SerializeField] public DropdownController Dropdown { get; private set; }
         [field: SerializeField] public BarController InfoBar { get; private set; }
 

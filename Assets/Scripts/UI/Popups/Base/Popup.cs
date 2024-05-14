@@ -21,6 +21,7 @@ namespace UI.Popups
 
     public sealed class DefaultPopup : Popup
     {
+        public List<InfoFieldSettings> InfoFieldSettings;
         public List<DropdownSettings> DropdownSettings;
     }
 

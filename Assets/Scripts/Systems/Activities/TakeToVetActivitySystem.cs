@@ -27,6 +27,14 @@ namespace Systems.Activities
                     Title = Settings.Localization.Title,
                     Icon = Icon,
                     Content = Settings.Localization.MainContent,
+                    InfoFieldSettings = new List<InfoFieldSettings>
+                    {
+                        new InfoFieldSettings
+                        {
+                            Title = Settings.Price.ToMoneyString(),
+                            IconState = true
+                        }
+                    },
                     ButtonSettings = new List<TextButtonSettings>
                     {
                         new TextButtonSettings
@@ -39,9 +47,7 @@ namespace Systems.Activities
 
                                 _isFullExamination = false;
                                 EndActivity(true, false);
-                            },
-                            MoneySignState = true,
-                            MoneyValue = halfPrice
+                            }
                         },
                         new TextButtonSettings
                         {
@@ -53,9 +59,7 @@ namespace Systems.Activities
 
                                 _isFullExamination = true;
                                 EndActivity(true, false);
-                            },
-                            MoneySignState = true,
-                            MoneyValue = Settings.Price
+                            }
                         }
                     },
                     UseIcon = true

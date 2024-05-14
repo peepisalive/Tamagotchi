@@ -6,6 +6,11 @@ namespace Utils
 {
     public static class CurrencyUtils
     {
+        public static string ToMoneyString(this int value)
+        {
+            return value.ToString() + "$";
+        }
+
         public static bool TrySpendMoney(int value)
         {
             var bankAccount = Application.Model.GetBankAccount();

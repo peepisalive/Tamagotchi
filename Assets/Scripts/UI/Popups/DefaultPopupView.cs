@@ -30,10 +30,13 @@ namespace UI.Popups
         {
             base.Setup(settings);
 
+            var prefabSet = SettingsProvider.Get<PrefabsSet>();
+
             SetIcons(settings);
             SetTitle(settings.Title);
             SetContent(settings.Content);
-            SetDropdown(settings.DropdownSettings);
+            SetDropdowns(settings.DropdownSettings, prefabSet.Dropdown);
+            SetInfoFields(settings.InfoFieldSettings, prefabSet.InfoField);
         }
 
         public override void Show()
@@ -62,24 +65,35 @@ namespace UI.Popups
             _content.text = text;
         }
 
-        private void SetDropdown(List<DropdownSettings> dropdownsSettings)
+        private void SetDropdowns(List<DropdownSettings> dropdownsSettings, DropdownController prefab)
         {
             if (dropdownsSettings == null || !dropdownsSettings.Any())
                 return;
 
             Dropdowns = new List<DropdownController>();
 
-            var prefabSet = SettingsProvider.Get<PrefabsSet>();
-            var dropdownPrefab = prefabSet.Dropdown;
-
             _infoParent.gameObject.SetActive(true);
 
             dropdownsSettings.ForEach(settings =>
             {
-                var dropdown = Instantiate(dropdownPrefab, _infoParent);
+                var dropdown = Instantiate(prefab, _infoParent);
 
                 dropdown.Setup(settings);
                 Dropdowns.Add(dropdown);
+            });
+        }
+
+        private void SetInfoFields(List<InfoFieldSettings> infoFieldSettings, InfoFieldController prefab)
+        {
+            if (infoFieldSettings == null || !infoFieldSettings.Any())
+                return;
+
+            _infoParent.gameObject.SetActive(true);
+
+            infoFieldSettings.ForEach(settings =>
+            {
+                Instantiate(prefab, _infoParent)
+                    .Setup(settings);
             });
         }
 

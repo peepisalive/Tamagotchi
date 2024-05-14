@@ -1,4 +1,5 @@
 using Core;
+using UnityEngine;
 
 namespace UI.Settings
 {
@@ -6,5 +7,13 @@ namespace UI.Settings
     {
         public ParameterType Type;
         public float Value;
+    }
+
+    public sealed class InfoFieldSettings
+    {
+        public string Title;
+        public bool IconState;
+
+        public Sprite Icon;
     }
 }

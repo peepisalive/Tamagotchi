@@ -25,6 +25,14 @@ namespace Systems.Activities
                     Title = Settings.Localization.Title,
                     Icon = Icon,
                     Content = Settings.Localization.MainContent,
+                    InfoFieldSettings = new List<InfoFieldSettings>
+                    {
+                        new InfoFieldSettings
+                        {
+                            Title = Settings.Price.ToMoneyString(),
+                            IconState = true
+                        }
+                    },
                     DropdownSettings = GetDropdownSettings<SpaTreatmentsType>(),
                     ButtonSettings = new List<TextButtonSettings>
                     {
@@ -48,9 +56,7 @@ namespace Systems.Activities
                                 _selectedSpaTreatmentsType = defaultPopup.Dropdowns[0].GetCurrentValue<SpaTreatmentsType>();
 
                                 EndActivity(true, false);
-                            },
-                            MoneySignState = true,
-                            MoneyValue = Settings.Price
+                            }
                         }
                     },
                     UseIcon = true
