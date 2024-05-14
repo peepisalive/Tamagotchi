@@ -65,7 +65,7 @@ namespace UI.Controller
             _hueTexture.Apply();
             _view.SetHueTexture(_hueTexture);
 
-            _currentHue = 0f;
+            _currentHue = _slider.value;
         }
 
         private void InitializeSVTexture()
