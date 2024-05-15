@@ -47,7 +47,7 @@ namespace Systems.Activities
         }
 
 
-        public enum FoodType
+        public enum FoodType : sbyte
         {
             Fried = 0,
             Boiled = 1,

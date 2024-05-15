@@ -1,6 +1,6 @@
 namespace Core
 {
-    public enum AccessoryType
+    public enum AccessoryType : sbyte
     {
         None = 0,
         CowboyHat = 1,

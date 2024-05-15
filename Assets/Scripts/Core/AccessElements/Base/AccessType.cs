@@ -1,6 +1,6 @@
 namespace Core
 {
-    public enum AccessType
+    public enum AccessType : sbyte
     {
         Free = 0,
         Ads = 1,

@@ -80,7 +80,7 @@ namespace Systems.Activities
         }
 
 
-        private enum WashType
+        private enum WashType : sbyte
         {
             Muzzle = 0,
             Body = 1,

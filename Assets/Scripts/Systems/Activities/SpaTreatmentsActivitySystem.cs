@@ -94,7 +94,7 @@ namespace Systems.Activities
         }
 
 
-        public enum SpaTreatmentsType
+        public enum SpaTreatmentsType : sbyte
         {
             Massage = 0,
             Wrapping = 1,

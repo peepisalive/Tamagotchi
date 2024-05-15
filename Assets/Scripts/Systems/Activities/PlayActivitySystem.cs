@@ -81,7 +81,7 @@ namespace Systems.Activities
         }
 
 
-        private enum PlayType
+        private enum PlayType : sbyte
         {
             WithABall = 0,
             WithAToy = 1,
