@@ -24,7 +24,7 @@ namespace Core
                 return;
 
             _target = target;
-            _offset = new Vector3(0f, 0f, -Z_OFFSET);
+            _offset = new Vector3(0f, 3f, -Z_OFFSET);
             transform.position = _target.position + _offset;
         }
 

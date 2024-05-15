@@ -37,7 +37,7 @@ namespace Systems.Creation
                     : valueRange.Min, valueRange));
             }
 
-            var pet = new Pet("Frog", PetType.Frog, parameters, Guid.NewGuid().ToString());
+            var pet = new Pet("Goose", PetType.Goose, parameters, Guid.NewGuid().ToString());
             var accessoriesSettings = SettingsProvider.Get<AccessoriesSettings>();
 
             accessoriesSettings.Accessories.ForEach(accessorySettings =>

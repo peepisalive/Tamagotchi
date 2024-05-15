@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PetAppearanceSettings
   m_EditorClassIdentifier: 
   _appearances:
-  - {fileID: 119106786, guid: f2d37b34e3e70a545afb6ca990777dd6, type: 3}
+  - {fileID: -5175454837714429835, guid: d027fe0bb8d5dd6448124f62cb0c412c, type: 3}
