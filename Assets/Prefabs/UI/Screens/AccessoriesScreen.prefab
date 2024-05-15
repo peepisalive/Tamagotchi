@@ -444,35 +444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2252300334999323952}
     m_Modifications:
-    - target: {fileID: 1281387355094252410, guid: ee5a7a473b0167848ae4247bd1aa703f,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281387355094252410, guid: ee5a7a473b0167848ae4247bd1aa703f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281387355094252410, guid: ee5a7a473b0167848ae4247bd1aa703f,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1313223112745843952, guid: ee5a7a473b0167848ae4247bd1aa703f,
         type: 3}
       propertyPath: m_Name
       value: ColorPickerController
-      objectReference: {fileID: 0}
-    - target: {fileID: 1313223112745843952, guid: ee5a7a473b0167848ae4247bd1aa703f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187209436207020372, guid: ee5a7a473b0167848ae4247bd1aa703f,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 2329884146442392518, guid: ee5a7a473b0167848ae4247bd1aa703f,
         type: 3}
@@ -579,16 +554,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4662839261923062902, guid: ee5a7a473b0167848ae4247bd1aa703f,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4662839261923062902, guid: ee5a7a473b0167848ae4247bd1aa703f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee5a7a473b0167848ae4247bd1aa703f, type: 3}
 --- !u!224 &4092928131368470768 stripped
@@ -659,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 949681396144409667, guid: d6bd6f8d88937534bbe593d1c35dafb4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 949681396144409667, guid: d6bd6f8d88937534bbe593d1c35dafb4,
         type: 3}

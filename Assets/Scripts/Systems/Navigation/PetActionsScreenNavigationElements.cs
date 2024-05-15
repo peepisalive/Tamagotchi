@@ -30,14 +30,7 @@ namespace Systems.Navigation
 
         public bool IsEnable(NavigationElementType elementType)
         {
-            var result = true;
-
-            foreach (var i in _jobFilter)
-            {
-                result = _jobFilter.Get1(i).CurrentFullTimeJob == null;
-            }
-
-            return result;
+            return true;
         }
 
         public bool NotificationIsEnable(NavigationElementType elementType)
