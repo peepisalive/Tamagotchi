@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using Core.Animation;
 
 namespace Core
 {
     public sealed class Pet : BaseObject
     {
+        public EyesAnimationType EyesAnimationType { get; private set; }
+        public AnimationType AnimationType { get; private set; }
+
         public List<Accessory> Accessories { get; private set; }
 
         public readonly string Name;
