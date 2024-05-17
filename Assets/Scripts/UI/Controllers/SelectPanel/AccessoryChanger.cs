@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
+using Core.Animation;
 using UI.Controller;
 using System.Linq;
 using UI.Settings;
@@ -146,6 +147,7 @@ namespace UI
         private void UnlockAccessory()
         {
             _selectedAccessory.SetUnlockState(true);
+            EventSystem.Send(new ChangePetEyesAnimationEvent(EyesAnimationType.Happy));
         }
 
         private void SwitchCurrentAccessory()
@@ -192,6 +194,8 @@ namespace UI
         private void OnDestroy()
         {
             _selectPanel.OnValueChangeEvent -= OnSelectItemChanged;
+
+            EventSystem.Send(new ChangePetEyesAnimationEvent(default));
             EventSystem.Unsubscribe<UnlockAccessoryEvent>(HandleUnlockAccessoryEvent);
         }
     }

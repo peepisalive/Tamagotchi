@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core.Animation;
 using UnityEngine;
+using Utils;
 
 namespace Core
 {
@@ -15,7 +16,7 @@ namespace Core
 
         public void SetEyesAnimation(EyesAnimationType currentType, EyesAnimationType futureType)
         {
-            SetAnimationTrigger(currentType.ToString(), futureType.ToString());
+            SetAnimationTrigger(AnimationUtils.GetKey(currentType), AnimationUtils.GetKey(futureType));
         }
 
         public void SetAnimation(AnimationType currentType, AnimationType futureType)

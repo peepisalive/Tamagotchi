@@ -3,15 +3,19 @@ using System.Linq;
 using Save.State;
 using Components;
 using Settings;
+using Modules;
 using System;
 using Core;
 
-namespace Systems.Creation
+namespace Systems
 {
-    public sealed class PetCreationSystem : IEcsInitSystem
+    public sealed class PetSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private EcsWorld _world;
+        private EcsFilter<PetComponent> _petFilter;
         private EcsFilter<SaveDataLoadedComponent> _saveDataFilter;
+        private EcsFilter<ChangePetAnimationEvent> _petAnimationFilter;
+        private EcsFilter<ChangePetEyesAnimationEvent> _petEyesAnimationFilter;
 
         public void Init()
         {
@@ -23,6 +27,44 @@ namespace Systems.Creation
             {
                 LoadPet();
             }
+
+            EventSystem.Subscribe<Events.ChangePetEyesAnimationEvent>(SendComponent);
+            EventSystem.Subscribe<Events.ChangePetAnimationEvent>(SendComponent);
+        }
+
+        public void Run()
+        {
+            if (!_petEyesAnimationFilter.IsEmpty())
+            {
+                foreach (var i in _petEyesAnimationFilter)
+                {
+                    var eyesAnimation = _petEyesAnimationFilter.Get1(i).Type;
+
+                    foreach (var j in _petFilter)
+                    {
+                        _petFilter.Get1(i).Pet.SetEyesAnimation(eyesAnimation);
+                    }
+                }
+            }
+
+            if (!_petAnimationFilter.IsEmpty())
+            {
+                foreach (var i in _petAnimationFilter)
+                {
+                    var animation = _petAnimationFilter.Get1(i).Type;
+
+                    foreach (var j in _petFilter)
+                    {
+                        _petFilter.Get1(i).Pet.SetAnimation(animation);
+                    }
+                }
+            }
+        }
+
+        public void Destroy()
+        {
+            EventSystem.Unsubscribe<Events.ChangePetEyesAnimationEvent>(SendComponent);
+            EventSystem.Unsubscribe<Events.ChangePetAnimationEvent>(SendComponent);
         }
 
         private void CreatePet()
@@ -88,6 +130,16 @@ namespace Systems.Creation
 
                 _world.NewEntity().Replace(new PetComponent(pet));
             }
+        }
+
+        private void SendComponent(Events.ChangePetEyesAnimationEvent e)
+        {
+            _world.NewEntity().Replace(new ChangePetEyesAnimationEvent(e.Type));
+        }
+
+        private void SendComponent(Events.ChangePetAnimationEvent e)
+        {
+            _world.NewEntity().Replace(new ChangePetAnimationEvent(e.Type));
         }
     }
 }

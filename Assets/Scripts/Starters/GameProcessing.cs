@@ -1,5 +1,4 @@
 using Systems.Activities;
-using Systems.Creation;
 using Leopotam.Ecs;
 using Components;
 using Systems;
@@ -15,7 +14,7 @@ namespace Starter
             Systems
                 .Add(new PopupSystem())
                 .Add(new JobSystem())
-                .Add(CreationSystems(world))
+                .Add(new PetSystem())
                 .Add(new ParametersSystem())
                 .Add(new BankAccountSystem())
                 .Add(HappinessActivitiesElements(world))
@@ -29,12 +28,6 @@ namespace Starter
                 .OneFrame<ChangeBankAccountValueEvent>();
 
             Systems.Init();
-        }
-
-        private EcsSystems CreationSystems(EcsWorld world)
-        {
-            return new EcsSystems(world)
-                .Add(new PetCreationSystem());
         }
 
         private EcsSystems HappinessActivitiesElements(EcsWorld world)

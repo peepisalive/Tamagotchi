@@ -4,7 +4,7 @@ namespace Utils
 {
     public static class AnimationUtils
     {
-        public static string ToString(this EyesAnimationType type)
+        public static string GetKey(EyesAnimationType type)
         {
             return $"Eyes{type}";
         }
