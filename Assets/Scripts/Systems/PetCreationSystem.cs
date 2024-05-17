@@ -37,10 +37,8 @@ namespace Systems.Creation
                     : valueRange.Min, valueRange));
             }
 
-            var pet = new Pet("Goose", PetType.Goose, parameters, Guid.NewGuid().ToString());
             var accessoriesSettings = SettingsProvider.Get<AccessoriesSettings>();
-
-            accessoriesSettings.Accessories.ForEach(accessorySettings =>
+            var accessories = accessoriesSettings.Accessories.Select(accessorySettings =>
             {
                 var accessory = new Accessory
                 (
@@ -55,8 +53,9 @@ namespace Systems.Creation
                     accessory.SetCurrentState(true);
                 }
 
-                pet.AddAccessory(accessory);
-            });
+                return accessory;
+            }).ToList();
+            var pet = new Pet("Goose", PetType.Goose, parameters, accessories, Guid.NewGuid().ToString());
 
             _world.NewEntity().Replace(new PetComponent(pet));
         }
@@ -69,9 +68,7 @@ namespace Systems.Creation
             {
                 var saveData = _saveDataFilter.Get1(i);
                 var save = saveData.Get<PetStateHolder>().State;
-                var pet = new Pet(save.Name, save.Type, new Parameters(save.Parameters), save.Id);
-
-                save.Accessories.ForEach(accessorySave =>
+                var accessories = save.Accessories.Select(accessorySave =>
                 {
                     var accessorySettings = accessoriesSettings.GetAccessory(accessorySave.Type);
                     var accessory = new Accessory
@@ -85,8 +82,9 @@ namespace Systems.Creation
                     accessory.SetCurrentState(accessorySave.IsCurrent);
                     accessory.SetColor(accessorySave.Color.GetColor());
 
-                    pet.AddAccessory(accessory);
-                });
+                    return accessory;
+                }).ToList();
+                var pet = new Pet(save.Name, save.Type, new Parameters(save.Parameters), accessories, save.Id);
 
                 _world.NewEntity().Replace(new PetComponent(pet));
             }
