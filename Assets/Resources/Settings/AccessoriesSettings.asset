@@ -37,9 +37,21 @@ MonoBehaviour:
   - <AccessType>k__BackingField: 2
     <Type>k__BackingField: 9
     <Value>k__BackingField: -3000
+  - <AccessType>k__BackingField: 2
+    <Type>k__BackingField: 5
+    <Value>k__BackingField: -4000
+  - <AccessType>k__BackingField: 2
+    <Type>k__BackingField: 6
+    <Value>k__BackingField: -5000
   - <AccessType>k__BackingField: 1
     <Type>k__BackingField: 7
     <Value>k__BackingField: 0
   - <AccessType>k__BackingField: 1
     <Type>k__BackingField: 3
+    <Value>k__BackingField: 0
+  - <AccessType>k__BackingField: 1
+    <Type>k__BackingField: 8
+    <Value>k__BackingField: 0
+  - <AccessType>k__BackingField: 1
+    <Type>k__BackingField: 10
     <Value>k__BackingField: 0

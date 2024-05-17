@@ -42,7 +42,17 @@ ModelImporter:
   - first:
       43: 4300002
     second: PajamaHat
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 03 - Default.002
+    second: {fileID: 2100000, guid: 0a09f0088e9463b42b071f1f4e9fc5da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 03 - Default.003
+    second: {fileID: 2100000, guid: 0a09f0088e9463b42b071f1f4e9fc5da, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
