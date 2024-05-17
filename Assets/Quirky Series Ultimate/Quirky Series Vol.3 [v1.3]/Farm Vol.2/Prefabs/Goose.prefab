@@ -995,7 +995,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8187061647293549364}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.58722484
   m_Height: 2.7881093
   m_Direction: 1
@@ -1024,6 +1024,7 @@ MonoBehaviour:
   - {fileID: 6913903546194275815}
   - {fileID: 3452928211282795619}
   - {fileID: 245820361792805371}
+  _animator: {fileID: 8187061645430875480}
 --- !u!1 &8781720775245625429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,6 +1186,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 53b694acbdbd76a419dadfa0b8e19b68, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb20d7770ba45ff4cae845b3752980a2, type: 3}
+--- !u!95 &8187061645430875480 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: cb20d7770ba45ff4cae845b3752980a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8187061645440258104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8187061645440649912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cb20d7770ba45ff4cae845b3752980a2,

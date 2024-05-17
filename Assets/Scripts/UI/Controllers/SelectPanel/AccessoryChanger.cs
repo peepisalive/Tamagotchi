@@ -34,7 +34,7 @@ namespace UI
         {
             _settings = SettingsProvider.Get<AccessoriesSettings>();
             _pet = Application.Model.GetCurrentPet();
-            _accessoriesAppearances = FindObjectOfType<PetAppearance>().AccessoriesAppearances;
+            _accessoriesAppearances = FindObjectOfType<PetAppearanceController>().AccessoriesAppearances;
 
             var accessories = _pet.Accessories;
 

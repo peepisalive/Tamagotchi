@@ -12,10 +12,10 @@ namespace UI
     {
         [SerializeField] private RawImage _rawImage;
 
-        private PetAppearance _petAppearance;
-        private Transform _petContainer;
+        private PetAppearanceController _petAppearance;
         private PetCamera _petCamera;
         private Pet _pet;
+        private Transform _petContainer;
 
         private static float _currentOffsetX = 100f;
 
@@ -51,8 +51,9 @@ namespace UI
             var petAppearancePrefab = settings.GetAppearance(_pet.Type);
 
             _petAppearance = Instantiate(petAppearancePrefab, _petContainer);
-            _currentOffsetX = -_currentOffsetX;
+            AddListeners();
 
+            _currentOffsetX = -_currentOffsetX;
             _petAppearance.transform.localPosition = new Vector3(_currentOffsetX, 0f, 0f);
 
             if (_pet.Accessories.Any(a => a.Type != AccessoryType.None && a.IsCurrent))
@@ -79,7 +80,25 @@ namespace UI
             }
 
             if (_petAppearance != null)
+            {
+                RemoveListeners();
                 Destroy(_petAppearance.gameObject);
+            }
+        }
+
+        private void AddListeners()
+        {
+            _pet.OnEyesAnimationChangeEvent += _petAppearance.SetEyesAnimation;
+            _pet.OnAnimationChangeEvent += _petAppearance.SetAnimation;
+
+            _petAppearance.SetEyesAnimation(default, _pet.EyesAnimation);
+            _petAppearance.SetAnimation(default, _pet.Animation);
+        }
+
+        private void RemoveListeners()
+        {
+            _pet.OnEyesAnimationChangeEvent -= _petAppearance.SetEyesAnimation;
+            _pet.OnAnimationChangeEvent -= _petAppearance.SetAnimation;
         }
 
         private void Awake()
