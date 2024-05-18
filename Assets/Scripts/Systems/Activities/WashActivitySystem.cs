@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Modules.Navigation;
 using Settings.Activity;
+using Core.Animation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -41,6 +42,7 @@ namespace Systems.Activities
                                 var defaultPopup = (DefaultPopupView)popup;
                                 _selectedWashType = defaultPopup.Dropdowns[0].GetCurrentValue<WashType>();
 
+                                World.NewEntity().Replace(new ChangePetAnimationEvent(AnimationType.Swim));
                                 EndActivity(false, true);
                             }
                         }
@@ -59,7 +61,6 @@ namespace Systems.Activities
                 Settings = new PopupToShow<ResultPopup>(new ResultPopup()
                 {
                     Title = Settings.Localization.Title,
-                    Icon = Icon,
                     Content = string.Format(Settings.Localization.ResultContent, washType.ToLower()),
                     InfoParameterSettings = GetInfoParameterSettings(),
                     ButtonSettings = new List<TextButtonSettings>
@@ -70,6 +71,7 @@ namespace Systems.Activities
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new ChangePetAnimationEvent(default));
                             }
                         }
                     },

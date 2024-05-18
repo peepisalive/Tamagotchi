@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Modules.Navigation;
 using Settings.Activity;
+using Core.Animation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -36,11 +37,41 @@ namespace Systems.Activities
                             Title = Settings.Localization.RightButtonContent,
                             Action = () =>
                             {
-                                EndActivity(true, false);
+                                World.NewEntity().Replace(new ChangePetAnimationEvent(AnimationType.Walk));
+                                World.NewEntity().Replace(new ChangePetEyesAnimationEvent(EyesAnimationType.Happy));
+                                EndActivity(false, true);
                             }
                         }
                     },
                     UseIcon = true
+                })
+            });
+        }
+
+        protected override void EndActivity(bool useIcon, bool usePetIcon)
+        {
+            World.NewEntity().Replace(new ShowPopup
+            {
+                Settings = new PopupToShow<ResultPopup>(new ResultPopup()
+                {
+                    Title = Settings.Localization.Title,
+                    Content = Settings.Localization.ResultContent,
+                    InfoParameterSettings = GetInfoParameterSettings(),
+                    ButtonSettings = new List<TextButtonSettings>
+                    {
+                        new TextButtonSettings
+                        {
+                            Title = Settings.Localization.ResultButton,
+                            Action = () =>
+                            {
+                                World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new ChangePetAnimationEvent(default));
+                                World.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
+                            }
+                        }
+                    },
+                    UseIcon = useIcon,
+                    UsePetIcon = usePetIcon
                 })
             });
         }

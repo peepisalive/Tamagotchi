@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Modules.Navigation;
 using Settings.Activity;
+using Core.Animation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -42,6 +43,7 @@ namespace Systems.Activities
                                 var defaultPopup = (DefaultPopupView)popup;
                                 _selectedPlayType = defaultPopup.Dropdowns[0].GetCurrentValue<PlayType>();
 
+                                World.NewEntity().Replace(new ChangePetEyesAnimationEvent(EyesAnimationType.Happy));
                                 EndActivity(false, true);
                             }
                         }
@@ -60,7 +62,6 @@ namespace Systems.Activities
                 Settings = new PopupToShow<ResultPopup>(new ResultPopup()
                 {
                     Title = Settings.Localization.Title,
-                    Icon = Icon,
                     Content = string.Format(Settings.Localization.ResultContent, playType.ToLower()),
                     InfoParameterSettings = GetInfoParameterSettings(),
                     ButtonSettings = new List<TextButtonSettings>
@@ -71,6 +72,7 @@ namespace Systems.Activities
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
                             }
                         }
                     },

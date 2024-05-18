@@ -1,5 +1,4 @@
 using Systems.Activities;
-using Systems.Creation;
 using Leopotam.Ecs;
 using Components;
 using Systems;
@@ -15,26 +14,19 @@ namespace Starter
             Systems
                 .Add(new PopupSystem())
                 .Add(new JobSystem())
-                .Add(CreationSystems(world))
+                .Add(new PetSystem())
                 .Add(new ParametersSystem())
                 .Add(new BankAccountSystem())
                 .Add(HappinessActivitiesElements(world))
                 .Add(SatietyActivitiesElements(world))
                 .Add(HygieneActivities(world))
                 .Add(HealthActivities(world))
-                .Add(JobOneFrameEvents(world))
                 .OneFrame<ChangeParameterEvent>()
-                .OneFrame<EndOfFullTimeJobEvent>()
-                .OneFrame<EndOfRecoveryPartTimeEvent>()
-                .OneFrame<ChangeBankAccountValueEvent>();
+                .OneFrame<ChangeBankAccountValueEvent>()
+                .Add(JobOneFrameEvents(world))
+                .Add(AnimationOneFrameEvents(world));
 
             Systems.Init();
-        }
-
-        private EcsSystems CreationSystems(EcsWorld world)
-        {
-            return new EcsSystems(world)
-                .Add(new PetCreationSystem());
         }
 
         private EcsSystems HappinessActivitiesElements(EcsWorld world)
@@ -84,6 +76,13 @@ namespace Starter
                 .OneFrame<GettingJobEvent>()
                 .OneFrame<EndOfFullTimeJobEvent>()
                 .OneFrame<EndOfRecoveryPartTimeEvent>();
+        }
+
+        private EcsSystems AnimationOneFrameEvents(EcsWorld world)
+        {
+            return new EcsSystems(world)
+                .OneFrame<ChangePetAnimationEvent>()
+                .OneFrame<ChangePetEyesAnimationEvent>();
         }
     }
 }

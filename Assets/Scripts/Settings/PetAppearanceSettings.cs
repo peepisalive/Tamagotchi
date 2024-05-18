@@ -8,9 +8,9 @@ namespace Settings
     [CreateAssetMenu(fileName = "PetAppearanceSettings", menuName = "Settings/PetAppearanceSettings", order = 0)]
     public sealed class PetAppearanceSettings : ScriptableObject
     {
-        [SerializeField] private List<PetAppearance> _appearances;
+        [SerializeField] private List<PetAppearanceController> _appearances;
 
-        public PetAppearance GetAppearance(PetType type)
+        public PetAppearanceController GetAppearance(PetType type)
         {
             return _appearances.FirstOrDefault(a => a.Type == type);
         }
