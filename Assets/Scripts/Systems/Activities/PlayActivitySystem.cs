@@ -17,7 +17,7 @@ namespace Systems.Activities
 
         protected override void StartActivity(bool isEnable)
         {
-            World.NewEntity().Replace(new ShowPopup
+            World.NewEntity().Replace(new ShowPopupComponent
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
@@ -32,7 +32,7 @@ namespace Systems.Activities
                             Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
-                                World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new HidePopupComponent());
                             }
                         },
                         new TextButtonSettings
@@ -57,7 +57,7 @@ namespace Systems.Activities
         {
             var playType = Settings.Localization.GetValueTypeContent(_selectedPlayType);
 
-            World.NewEntity().Replace(new ShowPopup
+            World.NewEntity().Replace(new ShowPopupComponent
             {
                 Settings = new PopupToShow<ResultPopup>(new ResultPopup()
                 {
@@ -71,7 +71,7 @@ namespace Systems.Activities
                             Title = Settings.Localization.ResultButton,
                             Action = () =>
                             {
-                                World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new HidePopupComponent());
                                 World.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
                             }
                         }

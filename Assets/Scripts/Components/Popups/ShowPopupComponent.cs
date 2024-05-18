@@ -1,6 +1,6 @@
 namespace Components
 {
-    public struct ShowPopup
+    public struct ShowPopupComponent
     {
         public PopupToShow Settings;
     }

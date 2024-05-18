@@ -14,7 +14,7 @@ namespace Systems.Activities
 
         protected override void StartActivity(bool isEnable)
         {
-            World.NewEntity().Replace(new ShowPopup
+            World.NewEntity().Replace(new ShowPopupComponent
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
@@ -28,7 +28,7 @@ namespace Systems.Activities
                             Title = Settings.Localization.LeftButtonContent,
                             Action = () =>
                             {
-                                World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new HidePopupComponent());
                             }
                         },
                         new TextButtonSettings

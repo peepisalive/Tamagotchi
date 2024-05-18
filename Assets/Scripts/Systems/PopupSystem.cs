@@ -7,8 +7,8 @@ namespace Systems
 {
     public sealed class PopupSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
-        private EcsFilter<ShowPopup> _showPopupFilter;
-        private EcsFilter<HidePopup> _hidePopupFilter;
+        private EcsFilter<ShowPopupComponent> _showPopupFilter;
+        private EcsFilter<HidePopupComponent> _hidePopupFilter;
 
         private PopupViewManager _popupViewManager;
 

@@ -21,7 +21,7 @@ namespace Systems.Activities
         {
             var halfPrice = Settings.Price / 2;
 
-            World.NewEntity().Replace(new ShowPopup
+            World.NewEntity().Replace(new ShowPopupComponent
             {
                 Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
                 {
@@ -72,7 +72,7 @@ namespace Systems.Activities
 
         protected override void EndActivity(bool useIcon, bool usePetIcon)
         {
-            World.NewEntity().Replace(new ShowPopup
+            World.NewEntity().Replace(new ShowPopupComponent
             {
                 Settings = new PopupToShow<ResultPopup>(new ResultPopup()
                 {
@@ -87,7 +87,7 @@ namespace Systems.Activities
                             Title = Settings.Localization.ResultButton,
                             Action = () =>
                             {
-                                World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new HidePopupComponent());
                                 World.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
                             }
                         }
