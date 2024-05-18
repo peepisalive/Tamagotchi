@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Modules.Navigation;
 using Settings.Activity;
+using Core.Animation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -58,7 +59,9 @@ namespace Systems.Activities
                                     return;
 
                                 _isFullExamination = true;
-                                EndActivity(true, false);
+
+                                World.NewEntity().Replace(new ChangePetEyesAnimationEvent(EyesAnimationType.Trauma));
+                                EndActivity(false, true);
                             }
                         }
                     },
@@ -85,6 +88,7 @@ namespace Systems.Activities
                             Action = () =>
                             {
                                 World.NewEntity().Replace(new HidePopup());
+                                World.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
                             }
                         }
                     },

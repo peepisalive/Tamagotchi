@@ -147,7 +147,7 @@ namespace UI
         private void UnlockAccessory()
         {
             _selectedAccessory.SetUnlockState(true);
-            EventSystem.Send(new ChangePetEyesAnimationEvent(EyesAnimationType.Happy));
+            EventSystem.Send(new ChangePetEyesAnimationEvent(EyesAnimationType.Excited));
         }
 
         private void SwitchCurrentAccessory()
