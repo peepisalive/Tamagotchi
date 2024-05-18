@@ -1,9 +1,8 @@
-using Application = Tamagotchi.Application;
 using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
-using Components;
+using System.Linq;
 using Utils;
 
 namespace Systems.Navigation
@@ -15,7 +14,6 @@ namespace Systems.Navigation
             NavigationElementType.PetActionsScreen,
         };
 
-        private EcsFilter<JobComponent> _jobFilter;
         private EcsFilter<BlockComponent> _blockFilter;
         
         public void Init()
@@ -35,7 +33,10 @@ namespace Systems.Navigation
 
         public bool NotificationIsEnable(NavigationElementType elementType)
         {
-            return !Application.HasTrack(elementType);
+            var childPoints = _blockFilter.GetChildPointsOfType(NavigationBlockType.Main, elementType);
+            var result = childPoints.Any(point => point.Element.NotificationIsEnable(point.Type));
+
+            return result;
         }
 
         public bool OnClick(NavigationElementType elementType)
