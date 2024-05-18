@@ -62,7 +62,6 @@ namespace Systems.Activities
                 Settings = new PopupToShow<ResultPopup>(new ResultPopup()
                 {
                     Title = Settings.Localization.Title,
-                    Icon = Icon,
                     Content = string.Format(Settings.Localization.ResultContent, playType.ToLower()),
                     InfoParameterSettings = GetInfoParameterSettings(),
                     ButtonSettings = new List<TextButtonSettings>
