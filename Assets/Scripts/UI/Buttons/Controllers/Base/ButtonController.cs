@@ -23,8 +23,20 @@ namespace UI.Controller
 
         public virtual void Setup(ButtonSettings settings)
         {
-            _button?.onClick.AddListener(() => settings.Action?.Invoke());
-            _button?.onClick.AddListener(() => settings.ActionWithInstance?.Invoke(settings.PopupInstance));
+            _button.onClick.AddListener(() =>
+            {
+                if (settings.IsOneClickButton)
+                    _button.interactable = false;
+
+                settings.Action?.Invoke();
+            });
+            _button.onClick.AddListener(() =>
+            {
+                if (settings.IsOneClickButton)
+                    _button.interactable = false;
+
+                settings.ActionWithInstance?.Invoke(settings.PopupInstance);
+            });
 
             SetMoneySignState(settings.MoneySignState);
             SetAdsSignState(settings.AdsSignState);
@@ -93,7 +105,7 @@ namespace UI.Controller
 
         private void OnDestroy()
         {
-            _button?.onClick?.RemoveAllListeners();
+            _button.onClick?.RemoveAllListeners();
         }
     }
 }
