@@ -20,14 +20,14 @@ namespace UI
 
         public void Setup()
         {
-            _backButton?.Setup(new ImageButtonSettings
+            _backButton.Setup(new ImageButtonSettings
             {
                 Action = () =>
                 {
                     EventSystem.Send(new NavigationPointBackEvent());
                 }
             });
-            _homeButton?.Setup(new ImageButtonSettings
+            _homeButton.Setup(new ImageButtonSettings
             {
                 Action = () =>
                 {
