@@ -75,14 +75,14 @@ namespace Systems.Navigation
                             {
                                 var defaultPopup = (DefaultPopupView)popup;
                                 var selectedLanguage = defaultPopup.Dropdowns[0].GetCurrentValue<LanguageType>();
-                                var localeCode = LocalizationProvider.GetLocaleCode(selectedLanguage);
-                                
-                                if (LocalizationProvider.GetLanguageType(localeCode) == LocalizationProvider.CurrentLanguage)
+
+                                if (selectedLanguage == LocalizationProvider.CurrentLanguage)
                                 {
                                     _world.NewEntity().Replace(new HidePopupComponent());
                                     return;
                                 }
-                                
+
+                                var localeCode = LocalizationProvider.GetLocaleCode(selectedLanguage);
                                 var locale = LocalizationSettings.AvailableLocales.Locales.First(locale => locale.Identifier.Code == localeCode);
 
                                 LocalizationProvider.OnInitializeEvent += OnChangeLanguage;
