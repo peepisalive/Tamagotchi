@@ -1218,6 +1218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundType: 0
+  _button: {fileID: 2878307105444558044}
 --- !u!114 &7640637384292657931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,6 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hapticType: 5
+  _button: {fileID: 2878307105444558044}
 --- !u!1 &8886318173316247238
 GameObject:
   m_ObjectHideFlags: 0

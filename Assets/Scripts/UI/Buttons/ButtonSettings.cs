@@ -11,6 +11,7 @@ namespace UI.Settings
 
         public PopupViewBase PopupInstance;
 
+        public bool IsOneClickButton;
         public bool MoneySignState;
         public bool AdsSignState;
 
