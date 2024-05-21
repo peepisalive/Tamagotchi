@@ -10,7 +10,7 @@ using Events;
 namespace UI
 {
     [RequireComponent(typeof(NavigationPanelView))]
-    public sealed class NavigationPanelController : MonoBehaviour
+    public sealed class NavigationPanelController : MonoBehaviour, IUpdatable<UpdateCurrentScreenEvent>
     {
         [SerializeField] private NavigationPanelView _view;
 
@@ -35,10 +35,26 @@ namespace UI
                 }
             });
 
+            UpdateState();
+        }
+
+        public void UpdateState(UpdateCurrentScreenEvent data = null)
+        {
+
             var navigationPoint = Application.Model.GetCurrentNavigationPoint();
             var screenTitle = LocalizationProvider.GetNavigationText($"navigation_title_{navigationPoint.Type}");
 
             _view.SetText(screenTitle);
+        }
+
+        private void Start()
+        {
+            EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
     }
 }
