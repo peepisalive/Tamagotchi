@@ -1,15 +1,18 @@
+using UnityEngine.Localization.Settings;
 using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Localization;
 using Modules.Navigation;
 using Leopotam.Ecs;
 using UI.Settings;
+using System.Linq;
+using UnityEngine;
 using Components;
 using UI.Popups;
-using Utils;
-using System.Linq;
+using Modules;
 using System;
-using UnityEngine.Rendering.Universal;
+using Events;
+using Utils;
 
 namespace Systems.Navigation
 {
@@ -72,8 +75,16 @@ namespace Systems.Navigation
                             {
                                 var defaultPopup = (DefaultPopupView)popup;
                                 var selectedLanguage = defaultPopup.Dropdowns[0].GetCurrentValue<LanguageType>();
+                                var localeCode = LocalizationProvider.GetLocaleCode(selectedLanguage);
+                                var locale = LocalizationSettings.AvailableLocales.Locales.First(locale => locale.Identifier.Code == localeCode);
 
-                                _world.NewEntity().Replace(new HidePopupComponent()); // to do: changing language
+                                LocalizationProvider.Initialize(locale).ContinueWith(_ =>
+                                {
+                                    PlayerPrefs.SetString("selected-locale", localeCode);
+                                    EventSystem.Send(new UpdateCurrentScreenEvent()); // to do: edit MenuScreenController.cs (realize interface)
+
+                                    _world.NewEntity().Replace(new HidePopupComponent());
+                                });
                             }
                         }
                     },
@@ -116,13 +127,6 @@ namespace Systems.Navigation
             }
 
             return dropdownSettings;
-        }
-
-
-        private enum LanguageType : sbyte
-        {
-            English = 0,
-            Russia = 1
         }
     }
 }

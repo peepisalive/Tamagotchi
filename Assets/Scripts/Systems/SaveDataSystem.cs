@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Modules.Localization;
 using Leopotam.Ecs;
 using System.Linq;
 using Components;
@@ -108,6 +109,7 @@ namespace Systems
 
             stateHolder.State.SoundState = SoundProvider.Instance.State;
             stateHolder.State.HapticState = HapticProvider.Instance.State;
+            stateHolder.State.Language = LocalizationProvider.CurrentLanguage;
         }
 
         private void SaveGlobalData()
