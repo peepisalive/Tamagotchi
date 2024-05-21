@@ -913,6 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundType: 0
+  _button: {fileID: 9069678967068183938}
 --- !u!114 &3463211959697814350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,6 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hapticType: 5
+  _button: {fileID: 9069678967068183938}
 --- !u!1 &821917874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,6 +1467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundType: 0
+  _button: {fileID: 5173631944743259087}
 --- !u!114 &8042476858621593971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1478,6 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hapticType: 5
+  _button: {fileID: 5173631944743259087}
 --- !u!1 &1440702247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundType: 0
+  _button: {fileID: 8164712683054763101}
 --- !u!114 &3592439926234071762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1671,6 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hapticType: 5
+  _button: {fileID: 8164712683054763101}
 --- !u!1 &1756295279
 GameObject:
   m_ObjectHideFlags: 0
