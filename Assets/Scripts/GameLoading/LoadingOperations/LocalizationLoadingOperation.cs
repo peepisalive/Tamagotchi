@@ -1,5 +1,7 @@
 using UnityEngine.Localization.Settings;
 using Modules.Localization;
+using UnityEngine;
+using System.Linq;
 
 namespace GameLoading.LoadingOperations
 {
@@ -11,7 +13,12 @@ namespace GameLoading.LoadingOperations
 
         protected override void OnBegin()
         {
-            LocalizationProvider.Initialize(LocalizationSettings.SelectedLocale).ContinueWith(_ =>
+            var localeCode = PlayerPrefs.GetString("selected-locale");
+            var locale = !string.IsNullOrEmpty(localeCode)
+                ? LocalizationSettings.AvailableLocales.Locales.First(locale => locale.Identifier.Code == localeCode)
+                : LocalizationSettings.ProjectLocale;
+
+            LocalizationProvider.Initialize(locale).ContinueWith(_ =>
             {
                 _progress = 1f;
                 SetStateDone();

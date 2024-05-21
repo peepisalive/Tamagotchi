@@ -37,6 +37,9 @@ MonoBehaviour:
   - <Type>k__BackingField: 1001
     <Icon>k__BackingField: {fileID: 21300000, guid: 87f164e43b5acad44aa639e86aabdd2e,
       type: 3}
+  - <Type>k__BackingField: 1002
+    <Icon>k__BackingField: {fileID: 21300000, guid: e2ec2031843f0594db22706ae2c1063b,
+      type: 3}
   - <Type>k__BackingField: 211
     <Icon>k__BackingField: {fileID: 21300000, guid: e019e36269f126643ab404d8eb0def37,
       type: 3}

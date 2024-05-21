@@ -3,6 +3,7 @@ using System.Threading;
 using Newtonsoft.Json;
 using UnityEngine;
 using Extensions;
+using Modules;
 using System;
 
 namespace Save.State
@@ -17,6 +18,7 @@ namespace Save.State
     {
         public bool SoundState = true;
         public bool HapticState = true;
+        public LanguageType Language;
 
         public override string ToString()
         {

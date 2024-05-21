@@ -20,6 +20,7 @@ namespace UI.Controller
 
             _view.SetIcon(settings.Icon);
         }
+
         public void SetMoneyPrice(int value)
         {
             _view.SetPrice((-value).ToMoneyString());

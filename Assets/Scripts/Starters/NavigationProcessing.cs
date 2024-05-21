@@ -48,7 +48,8 @@ namespace Starter
         {
             return new EcsSystems(world)
                 .Add(new SoundProviderNavigationElement())
-                .Add(new HapticProviderNavigationElement());
+                .Add(new HapticProviderNavigationElement())
+                .Add(new LocalizationProviderNavigationElement());
         }
 
         private EcsSystems PetActionsScreenElements(EcsWorld world)

@@ -1,38 +1,38 @@
 [
 	{
 		"tags": [ "oops", "title" ],
-		"topic": "Oops"
+		"topic": "Упс"
 	},
 
 	{
 		"tags": [ "popup_not_enough_money", "content" ],
-		"topic": "You don't have enough money"
+		"topic": "У вас недостаточно денег"
 	},
 	{
 		"tags": [ "popup_not_ads_available", "content" ],
-		"topic": "No ads available to view"
+		"topic": "Реклама не доступна для просмотра"
 	},
 
 	{
 		"tags": [ "ok", "button" ],
-		"topic": "Ok"
+		"topic": "Окей"
 	},
 	{
 		"tags": [ "cancel", "button" ],
-		"topic": "Cancel"
+		"topic": "Отмена"
 	},
 	{
 		"tags": [ "go", "button" ],
-		"topic": "Go"
+		"topic": "Го"
 	},
 
 	{
 		"tags": [ "part_time_job", "title" ],
-		"topic": "Part time"
+		"topic": "Подработка"
 	},
 	{
 		"tags": [ "full_time_job", "title" ],
-		"topic": "Full time"
+		"topic": "Работа"
 	},
 	{
 		"tags": [ "hours" ],
@@ -41,14 +41,14 @@
 
 	{
 		"tags": [ "language" ],
-		"topic": "Language"
+		"topic": "Язык"
 	},
 	{
 		"tags": [ "language", "English" ],
-		"topic": "English"
+		"topic": "Английский"
 	},
 	{
 		"tags": [ "language", "Russia" ],
-		"topic": "Russia"
+		"topic": "Русский"
 	}
 ]

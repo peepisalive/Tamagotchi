@@ -1,0 +1,215 @@
+[
+  {
+    "tags": [ "navigation_title_MenuScreen" ],
+    "topic": "Меню"
+  },
+  {
+    "tags": [ "navigation_title_ActivitiesScreen" ],
+    "topic": "Активности"
+  },
+  {
+    "tags": [ "navigation_title_PetActionsScreen" ],
+    "topic": "Центр питомца"
+  },
+  {
+    "tags": [ "navigation_title_JobScreen" ],
+    "topic": "Работа"
+  },
+
+  {
+    "tags": [ "navigation_title_HappinessActivities" ],
+    "topic": "Активности для счастья"
+  },
+  {
+    "tags": [ "navigation_descr_HappinessActivities" ],
+    "topic": "Дайте своему питомцу массу положительных эмоций"
+  },
+  {
+    "tags": [ "navigation_title_SatietyActivities" ],
+    "topic": "Активности для сытости"
+  },
+  {
+    "tags": [ "navigation_descr_SatietyActivities" ],
+    "topic": "Сделайте своего питомца сытым и счастливым"
+  },
+  {
+    "tags": [ "navigation_title_HygieneActivities" ],
+    "topic": "Активности для чистоты"
+  },
+  {
+    "tags": [ "navigation_descr_HygieneActivities" ],
+    "topic": "Сделайте своего питомца чистым и опрятным"
+  },
+  {
+    "tags": [ "navigation_title_FatigueActivities" ],
+    "topic": "Активности для усталости"
+  },
+  {
+    "tags": [ "navigation_descr_FatigueActivities" ],
+    "topic": "[test]"
+  },
+  {
+    "tags": [ "navigation_title_HealthActivities" ],
+    "topic": "Активности для здоровья"
+  },
+  {
+    "tags": [ "navigation_descr_HealthActivities" ],
+    "topic": "Помогите своему питомцу стать еще сильнее и энергичнее"
+  },
+  {
+    "tags": [ "navigation_title_TakeToVetActivity" ],
+    "topic": "Осмотр у ветеринара"
+  },
+  {
+    "tags": [ "navigation_descr_TakeToVetActivity" ],
+    "topic": "Отведите своего питомца к ветеринару для обследования здоровья и необходимых медицинских процедур"
+  },
+  {
+    "tags": [ "navigation_title_SpaTreatmentsActivity" ],
+    "topic": "Спа-процедуры"
+  },
+  {
+    "tags": [ "navigation_descr_SpaTreatmentsActivity" ],
+    "topic": "Побалуйте своего питомца спа-процедурами, которые улучшат его здоровье, красоту и самочувствие"
+  },
+  {
+    "tags": [ "navigation_title_TrainingActivities" ],
+    "topic": "Тренировки"
+  },
+  {
+    "tags": [ "navigation_descr_TrainingActivities" ],
+    "topic": "Улучшайте здоровье вашего питомца с помощью разнообразных тренировок"
+  },
+  {
+    "tags": [ "navigation_title_WalkActivity" ],
+    "topic": "Прогулка"
+  },
+  {
+    "tags": [ "navigation_descr_WalkActivity" ],
+    "topic": "Прогулка поднимает настроение вашему питомцу, наполняя его радостью"
+  },
+  {
+    "tags": [ "navigation_title_YogaActivity" ],
+    "topic": "Йога"
+  },
+  {
+    "tags": [ "navigation_descr_YogaActivity" ],
+    "topic": "Займитесь йогой со своим питомцем, чтобы улучшить его здоровье и физическое состояние"
+  },
+  {
+    "tags": [ "navigation_title_PlayActivity" ],
+    "topic": "Игра с питомцем"
+  },
+  {
+    "tags": [ "navigation_descr_PlayActivity" ],
+    "topic": "Поиграйте со своим питомцем, поднимая ему настроение и делая его счастливым"
+  },
+  {
+    "tags": [ "navigation_title_WashActivity" ],
+    "topic": "Помыть зверушку"
+  },
+  {
+    "tags": [ "navigation_descr_WashActivity" ],
+    "topic": "Ухаживайте за своим питомцем в ванне, чтобы поддерживать его чистоту и блеск"
+  },
+  {
+    "tags": [ "navigation_title_FeedActivity" ],
+    "topic": "Покормить"
+  },
+  {
+    "tags": [ "navigation_descr_FeedActivity" ],
+    "topic": "Кормите своего питомца, чтобы он был доволен и готов к новым приключениям"
+  },
+  {
+    "tags": [ "navigation_title_DrinkActivity" ],
+    "topic": "Дать вашему питомцу попить"
+  },
+  {
+    "tags": [ "navigation_descr_DrinkActivity" ],
+    "topic": "Дайте вашему питомцу воды для комфорта и насыщения"
+  },
+  {
+    "tags": [ "navigation_title_CookActivity" ],
+    "topic": "Готовка"
+  },
+  {
+    "tags": [ "navigation_descr_CookActivity" ],
+    "topic": "Готовьте вкусную еду для своего питомца, чтобы он был сыт и доволен вашим заботливым вниманием"
+  },
+  {
+    "tags": [ "navigation_title_VisitCosmetologistActivity" ],
+    "topic": "Визит к косметологу"
+  },
+  {
+    "tags": [ "navigation_descr_VisitCosmetologistActivity" ],
+    "topic": "Отведите своего питомца к косметологу, чтобы улучшить его общее состояние и внешний вид"
+  },
+  {
+    "tags": [ "navigation_title_StretchingActivity" ],
+    "topic": "Растяжка"
+  },
+  {
+    "tags": [ "navigation_descr_StretchingActivity" ],
+    "topic": "Выполняйте упражнения на растяжку вместе со своим питомцем, чтобы улучшить его здоровье и гибкость"
+  },
+  {
+    "tags": [ "navigation_title_ExerciseActivity" ],
+    "topic": "Упражнения"
+  },
+  {
+    "tags": [ "navigation_descr_ExerciseActivity" ],
+    "topic": "Занимайтесь спортом вместе со своим питомцем, чтобы поддержать его здоровье и физическую форму"
+  },
+  {
+    "tags": [ "navigation_title_CleanTheRoomActivity" ],
+    "topic": "Уборка в комнате"
+  },
+  {
+    "tags": [ "navigation_descr_CleanTheRoomActivity" ],
+    "topic": "Наведите порядок в комнате, чтобы ваш питомец чувствовал себя комфортно и уютно в чистом помещении"
+  },
+  {
+    "tags": [ "navigation_title_VentilateTheRoomActivity" ],
+    "topic": "Проветрить комнату"
+  },
+  {
+    "tags": [ "navigation_descr_VentilateTheRoomActivity" ],
+    "topic": "Откройте окно, чтобы обеспечить приток свежего воздуха в комнату и поддерживать гигиену вашего питомца"
+  },
+
+  {
+    "tags": [ "navigation_title_SoundProvider" ],
+    "topic": "Звуковые эффекты"
+  },
+  {
+    "tags": [ "navigation_descr_SoundProvider" ],
+    "topic": "Управляйте игровыми звуками"
+  },
+
+  {
+    "tags": [ "navigation_title_HapticProvider" ],
+    "topic": "Вибрации"
+  },
+  {
+    "tags": [ "navigation_descr_HapticProvider" ],
+    "topic": "Управляйте игровыми вибрациями"
+  },
+
+  {
+    "tags": [ "navigation_title_LocalizationProvider" ],
+    "topic": "Язык"
+  },
+  {
+    "tags": [ "navigation_descr_LocalizationProvider" ],
+    "topic": "Возможность изменить язык игры"
+  },
+
+  {
+    "tags": [ "navigation_title_Accessories" ],
+    "topic": "Аксессуары"
+  },
+  {
+    "tags": [ "navigation_descr_Accessories" ],
+    "topic": "Выберите стильные аксессуары для своего питомца, чтобы выразить его индивидуальность и добавить шарма"
+  }
+]

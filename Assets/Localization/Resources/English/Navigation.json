@@ -196,6 +196,15 @@
   },
 
   {
+    "tags": [ "navigation_title_LocalizationProvider" ],
+    "topic": "Language"
+  },
+  {
+    "tags": [ "navigation_descr_LocalizationProvider" ],
+    "topic": "The option to change the game language"
+  },
+
+  {
     "tags": [ "navigation_title_Accessories" ],
     "topic": "Accessories"
   },

@@ -72,11 +72,13 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 47c4a18d6dc886b41960adeeeb5f32a4, type: 3}
     - {fileID: 2800000, guid: 6f29872b1a76ff747bc1525ecf48c98d, type: 3}
     - {fileID: 2800000, guid: 9c7207e7e72b3134582ac02504f99fbd, type: 3}
+    - {fileID: 2800000, guid: e2ec2031843f0594db22706ae2c1063b, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: e2ec2031843f0594db22706ae2c1063b, type: 3}
   - {fileID: 21300000, guid: e019e36269f126643ab404d8eb0def37, type: 3}
   - {fileID: 21300000, guid: 67d4616504cad374fba15740b3fa351d, type: 3}
   - {fileID: 21300000, guid: f440dfe553bf1ab45beb6b0bd922913c, type: 3}
@@ -94,6 +96,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0142524e10718064da4a40489f1c9fa7, type: 3}
   - {fileID: 21300000, guid: 1e3142fe904b0f54e92d9ac6431340ae, type: 3}
   m_PackedSpriteNamesToIndex:
+  - localization_provider_icon
   - accessories_icon
   - visit_a_cosmetologist_icon
   - cook_icon

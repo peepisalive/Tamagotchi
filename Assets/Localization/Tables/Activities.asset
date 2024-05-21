@@ -15,6 +15,7 @@ MonoBehaviour:
   m_SharedTableData: {fileID: 11400000, guid: ea2f63027820b3e49ab537f16c497812, type: 2}
   m_Tables:
   - {fileID: 11400000, guid: e6bd33e6bc8bf4148be3de5014af9bd7, type: 2}
+  - {fileID: 11400000, guid: 5b3cb176e61a37e419d45b5f834903aa, type: 2}
   m_Extensions: []
   m_Group: Asset Table
   references:
