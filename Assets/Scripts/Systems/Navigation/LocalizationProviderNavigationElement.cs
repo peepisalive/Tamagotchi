@@ -71,23 +71,21 @@ namespace Systems.Navigation
                         new TextButtonSettings
                         {
                             Title = LocalizationProvider.GetText("ok/button"),
-                            ActionWithInstance = (popup) =>
+                            ActionWithInstance = async (popup) =>
                             {
                                 var defaultPopup = (DefaultPopupView)popup;
                                 var selectedLanguage = defaultPopup.Dropdowns[0].GetCurrentValue<LanguageType>();
                                 var localeCode = LocalizationProvider.GetLocaleCode(selectedLanguage);
                                 var locale = LocalizationSettings.AvailableLocales.Locales.First(locale => locale.Identifier.Code == localeCode);
 
-                                LocalizationProvider.Initialize(locale).ContinueWith(_ =>
-                                {
-                                    PlayerPrefs.SetString("selected-locale", localeCode);
-                                    EventSystem.Send(new UpdateCurrentScreenEvent()); // to do: edit MenuScreenController.cs (realize interface)
+                                LocalizationProvider.OnInitializeEvent += OnChangeLanguage;
 
-                                    _world.NewEntity().Replace(new HidePopupComponent());
-                                });
+                                PlayerPrefs.SetString("selected-locale", localeCode);
+                                await LocalizationProvider.Initialize(locale);
                             }
                         }
                     },
+                    IgnoreOverlayButton = true,
                     UseIcon = true
                 })
             });
@@ -103,6 +101,14 @@ namespace Systems.Navigation
         public NavigationScreenData GetScreenData(NavigationElementType elementType)
         {
             return _blockFilter.GetNavigationScreenData(NavigationBlockType.Main, elementType);
+        }
+
+        private void OnChangeLanguage()
+        {
+            LocalizationProvider.OnInitializeEvent -= OnChangeLanguage;
+
+            EventSystem.Send(new UpdateCurrentScreenEvent());
+            _world.NewEntity().Replace(new HidePopupComponent());
         }
 
         private List<DropdownSettings> GetDropdownSettings()

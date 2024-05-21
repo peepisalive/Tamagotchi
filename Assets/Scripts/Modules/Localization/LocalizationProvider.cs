@@ -8,12 +8,14 @@ using Newtonsoft.Json;
 using System.Linq;
 using UnityEngine;
 using Settings;
+using System;
 
 namespace Modules.Localization
 {
     public static class LocalizationProvider
     {
         public static LanguageType CurrentLanguage { get; private set; }
+        public static event Action OnInitializeEvent;
 
         private static Dictionary<string, LocalizationFileData> _localizationFiles;
         private static LocalizedText _navigationLocalizedText;
@@ -90,6 +92,7 @@ namespace Modules.Localization
         public static async Task Initialize(Locale locale)
         {
             await Setup(locale);
+            OnInitializeEvent?.Invoke();
         }
 
         private static async Task Setup(Locale locale)

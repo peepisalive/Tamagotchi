@@ -1,8 +1,10 @@
+using Application = Tamagotchi.Application;
 using System.Collections.Generic;
 using Events.Saves;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using UnityEngine;
 using Components;
 using Tamagotchi;
 using Save.State;
@@ -42,6 +44,8 @@ namespace Modules
             {
                 File.Delete(saveFilePath);
             }
+
+            PlayerPrefs.DeleteAll();
         }
 #endif
 #endregion
