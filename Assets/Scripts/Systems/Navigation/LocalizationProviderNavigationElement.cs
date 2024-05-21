@@ -82,7 +82,8 @@ namespace Systems.Navigation
 
                                 PlayerPrefs.SetString("selected-locale", localeCode);
                                 await LocalizationProvider.Initialize(locale);
-                            }
+                            },
+                            IsOneClickButton = true
                         }
                     },
                     IgnoreOverlayButton = true,

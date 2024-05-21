@@ -91,7 +91,9 @@ namespace Modules.Localization
 
         public static async Task Initialize(Locale locale)
         {
-            await Setup(locale);
+            if (GetLanguageType(locale.Identifier.Code) != CurrentLanguage)
+                await Setup(locale);
+
             OnInitializeEvent?.Invoke();
         }
 
