@@ -107,7 +107,7 @@ namespace Modules.Localization
 
         private static async Task LoadLocalization(Locale locale)
         {
-            var tables = await LocalizationSettings.AssetDatabase.GetAllTables().Task;
+            var tables = await LocalizationSettings.AssetDatabase.GetAllTables(locale).Task;
             var tableEntries = tables.SelectMany(t => t.Values);
             var tasks = new List<Task>();
 

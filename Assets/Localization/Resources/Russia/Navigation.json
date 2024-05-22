@@ -62,7 +62,7 @@
   },
   {
     "tags": [ "navigation_descr_TakeToVetActivity" ],
-    "topic": "Отведите своего питомца к ветеринару для обследования здоровья и необходимых медицинских процедур"
+    "topic": "Поход к ветеринару для обследования и необходимых медицинских процедур"
   },
   {
     "tags": [ "navigation_title_SpaTreatmentsActivity" ],
@@ -122,7 +122,7 @@
   },
   {
     "tags": [ "navigation_title_DrinkActivity" ],
-    "topic": "Дать вашему питомцу попить"
+    "topic": "Дать попить"
   },
   {
     "tags": [ "navigation_descr_DrinkActivity" ],
@@ -134,7 +134,7 @@
   },
   {
     "tags": [ "navigation_descr_CookActivity" ],
-    "topic": "Готовьте вкусную еду для своего питомца, чтобы он был сыт и доволен вашим заботливым вниманием"
+    "topic": "Готовьте вкусную еду для своего питомца, чтобы он был сыт и доволен вашей заботой"
   },
   {
     "tags": [ "navigation_title_VisitCosmetologistActivity" ],
@@ -166,7 +166,7 @@
   },
   {
     "tags": [ "navigation_descr_CleanTheRoomActivity" ],
-    "topic": "Наведите порядок в комнате, чтобы ваш питомец чувствовал себя комфортно и уютно в чистом помещении"
+    "topic": "Наведите порядок в комнате, чтобы ваш питомец чувствовал себя комфортно и уютно"
   },
   {
     "tags": [ "navigation_title_VentilateTheRoomActivity" ],
@@ -174,7 +174,7 @@
   },
   {
     "tags": [ "navigation_descr_VentilateTheRoomActivity" ],
-    "topic": "Откройте окно, чтобы обеспечить приток свежего воздуха в комнату и поддерживать гигиену вашего питомца"
+    "topic": "Откройте окно, чтобы обеспечить приток свежего воздуха в комнату"
   },
 
   {
