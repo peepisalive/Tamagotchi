@@ -35,6 +35,10 @@
 		"topic": "Full time job"
 	},
 	{
+		"tags": [ "hours_amount" ],
+		"topic": "Number of hours"
+	},
+	{
 		"tags": [ "hours" ],
 		"topic": "Hours"
 	},

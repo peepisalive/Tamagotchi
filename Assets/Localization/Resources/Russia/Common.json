@@ -35,8 +35,12 @@
 		"topic": "Работа"
 	},
 	{
+		"tags": [ "hours_amount" ],
+		"topic": "Количество часов"
+	},
+	{
 		"tags": [ "hours" ],
-		"topic": "Hours"
+		"topic": "ч."
 	},
 
 	{

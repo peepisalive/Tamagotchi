@@ -77,13 +77,13 @@ namespace UI.Controller
         protected List<DropdownSettings> GetDropdownSettings()
         {
             var dropdownSettings = (List<DropdownSettings>)null;
-            var hours = LocalizationProvider.GetText("hours");
+            var oneHour = LocalizationProvider.GetText("hours");
 
             if (Job is FullTimeJob fullTimeJob)
             {
                 var settings = new DropdownSettings
                 {
-                    Title = hours,
+                    Title = LocalizationProvider.GetText("hours_amount"),
                     DropdownContent = new List<DropdownContent>()
                 };
 
@@ -91,7 +91,7 @@ namespace UI.Controller
                 {
                     settings.DropdownContent.Add(new DropdownContent<int>
                     {
-                        Title = $"{item} {hours.ToLower()}",
+                        Title = $"{item} {oneHour.ToLower()}",
                         Value = item
                     });
                 }
