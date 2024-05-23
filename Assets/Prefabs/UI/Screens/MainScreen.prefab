@@ -840,7 +840,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 230
+  m_PreferredHeight: 225
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -1138,8 +1138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
+    m_Left: 25
+    m_Right: 25
     m_Top: 60
     m_Bottom: 20
   m_ChildAlignment: 7
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 230
+  m_PreferredHeight: 225
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 230
+  m_PreferredHeight: 225
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -3167,12 +3167,12 @@ PrefabInstance:
     - target: {fileID: 2830040149498271847, guid: 8ec124370ef98414b9ae8a3e0f57bd3c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -220
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 2830040149498271847, guid: 8ec124370ef98414b9ae8a3e0f57bd3c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -70
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 2830040149498271847, guid: 8ec124370ef98414b9ae8a3e0f57bd3c,
         type: 3}
@@ -4002,12 +4002,12 @@ PrefabInstance:
     - target: {fileID: 2830040149498271847, guid: 3cd7a71096188784b9cdc54a4bf028f0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 2830040149498271847, guid: 3cd7a71096188784b9cdc54a4bf028f0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -70
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 2830040149498271847, guid: 3cd7a71096188784b9cdc54a4bf028f0,
         type: 3}

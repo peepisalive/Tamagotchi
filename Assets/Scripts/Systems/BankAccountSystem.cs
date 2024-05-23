@@ -15,7 +15,7 @@ namespace Systems
 
         public void Init()
         {
-            var value = 222727274;
+            var value = 1703;
 
             if (!_saveDataFilter.IsEmpty())
             {
