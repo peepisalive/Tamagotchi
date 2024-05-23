@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e10a783b5e26cf489e1eb8b781d99f8, type: 3}
+  m_Name: WashActivitySettings
+  m_EditorClassIdentifier: 
+  <Localization>k__BackingField:
+    _asset:
+      m_TableReference:
+        m_TableCollectionName: GUID:ea2f63027820b3e49ab537f16c497812
+      m_TableEntryReference:
+        m_KeyId: 10135667599577088
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  <ParametersChanges>k__BackingField:
+  - <Type>k__BackingField: 2
+    <Range>k__BackingField:
+      <Min>k__BackingField: 0.05
+      <Max>k__BackingField: 0.15
+  - <Type>k__BackingField: 4
+    <Range>k__BackingField:
+      <Min>k__BackingField: 0.01
+      <Max>k__BackingField: 0.03
+  - <Type>k__BackingField: 0
+    <Range>k__BackingField:
+      <Min>k__BackingField: 0.01
+      <Max>k__BackingField: 0.03
+  _type: 206

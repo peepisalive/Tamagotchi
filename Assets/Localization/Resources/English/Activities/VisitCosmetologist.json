@@ -1,0 +1,24 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "To visit a cosmetologist"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "After the cosmetic procedure, your pet impresses with its healthy and well-groomed appearance! Its fur shines, the skin is healthy, and the claws are trimmed and rounded!"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "After visiting the cosmetologist, your pet shines with health and beauty! Its fur is smooth and glossy, its skin is healthy, and its nails are trimmed and well-groomed!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Dont visit"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Visit"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Spa treatments"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "Choose a spa treatment:"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "After the {0}, your pet shines with health! Its fur gleams with cleanliness and softness, while its gaze is full of freshness and vitality!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Cancel"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Go"
+  },
+
+  {
+    "tags": [ "type", "Massage" ],
+    "topic": "Massage"
+  },
+  {
+    "tags": [ "type", "Wrapping" ],
+    "topic": "Wrapping"
+  },
+  {
+    "tags": [ "type", "FaceMask" ],
+    "topic": "Face mask"
+  },
+
+  {
+    "tags": [ "name", "type" ],
+    "topic": "Treatments type"
+  }
+]

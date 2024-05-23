@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4764c425a67554846a03271c4223a30e, type: 3}
+  m_Name: PrefabsSet
+  m_EditorClassIdentifier: 
+  <Buttons>k__BackingField:
+  - {fileID: 8299238814020050381, guid: 004a1991565d73a4ab0fad0a656df23b, type: 3}
+  - {fileID: 571556293686589619, guid: 7a545e7d041add746881c54e83de63e5, type: 3}
+  <Screens>k__BackingField:
+  - {fileID: 789752090903894654, guid: 40a8ba7c00534b548a805de0b4be483c, type: 3}
+  - {fileID: 5901948138343986060, guid: fd3a419cb9cdcca498dd2bfcad32dd81, type: 3}
+  - {fileID: 4268778547202034868, guid: 3c192ecda4dd49549aeb52195dd82e34, type: 3}
+  - {fileID: 4001805678011081209, guid: 1bd353c1c09b71441baa4befc7dff243, type: 3}
+  - {fileID: 5711993492552690053, guid: 7be7457b44aedca418603be95e438c9a, type: 3}
+  <Popups>k__BackingField:
+  - {fileID: 6123414769602510039, guid: 6760eb31516a79e4ebc2396491fabcd0, type: 3}
+  - {fileID: -2175869308806759632, guid: 9f11d1702619f97419f5f980aaf15567, type: 3}
+  <NavigationButton>k__BackingField: {fileID: 5772065219032252831, guid: 373b2bb06f534a647a9cd5a5ffac345c,
+    type: 3}
+  <InfoField>k__BackingField: {fileID: -6935304720137705840, guid: 321cea70faf2f86409ca914d87f361f0,
+    type: 3}
+  <Dropdown>k__BackingField: {fileID: 2137537569152729328, guid: 266aef6408d2a964c90aeb9f70fc9667,
+    type: 3}
+  <InfoBar>k__BackingField: {fileID: 1734975254943196885, guid: 9f2334bcc01efda45a087e1acac4dcf1,
+    type: 3}
+  <PetCamera>k__BackingField: {fileID: -832103400836147908, guid: f37508361a7eb674682513b39444c667,
+    type: 3}

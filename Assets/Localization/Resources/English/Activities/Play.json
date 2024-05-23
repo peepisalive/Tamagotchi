@@ -1,0 +1,38 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Play"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "Play with your pet, choose the type of game:"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "After you played a {0} game with your pet, he became even happier!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Dont play with your pet"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Play"
+  },
+
+  {
+    "tags": [ "type", "WithABall" ],
+    "topic": "Ball"
+  },
+  {
+    "tags": [ "type", "WithAToy" ],
+    "topic": "Toy"
+  },
+
+  {
+    "tags": [ "name", "type" ],
+    "topic": "Play type"
+  }
+]

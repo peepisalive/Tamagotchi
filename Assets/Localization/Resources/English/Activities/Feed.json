@@ -1,0 +1,24 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Feed pet"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "After feeding your pet, it will gratefully look at you with satisfied eyes. Its belly will be full, and its heart warmed by your caring attention!"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "After feeding your pet, its belly is filled with joy and contentment!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Dont feed your pet"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Feed"
+  }
+]

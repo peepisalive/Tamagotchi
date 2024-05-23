@@ -1,0 +1,42 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Cook"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "Choose the type of food:"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "You cooked such a concoction for your pet, but he liked it!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Don't cook anything"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Cook"
+  },
+
+  {
+    "tags": [ "type", "Fried" ],
+    "topic": "Fried food"
+  },
+  {
+    "tags": [ "type", "Boiled" ],
+    "topic": "Boiled food"
+  },
+  {
+    "tags": [ "type", "Steamed" ],
+    "topic": "Steamed food"
+  },
+
+  {
+    "tags": [ "name", "type" ],
+    "topic": "Food type"
+  }
+]

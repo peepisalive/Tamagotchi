@@ -1,0 +1,24 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Walk"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "Embark on an exciting adventure with your pet! Together, you'll explore the world around, enjoying the fresh air and each other's company. Every step fills your friend with joy and satisfaction!"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "After the walk, your pet is glowing with happiness! Its tail wags cheerfully, and its eyes sparkle with joy. It enjoys the time spent with you and feels inner satisfaction!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Dont walk with your pet"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Walk"
+  }
+]

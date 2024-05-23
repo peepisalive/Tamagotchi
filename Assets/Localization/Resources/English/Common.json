@@ -1,0 +1,58 @@
+[
+	{
+		"tags": [ "oops", "title" ],
+		"topic": "Oops"
+	},
+
+	{
+		"tags": [ "popup_not_enough_money", "content" ],
+		"topic": "You don't have enough money"
+	},
+	{
+		"tags": [ "popup_not_ads_available", "content" ],
+		"topic": "No ads available to view"
+	},
+
+	{
+		"tags": [ "ok", "button" ],
+		"topic": "Ok"
+	},
+	{
+		"tags": [ "cancel", "button" ],
+		"topic": "Cancel"
+	},
+	{
+		"tags": [ "go", "button" ],
+		"topic": "Go"
+	},
+
+	{
+		"tags": [ "part_time_job", "title" ],
+		"topic": "Part time job"
+	},
+	{
+		"tags": [ "full_time_job", "title" ],
+		"topic": "Full time job"
+	},
+	{
+		"tags": [ "hours_amount" ],
+		"topic": "Number of hours"
+	},
+	{
+		"tags": [ "hours" ],
+		"topic": "Hours"
+	},
+
+	{
+		"tags": [ "language" ],
+		"topic": "Language"
+	},
+	{
+		"tags": [ "language", "English" ],
+		"topic": "English"
+	},
+	{
+		"tags": [ "language", "Russia" ],
+		"topic": "Russia"
+	}
+]

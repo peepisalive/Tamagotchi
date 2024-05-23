@@ -1,0 +1,24 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Stretching"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "Invite your pet to a stretch! Together, you start the day with lively exercises, stretching muscles and promoting health. Each movement fills your friend with energy and flexibility, giving it vigor for the whole day!"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "After the stretch, your pet feels ready for new adventures! Its body becomes more flexible, and its muscles stronger. It experiences a surge of energy and freshness, ready to overcome any obstacles!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Dont stretching with a pet"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Stretching"
+  }
+]

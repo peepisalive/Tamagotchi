@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Activities Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Activities
+  m_TableCollectionNameGuidString: ea2f63027820b3e49ab537f16c497812
+  m_Entries:
+  - m_Id: 17999171584
+    m_Key: TakeToVet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8701486998851584
+    m_Key: SpaTreatments
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8959397851369472
+    m_Key: Cook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9066690249068544
+    m_Key: VisitCosmetologist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9075900802240512
+    m_Key: Stretching
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9075952933244928
+    m_Key: Yoga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9078030321684480
+    m_Key: Exercise
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10135667599577088
+    m_Key: Wash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10138131782537216
+    m_Key: CleanTheRoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10142690739326976
+    m_Key: VentilateTheRoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10145947410862080
+    m_Key: Drink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10146197206831104
+    m_Key: Feed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10147989231603712
+    m_Key: Walk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10147999998382080
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items:
+    - rid: 4152692015246082051
+  m_KeyGenerator:
+    rid: 4152692015246082050
+  references:
+    version: 2
+    RefIds:
+    - rid: 4152692015246082050
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1708281908091
+    - rid: 4152692015246082051
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 17999171584
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 8701486998851584
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 8959397851369472
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 9066690249068544
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 9075900802240512
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 9075952933244928
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 9078030321684480
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 10135667599577088
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 10138131782537216
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 10142690739326976
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 10145947410862080
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 10146197206831104
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 10147999998382080
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 10147989231603712
+          m_TableCodes:
+          - en
+          - ru
+        m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null

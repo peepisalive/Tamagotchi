@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-English (en)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-English (en)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9e62a1a76748dc64789a28dcd840c81c
+  m_SerializeEntries:
+  - m_GUID: 504f46b5562d6c3438c74d6ca8fb73cf
+    m_Address: Common
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 42e3bca4816f0a943826302fd9626ce0
+    m_Address: Navigation
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 9cf4574ae6b595542b9ce3145a1a45b8
+    m_Address: TakeToVet
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 72e43698adb1f1a4797c5819fce3f671
+    m_Address: SpaTreatments
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 8ade07ed713e14543af0b6b0264e68df
+    m_Address: Cook
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: eb5814ad4eff46041a9fa5e1d703a43a
+    m_Address: Stretching
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 8812bec50abc7c141871255888def13b
+    m_Address: Yoga
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: f2033a9566ade6341a8d201d995aedd5
+    m_Address: Exercise
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: b564fc1d9da75984ba8e02a74d6c296a
+    m_Address: Wash
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 60797f632e3343643a30c73a01183761
+    m_Address: CleanTheRoom
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: a5e54f27b5da9ff42b66e5a3c62508ae
+    m_Address: VentilateTheRoom
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 97a62c25f40139046bdbb365e7b4f0e2
+    m_Address: Drink
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 7a26240618a0d9049b4bbbc2c9b673d0
+    m_Address: Feed
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 44814ef5db031a64190773479de8ae67
+    m_Address: Play
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 5360265daea3ab14dab0ec53662f767c
+    m_Address: Walk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: e35085e09df04984baa2aceabd728df9
+    m_Address: Job
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: be00bbe81f04c3f48ac4962b6c71c7e7
+    m_Address: Accessories
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: e4beb3b521e1f6b4185fdb882a930f40, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8328a03536d5dc0408da3022a5b33da3, type: 2}
+    - {fileID: 11400000, guid: 4f5e63621aaf9094db1eb612ad9c23aa, type: 2}

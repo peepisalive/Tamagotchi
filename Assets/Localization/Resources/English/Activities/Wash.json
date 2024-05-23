@@ -1,0 +1,42 @@
+[
+  {
+    "tags": [ "title" ],
+    "topic": "Wash"
+  },
+
+  {
+    "tags": [ "main_popup", "content" ],
+    "topic": "Choose what you want to wash for your pet:"
+  },
+  {
+    "tags": [ "result_popup", "content" ],
+    "topic": "While you were washing your pet's {0}, he sprayed you all over!"
+  },
+
+  {
+    "tags": [ "button_content", "left" ],
+    "topic": "Do not wash anything"
+  },
+  {
+    "tags": [ "button_content", "right" ],
+    "topic": "Wash"
+  },
+
+  {
+    "tags": [ "type", "Muzzle" ],
+    "topic": "Muzzle"
+  },
+  {
+    "tags": [ "type", "Body" ],
+    "topic": "Body"
+  },
+  {
+    "tags": [ "type", "Paws" ],
+    "topic": "Paws"
+  },
+
+  {
+    "tags": [ "name", "type" ],
+    "topic": "Body part"
+  }
+]
