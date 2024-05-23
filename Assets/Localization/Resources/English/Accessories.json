@@ -47,9 +47,5 @@
 	{
 		"tags": [ "button", "title", "save_changes" ],
 		"topic": "Save changes"
-	},
-	{
-		"tags": [ "title", "none" ],
-		"topic": "None"
 	}
 ]

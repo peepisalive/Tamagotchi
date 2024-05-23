@@ -43,8 +43,10 @@ MonoBehaviour:
         - m_KeyId: 5561958400
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 8179353854984192
           m_TableCodes:
           - en
+          - ru
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

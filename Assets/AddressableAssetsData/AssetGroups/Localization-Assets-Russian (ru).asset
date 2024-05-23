@@ -27,6 +27,86 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+  - m_GUID: 6d5433c1a0065744aa6762265d50c7a2
+    m_Address: Job
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 83342266c22fd6645997be494e106b31
+    m_Address: Accessories
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: c747b3d3c92ca0840a1362037fdf2514
+    m_Address: CleanTheRoom
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: ee49940f06ef8214f9e65e2e6c65cd3d
+    m_Address: Cook
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 0ae6ff4d18586dc4e82ad983dd13c63e
+    m_Address: Drink
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 08c7bdc31a72ac94fa229c59ef29c254
+    m_Address: Exercise
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 21f51ca32a6c6e041a008fc45dbc48d3
+    m_Address: Feed
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 5ebf47dcacf81544385887e9b1d823c2
+    m_Address: Play
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: ae7426cf7c9fbfb4db2410b93cacc66f
+    m_Address: SpaTreatments
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 7b9313f431dd31c4f90e6700989afdd6
+    m_Address: Stretching
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 961a2afaaf21d7542894a47713ddf5f8
+    m_Address: TakeToVet
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 275cc4feeb64dd44a9b84d8be8f12b16
+    m_Address: VentilateTheRoom
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 1018f326c3583434ba042a284d56b7d9
+    m_Address: VisitCosmetologist
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 7ce13ae0551bdf545a0d59ba0423751b
+    m_Address: Walk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 7a2e5195f53a4774290a1257a1700600
+    m_Address: Wash
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+  - m_GUID: 593c18e64e5cc4f49964f47560bdf330
+    m_Address: Yoga
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: e4beb3b521e1f6b4185fdb882a930f40, type: 2}
   m_SchemaSet:

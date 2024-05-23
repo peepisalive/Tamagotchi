@@ -91,44 +91,58 @@ MonoBehaviour:
         - m_KeyId: 17999171584
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 8701486998851584
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 8959397851369472
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 9066690249068544
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 9075900802240512
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 9075952933244928
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 9078030321684480
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 10135667599577088
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 10138131782537216
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 10142690739326976
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 10145947410862080
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 10146197206831104
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 10147999998382080
           m_TableCodes:
           - en
+          - ru
         - m_KeyId: 10147989231603712
           m_TableCodes:
           - en
+          - ru
         m_TypeString: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
