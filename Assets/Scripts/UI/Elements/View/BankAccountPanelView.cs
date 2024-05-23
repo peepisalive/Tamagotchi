@@ -9,7 +9,7 @@ namespace UI.View
 
         public void SetValue(int value)
         {
-            _valueLabel.text = value.ToString();
+            _valueLabel.text = $"{value}$";
         }
     }
 }
