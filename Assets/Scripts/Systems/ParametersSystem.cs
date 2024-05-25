@@ -4,13 +4,14 @@ using Components;
 using Settings;
 using Modules;
 using System;
+using Core;
 
 namespace Systems
 {
     public sealed class ParametersSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private EcsWorld _world;
-        private EcsFilter<PetComponent> _petsFilter;
+        private EcsFilter<PetComponent> _petFilter;
         private EcsFilter<SaveDataLoadedComponent> _saveDataFilter;
         private EcsFilter<ChangeParameterEvent> _changeParameterFilter;
 
@@ -30,16 +31,24 @@ namespace Systems
         {
             if (!_changeParameterFilter.IsEmpty())
             {
-                foreach (var i in _changeParameterFilter)
+                foreach (var j in _petFilter)
                 {
-                    var comp = _changeParameterFilter.Get1(i);
+                    if (_petFilter.GetEntity(j).Has<DeadComponent>())
+                        return;
 
-                    foreach (var j in _petsFilter)
+                    var pet = _petFilter.Get1(j).Pet;
+
+                    foreach (var i in _changeParameterFilter)
                     {
-                        var pet = _petsFilter.Get1(j).Pet;
+                        var comp = _changeParameterFilter.Get1(i);
                         var parameter = pet.Parameters.Get(comp.Type);
 
                         parameter.Add(comp.Value);
+
+                        if (comp.Type != ParameterType.Health && parameter.Value != 0f)
+                            continue;
+
+                        _world.NewEntity().Replace(new DeathEvent());
                     }
                 }
             }
