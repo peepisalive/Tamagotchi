@@ -54,5 +54,10 @@
 	{
 		"tags": [ "language", "Russia" ],
 		"topic": "Russia"
+	},
+
+	{
+		"tags": [ "pet", "Goose" ],
+		"topic": "Goose"
 	}
 ]

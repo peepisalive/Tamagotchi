@@ -31,8 +31,8 @@ MonoBehaviour:
       <Max>k__BackingField: 0.004
   - <Type>k__BackingField: 4
     <Range>k__BackingField:
-      <Min>k__BackingField: -0.0015
-      <Max>k__BackingField: -0.0005
+      <Min>k__BackingField: -1
+      <Max>k__BackingField: -1
   <ChangeTimeInSeconds>k__BackingField: 30
   _icons:
   - <Type>k__BackingField: 0

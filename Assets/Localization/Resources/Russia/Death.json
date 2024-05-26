@@ -1,0 +1,20 @@
+[
+	{
+		"tags": [ "popup", "title" ],
+		"topic": "гг"
+	},
+
+	{
+		"tags": [ "popup", "content" ],
+		"topic": "Ваш питомец скончался, не повезло..."
+	},
+
+	{
+		"tags": [ "left", "button" ],
+		"topic": "Отправиться за новым"
+	},
+	{
+		"tags": [ "right", "button" ],
+		"topic": "Воскресить"
+	}
+]

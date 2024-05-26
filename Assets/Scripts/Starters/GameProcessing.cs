@@ -15,16 +15,18 @@ namespace Starter
                 .Add(new PopupSystem())
                 .Add(new JobSystem())
                 .Add(new PetSystem())
+                .Add(AnimationOneFrameEvents(world))
                 .Add(new ParametersSystem())
+                .Add(new DeathSystem())
                 .Add(new BankAccountSystem())
                 .Add(HappinessActivitiesElements(world))
                 .Add(SatietyActivitiesElements(world))
                 .Add(HygieneActivities(world))
                 .Add(HealthActivities(world))
                 .OneFrame<ChangeParameterEvent>()
+                .OneFrame<DeathEvent>()
                 .OneFrame<ChangeBankAccountValueEvent>()
-                .Add(JobOneFrameEvents(world))
-                .Add(AnimationOneFrameEvents(world));
+                .Add(JobOneFrameEvents(world));
 
             Systems.Init();
         }

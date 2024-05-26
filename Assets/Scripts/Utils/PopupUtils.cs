@@ -4,6 +4,7 @@ using Events.Popups;
 using UI.Settings;
 using UI.Popups;
 using Modules;
+using System;
 
 namespace Utils
 {
@@ -32,7 +33,7 @@ namespace Utils
             });
         }
 
-        public static void ShowNoAdsAvailablePopup()
+        public static void ShowNoAdsAvailablePopup(Action callback = null)
         {
             EventSystem.Send(new ShowPopupEvent
             {
@@ -48,6 +49,7 @@ namespace Utils
                             Action = () =>
                             {
                                 EventSystem.Send(new HidePopupEvent());
+                                callback?.Invoke();
                             }
                         }
                     }

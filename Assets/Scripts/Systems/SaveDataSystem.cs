@@ -51,6 +51,7 @@ namespace Systems
             foreach (var i in _petFilter)
             {
                 var stateHolder = _saveDataManager.GetStateHolder<PetStateHolder>();
+                var IsDeath = _petFilter.GetEntity(i).Has<DeadComponent>();
                 var pet = _petFilter.Get1(i).Pet;
 
                 stateHolder.ResetState();
@@ -58,6 +59,7 @@ namespace Systems
                 stateHolder.State.Id = pet.Id;
                 stateHolder.State.Name = pet.Name;
                 stateHolder.State.Type = pet.Type;
+                stateHolder.State.IsDeath = IsDeath;
                 stateHolder.State.Parameters = pet.Parameters.GetSaves();
                 stateHolder.State.Accessories = new List<AccessorySave>();
 

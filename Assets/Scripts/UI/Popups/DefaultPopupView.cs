@@ -99,7 +99,7 @@ namespace UI.Popups
 
         private void SetIcons(DefaultPopup settings)
         {
-            _iconParent.gameObject.SetActive(settings.UseIcon || settings.UseIcon);
+            _iconParent.gameObject.SetActive(settings.UseIcon || settings.UsePetIcon);
 
             if (settings.UseIcon)
                 _icon.sprite = settings.Icon;

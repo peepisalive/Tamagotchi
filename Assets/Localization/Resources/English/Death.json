@@ -1,0 +1,20 @@
+[
+	{
+		"tags": [ "popup", "title" ],
+		"topic": "gg"
+	},
+
+	{
+		"tags": [ "popup", "content" ],
+		"topic": "Your pet died, no luck..."
+	},
+
+	{
+		"tags": [ "left", "button" ],
+		"topic": "Go after a new pet"
+	},
+	{
+		"tags": [ "right", "button" ],
+		"topic": "Resurrect"
+	}
+]

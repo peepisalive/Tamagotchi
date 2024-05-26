@@ -19,6 +19,8 @@ namespace Save.State
     {
         public string Id;
         public string Name;
+        public bool IsDeath;
+
         public PetType Type;
 
         public List<ParameterSave> Parameters;
