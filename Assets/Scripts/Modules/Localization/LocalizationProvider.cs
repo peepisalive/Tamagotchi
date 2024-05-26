@@ -89,8 +89,16 @@ namespace Modules.Localization
             };
         }
 
-        public static async Task Initialize(Locale locale)
+        public static async Task Initialize(Locale locale = null)
         {
+            if (locale == null)
+            {
+                var localeCode = PlayerPrefs.GetString("selected-locale");
+                locale = !string.IsNullOrEmpty(localeCode)
+                    ? LocalizationSettings.AvailableLocales.Locales.First(locale => locale.Identifier.Code == localeCode)
+                    : LocalizationSettings.ProjectLocale;
+            }
+
             await Setup(locale);
             OnInitializeEvent?.Invoke();
         }
@@ -101,6 +109,7 @@ namespace Modules.Localization
                 _localizationFiles.Clear();
 
             CurrentLanguage = GetLanguageType(locale.Identifier.Code);
+            PlayerPrefs.SetString("selected-locale", locale.Identifier.Code);
 
             await LoadLocalization(locale);
         }

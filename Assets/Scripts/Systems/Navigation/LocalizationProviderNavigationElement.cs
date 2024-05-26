@@ -86,8 +86,6 @@ namespace Systems.Navigation
                                 var locale = LocalizationSettings.AvailableLocales.Locales.First(locale => locale.Identifier.Code == localeCode);
 
                                 LocalizationProvider.OnInitializeEvent += OnChangeLanguage;
-
-                                PlayerPrefs.SetString("selected-locale", localeCode);
                                 await LocalizationProvider.Initialize(locale);
                             },
                             IsOneClickButton = true
