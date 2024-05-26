@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
+using Core.Animation;
 using Leopotam.Ecs;
 using UI.Settings;
 using Components;
@@ -8,6 +9,7 @@ using Settings;
 using Modules;
 using Utils;
 using Core;
+using Modules.Localization;
 
 namespace Systems
 {
@@ -29,7 +31,14 @@ namespace Systems
 
         public void OnAdFailedToShow()
         {
-            PopupUtils.ShowNoAdsAvailablePopup();
+            PopupUtils.ShowNoAdsAvailablePopup(() =>
+            {
+                foreach (var i in _petFilter)
+                {
+                    var pet = _petFilter.Get1(i).Pet;
+                    ShowDeathPopup(pet.Type, pet.Name);
+                }
+            });
         }
 
         public void OnRewarded()
@@ -39,6 +48,9 @@ namespace Systems
                 _petFilter.Get1(i).Pet.Parameters.Get(ParameterType.Health).Add(1f);
                 _petFilter.GetEntity(i).Del<DeadComponent>();
             }
+
+            _world.NewEntity().Replace(new ChangePetAnimationEvent(default));
+            _world.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
         }
 
         private void HandleDeath()
@@ -47,46 +59,67 @@ namespace Systems
 
             foreach (var i in _petFilter)
             {
-                var pet = _petFilter.Get1(i).Pet;
-                var navigationPoint = Application.Model.GetCurrentNavigationPoint();
-                var usePetIcon = !_settings.PetIconExcludingTypes.Contains(navigationPoint.Type);
-
                 _petFilter.GetEntity(i).Replace(new DeadComponent());
-                _world.NewEntity().Replace(new ShowPopupComponent
-                {
-                    Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
-                    {
-                        Title = "[test]",
-                        Content = "[test]",
-                        ButtonSettings = new List<TextButtonSettings>
-                        {
-                            new TextButtonSettings
-                            {
-                                Title = "[test]",
-                                Action = () =>
-                                {
-                                    // to do: select new pet
-                                }
-                            },
-                            new TextButtonSettings
-                            {
-                                Title = "[test]",
-                                Action = () =>
-                                {
-                                    RewardedAdManager.Instance.OnAdFailedToShowCallback += OnAdFailedToShow;
-                                    RewardedAdManager.Instance.OnRewardedCallback += OnRewarded;
-                                    RewardedAdManager.Instance.ShowRewardedAd();
 
-                                    _world.NewEntity().Replace(new HidePopupComponent());
-                                },
-                                AdsSignState = true
+                var pet = _petFilter.Get1(i).Pet;
+
+                _world.NewEntity().Replace(new ChangePetAnimationEvent(AnimationType.Death));
+                _world.NewEntity().Replace(new ChangePetEyesAnimationEvent(EyesAnimationType.Dead));
+
+                ShowDeathPopup(pet.Type, pet.Name);
+            }
+        }
+
+        private void ShowDeathPopup(PetType type, string petName)
+        {
+            var navigationPoint = Application.Model.GetCurrentNavigationPoint();
+            var usePetIcon = !_settings.PetIconExcludingTypes.Contains(navigationPoint.Type);
+
+            _world.NewEntity().Replace(new ChangePetAnimationEvent(AnimationType.Death));
+            _world.NewEntity().Replace(new ChangePetEyesAnimationEvent(EyesAnimationType.Dead));
+
+            _world.NewEntity().Replace(new ShowPopupComponent
+            {
+                Settings = new PopupToShow<DefaultPopup>(new DefaultPopup
+                {
+                    Title = _settings.Localization.PopupTitle,
+                    Content = _settings.Localization.PopupContent,
+                    InfoFieldSettings = new List<InfoFieldSettings>
+                    {
+                        new InfoFieldSettings
+                        {
+                            Title = LocalizationProvider.GetText($"pet/{type}"),
+                            Content = petName
+                        }
+                    },
+                    ButtonSettings = new List<TextButtonSettings>
+                    {
+                        new TextButtonSettings
+                        {
+                            Title = _settings.Localization.NewPetButtonTitle,
+                            Action = () =>
+                            {
+                                // to do: select new pet
                             }
                         },
-                        UsePetIcon = usePetIcon,
-                        IgnoreOverlayButton = true
-                    })
-                });
-            }
+                        new TextButtonSettings
+                        {
+                            Title = _settings.Localization.ResurrectButtonTitle,
+                            Action = () =>
+                            {
+                                RewardedAdManager.Instance.OnAdFailedToShowCallback += OnAdFailedToShow;
+                                RewardedAdManager.Instance.OnRewardedCallback += OnRewarded;
+                                RewardedAdManager.Instance.ShowRewardedAd();
+
+                                _world.NewEntity().Replace(new HidePopupComponent());
+                            },
+                            AdsSignState = true
+                        }
+                    },
+                    UsePetIcon = usePetIcon,
+                    IgnoreOverlayButton = true
+                })
+            });
         }
     }
 }

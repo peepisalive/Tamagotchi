@@ -1,5 +1,5 @@
-using Core;
 using UnityEngine;
+using Core;
 
 namespace UI.Settings
 {
@@ -9,11 +9,13 @@ namespace UI.Settings
         public float Value;
     }
 
+
     public sealed class InfoFieldSettings
     {
         public string Title;
-        public bool IconState;
+        public string Content;
 
+        public bool IconState;
         public Sprite Icon;
     }
 }

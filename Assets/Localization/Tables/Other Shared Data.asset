@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: Accessories
     m_Metadata:
       m_Items: []
+  - m_Id: 14437629953359872
+    m_Key: Death
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5642405981076586499
@@ -45,6 +49,10 @@ MonoBehaviour:
           - en
           - ru
         - m_KeyId: 8179353854984192
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 14437629953359872
           m_TableCodes:
           - en
           - ru

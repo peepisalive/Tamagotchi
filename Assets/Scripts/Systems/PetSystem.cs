@@ -97,7 +97,7 @@ namespace Systems
 
                 return accessory;
             }).ToList();
-            var pet = new Pet("Goose", PetType.Goose, parameters, accessories, Guid.NewGuid().ToString());
+            var pet = new Pet("Eva", PetType.Goose, parameters, accessories, Guid.NewGuid().ToString());
 
             _world.NewEntity().Replace(new PetComponent(pet));
         }
@@ -127,8 +127,12 @@ namespace Systems
                     return accessory;
                 }).ToList();
                 var pet = new Pet(save.Name, save.Type, new Parameters(save.Parameters), accessories, save.Id);
+                var entity = _world.NewEntity().Replace(new PetComponent(pet));
 
-                _world.NewEntity().Replace(new PetComponent(pet));
+                if (!save.IsDeath)
+                    continue;
+
+                entity.Replace(new DeathEvent());
             }
         }
 

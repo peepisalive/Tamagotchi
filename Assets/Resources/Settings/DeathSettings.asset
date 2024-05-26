@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5177458c03b22d498954026dacc1aa6, type: 3}
   m_Name: DeathSettings
   m_EditorClassIdentifier: 
+  <Localization>k__BackingField:
+    _asset:
+      m_TableReference:
+        m_TableCollectionName: GUID:d56843cb4e331ee448b738b19604e4ca
+      m_TableEntryReference:
+        m_KeyId: 14437629953359872
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   <PetIconExcludingTypes>k__BackingField: 0100d300

@@ -12,6 +12,7 @@ namespace UI.Controller
         public void Setup(InfoFieldSettings settings)
         {
             _view.SetTitle(settings.Title);
+            _view.SetContent(settings.Content);
             _view.SetIcon(settings.Icon, settings.IconState);
         }
     }
