@@ -45,7 +45,10 @@ namespace Systems
 
                         parameter.Add(comp.Value);
 
-                        if (comp.Type != ParameterType.Health && parameter.Value != 0f)
+                        if (comp.Type != ParameterType.Health)
+                            continue;
+
+                        if (parameter.Value != 0f)
                             continue;
 
                         _world.NewEntity().Replace(new DeathEvent());
