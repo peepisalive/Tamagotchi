@@ -185,7 +185,6 @@
     "tags": [ "navigation_descr_SoundProvider" ],
     "topic": "Управляйте игровыми звуками"
   },
-
   {
     "tags": [ "navigation_title_HapticProvider" ],
     "topic": "Вибрации"
@@ -194,7 +193,6 @@
     "tags": [ "navigation_descr_HapticProvider" ],
     "topic": "Управляйте игровыми вибрациями"
   },
-
   {
     "tags": [ "navigation_title_LocalizationProvider" ],
     "topic": "Язык"
@@ -202,6 +200,14 @@
   {
     "tags": [ "navigation_descr_LocalizationProvider" ],
     "topic": "Возможность изменить язык игры"
+  },
+  {
+    "tags": [ "navigation_title_ContactMe" ],
+    "topic": "Связь со мной"
+  },
+  {
+    "tags": [ "navigation_descr_ContactMe" ],
+    "topic": "Свяжитесь со мной, если у вас есть какие-либо предложения по улучшению игры"
   },
 
   {

@@ -36,6 +36,7 @@ namespace Modules.Navigation
 
         SoundProvider = 1000,
         HapticProvider = 1001,
-        LocalizationProvider = 1002
+        LocalizationProvider = 1002,
+        ContactMe = 1003,
     }
 }
