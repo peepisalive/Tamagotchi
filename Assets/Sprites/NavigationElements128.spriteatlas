@@ -66,6 +66,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: b50ca7fe688811846a5725e6efa993f7, type: 3}
     - {fileID: 2800000, guid: 2006c839e4acb7841a0d7b891af8362a, type: 3}
     - {fileID: 2800000, guid: 249a57b3fcc9d6944831b0724e344c86, type: 3}
+    - {fileID: 2800000, guid: ae54058722baae246ba6641ff6f21240, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -76,6 +77,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f431a28411987654ea5e59afae235017, type: 3}
   - {fileID: 21300000, guid: 87f164e43b5acad44aa639e86aabdd2e, type: 3}
   - {fileID: 21300000, guid: 240287f5329f6b34fb59896586d89c1d, type: 3}
+  - {fileID: 21300000, guid: ae54058722baae246ba6641ff6f21240, type: 3}
   - {fileID: 21300000, guid: 2006c839e4acb7841a0d7b891af8362a, type: 3}
   - {fileID: 21300000, guid: 4b5e67ac963032f408a866b1efaa89f7, type: 3}
   - {fileID: 21300000, guid: b50ca7fe688811846a5725e6efa993f7, type: 3}
@@ -87,6 +89,7 @@ SpriteAtlas:
   - job_screen_icon
   - haptic_provider_icon
   - health_activities_icon
+  - icon_contact_me
   - satiety_activities_icon
   - activities_icon
   - pet_customization_icon

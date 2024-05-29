@@ -185,7 +185,6 @@
     "tags": [ "navigation_descr_SoundProvider" ],
     "topic": "Control the game sounds"
   },
-
   {
     "tags": [ "navigation_title_HapticProvider" ],
     "topic": "Vibration"
@@ -194,7 +193,6 @@
     "tags": [ "navigation_descr_HapticProvider" ],
     "topic": "Control the game vibrations"
   },
-
   {
     "tags": [ "navigation_title_LocalizationProvider" ],
     "topic": "Language"
@@ -202,6 +200,14 @@
   {
     "tags": [ "navigation_descr_LocalizationProvider" ],
     "topic": "The option to change the game language"
+  },
+  {
+    "tags": [ "navigation_title_ContactMe" ],
+    "topic": "Contact me"
+  },
+  {
+    "tags": [ "navigation_descr_ContactMe" ],
+    "topic": "Contact me if you have any suggestions to improve the game"
   },
 
   {
