@@ -1,9 +1,9 @@
 using GameLoading.LoadingOperations;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using Scenes;
 
 namespace GameLoading
 {
@@ -26,7 +26,7 @@ namespace GameLoading
                 }
             }
 
-            SceneManager.LoadScene("MainScene", LoadSceneMode.Single); // TO DO: edit this, cringe
+            MainScene.LoadScene();
         } 
 
         private void Awake()
