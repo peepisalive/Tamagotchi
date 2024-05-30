@@ -26,6 +26,9 @@ namespace Starter
                 .OneFrame<ChangeParameterEvent>()
                 .OneFrame<DeathEvent>()
                 .OneFrame<ChangeBankAccountValueEvent>()
+#if UNITY_EDITOR
+                .Add(new TestSystem())
+#endif
                 .Add(JobOneFrameEvents(world));
 
             Systems.Init();

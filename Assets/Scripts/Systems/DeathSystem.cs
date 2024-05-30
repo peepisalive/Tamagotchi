@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
+using Modules.Localization;
 using Core.Animation;
 using Leopotam.Ecs;
 using UI.Settings;
@@ -9,7 +10,6 @@ using Settings;
 using Modules;
 using Utils;
 using Core;
-using Modules.Localization;
 
 namespace Systems
 {
