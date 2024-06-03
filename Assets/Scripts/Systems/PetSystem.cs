@@ -97,7 +97,7 @@ namespace Systems
 
                 return accessory;
             }).ToList();
-            var pet = new Pet("Eva", PetType.Goose, parameters, accessories, Guid.NewGuid().ToString());
+            var pet = new Pet("Eva", PetType.Lamb, parameters, accessories, Guid.NewGuid().ToString());
 
             _world.NewEntity().Replace(new PetComponent(pet));
         }
