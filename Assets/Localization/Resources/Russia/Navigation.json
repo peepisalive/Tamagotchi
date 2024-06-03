@@ -217,5 +217,14 @@
   {
     "tags": [ "navigation_descr_Accessories" ],
     "topic": "Выберите стильные аксессуары для своего питомца, чтобы выразить его индивидуальность"
+  },
+
+  {
+    "tags": [ "navigation_title_NewPet" ],
+    "topic": "Новый питомец"
+  },
+  {
+    "tags": [ "navigation_descr_NewPet" ],
+    "topic": "Выбрось старого питомца на помойку и заведи нового"
   }
 ]

@@ -56,7 +56,8 @@ namespace Starter
         private EcsSystems PetActionsScreenElements(EcsWorld world)
         {
             return new EcsSystems(world)
-                .Add(new AccessoriesNavigationElement());
+                .Add(new AccessoriesNavigationElement())
+                .Add(new NewPetNavigationElement());
         }
 
         private EcsSystems ActivitiesScreenElements(EcsWorld world)

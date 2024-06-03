@@ -7,7 +7,7 @@ namespace UI.Controller
     [RequireComponent(typeof(NewPetScreenView))]
     public sealed class NewPetScreenController : ScreenController
     {
-        [Header("View")]
+        [Header("Controller")]
         [SerializeField] private NewPetScreenView _view;
     }
 }

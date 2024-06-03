@@ -5,6 +5,7 @@ using Leopotam.Ecs;
 using UnityEngine;
 using Modules;
 using System;
+using UI.Controller;
 
 namespace Systems.Modules.Navigation
 {
@@ -68,6 +69,8 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
 
                 NavigationElementType.Accessories => typeof(AccessoriesScreenController),
+                NavigationElementType.NewPet => typeof(NewPetScreenController),
+
                 _ => null
             };
         }
@@ -89,6 +92,8 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.TrainingActivities => typeof(ActionsScreenController),
 
                 NavigationElementType.Accessories => typeof(AccessoriesScreenController),
+                NavigationElementType.NewPet => typeof(NewPetScreenController),
+
                 _ => null
             };
         }

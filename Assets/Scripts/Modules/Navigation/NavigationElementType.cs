@@ -27,6 +27,7 @@ namespace Modules.Navigation
         VisitCosmetologistActivity = 210,
 
         Accessories = 211,
+        NewPet = 212,
 
         StretchingActivity = 300,
         YogaActivity = 301,

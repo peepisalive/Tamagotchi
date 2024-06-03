@@ -217,5 +217,14 @@
   {
     "tags": [ "navigation_descr_Accessories" ],
     "topic": "Choose stylish accessories for your pet to express its individuality and add charm"
+  },
+
+  {
+    "tags": [ "navigation_title_NewPet" ],
+    "topic": "New pet"
+  },
+  {
+    "tags": [ "navigation_descr_NewPet" ],
+    "topic": "Get yourself a new pet"
   }
 ]
