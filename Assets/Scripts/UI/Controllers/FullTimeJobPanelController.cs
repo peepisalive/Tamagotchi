@@ -27,7 +27,7 @@ namespace UI.Controller
 
             var jobSettings = SettingsProvider.Get<JobSettings>();
             var jobIcon = jobSettings.GetFullTimeJobSettings(currentJob.Job.JobType).Icon;
-            var seconds = InGameTimeManager.Instance.FullTimeJobRemainingSeconds;
+            var seconds = InGameTimeManager.Instance.RemainingSeconds;
 
             _stringBuilder = new StringBuilder(8);
             _stringBuilder.Append(TimeSpan.FromSeconds(seconds));
@@ -35,12 +35,12 @@ namespace UI.Controller
             _view.SetIcon(jobIcon);
             _view.SetTime(_stringBuilder.ToString());
 
-            InGameTimeManager.Instance.OnCountFullTimeJobTimeEvent += OnCountFullTimeJobTime;
+            InGameTimeManager.Instance.OnCountRemainingTimeEvent += OnCountFullTimeJobTime;
         }
 
         public void UpdateState(EndOfFullTimeJobEvent data)
         {
-            InGameTimeManager.Instance.OnCountFullTimeJobTimeEvent -= OnCountFullTimeJobTime;
+            InGameTimeManager.Instance.OnCountRemainingTimeEvent -= OnCountFullTimeJobTime;
             gameObject.SetActive(false);
         }
 

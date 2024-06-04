@@ -103,7 +103,7 @@ namespace Systems
 
                     _world.NewEntity().Replace(new NavigationPointBackEvent());
                     StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(remainingSeconds);
-                    InGameTimeManager.Instance.StartCountFullTimeJobTimeRoutine((int)remainingSeconds);
+                    InGameTimeManager.Instance.StartCountRemainingTimeRoutine((int)remainingSeconds);
                 }
             }
 
@@ -203,7 +203,7 @@ namespace Systems
                     if (endOfRecoveryFullTime > currentTime)
                     {
                         StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(remainingSeconds);
-                        InGameTimeManager.Instance.StartCountFullTimeJobTimeRoutine((int)remainingSeconds);
+                        InGameTimeManager.Instance.StartCountRemainingTimeRoutine((int)remainingSeconds);
                     }
                     else
                     {

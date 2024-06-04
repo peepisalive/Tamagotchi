@@ -9,12 +9,12 @@ namespace Modules
 {
     public sealed class InGameTimeManager : MonoBehaviourSingleton<InGameTimeManager>, IStateLoadable
     {
-        public event Action<int> OnCountFullTimeJobTimeEvent;
+        public event Action<int> OnCountRemainingTimeEvent;
 
         [field: SerializeField] public float TotalPlayTimeSeconds { get; private set; }
         [field: SerializeField] public float LastSessionPlayTimeSeconds { get; private set; }
 
-        [field: SerializeField] public int FullTimeJobRemainingSeconds { get; private set; }
+        [field: SerializeField] public int RemainingSeconds { get; private set; }
 
         public void LoadState()
         {
@@ -39,20 +39,20 @@ namespace Modules
             }
         }
 
-        public void StartCountFullTimeJobTimeRoutine(int seconds)
+        public void StartCountRemainingTimeRoutine(int seconds)
         {
-            FullTimeJobRemainingSeconds = seconds;
+            RemainingSeconds = seconds;
             StartCoroutine(CountRoutine());
 
 
             IEnumerator CountRoutine()
             {
-                while (FullTimeJobRemainingSeconds > 0)
+                while (RemainingSeconds > 0)
                 {
                     yield return new WaitForSecondsRealtime(1f);
 
-                    FullTimeJobRemainingSeconds -= 1;
-                    OnCountFullTimeJobTimeEvent?.Invoke(FullTimeJobRemainingSeconds);
+                    RemainingSeconds -= 1;
+                    OnCountRemainingTimeEvent?.Invoke(RemainingSeconds);
                 }
                 
                 yield break;
