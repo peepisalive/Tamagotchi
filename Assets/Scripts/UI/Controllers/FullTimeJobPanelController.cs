@@ -1,6 +1,7 @@
 using Application = Tamagotchi.Application;
 using Settings.Job;
 using UnityEngine;
+using System.Text;
 using Settings;
 using UI.View;
 using Modules;
@@ -13,6 +14,7 @@ namespace UI.Controller
     public sealed class FullTimeJobPanelController : MonoBehaviour, IUpdatable<EndOfFullTimeJobEvent>
     {
         [SerializeField] private FullTimeJobPanelView _view;
+        private StringBuilder _stringBuilder;
 
         public void Setup()
         {
@@ -27,8 +29,11 @@ namespace UI.Controller
             var jobIcon = jobSettings.GetFullTimeJobSettings(currentJob.Job.JobType).Icon;
             var seconds = InGameTimeManager.Instance.FullTimeJobRemainingSeconds;
 
+            _stringBuilder = new StringBuilder(8);
+            _stringBuilder.Append(TimeSpan.FromSeconds(seconds));
+
             _view.SetIcon(jobIcon);
-            _view.SetTime(TimeSpan.FromSeconds(seconds).ToString());
+            _view.SetTime(_stringBuilder.ToString());
 
             InGameTimeManager.Instance.OnCountFullTimeJobTimeEvent += OnCountFullTimeJobTime;
         }
@@ -41,7 +46,10 @@ namespace UI.Controller
 
         private void OnCountFullTimeJobTime(int seconds)
         {
-            _view.SetTime(TimeSpan.FromSeconds(seconds).ToString());
+            _stringBuilder.Clear();
+            _stringBuilder.Append(TimeSpan.FromSeconds(seconds));
+
+            _view.SetTime(_stringBuilder.ToString());
         }
 
         private void Start()
