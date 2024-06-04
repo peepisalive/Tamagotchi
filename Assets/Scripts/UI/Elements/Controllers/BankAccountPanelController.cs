@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using UnityEngine;
+using System.Text;
 using UI.View;
 
 namespace UI.Controller
@@ -8,13 +9,25 @@ namespace UI.Controller
     public sealed class BankAccountPanelController : MonoBehaviour
     {
         [SerializeField] private BankAccountPanelView _view;
+        private StringBuilder _stringBuilder;
+
+        private void OnValueChangedEvent(int previousValue, int value)
+        {
+            _stringBuilder.Clear();
+            _stringBuilder.Append(value);
+
+            _view.SetValue(_stringBuilder.ToString());
+        }
 
         private void Start ()
         {
             var bankAccount = Application.Model.GetBankAccount();
+            _stringBuilder = new StringBuilder();
 
-            bankAccount.OnValueChangedEvent += _view.SetValue;
-            _view.SetValue(bankAccount.Value);
+            bankAccount.OnValueChangedEvent += OnValueChangedEvent;
+
+            _stringBuilder.Append(bankAccount.Value);
+            _view.SetValue(_stringBuilder.ToString());
         }
 
         private void OnDestroy()
@@ -24,7 +37,7 @@ namespace UI.Controller
             if (bankAccount == null)
                 return;
 
-            bankAccount.OnValueChangedEvent -= _view.SetValue;
+            bankAccount.OnValueChangedEvent -= OnValueChangedEvent;
         }
     }
 }

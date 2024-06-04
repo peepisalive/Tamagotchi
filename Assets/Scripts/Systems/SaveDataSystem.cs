@@ -131,7 +131,13 @@ namespace Systems
             {
                 foreach (var i in _bankAccountFilter)
                 {
-                    stateHolder.State.BankAccountValue = _bankAccountFilter.Get1(i).BankAccount.Value;
+                    var bankAccount = _bankAccountFilter.Get1(i).BankAccount;
+
+                    stateHolder.State.BankAccount = new BankAccountSave
+                    {
+                        Value = bankAccount.Value,
+                        PreviousValue = bankAccount.PreviousValue
+                    };
                 }
             }
             void SaveExitDate()

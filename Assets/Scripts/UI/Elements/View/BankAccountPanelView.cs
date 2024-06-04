@@ -7,9 +7,9 @@ namespace UI.View
     {
         [SerializeField] private TMP_Text _valueLabel;
 
-        public void SetValue(int value)
+        public void SetValue(string text)
         {
-            _valueLabel.text = $"{value}$";
+            _valueLabel.text = text;
         }
     }
 }

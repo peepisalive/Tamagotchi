@@ -1,6 +1,7 @@
 using Application = Tamagotchi.Application;
 using Settings.Job;
 using UnityEngine;
+using System.Text;
 using Settings;
 using UI.View;
 using Modules;
@@ -13,8 +14,15 @@ namespace UI.Controller
     public sealed class FullTimeJobPanelController : MonoBehaviour, IUpdatable<EndOfFullTimeJobEvent>
     {
         [SerializeField] private FullTimeJobPanelView _view;
+        private StringBuilder _stringBuilder;
 
-        public void Setup()
+        public void UpdateState(EndOfFullTimeJobEvent data)
+        {
+            InGameTimeManager.Instance.OnCountRemainingTimeEvent -= OnCountFullTimeJobTime;
+            gameObject.SetActive(false);
+        }
+
+        private void Setup()
         {
             var currentJob = Application.Model.GetCurrentFullTimeJob();
 
@@ -25,28 +33,29 @@ namespace UI.Controller
 
             var jobSettings = SettingsProvider.Get<JobSettings>();
             var jobIcon = jobSettings.GetFullTimeJobSettings(currentJob.Job.JobType).Icon;
-            var seconds = InGameTimeManager.Instance.FullTimeJobRemainingSeconds;
+            var seconds = InGameTimeManager.Instance.RemainingSeconds;
+
+            _stringBuilder = new StringBuilder(8);
+            _stringBuilder.Append(TimeSpan.FromSeconds(seconds));
 
             _view.SetIcon(jobIcon);
-            _view.SetTime(TimeSpan.FromSeconds(seconds).ToString());
+            _view.SetTime(_stringBuilder.ToString());
 
-            InGameTimeManager.Instance.OnCountFullTimeJobTimeEvent += OnCountFullTimeJobTime;
-        }
-
-        public void UpdateState(EndOfFullTimeJobEvent data)
-        {
-            InGameTimeManager.Instance.OnCountFullTimeJobTimeEvent -= OnCountFullTimeJobTime;
-            gameObject.SetActive(false);
+            InGameTimeManager.Instance.OnCountRemainingTimeEvent += OnCountFullTimeJobTime;
         }
 
         private void OnCountFullTimeJobTime(int seconds)
         {
-            _view.SetTime(TimeSpan.FromSeconds(seconds).ToString());
+            _stringBuilder.Clear();
+            _stringBuilder.Append(TimeSpan.FromSeconds(seconds));
+
+            _view.SetTime(_stringBuilder.ToString());
         }
 
         private void Start()
         {
             EventSystem.Subscribe<EndOfFullTimeJobEvent>(UpdateState);
+            Setup();
         }
 
         private void OnDestroy()
