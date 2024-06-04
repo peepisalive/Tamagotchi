@@ -16,7 +16,13 @@ namespace UI.Controller
         [SerializeField] private FullTimeJobPanelView _view;
         private StringBuilder _stringBuilder;
 
-        public void Setup()
+        public void UpdateState(EndOfFullTimeJobEvent data)
+        {
+            InGameTimeManager.Instance.OnCountRemainingTimeEvent -= OnCountFullTimeJobTime;
+            gameObject.SetActive(false);
+        }
+
+        private void Setup()
         {
             var currentJob = Application.Model.GetCurrentFullTimeJob();
 
@@ -38,12 +44,6 @@ namespace UI.Controller
             InGameTimeManager.Instance.OnCountRemainingTimeEvent += OnCountFullTimeJobTime;
         }
 
-        public void UpdateState(EndOfFullTimeJobEvent data)
-        {
-            InGameTimeManager.Instance.OnCountRemainingTimeEvent -= OnCountFullTimeJobTime;
-            gameObject.SetActive(false);
-        }
-
         private void OnCountFullTimeJobTime(int seconds)
         {
             _stringBuilder.Clear();
@@ -55,6 +55,7 @@ namespace UI.Controller
         private void Start()
         {
             EventSystem.Subscribe<EndOfFullTimeJobEvent>(UpdateState);
+            Setup();
         }
 
         private void OnDestroy()

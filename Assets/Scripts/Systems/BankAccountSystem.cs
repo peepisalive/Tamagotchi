@@ -16,16 +16,20 @@ namespace Systems
         public void Init()
         {
             var value = 1703;
+            var previousValue = 0;
 
             if (!_saveDataFilter.IsEmpty())
             {
                 foreach (var i in _saveDataFilter)
                 {
-                    value = _saveDataFilter.Get1(i).Get<GlobalStateHolder>().State.BankAccountValue;
+                    var save = _saveDataFilter.Get1(i).Get<GlobalStateHolder>().State.BankAccount;
+
+                    value = save.Value;
+                    previousValue = value;
                 }
             }
 
-            CreateBankAccount(value);
+            CreateBankAccount(previousValue, value);
             EventSystem.Subscribe<Events.ChangeBankAccountValueEvent>(SendEvent);
         }
 
@@ -50,11 +54,11 @@ namespace Systems
             EventSystem.Unsubscribe<Events.ChangeBankAccountValueEvent>(SendEvent);
         }
 
-        private void CreateBankAccount(int value)
+        private void CreateBankAccount(int previousValue, int value)
         {
             _world.NewEntity().Replace(new BankAccountComponent
             {
-                BankAccount = new BankAccount(value)
+                BankAccount = new BankAccount(previousValue, value)
             });
         }
 

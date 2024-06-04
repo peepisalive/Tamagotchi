@@ -145,7 +145,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92781908}
-  - component: {fileID: 834983704665901412}
   m_Layer: 5
   m_Name: MainScreenNavigationPanel
   m_TagString: Untagged
@@ -174,19 +173,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 210}
   m_SizeDelta: {x: 0, y: 420}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &834983704665901412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92781907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319c7dba18386814a922811a8903f7e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fullTimeJobPanelController: {fileID: 8536193546554003030}
 --- !u!1 &172736173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,18 +4049,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4919876852422795434}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8536193546554003030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3616477516598259452, guid: 3cd7a71096188784b9cdc54a4bf028f0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4919876852422795434}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690349894666635135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d296afebdcad944198fb5e71ee1ac36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6072693333157098716
 PrefabInstance:
   m_ObjectHideFlags: 0

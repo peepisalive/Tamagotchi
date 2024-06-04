@@ -17,7 +17,7 @@ namespace Save.State
 
     public sealed class GlobalState : IState
     {
-        public int BankAccountValue;
+        public BankAccountSave BankAccount;
 
         public float TotalPlayTimeSeconds;
         public float LastSessionPlayTimeSeconds;

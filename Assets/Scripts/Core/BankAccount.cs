@@ -4,22 +4,26 @@ namespace Core
 {
     public sealed class BankAccount
     {
-        public int Value { get; private set; }
-        public event Action<int> OnValueChangedEvent;
+        public event Action<int, int> OnValueChangedEvent;
 
-        public BankAccount(int value)
+        public int Value { get; private set; }
+        public int PreviousValue { get; private set; }
+
+        public BankAccount(int previousValue, int value)
         {
             Value = value;
+            PreviousValue = previousValue;
         }
 
         public void Add(int value)
         {
+            PreviousValue = Value;
             Value += value;
 
             if (Value < 0)
                 Value = 0;
 
-            OnValueChangedEvent?.Invoke(Value);
+            OnValueChangedEvent?.Invoke(PreviousValue, Value);
         }
 
         public bool IsMoneyAvailable(int value)
