@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using Modules;
 
-namespace UI.Controllers
+namespace UI.Controller
 {
     [RequireComponent(typeof(Button))]
     public sealed class HapticController : MonoBehaviour

@@ -16,7 +16,8 @@ namespace Systems.Navigation
 
         private EcsFilter<JobComponent> _jobFilter;
         private EcsFilter<BlockComponent> _blockFilter;
-        
+        private EcsFilter<PetComponent, DeadComponent> _deadPetFilter;
+
         public void Init()
         {
             _blockFilter.RegisterElement(NavigationBlockType.Main, this);
@@ -36,7 +37,7 @@ namespace Systems.Navigation
                 result = _jobFilter.Get1(i).CurrentFullTimeJob == null;
             }
 
-            return result;
+            return result && _deadPetFilter.IsEmpty();
         }
 
         public bool NotificationIsEnable(NavigationElementType elementType)

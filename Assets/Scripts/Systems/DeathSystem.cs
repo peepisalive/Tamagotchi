@@ -10,6 +10,9 @@ using Settings;
 using Modules;
 using Utils;
 using Core;
+using Components.Modules.Navigation;
+using Modules.Navigation;
+using System.Linq;
 
 namespace Systems
 {
@@ -99,7 +102,13 @@ namespace Systems
                             Title = _settings.Localization.NewPetButtonTitle,
                             Action = () =>
                             {
-                                // to do: select new pet
+                                var navigationPoints = Application.Model.GetChildPointsOfType(NavigationBlockType.Main, NavigationElementType.PetActionsScreen);
+
+                                _world.NewEntity().Replace(new HidePopupComponent());
+                                _world.NewEntity().Replace(new NavigationPointClickEvent
+                                {
+                                    NavigationPoint = navigationPoints.FirstOrDefault(np => np.Type == NavigationElementType.NewPet)
+                                });
                             }
                         },
                         new TextButtonSettings

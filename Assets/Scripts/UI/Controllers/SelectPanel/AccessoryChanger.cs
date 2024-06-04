@@ -1,5 +1,6 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
+using Modules.Localization;
 using Core.Animation;
 using UI.Controller;
 using System.Linq;
@@ -12,10 +13,9 @@ using Core;
 
 namespace UI
 {
-    public sealed class AccessoryChanger : MonoBehaviour
+    public sealed class AccessoryChanger : ItemChanger
     {
-        [Header("Controllers")]
-        [SerializeField] private SelectPanelController _selectPanel;
+        [Header("Controller")]
         [SerializeField] private ColorPickerController _colorPicker;
 
         [Header("Buttons")]
@@ -31,7 +31,7 @@ namespace UI
         private List<AccessoryAppearance> _accessoriesAppearances;
         private Pet _pet;
 
-        private void Setup()
+        public override void Setup()
         {
             _settings = SettingsProvider.Get<AccessoriesSettings>();
             _pet = Application.Model.GetCurrentPet();
@@ -60,10 +60,35 @@ namespace UI
             _selectedAccessory = selectItems[_currentAccessoryIndex].Item;
 
             _colorChangeButton.SetState(_selectedAccessory.Model != null);
-            _selectPanel.Setup(selectItems.Cast<SelectItem>().ToList(), _currentAccessoryIndex);
+            SetupSelectPanel(selectItems, _currentAccessoryIndex);
         }
 
-        private void OnSelectItemChanged(SelectItem item, int index)
+        protected override void Start()
+        {
+            base.Start();
+
+            EventSystem.Subscribe<UnlockAccessoryEvent>(HandleUnlockAccessoryEvent);
+
+            _confirmButton.Setup(new TextButtonSettings
+            {
+                Title = LocalizationProvider.GetText("save_changes/button"),
+                Action = OnConfirmButtonClick
+            });
+            _colorChangeButton.Setup(new ImageButtonSettings
+            {
+                Action = OnColorButtonClick
+            });
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            EventSystem.Send(new ChangePetEyesAnimationEvent(default));
+            EventSystem.Unsubscribe<UnlockAccessoryEvent>(HandleUnlockAccessoryEvent);
+        }
+
+        protected override void OnSelectItemChanged(SelectItem item, int index)
         {
             _selectedAccessory.Model?.SetActive(false);
 
@@ -95,7 +120,7 @@ namespace UI
         #region Button click handlers
         private void OnConfirmButtonClick()
         {
-            if (_selectPanel.CurrentState)
+            if (SelectPanelState)
             {
                 if (_selectedAccessory.IsUnlocked)
                 {
@@ -120,9 +145,9 @@ namespace UI
                 SetConfirmButtonSignStates();
 
                 _colorPicker.SetState(false);
-                _selectPanel.SetState(true);
+                SetSelectPanelState(true);
 
-                _confirmButton.SetState(_currentAccessoryIndex != _selectPanel.CurrentItemIndex);
+                _confirmButton.SetState(_currentAccessoryIndex != SelectItemIndex);
             }
         }
 
@@ -131,7 +156,7 @@ namespace UI
             if (_colorPicker.CurrentState)
                 return;
 
-            _selectPanel.SetState(false);
+            SetSelectPanelState(false);
 
             _confirmButton.SetMoneySignState(false);
             _confirmButton.SetAdsSignState(false);
@@ -156,7 +181,7 @@ namespace UI
             _selectedAccessory.SetCurrentState(true);
 
             _currentAccessory = _selectedAccessory;
-            _currentAccessoryIndex = _selectPanel.CurrentItemIndex;
+            _currentAccessoryIndex = SelectItemIndex;
 
             _confirmButton.SetState(false);
             _confirmButton.SetAdsSignState(false);
@@ -171,32 +196,6 @@ namespace UI
 
             _confirmButton.SetAdsSignState(_selectedAccessory.AccessType == AccessType.Ads && !_selectedAccessory.IsUnlocked);
             _confirmButton.SetMoneySignState(moneyAccessoryIsLocked);
-        }
-
-        private void Start()
-        {
-            Setup();
-
-            _selectPanel.OnValueChangeEvent += OnSelectItemChanged;
-            EventSystem.Subscribe<UnlockAccessoryEvent>(HandleUnlockAccessoryEvent);
-
-            _confirmButton.Setup(new TextButtonSettings
-            {
-                Title = _settings.Localization.SaveChangesTitle,
-                Action = OnConfirmButtonClick
-            });
-            _colorChangeButton.Setup(new ImageButtonSettings
-            {
-                Action = OnColorButtonClick
-            });
-        }
-
-        private void OnDestroy()
-        {
-            _selectPanel.OnValueChangeEvent -= OnSelectItemChanged;
-
-            EventSystem.Send(new ChangePetEyesAnimationEvent(default));
-            EventSystem.Unsubscribe<UnlockAccessoryEvent>(HandleUnlockAccessoryEvent);
         }
     }
 }

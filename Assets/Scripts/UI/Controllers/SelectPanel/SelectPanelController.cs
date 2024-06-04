@@ -13,7 +13,7 @@ namespace UI.Controller
         public event Action<SelectItem, int> OnValueChangeEvent;
 
         public bool CurrentState => gameObject.activeInHierarchy;
-        public int CurrentItemIndex { get; private set; }
+        public int SelectItemIndex { get; private set; }
 
         [SerializeField] private SelectPanelView _view;
 
@@ -26,9 +26,9 @@ namespace UI.Controller
         public void Setup(List<SelectItem> selectItems, int currentItemIndex)
         {
             _selectItems = selectItems;
-            CurrentItemIndex = currentItemIndex;
+            SelectItemIndex = currentItemIndex;
 
-            _view.SetItemText(_selectItems[CurrentItemIndex].Title);
+            _view.SetItemText(_selectItems[SelectItemIndex].Title);
             SetButtonsStates();
         }
 
@@ -46,7 +46,7 @@ namespace UI.Controller
 
         public SelectItem<T> GetCurrentSelectItem<T>()
         {
-            return (SelectItem<T>)_selectItems[CurrentItemIndex];
+            return (SelectItem<T>)_selectItems[SelectItemIndex];
         }
 
         private void MoveLeft()
@@ -61,23 +61,23 @@ namespace UI.Controller
 
         private void Move(int offset)
         {
-            var newIndex = CurrentItemIndex + offset;
+            var newIndex = SelectItemIndex + offset;
 
             if (newIndex < 0 || newIndex > _selectItems.Count - 1)
                 return;
 
-            CurrentItemIndex = newIndex;
+            SelectItemIndex = newIndex;
 
-            _view.SetItemText(_selectItems[CurrentItemIndex].Title);
+            _view.SetItemText(_selectItems[SelectItemIndex].Title);
             SetButtonsStates();
 
-            OnValueChangeEvent?.Invoke(_selectItems[CurrentItemIndex], CurrentItemIndex);
+            OnValueChangeEvent?.Invoke(_selectItems[SelectItemIndex], SelectItemIndex);
         }
 
         private void SetButtonsStates()
         {
-            _leftButton.gameObject.SetActive(CurrentItemIndex != 0);
-            _rightButton.gameObject.SetActive(CurrentItemIndex != _selectItems.Count - 1);
+            _leftButton.gameObject.SetActive(SelectItemIndex != 0);
+            _rightButton.gameObject.SetActive(SelectItemIndex != _selectItems.Count - 1);
         }
 
         private void Awake()

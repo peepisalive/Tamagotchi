@@ -3,6 +3,7 @@ using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Navigation;
 using Leopotam.Ecs;
+using Components;
 using Utils;
 
 namespace Systems.Navigation
@@ -15,6 +16,7 @@ namespace Systems.Navigation
         };
 
         private EcsFilter<BlockComponent> _blockFilter;
+        private EcsFilter<PetComponent, DeadComponent> _deadPetFilter;
 
         public void Init()
         {
@@ -28,12 +30,12 @@ namespace Systems.Navigation
 
         public bool IsEnable(NavigationElementType elementType)
         {
-            return true;
+            return _deadPetFilter.IsEmpty();
         }
 
         public bool NotificationIsEnable(NavigationElementType elementType)
         {
-            return !Application.HasTrack(elementType);
+            return !Application.HasTrack(elementType) & IsEnable(elementType);
         }
 
         public bool OnClick(NavigationElementType elementType)

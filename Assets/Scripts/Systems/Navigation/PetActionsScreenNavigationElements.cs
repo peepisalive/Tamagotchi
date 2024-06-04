@@ -15,7 +15,7 @@ namespace Systems.Navigation
         };
 
         private EcsFilter<BlockComponent> _blockFilter;
-        
+
         public void Init()
         {
             _blockFilter.RegisterElement(NavigationBlockType.Main, this);

@@ -42,10 +42,5 @@
 	{
 		"tags": [ "name", "VikingHelmet" ],
 		"topic": "Viking helmet"
-	},
-
-	{
-		"tags": [ "button", "title", "save_changes" ],
-		"topic": "Save changes"
 	}
 ]

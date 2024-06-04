@@ -31,8 +31,6 @@ namespace Settings
         [Serializable]
         public sealed class AccessoryLocalization
         {
-            public string SaveChangesTitle => LocalizationProvider.GetText(_asset, "button/title/save_changes");
-
             [SerializeField] private LocalizedText _asset;
 
             public string GetAccessoryName(AccessoryType type)

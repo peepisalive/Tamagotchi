@@ -10,6 +10,7 @@ namespace UI.Controller.Screen
         public override void Setup()
         {
             base.Setup();
+            _accessoryChanger.Setup();
         }
     }
 }

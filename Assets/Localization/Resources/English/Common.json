@@ -25,6 +25,10 @@
 		"tags": [ "go", "button" ],
 		"topic": "Go"
 	},
+	{
+		"tags": [ "save_changes", "button" ],
+		"topic": "Save changes"
+	},
 
 	{
 		"tags": [ "part_time_job", "title" ],
@@ -59,5 +63,9 @@
 	{
 		"tags": [ "pet", "Goose" ],
 		"topic": "Goose"
+	},
+	{
+		"tags": [ "pet", "Lamb" ],
+		"topic": "Lamb"
 	}
 ]
