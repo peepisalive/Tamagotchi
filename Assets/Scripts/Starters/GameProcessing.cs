@@ -1,4 +1,5 @@
 using Systems.Activities;
+using Systems.Modules;
 using Leopotam.Ecs;
 using Components;
 using Systems;
@@ -23,6 +24,7 @@ namespace Starter
                 .Add(SatietyActivitiesElements(world))
                 .Add(HygieneActivities(world))
                 .Add(HealthActivities(world))
+                .Add(new PushNotificationsSystem())
                 .OneFrame<ChangeParameterEvent>()
                 .OneFrame<DeathEvent>()
                 .OneFrame<ChangeBankAccountValueEvent>()

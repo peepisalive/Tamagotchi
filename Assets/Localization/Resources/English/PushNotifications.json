@@ -1,30 +1,45 @@
 [
 	{
 		"tags": [ "enter_the_game", "channel", "title" ],
-		"topic": "Возвращайтесь скорее!!!"
+		"topic": "Come back soon"
+	},
+	{
+		"tags": [ "job", "channel", "title" ],
+		"topic": "Job"
 	},
 
 	{
 		"tags": [ "enter_the_game", "channel", "content" ],
-		"topic": "Ваш питомец вас заждался"
+		"topic": "Your pet has been waiting for you"
 	},
-
+	{
+		"tags": [ "job", "channel", "content" ],
+		"topic": "The work has become available"
+	},
 
 	{
 		"tags": [ "enter_the_game", "12", "notification", "title" ],
-		"topic": "Не забывайте о своем питомце!"
+		"topic": "Don't forget about your pet!"
 	},
 	{
 		"tags": [ "enter_the_game", "24", "notification", "title" ],
-		"topic": "Вы забыли о своем питомце?"
+		"topic": "Have you forgotten about your pet?"
+	},
+	{
+		"tags": [ "end_of_full_time_job", "notification", "title" ],
+		"topic": "You have received your salary!"
 	},
 
 	{
 		"tags": [ "enter_the_game", "12", "notification", "content" ],
-		"topic": "Вы заходили не так давно, но питомец уже скучает по вам..."
+		"topic": "You came in not so long ago, but the pet already misses you"
 	},
 	{
 		"tags": [ "enter_the_game", "24", "notification", "content" ],
-		"topic": "Вас так долго не было, питомцу плохо без вас!"
+		"topic": "You haven't been in for so long, the pet feels bad without you"
+	},
+	{
+		"tags": [ "end_of_full_time_job", "notification", "content" ],
+		"topic": "The shift at your job is over"
 	}
 ]

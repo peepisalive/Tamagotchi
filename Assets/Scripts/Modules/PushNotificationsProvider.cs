@@ -1,6 +1,7 @@
 using Unity.Notifications.Android;
 using System.Collections.Generic;
 using Settings.Modules;
+using System.Linq;
 using Settings;
 using System;
 using Core;
@@ -9,10 +10,18 @@ namespace Modules
 {
     public sealed class PushNotificationsProvider : MonoBehaviourSingleton<PushNotificationsProvider>
     {
-        private Dictionary<string, List<AndroidNotification>> _notifications;
+        private List<AndroidNotificationChannel> _channels;
         private PushNotificationsSettings _settings;
 
-        private void ScheduleEnterTheGameNotification()
+        public void ScheduleEndOfFullTimeJobNotification(DateTime date)
+        {
+            var channelId = PushNotificationsSettings.JobChannelId;
+
+            CreateChannel(channelId);
+            CreateNotification(channelId, PushNotificationsSettings.EndOfFullTimeJobId, date);
+        }
+
+        public void ScheduleEnterTheGameNotification()
         {
             var channelId = PushNotificationsSettings.EnterTheGameChannelId;
 
@@ -23,6 +32,9 @@ namespace Modules
 
         private void CreateChannel(string id)
         {
+            if (_channels.Any(c => c.Id == id))
+                return;
+
             var channel = new AndroidNotificationChannel()
             {
                 Id = id,
@@ -31,10 +43,7 @@ namespace Modules
                 Description = _settings.Localization.GetChannelContent(id)
             };
 
-            if (_notifications == null)
-                _notifications = new Dictionary<string, List<AndroidNotification>>();
-
-            _notifications.Add(channel.Id, new List<AndroidNotification>());
+            _channels.Add(channel);
             AndroidNotificationCenter.RegisterNotificationChannel(channel);
         }
 
@@ -50,8 +59,7 @@ namespace Modules
                 Style = NotificationStyle.BigTextStyle
             };
 
-            if (_notifications.TryGetValue(channelId, out var notifications))
-                notifications.Add(notification);
+            AndroidNotificationCenter.SendNotification(notification, channelId);
         }
 
         private void Start()
@@ -61,27 +69,9 @@ namespace Modules
             return;
 #endif
             _settings = SettingsProvider.Get<PushNotificationsSettings>();
+            _channels = new List<AndroidNotificationChannel>();
 
             AndroidNotificationCenter.CancelAllNotifications();
-        }
-
-        private void OnDestroy()
-        {
-#if UNITY_EDITOR
-            return;
-#endif
-            ScheduleEnterTheGameNotification();
-
-            foreach (var notification in _notifications)
-            {
-                if (notification.Value == null)
-                    continue;
-
-                notification.Value.ForEach(n =>
-                {
-                    AndroidNotificationCenter.SendNotification(n, notification.Key);
-                });
-            }
         }
     }
 }

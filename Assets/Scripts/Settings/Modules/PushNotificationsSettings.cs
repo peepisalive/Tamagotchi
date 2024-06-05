@@ -13,6 +13,9 @@ namespace Settings.Modules
         public const string EnterTheGame12Id = "enter_the_game/12";
         public const string EnterTheGame24Id = "enter_the_game/24";
 
+        public const string JobChannelId = "job";
+        public const string EndOfFullTimeJobId = "end_of_full_time_job";
+
         [Serializable]
         public sealed class PushNotificationsLocalization
         {
