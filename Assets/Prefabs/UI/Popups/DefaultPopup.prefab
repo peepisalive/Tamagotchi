@@ -295,7 +295,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
+  m_IsTextObjectScaleStatic: 1
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -700,8 +700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 100
-    m_Right: 100
+    m_Left: 0
+    m_Right: 0
     m_Top: 50
     m_Bottom: 0
   m_ChildAlignment: 7
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
+  m_IsTextObjectScaleStatic: 1
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -1306,7 +1306,7 @@ PrefabInstance:
     - target: {fileID: 4359992711735231362, guid: d6bd6f8d88937534bbe593d1c35dafb4,
         type: 3}
       propertyPath: m_UVRect.y
-      value: 0.075
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4359992711735231362, guid: d6bd6f8d88937534bbe593d1c35dafb4,
         type: 3}

@@ -37,6 +37,7 @@ namespace UI.Controller
 
                 settings.ActionWithInstance?.Invoke(settings.PopupInstance);
             });
+            _button.interactable = settings.IsEnable;
 
             SetMoneySignState(settings.MoneySignState);
             SetAdsSignState(settings.AdsSignState);

@@ -139,7 +139,7 @@ namespace UI
             }
             else
             {
-                EventSystem.Send(new PetCameraRotateStateEvent(true));
+                EventSystem.Send(new PetCameraSetRotateStateEvent(true));
                 _colorPicker.OnColorChangeEvent -= OnItemColorChanged;
 
                 SetConfirmButtonSignStates();
@@ -165,7 +165,7 @@ namespace UI
             _colorPicker.SetState(true);
 
             _colorPicker.OnColorChangeEvent += OnItemColorChanged;
-            EventSystem.Send(new PetCameraRotateStateEvent(false));
+            EventSystem.Send(new PetCameraSetRotateStateEvent(false));
         }
         #endregion
 

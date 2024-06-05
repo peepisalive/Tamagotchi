@@ -21,6 +21,7 @@ namespace Settings
 
             public string NewPetButtonTitle => LocalizationProvider.GetText(_asset, "left/button");
             public string ResurrectButtonTitle => LocalizationProvider.GetText(_asset, "right/button");
+            public string DontCareButtonTitle => LocalizationProvider.GetText(_asset, "down/left/button");
 
 
             [SerializeField] private LocalizedText _asset;

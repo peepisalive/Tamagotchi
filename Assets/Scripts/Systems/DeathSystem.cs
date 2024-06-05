@@ -1,18 +1,18 @@
 using Application = Tamagotchi.Application;
+using Components.Modules.Navigation;
 using System.Collections.Generic;
 using Modules.Localization;
+using Modules.Navigation;
 using Core.Animation;
 using Leopotam.Ecs;
 using UI.Settings;
+using System.Linq;
 using Components;
 using UI.Popups;
 using Settings;
 using Modules;
 using Utils;
 using Core;
-using Components.Modules.Navigation;
-using Modules.Navigation;
-using System.Linq;
 
 namespace Systems
 {
@@ -21,6 +21,7 @@ namespace Systems
         private EcsWorld _world;
         private EcsFilter<DeathEvent> _deathFilter;
         private EcsFilter<PetComponent> _petFilter;
+        private EcsFilter<JobComponent> _jobFilter;
 
         private DeathSettings _settings;
 
@@ -48,10 +49,14 @@ namespace Systems
         {
             foreach (var i in _petFilter)
             {
-                _petFilter.Get1(i).Pet.Parameters.Get(ParameterType.Health).Add(1f);
                 _petFilter.GetEntity(i).Del<DeadComponent>();
             }
 
+            _world.NewEntity().Replace(new ChangeParameterEvent
+            {
+                Type = ParameterType.Health,
+                Value = 1f
+            });
             _world.NewEntity().Replace(new ChangePetAnimationEvent(default));
             _world.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
         }
@@ -77,6 +82,12 @@ namespace Systems
         {
             var navigationPoint = Application.Model.GetCurrentNavigationPoint();
             var usePetIcon = !_settings.PetIconExcludingTypes.Contains(navigationPoint.Type);
+            var chooseNewPetButtonState = true;
+
+            foreach (var i in _jobFilter)
+            {
+                chooseNewPetButtonState = _jobFilter.Get1(i).CurrentFullTimeJob == null;
+            }
 
             _world.NewEntity().Replace(new ChangePetAnimationEvent(AnimationType.Death));
             _world.NewEntity().Replace(new ChangePetEyesAnimationEvent(EyesAnimationType.Dead));
@@ -109,7 +120,8 @@ namespace Systems
                                 {
                                     NavigationPoint = navigationPoints.FirstOrDefault(np => np.Type == NavigationElementType.NewPet)
                                 });
-                            }
+                            },
+                            IsEnable = chooseNewPetButtonState
                         },
                         new TextButtonSettings
                         {
@@ -123,6 +135,14 @@ namespace Systems
                                 _world.NewEntity().Replace(new HidePopupComponent());
                             },
                             AdsSignState = true
+                        },
+                        new TextButtonSettings
+                        {
+                            Title = _settings.Localization.DontCareButtonTitle,
+                            Action = () =>
+                            {
+                                _world.NewEntity().Replace(new HidePopupComponent());
+                            }
                         }
                     },
                     UsePetIcon = usePetIcon,

@@ -16,5 +16,9 @@
 	{
 		"tags": [ "right", "button" ],
 		"topic": "Воскресить"
+	},
+	{
+		"tags": [ "down", "left", "button" ],
+		"topic": "Ну и ладно"
 	}
 ]

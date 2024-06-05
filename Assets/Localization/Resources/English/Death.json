@@ -16,5 +16,9 @@
 	{
 		"tags": [ "right", "button" ],
 		"topic": "Resurrect"
+	},
+	{
+		"tags": [ "down", "left", "button" ],
+		"topic": "I don't care"
 	}
 ]

@@ -1,10 +1,10 @@
 namespace Events
 {
-    public sealed class PetCameraRotateStateEvent
+    public sealed class PetCameraSetRotateStateEvent
     {
         public bool State { get; private set; }
 
-        public PetCameraRotateStateEvent(bool state)
+        public PetCameraSetRotateStateEvent(bool state)
         {
             State = state;
         }

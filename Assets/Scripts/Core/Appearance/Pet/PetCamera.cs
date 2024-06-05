@@ -28,7 +28,7 @@ namespace Core
             transform.position = _target.position + _offset;
         }
 
-        private void SetState(PetCameraRotateStateEvent e)
+        private void SetState(PetCameraSetRotateStateEvent e)
         {
             RotateState = e.State;
         }
@@ -51,12 +51,12 @@ namespace Core
 
         private void Start()
         {
-            EventSystem.Subscribe<PetCameraRotateStateEvent>(SetState);
+            EventSystem.Subscribe<PetCameraSetRotateStateEvent>(SetState);
         }
 
         private void OnDestroy()
         {
-            EventSystem.Unsubscribe<PetCameraRotateStateEvent>(SetState);
+            EventSystem.Unsubscribe<PetCameraSetRotateStateEvent>(SetState);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace UI.Settings
         public bool IsOneClickButton;
         public bool MoneySignState;
         public bool AdsSignState;
+        public bool IsEnable = true;
 
         public int MoneyValue;
     }
