@@ -6,7 +6,7 @@ using Core;
 
 namespace Settings.Modules
 {
-    [CreateAssetMenu(fileName = "SoundSettings", menuName = "Settings/Modules/Sound/SoundSettings", order = 0)]
+    [CreateAssetMenu(fileName = "SoundSettings", menuName = "Settings/Modules/SoundSettings", order = 0)]
     public sealed class SoundSettings : ScriptableObject
     {
         [SerializeField] private List<Sound> _sounds;
