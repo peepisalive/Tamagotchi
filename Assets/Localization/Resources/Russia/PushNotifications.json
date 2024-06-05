@@ -1,20 +1,30 @@
 [
 	{
-		"tags": [ "popup", "title" ],
-		"topic": "гг"
+		"tags": [ "enter_the_game", "channel", "title" ],
+		"topic": "Come back soon!!!"
 	},
 
 	{
-		"tags": [ "popup", "content" ],
-		"topic": "Ваш питомец скончался, не повезло..."
+		"tags": [ "enter_the_game", "channel", "content" ],
+		"topic": "Your pet has been waiting for you"
+	},
+
+
+	{
+		"tags": [ "enter_the_game", "12", "notification", "title" ],
+		"topic": "Don't forget about your pet!"
+	},
+	{
+		"tags": [ "enter_the_game", "24", "notification", "title" ],
+		"topic": "Have you forgotten about your pet?"
 	},
 
 	{
-		"tags": [ "left", "button" ],
-		"topic": "Отправиться за новым"
+		"tags": [ "enter_the_game", "12", "notification", "content" ],
+		"topic": "You came in not so long ago, but the pet already misses you..."
 	},
 	{
-		"tags": [ "right", "button" ],
-		"topic": "Воскресить"
+		"tags": [ "enter_the_game", "24", "notification", "content" ],
+		"topic": "You haven't been in for so long, the pet feels bad without you!"
 	}
 ]

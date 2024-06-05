@@ -9,6 +9,9 @@ namespace Settings.Modules
     {
         [field: SerializeField] public PushNotificationsLocalization Localization { get; private set; }
 
+        public const string EnterTheGameChannelId = "enter_the_game";
+        public const string EnterTheGame12Id = "enter_the_game/12";
+        public const string EnterTheGame24Id = "enter_the_game/24";
 
         [Serializable]
         public sealed class PushNotificationsLocalization

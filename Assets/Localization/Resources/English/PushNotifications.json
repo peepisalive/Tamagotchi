@@ -1,20 +1,30 @@
 [
 	{
-		"tags": [ "popup", "title" ],
-		"topic": "gg"
+		"tags": [ "enter_the_game", "channel", "title" ],
+		"topic": "Возвращайтесь скорее!!!"
 	},
 
 	{
-		"tags": [ "popup", "content" ],
-		"topic": "Your pet died, no luck..."
+		"tags": [ "enter_the_game", "channel", "content" ],
+		"topic": "Ваш питомец вас заждался"
+	},
+
+
+	{
+		"tags": [ "enter_the_game", "12", "notification", "title" ],
+		"topic": "Не забывайте о своем питомце!"
+	},
+	{
+		"tags": [ "enter_the_game", "24", "notification", "title" ],
+		"topic": "Вы забыли о своем питомце?"
 	},
 
 	{
-		"tags": [ "left", "button" ],
-		"topic": "Go after a new pet"
+		"tags": [ "enter_the_game", "12", "notification", "content" ],
+		"topic": "Вы заходили не так давно, но питомец уже скучает по вам..."
 	},
 	{
-		"tags": [ "right", "button" ],
-		"topic": "Resurrect"
+		"tags": [ "enter_the_game", "24", "notification", "content" ],
+		"topic": "Вас так долго не было, питомцу плохо без вас!"
 	}
 ]
