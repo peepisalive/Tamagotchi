@@ -1,7 +1,6 @@
 using Unity.Notifications.Android;
 using System.Collections.Generic;
 using Settings.Modules;
-using System.Linq;
 using Settings;
 using System;
 using Core;
@@ -15,34 +14,24 @@ namespace Modules
 
         public void ScheduleEndOfRecoveryPartTimeJobNotification(DateTime date)
         {
-            var channelId = PushNotificationsSettings.JobChannelId;
-
-            CreateChannel(channelId);
-            CreateNotification(channelId, PushNotificationsSettings.EndOfRecoveryPartTimeJobId, date);
+            CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfRecoveryPartTimeJobId, date);
         }
 
         public void ScheduleEndOfFullTimeJobNotification(DateTime date)
         {
-            var channelId = PushNotificationsSettings.JobChannelId;
-
-            CreateChannel(channelId);
-            CreateNotification(channelId, PushNotificationsSettings.EndOfFullTimeJobId, date);
+            CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfFullTimeJobId, date);
         }
 
         public void ScheduleEnterTheGameNotification()
         {
             var channelId = PushNotificationsSettings.EnterTheGameChannelId;
 
-            CreateChannel(channelId);
             CreateNotification(channelId, PushNotificationsSettings.EnterTheGame12Id, DateTime.Now.Date.AddHours(12));
             CreateNotification(channelId, PushNotificationsSettings.EnterTheGame24Id, DateTime.Now.Date.AddHours(24));
         }
 
         private void CreateChannel(string id)
         {
-            if (_channels.Any(c => c.Id == id))
-                return;
-
             var channel = new AndroidNotificationChannel()
             {
                 Id = id,
@@ -72,14 +61,21 @@ namespace Modules
 
         private void Start()
         {
-            Instance = this;
 #if UNITY_EDITOR
             return;
 #endif
+            AndroidNotificationCenter.CancelAllNotifications();
+
+            CreateChannel(PushNotificationsSettings.JobChannelId);
+            CreateChannel(PushNotificationsSettings.EnterTheGameChannelId);
+
+        }
+
+        private void Awake()
+        {
+            Instance = this;
             _settings = SettingsProvider.Get<PushNotificationsSettings>();
             _channels = new List<AndroidNotificationChannel>();
-
-            AndroidNotificationCenter.CancelAllNotifications();
         }
     }
 }
