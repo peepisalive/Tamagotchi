@@ -16,15 +16,27 @@ namespace Modules
         private PushNotificationsSettings _settings;
         private JobSettings _jobSettings;
 
-        public void ScheduleEnterTheGameNotification()
+        public void ScheduleNotifications()
+        {
+            ScheduleEnterTheGameNotification();
+            ScheduleEndOfFullTimeJobNotification();
+            ScheduleEndOfRecoveryPartTimeJobNotification();
+        }
+
+        public void CancelAllNotifications()
+        {
+            AndroidNotificationCenter.CancelAllNotifications();
+        }
+
+        private void ScheduleEnterTheGameNotification()
         {
             var channelId = PushNotificationsSettings.EnterTheGameChannelId;
 
-            CreateNotification(channelId, PushNotificationsSettings.EnterTheGame12Id, DateTime.Now.Date.AddMinutes(12));
-            CreateNotification(channelId, PushNotificationsSettings.EnterTheGame24Id, DateTime.Now.Date.AddHours(24));
+            CreateNotification(channelId, PushNotificationsSettings.EnterTheGame12Id, DateTime.Now.AddHours(12));
+            CreateNotification(channelId, PushNotificationsSettings.EnterTheGame24Id, DateTime.Now.AddHours(24));
         }
 
-        public void ScheduleEndOfRecoveryPartTimeJobNotification()
+        private void ScheduleEndOfRecoveryPartTimeJobNotification()
         {
             if (Application.Model.PartTimeIsAvailable())
                 return;
@@ -35,7 +47,7 @@ namespace Modules
             CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfRecoveryPartTimeJobId, date);
         }
 
-        public void ScheduleEndOfFullTimeJobNotification()
+        private void ScheduleEndOfFullTimeJobNotification()
         {
             var jobComponent = Application.Model.GetJobComponent();
 
@@ -45,11 +57,6 @@ namespace Modules
             var date = jobComponent.CurrentFullTimeJob.StartDate.AddHours(jobComponent.CurrentFullTimeJob.WorkingHours);
 
             CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfFullTimeJobId, date);
-        }
-
-        public void CancelAllNotifications()
-        {
-            AndroidNotificationCenter.CancelAllNotifications();
         }
 
         private void CreateChannel(string id, Importance importance)
@@ -81,6 +88,13 @@ namespace Modules
             AndroidNotificationCenter.SendNotification(notification, channelId);
         }
 
+        private void Awake()
+        {
+            Instance = this;
+            _settings = SettingsProvider.Get<PushNotificationsSettings>();
+            _channels = new List<AndroidNotificationChannel>();
+        }
+
         private void Start()
         {
             AndroidNotificationCenter.Initialize();
@@ -88,13 +102,6 @@ namespace Modules
 
             CreateChannel(PushNotificationsSettings.JobChannelId, Importance.Default);
             CreateChannel(PushNotificationsSettings.EnterTheGameChannelId, Importance.High);
-        }
-
-        private void Awake()
-        {
-            Instance = this;
-            _settings = SettingsProvider.Get<PushNotificationsSettings>();
-            _channels = new List<AndroidNotificationChannel>();
         }
     }
 }

@@ -16,9 +16,7 @@ namespace Starter
         {
             if (!focus)
             {
-                PushNotificationsProvider.Instance.ScheduleEnterTheGameNotification();
-                PushNotificationsProvider.Instance.ScheduleEndOfFullTimeJobNotification();
-                PushNotificationsProvider.Instance.ScheduleEndOfRecoveryPartTimeJobNotification();
+                PushNotificationsProvider.Instance.ScheduleNotifications();
             }
             else
             {
