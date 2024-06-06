@@ -15,6 +15,7 @@ namespace Settings.Modules
 
         public const string JobChannelId = "job";
         public const string EndOfFullTimeJobId = "end_of_full_time_job";
+        public const string EndOfRecoveryPartTimeJobId = "end_of_recovery_part_time_job";
 
         [Serializable]
         public sealed class PushNotificationsLocalization

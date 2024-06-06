@@ -12,7 +12,7 @@ namespace Components
         public CurrentFullTimeJob CurrentFullTimeJob;
 
         public int PartTimeAmountPerDay;
-        public DateTime StartPartTimeRecovery;
+        public DateTime StartPartTimeRecoveryDate;
 
         public bool PartTimeIsAvailable()
         {

@@ -29,6 +29,10 @@
 		"tags": [ "end_of_full_time_job", "notification", "title" ],
 		"topic": "You have received your salary!"
 	},
+	{
+		"tags": [ "end_of_recovery_part_time_job", "notification", "title" ],
+		"topic": "Make money soon!"
+	},
 
 	{
 		"tags": [ "enter_the_game", "12", "notification", "content" ],
@@ -41,5 +45,9 @@
 	{
 		"tags": [ "end_of_full_time_job", "notification", "content" ],
 		"topic": "The shift at your job is over"
+	},
+	{
+		"tags": [ "end_of_recovery_part_time_job", "notification", "content" ],
+		"topic": "The part-time job is available again"
 	}
 ]

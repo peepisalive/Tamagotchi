@@ -7,13 +7,13 @@ namespace Core.Job
     {
         public FullTimeJob Job { get; private set; }
         public int WorkingHours { get; private set; }
-        public DateTime StartFullTimeJobRecovery { get; private set; }
+        public DateTime StartDate { get; private set; }
 
-        public CurrentFullTimeJob(FullTimeJob job, DateTime startFullTimeJobRecovery, int workingHours)
+        public CurrentFullTimeJob(FullTimeJob job, DateTime startDate, int workingHours)
         {
             Job = job;
             WorkingHours = workingHours;
-            StartFullTimeJobRecovery = startFullTimeJobRecovery;
+            StartDate = startDate;
         }
 
         public CurrentFullTimeJobSave GetSave()
@@ -22,7 +22,7 @@ namespace Core.Job
             {
                 JobSave = Job.GetSave() as FullTimeJobSave,
                 WorkingHours = WorkingHours,
-                StartFullTimeJobRecovery = StartFullTimeJobRecovery
+                StartDate = StartDate
             };
         }
     }

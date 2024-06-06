@@ -13,6 +13,14 @@ namespace Modules
         private List<AndroidNotificationChannel> _channels;
         private PushNotificationsSettings _settings;
 
+        public void ScheduleEndOfRecoveryPartTimeJobNotification(DateTime date)
+        {
+            var channelId = PushNotificationsSettings.JobChannelId;
+
+            CreateChannel(channelId);
+            CreateNotification(channelId, PushNotificationsSettings.EndOfRecoveryPartTimeJobId, date);
+        }
+
         public void ScheduleEndOfFullTimeJobNotification(DateTime date)
         {
             var channelId = PushNotificationsSettings.JobChannelId;
