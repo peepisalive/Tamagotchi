@@ -4293,8 +4293,8 @@ MonoBehaviour:
     atlasWidth: 512
     atlasHeight: 512
     characterSetSelectionMode: 6
-    characterSequence: 20-7E,C4,D6,DC,DF,E4,F6,FC,401,410-44F,451,2026,2019
-    referencedFontAssetGUID: 
+    characterSequence: 20-7A,7C,7E,401,410-44F,451,2026
+    referencedFontAssetGUID: cdcb24235b081b649a9dcf36cffb3c04
     referencedTextAssetGUID: 
     fontStyle: 0
     fontStyleModifier: 0
