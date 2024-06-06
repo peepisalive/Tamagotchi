@@ -1,5 +1,6 @@
 using Leopotam.Ecs;
 using UnityEngine;
+using Modules;
 
 namespace Starter
 {
@@ -10,6 +11,20 @@ namespace Starter
         [SerializeField] private EcsProcessing _navigationProcessing;
         [SerializeField] private EcsProcessing _gameProcessing;
         [SerializeField] private EcsProcessing _saveProcessing;
+
+        private void OnApplicationFocus(bool focus)
+        {
+            if (!focus)
+            {
+                PushNotificationsProvider.Instance.ScheduleEnterTheGameNotification();
+                PushNotificationsProvider.Instance.ScheduleEndOfFullTimeJobNotification();
+                PushNotificationsProvider.Instance.ScheduleEndOfRecoveryPartTimeJobNotification();
+            }
+            else
+            {
+                PushNotificationsProvider.Instance.CancelAllNotifications();
+            }
+        }
 
         private void Update()
         {

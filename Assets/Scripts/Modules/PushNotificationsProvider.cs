@@ -1,6 +1,8 @@
 using Unity.Notifications.Android;
 using System.Collections.Generic;
 using Settings.Modules;
+using Settings.Job;
+using Tamagotchi;
 using Settings;
 using System;
 using Core;
@@ -10,32 +12,52 @@ namespace Modules
     public sealed class PushNotificationsProvider : MonoBehaviourSingleton<PushNotificationsProvider>
     {
         private List<AndroidNotificationChannel> _channels;
+
         private PushNotificationsSettings _settings;
-
-        public void ScheduleEndOfRecoveryPartTimeJobNotification(DateTime date)
-        {
-            CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfRecoveryPartTimeJobId, date);
-        }
-
-        public void ScheduleEndOfFullTimeJobNotification(DateTime date)
-        {
-            CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfFullTimeJobId, date);
-        }
+        private JobSettings _jobSettings;
 
         public void ScheduleEnterTheGameNotification()
         {
             var channelId = PushNotificationsSettings.EnterTheGameChannelId;
 
-            CreateNotification(channelId, PushNotificationsSettings.EnterTheGame12Id, DateTime.Now.Date.AddHours(12));
+            CreateNotification(channelId, PushNotificationsSettings.EnterTheGame12Id, DateTime.Now.Date.AddMinutes(12));
             CreateNotification(channelId, PushNotificationsSettings.EnterTheGame24Id, DateTime.Now.Date.AddHours(24));
         }
 
-        private void CreateChannel(string id)
+        public void ScheduleEndOfRecoveryPartTimeJobNotification()
+        {
+            if (Application.Model.PartTimeIsAvailable())
+                return;
+
+            var jobComponent = Application.Model.GetJobComponent();
+            var date = jobComponent.StartPartTimeRecoveryDate.AddHours(_jobSettings.PartTimeRecoveryHours);
+
+            CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfRecoveryPartTimeJobId, date);
+        }
+
+        public void ScheduleEndOfFullTimeJobNotification()
+        {
+            var jobComponent = Application.Model.GetJobComponent();
+
+            if (jobComponent.CurrentFullTimeJob == null)
+                return;
+
+            var date = jobComponent.CurrentFullTimeJob.StartDate.AddHours(jobComponent.CurrentFullTimeJob.WorkingHours);
+
+            CreateNotification(PushNotificationsSettings.JobChannelId, PushNotificationsSettings.EndOfFullTimeJobId, date);
+        }
+
+        public void CancelAllNotifications()
+        {
+            AndroidNotificationCenter.CancelAllNotifications();
+        }
+
+        private void CreateChannel(string id, Importance importance)
         {
             var channel = new AndroidNotificationChannel()
             {
                 Id = id,
-                Importance = Importance.Default,
+                Importance = importance,
                 Name = _settings.Localization.GetChannelTitle(id),
                 Description = _settings.Localization.GetChannelContent(id)
             };
@@ -61,14 +83,11 @@ namespace Modules
 
         private void Start()
         {
-#if UNITY_EDITOR
-            return;
-#endif
+            AndroidNotificationCenter.Initialize();
             AndroidNotificationCenter.CancelAllNotifications();
 
-            CreateChannel(PushNotificationsSettings.JobChannelId);
-            CreateChannel(PushNotificationsSettings.EnterTheGameChannelId);
-
+            CreateChannel(PushNotificationsSettings.JobChannelId, Importance.Default);
+            CreateChannel(PushNotificationsSettings.EnterTheGameChannelId, Importance.High);
         }
 
         private void Awake()

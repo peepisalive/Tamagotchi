@@ -53,6 +53,16 @@ namespace Tamagotchi
             return null;
         }
 
+        public JobComponent GetJobComponent()
+        {
+            foreach (var i in _jobFilter)
+            {
+                return _jobFilter.Get1(i);
+            }
+
+            return default;
+        }
+
         public CurrentFullTimeJob GetCurrentFullTimeJob()
         {
             foreach (var i in _jobFilter)
