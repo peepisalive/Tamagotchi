@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: Death
     m_Metadata:
       m_Items: []
+  - m_Id: 18018819567325184
+    m_Key: PushNotifications
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5642405981076586499
@@ -53,6 +57,10 @@ MonoBehaviour:
           - en
           - ru
         - m_KeyId: 14437629953359872
+          m_TableCodes:
+          - en
+          - ru
+        - m_KeyId: 18018819567325184
           m_TableCodes:
           - en
           - ru
