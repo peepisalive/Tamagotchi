@@ -1,3 +1,4 @@
+using UnityEngine.Localization.Settings;
 using Modules.Localization;
 
 namespace GameLoading.LoadingOperations
@@ -5,12 +6,11 @@ namespace GameLoading.LoadingOperations
     public sealed class LocalizationLoadingOperation : LoadingOperation
     {
         public override float Progress => _progress;
-
         private float _progress;
 
-        protected override void OnBegin()
+        protected override async void OnBegin()
         {
-            LocalizationProvider.Initialize().ContinueWith(_ =>
+            await LocalizationProvider.Initialize(LocalizationSettings.SelectedLocale).ContinueWith(_ =>
             {
                 _progress = 1f;
                 SetStateDone();
