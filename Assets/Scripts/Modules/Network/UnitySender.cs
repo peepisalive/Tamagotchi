@@ -5,7 +5,7 @@ namespace Modules.Network
 {
     public sealed class UnitySender : Sender
     {
-        public UnitySender(string token, int requestTimeout = 35) : base(token, requestTimeout) { }
+        public UnitySender(int requestTimeout = 35) : base(requestTimeout) { }
 
         protected override INetRequest GetRequest(RequestSettings settings)
         {
@@ -49,8 +49,8 @@ namespace Modules.Network
 
             request.timeout = RequestTimeout;
 
-            if (!string.IsNullOrEmpty(Token))
-                request.SetRequestHeader("Token", Token);
+            if (!string.IsNullOrEmpty(settings.Token))
+                request.SetRequestHeader("Token", settings.Token);
 
             var unityRequest = new UnityRequest();
 

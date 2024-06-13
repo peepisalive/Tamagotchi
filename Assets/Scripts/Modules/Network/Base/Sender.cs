@@ -2,12 +2,10 @@ namespace Modules.Network
 {
     public abstract class Sender : INetSender
     {
-        protected readonly string Token;
         protected readonly int RequestTimeout;
 
-        public Sender(string token, int requestTimeout)
+        public Sender(int requestTimeout)
         {
-            Token = token;
             RequestTimeout = requestTimeout;
         }
 
