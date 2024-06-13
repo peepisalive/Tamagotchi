@@ -17,6 +17,9 @@ namespace Modules.Network
         public Request()
         {
             _onStartCallbacks = new List<Action>();
+            _onCompletedObservers = new List<IObserver<RequestResult>>();
+            _onErrorObservers = new List<IObserver<INetRequest>>();
+            _onFinishObservers = new List<IObserver<bool>>();
         }
 
         public virtual void Send()

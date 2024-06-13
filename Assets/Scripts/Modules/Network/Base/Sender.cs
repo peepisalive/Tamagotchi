@@ -2,10 +2,12 @@ namespace Modules.Network
 {
     public abstract class Sender : INetSender
     {
+        protected readonly string Token;
         protected readonly int RequestTimeout;
 
-        public Sender(int requestTimeout)
+        public Sender(string token, int requestTimeout)
         {
+            Token = token;
             RequestTimeout = requestTimeout;
         }
 
@@ -14,6 +16,7 @@ namespace Modules.Network
             return GetRequest(new RequestSettings
             {
                 Url = url,
+                Token = Token,
                 Type = RequestType.Get
             });
         }
@@ -23,6 +26,7 @@ namespace Modules.Network
             return GetRequest(new RequestSettings
             {
                 Url = url,
+                Token = Token,
                 Type = RequestType.Delete
             });
         }
@@ -32,6 +36,7 @@ namespace Modules.Network
             return GetRequest(new RequestSettings
             {
                 Url = url,
+                Token = Token,
                 Params = data,
                 Type = RequestType.Put
             });
@@ -42,6 +47,7 @@ namespace Modules.Network
             return GetRequest(new RequestSettings
             {
                 Url = url,
+                Token = Token,
                 Params = data,
                 Type = RequestType.Post
             });

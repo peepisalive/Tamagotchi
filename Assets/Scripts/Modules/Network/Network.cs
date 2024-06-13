@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Modules.Network
 {
     public static class Network
@@ -9,7 +11,15 @@ namespace Modules.Network
 
         static Network()
         {
-            _sender = new UnitySender();
+            _sender = new UnitySender(TOKEN);
+        }
+
+        public static INetRequest AddUser(User user)
+        {
+            return Post(BASE_URL, JsonConvert.SerializeObject(user, Formatting.Indented, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All
+            }));
         }
 
         private static INetRequest Get(string id = null)
