@@ -41,7 +41,8 @@ namespace Starter
                 .Add(new MenuScreenNavigationElements())
                 .Add(new ActivitiesScreenNavigationElements())
                 .Add(new PetActionsScreenNavigationElements())
-                .Add(new JobScreenNavigationElements());
+                .Add(new JobScreenNavigationElements())
+                .Add(new LeaderboardScreenNavigationElements());
         }
 
         private EcsSystems MenuScreenElements(EcsWorld world)

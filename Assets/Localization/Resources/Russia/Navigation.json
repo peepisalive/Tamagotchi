@@ -9,11 +9,15 @@
   },
   {
     "tags": [ "navigation_title_PetActionsScreen" ],
-    "topic": "Центр питомца"
+    "topic": "Питомец"
   },
   {
     "tags": [ "navigation_title_JobScreen" ],
     "topic": "Работа"
+  },
+  {
+    "tags": [ "navigation_title_LeaderboardScreen" ],
+    "topic": "Лидеры"
   },
 
   {
