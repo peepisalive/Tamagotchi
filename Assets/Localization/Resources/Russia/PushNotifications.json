@@ -1,0 +1,53 @@
+[
+	{
+		"tags": [ "enter_the_game", "channel", "title" ],
+		"topic": "Возвращайтесь скорее"
+	},
+	{
+		"tags": [ "job", "channel", "title" ],
+		"topic": "Работа"
+	},
+
+	{
+		"tags": [ "enter_the_game", "channel", "content" ],
+		"topic": "Ваш питомец вас заждался"
+	},
+	{
+		"tags": [ "job", "channel", "content" ],
+		"topic": "Работа стала доступна"
+	},
+
+	{
+		"tags": [ "enter_the_game", "12", "notification", "title" ],
+		"topic": "Не забывайте о своем питомце!"
+	},
+	{
+		"tags": [ "enter_the_game", "24", "notification", "title" ],
+		"topic": "Вы забыли о своем питомце?"
+	},
+	{
+		"tags": [ "end_of_full_time_job", "notification", "title" ],
+		"topic": "Вы получили зарплату!"
+	},
+	{
+		"tags": [ "end_of_recovery_part_time_job", "notification", "title" ],
+		"topic": "Скорее зарабатывать деньги!"
+	},
+
+	{
+		"tags": [ "enter_the_game", "12", "notification", "content" ],
+		"topic": "Вы заходили не так давно, но питомец уже скучает по вам"
+	},
+	{
+		"tags": [ "enter_the_game", "24", "notification", "content" ],
+		"topic": "Вас так долго не было, питомцу плохо без вас"
+	},
+	{
+		"tags": [ "end_of_full_time_job", "notification", "content" ],
+		"topic": "Смена на вашей работе закончилась"
+	},
+	{
+		"tags": [ "end_of_recovery_part_time_job", "notification", "content" ],
+		"topic": "Работа на неполный рабочий день снова доступна"
+	}
+]

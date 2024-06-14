@@ -30,6 +30,6 @@ namespace Save
     {
         public FullTimeJobSave JobSave;
         public int WorkingHours;
-        public DateTime StartFullTimeJobRecovery;
+        public DateTime StartDate;
     }
 }

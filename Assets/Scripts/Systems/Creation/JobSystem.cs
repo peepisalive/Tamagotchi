@@ -80,7 +80,7 @@ namespace Systems
 
                     if (!component.PartTimeIsAvailable())
                     {
-                        component.StartPartTimeRecovery = DateTime.Now;
+                        component.StartPartTimeRecoveryDate = DateTime.Now;
 
                         EventSystem.Send<Events.UpdateCurrentScreenEvent>();
                         StartRecoveryCoroutine<Events.EndOfRecoveryPartTimeEvent>(_settings.PartTimeRecoveryHours * 3600f);
@@ -162,7 +162,7 @@ namespace Systems
                     ? new CurrentFullTimeJob
                     (
                         _factory.Create(save.CurrentFullTimeJob.JobSave) as FullTimeJob,
-                        save.CurrentFullTimeJob.StartFullTimeJobRecovery,
+                        save.CurrentFullTimeJob.StartDate,
                         save.CurrentFullTimeJob.WorkingHours
                     )
                     : null;
@@ -197,10 +197,10 @@ namespace Systems
 
                 if (currentFullTimeJob != null)
                 {
-                    var endOfRecoveryFullTime = currentFullTimeJob.StartFullTimeJobRecovery + TimeSpan.FromSeconds(currentFullTimeJob.WorkingHours * 3600f);
-                    var remainingSeconds = (float)(endOfRecoveryFullTime - currentTime).TotalSeconds;
+                    var endOfFullTimeDate = currentFullTimeJob.StartDate + TimeSpan.FromSeconds(currentFullTimeJob.WorkingHours * 3600f);
+                    var remainingSeconds = (float)(endOfFullTimeDate - currentTime).TotalSeconds;
 
-                    if (endOfRecoveryFullTime > currentTime)
+                    if (endOfFullTimeDate > currentTime)
                     {
                         StartRecoveryCoroutine<Events.EndOfFullTimeJobEvent>(remainingSeconds);
                         InGameTimeManager.Instance.StartCountRemainingTimeRoutine((int)remainingSeconds);
@@ -221,7 +221,7 @@ namespace Systems
                     AvailableJob = availableJob,
                     CurrentFullTimeJob = currentFullTimeJob,
                     PartTimeAmountPerDay = partTimeJobAmountPerDay,
-                    StartPartTimeRecovery = startPartTimeJobRecovery,
+                    StartPartTimeRecoveryDate = startPartTimeJobRecovery,
                 });
             }
 
@@ -242,7 +242,7 @@ namespace Systems
                 ref var component = ref _jobFilter.Get1(i);
 
                 component.PartTimeAmountPerDay = 0;
-                component.StartPartTimeRecovery = default;
+                component.StartPartTimeRecoveryDate = default;
             }
 
             EventSystem.Send<Events.UpdateCurrentScreenEvent>();
