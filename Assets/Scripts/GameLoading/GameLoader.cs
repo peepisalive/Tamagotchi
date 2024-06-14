@@ -26,7 +26,14 @@ namespace GameLoading
                 }
             }
 
-            MainScene.LoadScene();
+            var sceneLoadingOperation = MainScene.LoadScene();
+
+            while (!sceneLoadingOperation.isDone)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+            yield break;
         } 
 
         private void Awake()
