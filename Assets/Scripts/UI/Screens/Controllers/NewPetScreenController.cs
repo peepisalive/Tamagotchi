@@ -1,8 +1,7 @@
-using UI.Controller.Screen;
 using UnityEngine;
 using UI.View;
 
-namespace UI.Controller
+namespace UI.Controller.Screen
 {
     [RequireComponent(typeof(NewPetScreenView))]
     public sealed class NewPetScreenController : ScreenController

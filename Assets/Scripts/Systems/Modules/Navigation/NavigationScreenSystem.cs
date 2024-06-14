@@ -60,6 +60,7 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
                 NavigationElementType.PetActionsScreen => typeof(ActionsScreenController),
                 NavigationElementType.JobScreen => typeof(JobScreenController),
+                NavigationElementType.LeaderboardScreen => typeof(LeaderboardScreenController),
 
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
@@ -81,6 +82,7 @@ namespace Systems.Modules.Navigation
                 NavigationElementType.ActivitiesScreen => typeof(ActionsScreenController),
                 NavigationElementType.PetActionsScreen => typeof(ActionsScreenController),
                 NavigationElementType.JobScreen => typeof(JobScreenController),
+                NavigationElementType.LeaderboardScreen => typeof(LeaderboardScreenController),
 
                 NavigationElementType.HappinessActivities => typeof(ActionsScreenController),
                 NavigationElementType.SatietyActivities => typeof(ActionsScreenController),
