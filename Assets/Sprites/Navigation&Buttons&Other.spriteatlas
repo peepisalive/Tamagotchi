@@ -110,11 +110,11 @@ SpriteAtlas:
   - notify_icon
   - filled_frame
   - button_pressed
-  - icon_loading
+  - loading_icon
   - frame
   - picker_handle
   - button
-  - icon_ads_sign
+  - ads_sign_icon
   - slider_handle
   - button_gray
   - home_icon
@@ -127,7 +127,7 @@ SpriteAtlas:
   - popup_header
   - slider_handle
   - back_icon
-  - icon_colors
+  - colors_icon
   m_RenderDataMap: {}
   m_Tag: Navigation&Buttons&Other
   m_IsVariant: 0
