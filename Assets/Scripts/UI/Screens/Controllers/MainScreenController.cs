@@ -12,7 +12,6 @@ namespace UI.Controller.Screen
         public override void Setup()
         {
             base.Setup();
-
             SetupParameterBars();
         }
 

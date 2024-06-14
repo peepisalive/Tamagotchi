@@ -1,6 +1,5 @@
 using Application = Tamagotchi.Application;
 using System.Collections.Generic;
-using Modules.Navigation;
 using Settings.Job;
 using UnityEngine;
 using System.Linq;
@@ -21,18 +20,11 @@ namespace UI.Controller.Screen
         [SerializeField] private JobButtonController _jobButtonPrefab;
         [SerializeField] private RectTransform _layoutPrefab;
 
-        private NavigationBlock _navigationBlock;
-        private NavigationPoint _navigationPoint;
-
         private JobSettings _settings;
 
         public override void Setup()
         {
             base.Setup();
-
-            if (_navigationBlock == null || _navigationPoint == null)
-                return;
-
             UpdateState();
         }
 
@@ -91,10 +83,11 @@ namespace UI.Controller.Screen
 
         private void Awake()
         {
-            _navigationBlock = Application.Model.GetCurrentNavigationBlock();
-            _navigationPoint = Application.Model.GetCurrentNavigationPoint();
             _settings = SettingsProvider.Get<JobSettings>();
+        }
 
+        private void Start()
+        {
             EventSystem.Subscribe<UpdateCurrentScreenEvent>(UpdateState);
         }
 
