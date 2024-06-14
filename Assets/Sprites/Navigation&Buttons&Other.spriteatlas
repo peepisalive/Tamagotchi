@@ -77,6 +77,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: e52b92dc23e3113439e60ca26645b04f, type: 3}
     - {fileID: 2800000, guid: 8efcd736c037204429548fba1fc24643, type: 3}
     - {fileID: 2800000, guid: 0409b7978e9de484596967fa0478f4ad, type: 3}
+    - {fileID: 2800000, guid: fa59e42a1819a544c9dd23da925bc467, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -95,6 +96,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e7d45bb71964a1e479a3d3b981194828, type: 3}
   - {fileID: 21300000, guid: b54a9779f6d333c4baa1db5588753ac5, type: 3}
   - {fileID: 21300000, guid: 3fc693d9434033c4c8e84a0e6132ef21, type: 3}
+  - {fileID: 21300000, guid: fa59e42a1819a544c9dd23da925bc467, type: 3}
   - {fileID: 21300000, guid: c24d62cafb5919946b1e8c376ee6db10, type: 3}
   - {fileID: 21300000, guid: 8316654bd784465459291c2e5793630a, type: 3}
   - {fileID: 21300000, guid: b90deb4bb6beeb341af014abf3242353, type: 3}
@@ -117,6 +119,7 @@ SpriteAtlas:
   - button_gray
   - home_icon
   - main_screen_burger
+  - reload_icon
   - navigation_button_lock
   - navigation_button_arrow
   - money_icon
