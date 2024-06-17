@@ -14,7 +14,6 @@ namespace UI.Controller
 
         private DropdownSettings _dropdownSettings;
         private DropdownView _dropdownView;
-        private GameObject _contentParent;
 
         public T GetCurrentValue<T>()
         {
@@ -37,7 +36,6 @@ namespace UI.Controller
         protected override GameObject CreateBlocker(Canvas rootCanvas)
         {
             var obj = base.CreateBlocker(rootCanvas);
-            SetContentParentState(true);
 
             return obj;
         }
@@ -45,18 +43,14 @@ namespace UI.Controller
         protected override void DestroyBlocker(GameObject gameObject)
         {
             base.DestroyBlocker(gameObject);
-            SetContentParentState(false);
         }
 
         protected override void Awake()
         {
             base.Awake();
 
-            _contentParent = GameObject.FindGameObjectWithTag("DropdownContentParent");
             _dropdownView = GetComponent<DropdownView>();
-
             onValueChanged.AddListener(OnValueChanged);
-            SetContentParentState(false);
         }
 
         protected override void OnDestroy()
@@ -68,14 +62,6 @@ namespace UI.Controller
         private void OnValueChanged(int key)
         {
             CurrentKey = key;
-        }
-
-        private void SetContentParentState(bool state)
-        {
-            if (_contentParent == null)
-                return;
-
-            _contentParent.gameObject.SetActive(state);
         }
     }
 }
