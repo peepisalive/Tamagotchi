@@ -49,6 +49,12 @@ namespace Systems
         {
             foreach (var i in _petFilter)
             {
+                _petFilter.Get1(i).Pet.Parameters.Get(ParameterType.Health).Add(1f);
+                _petFilter.Get1(i).Pet.Parameters.Get(ParameterType.Satiety).Add(1f);
+                _petFilter.Get1(i).Pet.Parameters.Get(ParameterType.Hygiene).Add(1f);
+                _petFilter.Get1(i).Pet.Parameters.Get(ParameterType.Happiness).Add(1f);
+                _petFilter.Get1(i).Pet.Parameters.Get(ParameterType.Fatigue).Add(-1f);
+
                 _petFilter.GetEntity(i).Del<DeadComponent>();
             }
 
