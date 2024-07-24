@@ -58,11 +58,6 @@ namespace Systems
                 _petFilter.GetEntity(i).Del<DeadComponent>();
             }
 
-            _world.NewEntity().Replace(new ChangeParameterEvent
-            {
-                Type = ParameterType.Health,
-                Value = 1f
-            });
             _world.NewEntity().Replace(new ChangePetAnimationEvent(default));
             _world.NewEntity().Replace(new ChangePetEyesAnimationEvent(default));
         }
